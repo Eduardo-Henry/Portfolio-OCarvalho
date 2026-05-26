@@ -5,7 +5,7 @@ import Image3D from '../../../assets/images/Image3D.png';
 
 export const ContactSection: React.FC = () => {
   const handleContactClick = () => {
-    const email = 'hello@eduardo.design';
+    const email = 'du.h.c.oliveira17@gmail.com';
     window.location.href = `mailto:${email}`;
   };
 

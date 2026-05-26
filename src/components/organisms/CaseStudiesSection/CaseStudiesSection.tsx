@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './CaseStudiesSection.css';
 import { NavPill } from '../../molecules';
 import TIHelpImg from '../../../assets/images/TIHelp.png';
@@ -44,8 +44,6 @@ const defaultCaseStudies: CaseStudy[] = [
 export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
   caseStudies = defaultCaseStudies,
 }) => {
-  const [selectedCategory, setSelectedCategory] = useState('all');
-
   const categories = [
     { id: 'all', label: 'UI DESIGN' },
     { id: 'web', label: 'VIDEOS EDIT' },
@@ -67,7 +65,6 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
         <div className="case-studies-filter">
           <NavPill
             items={categories}
-            onSelect={setSelectedCategory}
           />
         </div>
 
