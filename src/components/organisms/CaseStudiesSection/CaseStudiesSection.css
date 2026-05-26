@@ -1,0 +1,385 @@
+/* ============================================ */
+/* CASE STUDIES SECTION */
+/* ============================================ */
+
+.case-studies-section {
+  width: 100%;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+  /* Garante que a seção ocupe toda a largura disponível */
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.case-studies-container {
+  /* Expandido para 100% para remover limitações rígidas e colar nas bordas */
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Header */
+.case-studies-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5rem;
+  position: relative;
+  /* Mantém um recuo sutil apenas para os textos do topo não colarem totalmente */
+  padding: 0 1rem;
+}
+
+.case-studies-title-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.case-studies-title {
+  font-family: var(--font-display);
+  font-size: 12rem;
+  font-weight: var(--weight-extrabold);
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+  color: #000000;
+  margin: 0;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.case-studies-mark {
+  font-size: 0.55em;
+  vertical-align: super;
+  margin-left: 0.1em;
+}
+
+.case-studies-counter {
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  font-family: var(--font-display);
+  font-size: clamp(0.875rem, 1.5vw, 1.25rem);
+  font-weight: var(--weight-extrabold);
+  letter-spacing: 0.05em;
+  color: #000000;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+/* Filter / NavPill */
+.case-studies-filter {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+  padding: 0 1rem;
+}
+
+/* Grid Layout */
+.case-studies-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* Espaçamento reduzido entre os cards como no seu layout original */
+  gap: 0.5rem;
+  width: 100%;
+}
+
+/* Case Study Card */
+.case-study-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000000; 
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+.case-study-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.2);
+}
+
+/* Força imagens de background nativas a escurecerem no hover */
+.case-study-card img {
+  transition: opacity 0.4s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.case-study-card:hover img {
+  opacity: 0.4;
+}
+
+/* Overlay para cards sem imagem de fundo */
+.case-study-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.95;
+  transition: opacity 0.4s ease;
+}
+
+.case-study-card:hover .case-study-overlay {
+  opacity: 0.4;
+}
+
+/* Card Content Wrapper */
+.case-study-content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 2.5rem 2rem 0;
+  gap: 1rem;
+}
+
+/* Título do Card */
+.case-study-card-title {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: var(--weight-extrabold);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* Tags */
+.case-study-tags {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.case-study-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.5rem 1rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  text-transform: uppercase;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.case-study-tag:hover {
+  background: currentColor;
+  opacity: 0.8;
+}
+
+/* Social Links */
+.case-study-socials {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.case-study-socials a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: currentColor;
+  border: none;
+  cursor: pointer;
+}
+
+.case-study-socials a:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
+.case-study-socials svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Card Footer */
+.case-study-footer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+  color: #ffffff;
+  margin-top: auto;
+}
+
+/* Descrição - Efeito Hover */
+.case-study-description {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 400;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
+}
+
+/* CTA Button in Card */
+.case-study-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  height: 56px;
+  border-radius: 999px;
+  background-color: #000000;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  padding: 0 0 0 20px;
+  white-space: nowrap;
+  align-self: flex-start;
+  width: fit-content;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Disparadores Hover */
+.case-study-card:hover .case-study-description {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.case-study-card:hover .case-study-button {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.case-study-button:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 12px 32px rgba(255, 59, 48, 0.3);
+}
+
+.case-study-button:active {
+  transform: translateY(-1px) !important;
+}
+
+.case-study-button:focus-visible {
+  outline: 2px solid rgba(255, 59, 48, 0.4);
+  outline-offset: 2px;
+}
+
+.case-study-button-text {
+  display: inline-block;
+  padding: 0 16px 0 8px;
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.case-study-button-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: var(--primary-color);
+  border-radius: 999px;
+  color: #ffffff;
+  margin-left: -16px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(255, 59, 48, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.case-study-button:hover .case-study-button-circle {
+  transform: scale(1.1);
+}
+
+.case-study-button svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ============================================ */
+/* RESPONSIVE DESIGN (REVISADO) */
+/* ============================================ */
+
+/* Telas Grandes (Desktop/Laptops) */
+@media (min-width: 1025px) {
+  .case-studies-section {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  
+  .case-study-card {
+    height: 650px;
+  }
+}
+
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+  .case-studies-section {
+    padding: 4rem 0.5rem;
+  }
+
+  .case-studies-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem; /* Mantém o padrão colado e próximo às bordas */
+  }
+
+  .case-studies-title {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+  }
+
+  .case-studies-counter {
+    position: static;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    text-align: left;
+    padding-left: 0.5rem;
+  }
+
+  .case-study-footer {
+    padding: 1.5rem;
+  }
+}
+
+/* Dispositivos Móveis (Abaixo de 767px) */
+@media (max-width: 767px) {
+  .case-studies-section {
+    padding: 3rem 0.25rem;
+  }
+
+  /* Altera para 1 coluna em telas muito pequenas para não quebrar o design dos projetos */
+  .case-studies-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .case-study-card {
+    height: 450px; /* Altura reduzida para melhor usabilidade no celular */
+  }
+  
+  .case-studies-title {
+    font-size: 2.5rem;
+  }
+}

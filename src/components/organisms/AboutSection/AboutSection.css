@@ -1,0 +1,377 @@
+/* ==========================================================================
+   ABOUT SECTION - ESTILOS PRINCIPAIS
+   ========================================================================== */
+
+.about-section {
+  width: 100%;
+  height: 100vh;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-container {
+  max-width: 1920px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  align-items: flex-start; 
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Coluna da Esquerda: Conteúdo de Texto */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 4rem;
+  gap: 1rem;
+  max-width: 1200px;
+  padding-top: 5rem; 
+}
+
+/* Título Principal (ABOUT ME) */
+.about-title {
+  font-family: var(--font-display);
+  font-size: 5rem; 
+  font-weight: var(--weight-extrabold);
+  color: #000000;
+  margin-top: 0; 
+  text-transform: uppercase;
+}
+
+/* Descrição / Texto de Apoio */
+.about-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+  color: #1a1a1a;
+  margin: 0;
+  font-weight: 400;
+  max-width: 540px;
+}
+
+/* ==========================================================================
+   BOTÃO CTA (GET IN TOUCH)
+   ========================================================================== */
+
+.about-cta {
+  display: flex;
+}
+
+.about-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between; 
+  padding: 0;
+  height: 96px;
+  min-width: 300px; 
+  border-radius: 999px;
+  background-color: #000000;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.15);
+  padding-left: 32px;
+  padding-right: 8px; 
+}
+
+.about-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 24px 72px rgba(255, 59, 48, 0.25);
+}
+
+.about-button:active {
+  transform: scale(0.98);
+}
+
+.about-button:focus-visible {
+  outline: 3px solid rgba(255, 59, 48, 0.14);
+  outline-offset: 3px;
+}
+
+.about-button-text {
+  padding: 0;
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.about-button-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 999px;
+  margin-left: 0; 
+  box-shadow: 0 8px 36px rgba(255, 59, 48, 0.2);
+  flex-shrink: 0;
+}
+
+.about-button-icon {
+  width: 24px;
+  height: 24px;
+  stroke: #fff;
+  stroke-width: 2.5;
+}
+
+/* ==========================================================================
+   COLUNA DA DIREITA: IMAGEM DE DESTAQUE COM FORÇA RESPONSIVA (!IMPORTANT)
+   ========================================================================== */
+
+.about-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100% !important;
+  height: 100% !important;
+  position: relative;
+}
+
+.about-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important; 
+  object-position: center !important;
+}
+
+/* ==========================================================================
+   DESIGN RESPONSIVO (MEDIA QUERIES)
+   ========================================================================== */
+
+/* Telas Grandes / Desktops de Alta Resolução (1600px ou mais) */
+@media (min-width: 1600px) {
+  .about-container {
+    gap: 5rem;
+  }
+
+  .about-title {
+    font-size: 10.5rem; 
+  }
+
+  .about-description {
+    font-size: 1.05rem;
+    max-width: 560px;
+  }
+
+  .about-button {
+    height: 100px;
+    min-width: 320px;
+    padding-left: 36px;
+    padding-right: 10px;
+  }
+
+  .about-button-circle {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Tablets e Notebooks Menores (768px até 1024px) */
+@media (max-width: 1024px) {
+  .about-section {
+    height: auto !important;
+    min-height: 100vh;
+    padding: 4rem 0;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 0 3rem;
+    height: auto !important;
+    align-items: center; 
+  }
+
+  .about-content {
+    gap: 1.5rem;
+    padding-top: 0; 
+  }
+
+  .about-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+  }
+
+  .about-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* FORÇADO: Sobrescreve larguras fixas no Tablet */
+  .about-image {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .about-image img {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important; 
+  }
+
+  .about-button {
+    height: 80px;
+    min-width: 280px;
+    font-size: 0.9rem;
+    padding-left: 28px;
+    padding-right: 6px;
+  }
+
+  .about-button-circle {
+    width: 68px;
+    height: 68px;
+  }
+}
+
+/* Celulares Grandes / Orientação Retrato (480px até 768px) */
+@media (max-width: 768px) {
+  .about-section {
+    height: auto !important;
+    min-height: auto;
+    padding: 3rem 0;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 0 1.5rem;
+    height: auto !important;
+  }
+
+  .about-content {
+    gap: 1.25rem;
+    max-width: 100%;
+    padding-top: 0;
+  }
+
+  .about-title {
+    font-size: clamp(2.25rem, 6vw, 3.5rem);
+  }
+
+  .about-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  /* FORÇADO: Sobrescreve larguras fixas no Mobile */
+  .about-image {
+    width: 100% !important;
+    height: auto !important;
+    margin-top: 1rem;
+  }
+
+  .about-image img {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
+  }
+
+  .about-button {
+    height: 72px;
+    min-width: 260px;
+    font-size: 0.85rem;
+    padding-left: 24px;
+    padding-right: 6px;
+  }
+
+  .about-button-circle {
+    width: 60px;
+    height: 60px;
+  }
+
+  .about-button-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Celulares Pequenos (Abaixo de 480px) */
+@media (max-width: 480px) {
+  .about-section {
+    height: auto !important;
+    min-height: auto;
+    padding: 2rem 0;
+  }
+
+  .about-container {
+    padding: 0 1rem;
+    gap: 2rem;
+  }
+
+  .about-content {
+    gap: 1rem;
+    padding-top: 0;
+  }
+
+  .about-title {
+    font-size: 2.2rem;
+  }
+
+  .about-description {
+    font-size: 0.85rem;
+    line-height: 1.55;
+  }
+
+  /* FORÇADO: Sobrescreve larguras fixas em telas pequenas */
+  .about-image {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .about-image img {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
+  }
+
+  .about-button {
+    height: 64px;
+    min-width: 230px;
+    font-size: 0.8rem;
+    padding-left: 20px;
+    padding-right: 5px;
+  }
+
+  .about-button-circle {
+    width: 54px;
+    height: 54px;
+  }
+
+  .about-button-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* ==========================================================================
+   ACESSIBILIDADE E PREFERÊNCIAS DO SISTEMA
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .about-button {
+    transition: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .about-section {
+    background: #ffffff;
+  }
+
+  .about-title,
+  .about-description {
+    color-scheme: light;
+  }
+}

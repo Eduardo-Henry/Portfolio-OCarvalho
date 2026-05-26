@@ -1,0 +1,13 @@
+.main-layout {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-primary);
+}
+
+.main-content {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}

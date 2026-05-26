@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="800" viewBox="0 0 600 800" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1a1a" />
+      <stop offset="100%" stop-color="#0a0a0a" />
+    </linearGradient>
+    <radialGradient id="highlightGrad" cx="40%" cy="30%">
+      <stop offset="0%" stop-color="#ff3b30" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#ff3b30" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="800" fill="url(#bgGrad)" />
+  
+  <!-- Highlight overlay -->
+  <circle cx="300" cy="250" r="350" fill="url(#highlightGrad)" />
+
+  <!-- Portrait placeholder with geometric shapes -->
+  <g>
+    <!-- Head shape -->
+    <circle cx="300" cy="250" r="120" fill="#2a2a2a" opacity="0.8" />
+    
+    <!-- Facial features suggestion -->
+    <circle cx="270" cy="220" r="15" fill="#444" />
+    <circle cx="330" cy="220" r="15" fill="#444" />
+    <path d="M 300 250 Q 295 270 300 285 Q 305 270 300 250" fill="#555" opacity="0.6" />
+    
+    <!-- Shoulders/body -->
+    <path d="M 180 360 Q 180 420 300 450 Q 420 420 420 360 Z" fill="#2a2a2a" opacity="0.7" />
+    
+    <!-- Neck -->
+    <rect x="270" y="340" width="60" height="40" fill="#2a2a2a" opacity="0.8" />
+  </g>
+
+  <!-- Decorative accent lines (like in modern portfolios) -->
+  <line x1="80" y1="600" x2="520" y2="600" stroke="#ff3b30" stroke-width="2" opacity="0.3" />
+  <line x1="100" y1="650" x2="500" y2="650" stroke="#ff3b30" stroke-width="1" opacity="0.15" />
+</svg>
