@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from '../../atoms';
 import './Navbar.css';
 
 interface NavItem {

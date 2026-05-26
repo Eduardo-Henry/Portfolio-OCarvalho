@@ -62,7 +62,7 @@ export const FooterSection: React.FC = () => {
                 </svg>
               </a>
               <a
-                href="https://www.behance.net/eduardohenry"
+                href="https://www.behance.net/eduardohenry1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-social-link"

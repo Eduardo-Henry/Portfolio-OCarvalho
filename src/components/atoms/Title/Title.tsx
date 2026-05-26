@@ -7,6 +7,6 @@ interface TitleProps {
 }
 
 export const Title: React.FC<TitleProps> = ({ level = 1, children, className }) => {
-  const Tag = `h${level}` as keyof JSX.IntrinsicElements;
-  return React.createElement(Tag, { className }, children);
+  const Tag = `h${level}` as const;
+  return React.createElement(Tag as any, { className }, children);
 };
