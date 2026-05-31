@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import './CaseStudiesSection.css';
 import { NavPill, Carousel } from '../../molecules';
 import TIHelpImg from '../../../assets/images/TIHelp.png';
