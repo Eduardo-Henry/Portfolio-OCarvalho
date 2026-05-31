@@ -13,7 +13,7 @@ import HappyEasterVideo from '../../../assets/Videos/HappyEaster.mp4';
 import OtavioVideo from '../../../assets/Videos/Otavio.mp4';
 import SalesVideo from '../../../assets/Videos/Sales.mp4';
 import TrevoElvisVideo from '../../../assets/Videos/TrevoElvis.mp4';
-import StreetsVideos from '../../../assets/Videos//StreetsRP.mp4';
+import StreetsVideos from '../../../assets/Videos/StreetsRP.mp4';
 
 /* IMPORTAÇÕES DE IMAGENS PARA O CARROSSEL - DESIGN SOCIAL MEDIA */
 import CeiaDoFortalecimentoImg from '../../../assets/images/CeiaDoFortalecimento.jpg';

@@ -1,10 +1,13 @@
 import React from 'react';
-import { FaLinkedin, FaInstagram, FaTwitter, FaDribbble, FaBehance } from 'react-icons/fa';
+import LinkedInIcon from '../../../assets/icons/iconLinkedin.svg?react';
+import InstagramIcon from '../../../assets/icons/iconInstagram.svg?react';
+import BehanceIcon from '../../../assets/icons/iconBehance.svg?react';
+import GitHubIcon from '../../../assets/icons/iconGithub.svg?react';
 import './SocialLinks.css';
 
 interface SocialLink {
   id: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   url: string;
   label: string;
 }
@@ -13,33 +16,27 @@ export const SocialLinks: React.FC = () => {
   const socialLinks: SocialLink[] = [
     {
       id: 'linkedin',
-      icon: FaLinkedin,
-      url: 'https://linkedin.com',
+      icon: LinkedInIcon,
+      url: 'https://www.linkedin.com/in/eduardohenrycarvalho/?locale=pt',
       label: 'LinkedIn',
     },
     {
       id: 'instagram',
-      icon: FaInstagram,
-      url: 'https://instagram.com',
+      icon: InstagramIcon,
+      url: 'https://www.instagram.com/ocarvalho.dzn/',
       label: 'Instagram',
     },
     {
-      id: 'twitter',
-      icon: FaTwitter,
-      url: 'https://twitter.com',
-      label: 'Twitter',
-    },
-    {
-      id: 'dribbble',
-      icon: FaDribbble,
-      url: 'https://dribbble.com',
-      label: 'Dribbble',
-    },
-    {
       id: 'behance',
-      icon: FaBehance,
-      url: 'https://behance.net',
+      icon: BehanceIcon,
+      url: 'https://www.behance.net/eduardohenry1',
       label: 'Behance',
+    },
+    {
+      id: 'github',
+      icon: GitHubIcon,
+      url: 'https://github.com',
+      label: 'GitHub',
     },
   ];
 
@@ -63,4 +60,4 @@ export const SocialLinks: React.FC = () => {
       })}
     </div>
   );
-};
+}
