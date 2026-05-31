@@ -1,4 +1,5 @@
 import React from 'react';
+import { MdDownload } from 'react-icons/md';
 import { Button } from '../../atoms';
 import './HeroSection.css';
 import Image3D from '../../../assets/images/Image3D.png';
@@ -31,7 +32,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <div className="hero-brand">
             <h1 className="brand-title">
               EDUARDO<span className="brand-mark">®</span>
-              
               UX DESIGNER
             </h1>
           </div>
@@ -51,6 +51,27 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
           {/* CTA Button: Bottom Right */}
           <div className="hero-cta-wrapper">
+             <Button
+              variant="secondary"
+              size="large"
+              className="hero-cv-button"
+              aria-label="Download CV"
+              onClick={() => {
+                const link = document.createElement('a');
+                // O href busca exatamente o arquivo que está na sua pasta public
+                link.href = '/EduardoHCarvalho-UXDesigner.pdf'; 
+                
+                // O download define o nome que vai aparecer para o usuário quando baixar
+                link.download = 'EduardoHCarvalho-UXDesigner.pdf'; 
+                
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+            >
+              <MdDownload className="hero-cv-icon" />
+              <span className="hero-cv-text">Download CV</span>
+            </Button>
             <Button
               variant="primary"
               size="large"
@@ -72,6 +93,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 </svg>
               </span>
             </Button>
+
+           
           </div>
         </div>
       </div>

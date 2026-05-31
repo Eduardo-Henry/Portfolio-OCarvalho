@@ -1,74 +1,144 @@
-/* ============================================ */
-/* CONTACT SECTION — BLACK BACKGROUND */
-/* ============================================ */
+/* ============================================================ */
+/* 1. CONFIGURAÇÃO GERAL DA SEÇÃO CONTACT (LAYOUT BASE)         */
+/* ============================================================ */
 
 .contact-section {
   width: 100%;
+  min-height: 100vh;
   background: #000000;
-  padding: 4rem 0;
   position: relative;
   overflow: hidden;
-}
-
-.contact-container {
-  max-width: 1920px;
-  margin: 0 auto;
-  padding: 4rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-}
-
-/* ============================================ */
-/* CONTENT */
-/* ============================================ */
-
-.contact-content {
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  max-width: 1920px;
+  padding: clamp(var(--spacing-lg), 5vw, var(--spacing-3xl));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Grid de 12 colunas focado em blocos verticais independentes */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(var(--spacing-md), 2vw, var(--spacing-2xl)) clamp(var(--spacing-lg), 3vw, var(--spacing-3xl));
+  width: 100%;
+  height: 100%;
+  align-content: space-between; /* Garante o espaçamento entre topo e base */
+}
+
+/* ============================================================ */
+/* 2. COLUNA DA ESQUERDA (TUDO EMPILHADO PERFEITAMENTE)          */
+/* ============================================================ */
+
+/* O segredo da imagem: unificar o título no topo esquerdo do grid */
+.contact-brand {
+  grid-column: 1 / 6;
+  grid-row: 1;
+  align-self: start;
 }
 
 .contact-title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 8vw, 4rem);
-  font-weight: var(--weight-extrabold);
-  line-height: 1.1;
-  letter-spacing: -0.03em;
+  font-size: clamp(3rem, 6.5vw, 6.5rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
   color: #ffffff;
   margin: 0;
   text-transform: uppercase;
 }
 
-.contact-description {
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  color: rgba(255, 255, 255, 0.75);
+/* Contêiner da Imagem 3D fixado logo abaixo do título na esquerda */
+.contact-image-container {
+  grid-column: 1 / 5;
+  grid-row: 2;
+  align-self: center;
+  justify-self: start;
+  width: clamp(140px, 22vw, 200px);
+  height: auto;
+  margin: 2rem 0; /* Espaço para respirar entre título e texto */
+}
+
+.contact-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 24px 64px rgba(255, 59, 48, 0.16));
+  animation: contactFloat 6s ease-in-out infinite;
+}
+
+@keyframes contactFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* Parágrafos colados na base da coluna esquerda */
+.contact-content {
+  grid-column: 1 / 6;
+  grid-row: 3;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  align-self: end;
+  max-width: 420px;
+}
+
+.contact-headline {
+  font-size: 1.5rem; /* Aumentado para dar o mesmo destaque da imagem */
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #ffffff;
   margin: 0;
-  line-height: 1.6;
-  max-width: 400px;
 }
 
-.contact-cta {
-  margin: 1.5rem 0;
+.contact-description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
 }
 
+
+
+/* Os dois botões emparelhados e colados no canto inferior direito */
+.contact-cta-wrapper {
+  grid-column: 6 / 13;
+  grid-row: 3;
+  align-self: end;
+  justify-self: end;
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+/* ------------------------------------------------------------ */
+/* 3.1 BOTÃO PRINCIPAL: GET IN TOUCH                            */
+/* ------------------------------------------------------------ */
 .contact-button {
   display: inline-flex;
   align-items: center;
-  gap: 0;
-  height: 96px;
+  justify-content: center;
+  height: 94px; 
   border-radius: 999px;
   background-color: #ffffff;
   color: #000000;
   font-weight: 800;
-  font-size: 1rem;
-  letter-spacing: 0.02em;
+  font-size: clamp(0.875rem, 2vw, 1rem);
   border: none;
   cursor: pointer;
   box-shadow: 0 20px 64px rgba(0, 0, 0, 0.35);
   transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-  padding: 0 0 0 40px;
+  padding: 0 1.2rem 0 2.5rem; 
   white-space: nowrap;
 }
 
@@ -77,18 +147,8 @@
   box-shadow: 0 28px 80px rgba(255, 59, 48, 0.25);
 }
 
-.contact-button:active {
-  transform: translateY(-2px);
-}
-
-.contact-button:focus-visible {
-  outline: 3px solid rgba(255, 59, 48, 0.3);
-  outline-offset: 4px;
-}
-
 .contact-button-text {
   display: inline-block;
-  padding: 0 24px 0 12px;
   color: #000000;
   font-weight: 800;
 }
@@ -97,166 +157,110 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 88px;
-  height: 88px;
-  background: var(--primary-color);
+  width: 68px;  
+  height: 68px; 
+  background: var(--primary-color, #ff2d55);
   border-radius: 999px;
   color: #ffffff;
-  margin-left: -36px;
+  margin-left: 1.5rem; 
   flex-shrink: 0;
-  box-shadow: 0 8px 32px rgba(255, 59, 48, 0.22);
 }
 
 .contact-button-icon {
-  width: 26px;
-  height: 26px;
-  stroke: currentColor;
-  stroke-width: 2.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  width: 20px;
+  height: 20px;
 }
 
-.contact-footer-text {
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.55);
-  margin: 1rem 0 0 0;
-  line-height: 1.6;
-  max-width: 300px;
-}
-
-/* ============================================ */
-/* IMAGE */
-/* ============================================ */
-
-.contact-image-container {
-  width: 100%;
-  height: 500px;
-  display: flex;
+/* ------------------------------------------------------------ */
+/* 3.2 BOTÃO SECUNDÁRIO: DOWNLOAD CV                            */
+/* ------------------------------------------------------------ */
+.contact-cv-button {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  height: 94px; 
+  padding: 0 2.5rem 0 1.2rem; 
+  border-radius: 999px;
+  background-color: transparent;
+  border: 1px solid #ccc; 
+  color: #ccc;
+  font-size: clamp(0.85rem, 2vw, 1rem); 
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.contact-image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  filter: drop-shadow(0 24px 64px rgba(255, 59, 48, 0.16));
-  animation: float 6s ease-in-out infinite;
+.contact-cv-button:hover {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  transform: translateY(-2px);
 }
 
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-16px);
-  }
+.contact-cv-icon {
+  width: 68px;  
+  height: 68px; 
+  border-radius: 50%;
+  border: 1px solid #ccc; 
+  padding: 22px; 
+  box-sizing: border-box; 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-right: 1.5rem;
+  transition: border-color 0.25s ease;
 }
 
-/* ============================================ */
-/* RESPONSIVE */
-/* ============================================ */
+.contact-cv-text {
+  display: inline-block;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
 
-@media (max-width: 1024px) {
-  .contact-container {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 3rem 2.5rem;
-  }
+/* ============================================================ */
+/* 4. REGRAS DE RESPONSIVIDADE ADAPTATIVA                       */
+/* ============================================================ */
 
-  .contact-image-container {
-    height: 400px;
+@media (max-width: 1200px) {
+  .contact-grid {
+    grid-template-columns: repeat(6, 1fr);
   }
-
-  .contact-button {
-    height: 88px;
-    padding: 0 0 0 36px;
-    font-size: 0.95rem;
-  }
-
-  .contact-button-text {
-    padding: 0 20px 0 10px;
-  }
-
-  .contact-button-circle {
-    width: 80px;
-    height: 80px;
-    margin-left: -32px;
-  }
-
-  .contact-button-icon {
-    width: 24px;
-    height: 24px;
-  }
+  .contact-brand { grid-column: 1 / -1; }
+  .contact-nav-links { grid-column: 1 / -1; grid-row: 2; align-items: flex-start; justify-self: start; flex-direction: row; gap: 1rem; margin: 0.5rem 0; }
+  .contact-image-container { grid-column: 1 / -1; grid-row: 3; }
+  .contact-content { grid-column: 1 / -1; grid-row: 4; max-width: 100%; }
+  .contact-cta-wrapper { grid-column: 1 / -1; grid-row: 5; justify-self: start; width: 100%; margin-top: 1rem; }
 }
 
 @media (max-width: 768px) {
-  .contact-container {
-    padding: 2rem 1.5rem;
+  .contact-section { padding: 4rem 0 2rem 0; }
+  .contact-grid { display: flex; flex-direction: column; gap: 1.5rem; }
+  .contact-title { font-size: 3rem; }
+  .contact-cta-wrapper { flex-direction: row; width: 100%; gap: 1rem; }
+  
+  .contact-button, .contact-cv-button {
+    flex: 1;
+    height: 72px !important;
+    justify-content: center !important;
+    font-size: 0.9rem !important;
+    padding: 0 1rem !important;
   }
-
-  .contact-title {
-    font-size: clamp(1.5rem, 6vw, 2.5rem);
-  }
-
-  .contact-description {
-    font-size: 1rem;
-  }
-
-  .contact-image-container {
-    height: 300px;
-  }
-
-  .contact-button {
-    height: 80px;
-    padding: 0 0 0 32px;
-    font-size: 0.9rem;
-  }
-
-  .contact-button-text {
-    padding: 0 18px 0 8px;
-  }
-
-  .contact-button-circle {
-    width: 72px;
-    height: 72px;
-    margin-left: -28px;
-  }
-
-  .contact-button-icon {
-    width: 22px;
-    height: 22px;
-  }
+  .contact-button-circle, .contact-cv-icon { width: 54px !important; height: 54px !important; }
+  .contact-cv-icon { padding: 16px !important; margin-right: 1rem; }
+  .contact-button-circle { margin-left: 1rem; }
 }
 
-@media (max-width: 480px) {
-  .contact-title {
-    font-size: clamp(1.25rem, 5vw, 2rem);
+@media (max-width: 390px) {
+  .contact-title { font-size: 2.2rem; }
+  .contact-cta-wrapper { gap: 0.75rem; }
+  .contact-button, .contact-cv-button {
+    height: 58px !important;
+    font-size: 0.75rem !important;
+    padding: 0 0.5rem !important;
   }
-
-  .contact-button {
-    height: 72px;
-    padding: 0 0 0 28px;
-    font-size: 0.85rem;
-  }
-
-  .contact-button-text {
-    padding: 0 16px 0 6px;
-  }
-
-  .contact-button-circle {
-    width: 64px;
-    height: 64px;
-    margin-left: -24px;
-  }
-
-  .contact-button-icon {
-    width: 20px;
-    height: 20px;
-  }
-
-  .contact-image-container {
-    height: 250px;
-  }
+  .contact-button-circle, .contact-cv-icon { width: 42px !important; height: 42px !important; }
+  .contact-cv-icon { padding: 13px !important; margin-right: 0.5rem; }
+  .contact-button-circle { margin-left: 0.5rem; }
 }

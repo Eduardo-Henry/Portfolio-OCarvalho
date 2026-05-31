@@ -5,17 +5,17 @@
 .skills-section {
   width: 100%;
   background: #ffffff;
-  padding: 4rem 0;
+  padding: 2rem 0 15rem 0;
   position: relative;
 }
 
 .skills-container {
-  max-width: 1920px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 4rem;
+  padding: 2rem 4rem;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 6rem;
 }
 
 /* ============================================ */
@@ -23,99 +23,115 @@
 /* ============================================ */
 
 .skills-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  align-items: start;
   gap: 2rem;
-  margin-bottom: 2rem;
+  width: 100%;
 }
 
 .skills-title {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 8vw, 5rem);
-  font-weight: var(--weight-extrabold);
-  line-height: 1;
-  letter-spacing: -0.03em;
+  font-family: var(--font-display), sans-serif;
+  font-size: 12rem;
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
   color: #000000;
   margin: 0;
   text-transform: uppercase;
 }
 
 .skills-mark {
-  font-size: 0.55em;
+  font-size: 0.35em;
   vertical-align: super;
-  margin-left: 0.15em;
+  margin-left: 0.05em;
 }
 
 .skills-counter {
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  font-weight: 700;
-  letter-spacing: 0.03em;
+  font-size: 1em;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
   color: #000000;
-  text-align: right;
-  white-space: nowrap;
   text-transform: uppercase;
 }
 
+.skills-nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  justify-self: end;
+}
+
+
 /* ============================================ */
-/* SKILLS GRID */
+/* SKILLS GRID (STICKY COM INVERSÃO DE COR)     */
 /* ============================================ */
 
 .skills-grid {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  width: 100%;
 }
 
 .skill-item {
   display: grid;
-  grid-template-columns: 0.5fr 2fr 1fr;
+  grid-template-columns: 0.4fr 2fr 1fr;
   gap: 2rem;
   align-items: center;
-  padding: 2rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 3.5rem 2rem; /* Adicionado um leve preenchimento para as bordas pretas respirarem no hover */
+  margin: 0 -2rem; /* Mantém o alinhamento visual com o header */
+  background: #ffffff;
+  border-top: 3px solid #000000; 
+  
+  position: sticky;
+  top: calc(40px + (var(--index) * 1px)); /* Mudado para 1px para sobrepor colado e fazer o efeito sanduíche */
+  
+  /* Transição ultra suave para a inversão de cores */
+  transition: background-color 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+              border-color 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.skill-item:last-child {
-  border-bottom: none;
+.skills-grid .skill-item:last-child {
+  border-bottom: 3px solid #000000;
 }
 
 .skill-number {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: var(--weight-extrabold);
-  color: rgba(0, 0, 0, 0.1);
-  letter-spacing: 0.05em;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 900;
+  color: #000000;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  transition: color 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .skill-content {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 
-.skill-title {
-  font-size: clamp(1rem, 2vw, 1.5rem);
-  font-weight: 800;
+.skill-title-item {
+  font-size: 3em;
+  font-weight: 700;
   color: #000000;
   margin: 0;
-  line-height: 1.3;
+  line-height: 1.2;
+  transition: color 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .skill-description {
-  font-size: 0.95rem;
-  color: rgba(0, 0, 0, 0.65);
-  margin: 0;
-  line-height: 1.6;
+  display: none; 
 }
 
 .skill-image {
-  width: 100%;
-  max-width: 200px;
-  height: 200px;
-  border-radius: 8px;
+  width: 130px;
+  height: 130px;
   overflow: hidden;
-  background: #f5f5f5;
   justify-self: end;
+  border-radius: 4px;
+  transition: transform 0.4s ease;
 }
 
 .skill-image img {
@@ -125,73 +141,127 @@
 }
 
 /* ============================================ */
-/* RESPONSIVE */
+/* EFEITO ATIVADO: QUANDO FOR HOVER OU STICKY   */
 /* ============================================ */
 
-@media (max-width: 1024px) {
-  .skill-item {
-    grid-template-columns: 0.4fr 1fr 0.8fr;
-    gap: 1.5rem;
+/* Aplica o fundo preto e altera as cores das bordas e textos */
+.skill-item:hover,
+.skill-item.is-sticky {
+  background-color: #000000;
+  border-color: #ffffff;
+}
+
+/* Força o fechamento inferior do bloco a ficar branco também se for o último */
+.skills-grid .skill-item:last-child:hover,
+.skills-grid .skill-item.is-sticky:last-child {
+  border-bottom-color: #ffffff;
+}
+
+/* Inverte as cores dos textos internos para branco */
+.skill-item:hover .skill-number,
+.skill-item.is-sticky .skill-number,
+.skill-item:hover .skill-title-item,
+.skill-item.is-sticky .skill-title-item {
+  color: #ffffff;
+}
+
+/* Dá um sutil destaque na imagem no hover/sticky */
+.skill-item:hover .skill-image,
+.skill-item.is-sticky .skill-image {
+  transform: scale(1.03);
+}
+
+/* ============================================ */
+/* RESPONSIVIDADE */
+/* ============================================ */
+
+
+@media (max-width: 1600px) {
+  .skills-header {
+    grid-template-columns: 1.5fr 1fr;
+  }
+  
+  .skills-nav-links {
+    display: none;
   }
 
   .skills-container {
-    padding: 3rem 2.5rem;
+    padding: 2rem;
   }
 
-  .skill-image {
-    max-width: 150px;
-    height: 150px;
+  .skill-item {
+    grid-template-columns: 0.3fr 1.5fr 1fr;
+    padding: 2.5rem 1rem;
+    margin: 0 -1rem;
+  }
+
+  .skills-title {
+    font-size: 6rem; /* Defina aqui o valor desejado para telas grandes/médias */
+  }
+}
+
+
+
+@media (max-width: 1024px) {
+  .skills-header {
+    grid-template-columns: 1.5fr 1fr;
+  }
+  
+  .skills-nav-links {
+    display: none;
+  }
+
+  .skills-container {
+    padding: 2rem;
+  }
+
+  .skill-item {
+    grid-template-columns: 0.3fr 1.5fr 1fr;
+    padding: 2.5rem 1rem;
+    margin: 0 -1rem;
+  }
+
+  .skills-title {
+    font-size: 6rem; /* Defina aqui o valor desejado para telas grandes/médias */
   }
 }
 
 @media (max-width: 768px) {
-  .skill-item {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 1.5rem 0;
-  }
-
   .skills-header {
-    flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .skills-title {
-    font-size: clamp(1.5rem, 6vw, 2.5rem);
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .skills-counter {
-    font-size: 0.9rem;
     text-align: left;
   }
 
-  .skill-image {
-    max-width: 120px;
-    height: 120px;
-    justify-self: start;
+  .skill-item {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 2rem 0;
+    margin: 0;
+    position: relative;
+    top: 0 !important; 
+  }
+  
+  .skill-item.is-sticky {
+    background-color: #ffffff !important; 
+    border-color: #000000 !important;
+  }
+  
+  .skill-item.is-sticky .skill-number,
+  .skill-item.is-sticky .skill-title-item {
+    color: #000000 !important;
   }
 
-  .skills-container {
-    padding: 2rem 1.5rem;
+  .skills-title {
+    font-size: 4rem; /* Tamanho para tablets */
   }
 }
 
-@media (max-width: 480px) {
-  .skill-number {
-    font-size: 1.5rem;
-  }
-
-  .skill-title {
-    font-size: 1rem;
-  }
-
-  .skill-description {
-    font-size: 0.85rem;
-  }
-
-  .skill-image {
-    max-width: 100px;
-    height: 100px;
+@media (max-width: 390px) {
+  .skills-title {
+    font-size: 3rem; /* Tamanho para celulares pequenos */
   }
 }

@@ -1,0 +1,173 @@
+/* =========================================================================== */
+/* INPUT COMPONENT STYLES */
+/* =========================================================================== */
+
+.input {
+  width: 100%;
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  font-weight: var(--weight-normal);
+  line-height: var(--leading-normal);
+  color: var(--text-color);
+  background-color: transparent;
+  border: 1px solid var(--border-quiet);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  box-shadow: none;
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+.input:hover:not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 0 3px rgba(255, 59, 48, 0.1);
+}
+
+.input:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* =========================================================================== */
+/* INPUT VARIANTS */
+/* =========================================================================== */
+
+.input-small {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--text-sm);
+}
+
+.input-large {
+  padding: var(--spacing-lg) var(--spacing-xl);
+  font-size: var(--text-lg);
+}
+
+.input-error {
+  border-color: #ff4444;
+  background-color: rgba(255, 68, 68, 0.05);
+}
+
+.input-error:focus {
+  box-shadow: 0 0 0 3px rgba(255, 68, 68, 0.1);
+}
+
+.input-success {
+  border-color: #22c55e;
+  background-color: rgba(34, 197, 94, 0.05);
+}
+
+.input-success:focus {
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+}
+
+/* =========================================================================== */
+/* TEXTAREA STYLES */
+/* =========================================================================== */
+
+textarea.input {
+  resize: vertical;
+  min-height: 120px;
+  font-family: var(--font-primary);
+}
+
+textarea.input-small {
+  min-height: 80px;
+}
+
+textarea.input-large {
+  min-height: 160px;
+}
+
+/* =========================================================================== */
+/* FORM GROUP STYLES */
+/* =========================================================================== */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+}
+
+.form-label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+.form-helper-text {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  margin-top: calc(var(--spacing-sm) * -0.5);
+}
+
+.form-error-text {
+  font-size: var(--text-xs);
+  color: #ff4444;
+  margin-top: calc(var(--spacing-sm) * -0.5);
+}
+
+/* =========================================================================== */
+/* RESPONSIVE DESIGN */
+/* =========================================================================== */
+
+@media (max-width: 768px) {
+  .input {
+    padding: var(--spacing-md) var(--spacing-md);
+    font-size: var(--text-sm);
+  }
+
+  .form-group {
+    margin-bottom: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .input {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--text-sm);
+  }
+
+  textarea.input {
+    min-height: 100px;
+  }
+}
+
+/* =========================================================================== */
+/* ACCESSIBILITY */
+/* =========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .input {
+    transition: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: more) {
+  .input {
+    border-color: var(--text-color);
+  }
+
+  .input:focus {
+    outline: 2px solid var(--text-color);
+  }
+}

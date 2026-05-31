@@ -336,6 +336,25 @@
 
 /* Tablets (768px - 1024px) */
 @media (max-width: 1024px) {
+
+/* ============================================ */
+/* CAROUSEL WRAPPER */
+/* ============================================ */
+
+.case-studies-carousel-wrapper {
+  width: 100%;
+  padding: 0 1rem;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
   .case-studies-section {
     padding: 4rem 0.5rem;
   }

@@ -1,0 +1,105 @@
+@import url('https://googleapis.com');
+
+.splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal);
+  overflow: hidden;
+  transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Alinha a imagem e o texto lado a lado com o espaçamento exato do print */
+.splash-content {
+  display: flex;
+  align-items: center;
+  gap: clamp(var(--spacing-lg), 2vw, var(--spacing-3xl));
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* CONTAINER DA IMAGEM 3D */
+.splash-image-container {
+  width: clamp(80px, 15vw, 125px);
+  height: clamp(80px, 15vw, 125px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  
+  /* Animação de entrada elástica na imagem */
+  opacity: 0;
+  transform: scale(0.6) rotate(-10deg);
+  animation: scaleInImage 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.1s,
+             floatImage 4s ease-in-out infinite 0.85s;
+}
+
+.splash-image-asset {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* CONTAINER DO TEXTO */
+.splash-text-container {
+  overflow: hidden;
+}
+
+.splash-title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(2rem, 8vw, 3.4rem);
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  color: #ffffff;
+  margin: 0;
+  text-transform: uppercase;
+  
+  /* Efeito de revelação lateral */
+  opacity: 0;
+  transform: translateX(-40px);
+  animation: revealSplashText 2s cubic-bezier(0.25, 1, 0.5, 1) forwards 0.4s;
+}
+
+.splash-mark {
+  font-size: 0.35em;
+  vertical-align: super;
+  margin-left: 2px;
+  font-weight: 700;
+}
+
+/* KEYFRAMES DAS INTERAÇÕES DE ENTRADA */
+@keyframes scaleInImage {
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes revealSplashText {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Micro-interação flutuante contínua para mostrar que a página está viva */
+@keyframes floatImage {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(2deg); }
+}
+
+/* INTERAÇÃO DE SAÍDA (SPLASH EXIT) */
+.splash-exit {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.splash-exit .splash-content {
+  transform: scale(0.96); /* Efeito sutil de recuo ao sumir */
+}

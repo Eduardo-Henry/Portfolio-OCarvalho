@@ -17,7 +17,9 @@
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
     'Helvetica Neue', Arial, sans-serif;
-  --font-display: 'Helvetica Neue', Arial Black, Arial, sans-serif;
+  --font-display: 'Archivo Black', Arial Black, Arial, sans-serif;
+  --font-headline: 'Questrial', sans-serif;
+  --font-body: 'Poppins', sans-serif;
   --font-mono: 'Courier New', Courier, monospace;
 
   /* Font Sizes */
@@ -82,6 +84,20 @@
   --z-modal: 50;
   --z-popover: 60;
   --z-tooltip: 70;
+
+  /* Breakpoints (use with min-width for mobile-first) */
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1440px;
+  --breakpoint-2xl: 1920px;
+
+  /* Container Widths */
+  --container-sm: 540px;
+  --container-md: 720px;
+  --container-lg: 960px;
+  --container-xl: 1200px;
+  --container-2xl: 1400px;
 }
 
 /* Responsive Typography Scale */

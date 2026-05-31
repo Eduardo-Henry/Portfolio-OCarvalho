@@ -40,7 +40,7 @@ export const FooterSection: React.FC = () => {
             <h4 className="footer-title">SOCIAL</h4>
             <div className="footer-social">
               <a
-                href="https://www.linkedin.com/in/eduardohenry/"
+                href="https://www.linkedin.com/in/eduardohenrycarvalho/?locale=pt"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-social-link"

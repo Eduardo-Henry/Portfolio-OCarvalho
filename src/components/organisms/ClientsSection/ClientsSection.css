@@ -1,89 +1,116 @@
 /* ============================================ */
-/* CLIENTS SECTION — WHITE BACKGROUND */
+/* CLIENTS SECTION — WHITE BACKGROUND           */
 /* ============================================ */
 
 .clients-section {
   width: 100%;
   background: #ffffff;
-  padding: 4rem 0;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: clamp(var(--spacing-xl), 5vw, var(--spacing-3xl)) clamp(var(--spacing-lg), 4vw, var(--spacing-3xl));
+  box-sizing: border-box;
+}
+
+/* ============================================================ */
+/* TOPO DA SEÇÃO: CONTADOR, TÍTULO E MENU ALINHADOS EM LINHA    */
+/* ============================================================ */
+
+.clients-header-zone {
+  display: grid;
+  grid-template-columns: clamp(200px, 25vw, 280px) 1fr auto;
+  gap: clamp(var(--spacing-2xl), 4vw, var(--spacing-3xl));
+  align-items: start;
+  width: 100%;
+  margin-bottom: clamp(var(--spacing-xl), 3vw, var(--spacing-2xl));
   position: relative;
 }
 
-.clients-container {
-  max-width: 1920px;
-  margin: 0 auto;
-  padding: 4rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-}
-
-/* ============================================ */
-/* HEADER */
-/* ============================================ */
-
-.clients-header {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.clients-title {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 8vw, 5rem);
-  font-weight: var(--weight-extrabold);
-  line-height: 0.9;
-  letter-spacing: -0.03em;
-  color: #000000;
-  margin: 0;
-  text-transform: uppercase;
-}
-
-.clients-mark {
-  font-size: 0.55em;
-  vertical-align: super;
-  margin-left: 0.15em;
-}
-
+/* Contador discreto no canto superior esquerdo */
 .clients-counter {
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  font-weight: 700;
-  letter-spacing: 0.03em;
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
   color: #000000;
+  line-height: 1.1;
   text-transform: uppercase;
 }
 
-/* ============================================ */
-/* CONTENT */
-/* ============================================ */
-
-.clients-content {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+/* Título Principal "NUMBERS DON'T LIE" */
+.clients-title {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(4rem, 8vw, 8rem);
+  font-weight: 900; /* Força o peso idêntico ao da imagem */
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  color: #000000;
+  margin: 0;
+  text-transform: uppercase;
 }
 
-.clients-description {
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  color: #000000;
-  line-height: 1.6;
-  margin: 0;
+/* Ícone de marca registrada ® */
+.clients-mark {
+  font-size: 0.4em;
+  vertical-align: super;
+  margin-left: 2px;
+  font-weight: 400;
+}
+
+/* Menu de Navegação do Canto Superior Direito */
+.clients-nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.clients-nav-links a {
+  font-family: var(--font-display), sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #888888;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  transition: color 0.25s ease;
+}
+
+.clients-nav-links a:hover,
+.clients-nav-links a.active {
+  color: #000000; /* Destaque preto para a seção atual */
+}
+
+/* ============================================================ */
+/* GRID INFERIOR (FOTO À ESQUERDA E BLOCO DE CONTEÚDO À DIREITA) */
+/* ============================================================ */
+
+.clients-main-grid {
+  display: grid;
+  grid-template-columns: clamp(200px, 25vw, 280px) 1fr;
+  gap: clamp(var(--spacing-2xl), 4vw, var(--spacing-3xl));
+  align-items: start;
+  width: 100%;
+}
+
+/* --- COLUNA DA FOTO --- */
+.clients-profile-zone {
+  display: flex;
+  flex-direction: column;
 }
 
 .clients-featured {
   display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 2rem 0;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .client-featured-image {
-  width: 200px;
-  height: 200px;
-  border-radius: 8px;
+  width: clamp(120px, 20vw, 160px);
+  height: clamp(120px, 20vw, 160px);
   overflow: hidden;
-  flex-shrink: 0;
 }
 
 .client-featured-image img {
@@ -93,127 +120,214 @@
 }
 
 .client-featured-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.client-featured-name {
-  font-size: 1.5rem;
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.2rem;
   font-weight: 800;
   color: #000000;
   margin: 0;
+  letter-spacing: -0.02em;
 }
 
-.client-featured-location {
-  font-size: 1rem;
-  color: rgba(0, 0, 0, 0.65);
+/* --- COLUNA DE CONTEÚDO (PARÁGRAFO + BOTÃO LADO A LADO) --- */
+.clients-body-zone {
+  display: grid;
+  grid-template-columns: 1fr auto; /* Texto ocupa o espaço fluido e o botão fica preso na ponta */
+  gap: clamp(var(--spacing-xl), 3vw, var(--spacing-3xl));
+  align-items: center; /* Centraliza verticalmente o parágrafo em relação ao botão */
+  width: 100%;
+}
+
+.clients-description {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(1.5rem, 2.5vw, 2rem); /* Aumentada a fonte para o visual elegante do print */
+  color: #000000; /* Texto preto conforme o novo design */
+  line-height: 1.15;
+  font-weight: 400;
+  letter-spacing: -0.03em;
   margin: 0;
+  max-width: 600px;
 }
 
-.clients-cta {
+/* Contêiner invisível do botão para gerenciar alinhamentos */
+.clients-cta-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ============================================================ */
+/* BOTÃO CTA (PÍLULA PRETA + BOLA VERMELHA — PROPRIEDADES FIXAS)*/
+/* ============================================================ */
+
+.clients-cta-wrapper {
   display: inline-flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1rem 2rem;
-  background: #000000;
+  justify-content: center; 
+  height: 94px; /* Casado perfeitamente com a altura global do Hero */
+  border-radius: 999px;
+  background-color: #000000;
   color: #ffffff;
   text-decoration: none;
-  border-radius: 8px;
-  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  white-space: nowrap;
+  
+  /* Paddings laterais corrigidos para travar a largura exagerada */
+  padding: 0 1.2rem 0 3rem; 
+}
+
+/* Interações e Estados de Hover */
+.clients-cta-wrapper:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 28px 80px rgba(255, 59, 48, 0.25);
+}
+
+.clients-cta-wrapper:active {
+  transform: translateY(-2px);
+}
+
+.clients-cta-wrapper:focus-visible {
+  outline: 3px solid rgba(255, 59, 48, 0.3);
+  outline-offset: 4px;
+}
+
+/* Estilo do Texto Interno */
+.cta-text {
+  font-weight: 400; /* MANTIDO INTEGRAMENTE EM 400 CONFORME SOLICITADO */
   font-size: 1rem;
-  letter-spacing: 0.02em;
   text-transform: uppercase;
-  transition: all 0.25s ease;
-  width: fit-content;
+  letter-spacing: 0.03em;
+  color: #ffffff;
 }
 
-.clients-cta:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 64px rgba(0, 0, 0, 0.25);
+/* Círculo vermelho com a seta */
+.cta-icon-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;  
+  height: 68px; 
+  background: var(--primary-color, #ff2d55);
+  border-radius: 999px;
+  color: #ffffff;
+  margin-left: 1.5rem; 
+  flex-shrink: 0;
+  box-shadow: 0 8px 32px rgba(255, 59, 48, 0.22);
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-.clients-cta svg {
+.cta-icon-circle:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Configuração do SVG da Seta */
+.cta-icon-circle svg {
   width: 20px;
   height: 20px;
   stroke: currentColor;
   stroke-width: 2.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  transition: stroke 0.25s ease;
 }
 
 /* ============================================ */
-/* RESPONSIVE */
+/* RESPONSIVIDADE ADAPTATIVA                    */
 /* ============================================ */
 
-@media (max-width: 1024px) {
-  .clients-container {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 3rem 2.5rem;
+@media (max-width: 1200px) {
+  .clients-header-zone {
+    grid-template-columns: 1fr auto;
+  }
+  
+  .clients-counter {
+    display: none; /* Oculta o contador em telas menores para dar foco ao título */
   }
 
-  .clients-featured {
-    flex-direction: column;
-    align-items: flex-start;
+  .clients-body-zone {
+    grid-template-columns: 1fr; /* Transiciona parágrafo e botão para blocos verticais */
+    gap: var(--spacing-xl);
+  }
+  
+  .clients-cta-container {
+    justify-content: flex-start; /* Joga o botão de volta para a esquerda no mobile */
   }
 }
 
 @media (max-width: 768px) {
-  .clients-container {
-    padding: 2rem 1.5rem;
+  .clients-section {
+    padding: clamp(var(--spacing-lg), 3vw, var(--spacing-xl)) clamp(var(--spacing-md), 2.5vw, var(--spacing-lg));
+  }
+  
+  .clients-header-zone {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
   }
 
-  .clients-title {
-    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  .clients-nav-links {
+    align-items: flex-start; /* Menu alinha à esquerda no celular */
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
-
-  .clients-description {
-    font-size: 1rem;
+  
+  .clients-main-grid {
+    grid-template-columns: 1fr;
+    gap: clamp(var(--spacing-xl), 2.5vw, var(--spacing-2xl));
   }
-
+  
   .client-featured-image {
-    width: 150px;
-    height: 150px;
+    width: clamp(100px, 30vw, 140px);
+    height: clamp(100px, 30vw, 140px);
+  }
+  
+  .clients-title {
+    font-size: 3.5rem;
+  }
+  
+  .clients-description {
+    font-size: 1.3rem;
   }
 
-  .client-featured-name {
-    font-size: 1.25rem;
+  /* Redução adaptativa simétrica do botão no tablet */
+  .clients-cta-wrapper {
+    height: 72px !important;
+    padding: 0 1rem 0 2rem !important;
   }
 
-  .client-featured-location {
-    font-size: 0.9rem;
+  .cta-icon-circle {
+    width: 54px !important;
+    height: 54px !important;
+    margin-left: 1.2rem;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 390px) {
   .clients-title {
-    font-size: clamp(1.25rem, 5vw, 2rem);
+    font-size: 2.5rem;
   }
-
-  .clients-counter {
-    font-size: 0.9rem;
-  }
-
+  
   .clients-description {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
   }
 
-  .client-featured-image {
-    width: 120px;
-    height: 120px;
+  /* Redução fina e travada para os botões caberem sem quebras no iPhone de 390px */
+  .clients-cta-wrapper {
+    height: 58px !important;
+    padding: 0 0.6rem 0 1.5rem !important;
   }
 
-  .client-featured-name {
-    font-size: 1rem;
+  .cta-text {
+    font-size: 0.75rem !important;
   }
 
-  .clients-cta {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.9rem;
+  .cta-icon-circle {
+    width: 42px !important;
+    height: 42px !important;
+    margin-left: 0.8rem;
   }
-
-  .clients-cta svg {
+  
+  .cta-icon-circle svg {
     width: 16px;
     height: 16px;
   }
