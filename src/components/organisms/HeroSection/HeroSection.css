@@ -455,6 +455,9 @@
 /* TABLETS E MOBILE (ATÉ 768PX) */
 /* ============================================================ */
 
+/* ============================================================ */
+/* TABLETS E CELULARES DEITADOS (ATÉ 768PX)                     */
+/* ============================================================ */
 @media (max-width: 768px) {
   .hero-section {
     padding: 5rem 0 3rem;
@@ -509,9 +512,8 @@
 }
 
 /* ============================================================ */
-/* MOBILE (ATÉ 430PX) */
+/* MOBILE (ATÉ 430PX)                                           */
 /* ============================================================ */
-
 @media (max-width: 430px) {
 
   .hero-section {
@@ -570,56 +572,66 @@
     max-width: 100% !important;
   }
 
-  /* EMPILHA OS BOTÕES NO MOBILE */
+  /* BOTÕES TRAVADOS LADO A LADO E CENTRALIZADOS */
   .hero-cta-wrapper {
     display: flex !important;
-    flex-direction: column !important;
+    flex-direction: row !important;      /* Mantém em linha */
+    flex-wrap: nowrap !important;        /* Impede que pule linha */
+    justify-content: center !important;  /* Centraliza o par na tela */
     width: 100% !important;
-    gap: 0.75rem !important;
+    gap: 1rem !important;                /* Espaço sutil entre eles */
     margin-top: 1rem !important;
   }
 
+  /* REGRAS DE LARGURA (40%) E ALTURA (68PX) */
   .hero-cta-button, 
   .hero-cv-button {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: 56px !important;
+    width: 50% !important;               /* Exatos 50% de largura */
+    max-width: 50% !important;
+    height: 68px !important;              /* Exatos 68px de altura */
+    min-height: 68px !important;
 
     display: flex !important;
     align-items: center !important;
-    justify-content: center !important;
+    justify-content: space-between !important; /* Texto na esquerda, bolinha na direita */
 
-    font-size: 0.8rem !important;
-    padding: 0 1rem !important;
+    font-size: 0.65rem !important;        /* Fonte reduzida para caber no limite de 40% */
+    padding: 0 0.5rem 0 0.75rem !important; /* Ajuste interno de padding */
 
-    white-space: nowrap;
+    white-space: nowrap !important;
     overflow: hidden;
+    border-radius: 999px !important;
   }
 
+  /* AJUSTE INTERNO DOS ÍCONES PARA REDUZIR ESPAÇO */
   .hero-cta-circle,
   .hero-cv-icon {
     width: 40px !important;
     height: 40px !important;
-    flex-shrink: 0;
-  }
-
-  /* ÍCONES REDUZIDOS PARA CABER NO MOBILE REAL */
-  .hero-cta-circle, 
-  .hero-cv-icon {
+    min-width: 40px !important;
+    min-height: 40px !important;
+    flex-shrink: 0 !important;
     padding: 0 !important;
-    margin-right: 0.75rem !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
-  .hero-cta-circle {
-    margin-left: 0.75rem !important;
+  .hero-cta-text { 
+    color: #000000 !important; 
+    font-weight: 700 !important;
   }
-
-  .hero-cta-text { color: #000000 !important; margin-right: 0.25rem !important; }
-  .hero-cv-text { color: #cccccc !important; margin-left: 0.25rem !important; }
+  
+  .hero-cv-text { 
+    color: #cccccc !important; 
+    font-weight: 700 !important;
+  }
 
   .hero-cta-icon,
   .hero-cv-icon svg {
     width: 14px !important;
     height: 14px !important;
   }
-}}
+}
+}
