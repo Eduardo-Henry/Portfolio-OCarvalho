@@ -93,8 +93,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 </svg>
               </span>
             </Button>
-
-           
           </div>
         </div>
       </div>

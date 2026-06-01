@@ -5,13 +5,17 @@
 /* Container principal que ocupa 100% da tela do usuário */
 .hero-section {
   width: 100%;
-  min-height: 100vh; /* Permite que o conteúdo respire sem sumir da tela */
+  height: 100vh; /* FIXO: Obrigatoriamente 100vh para travar a janela no scroll */
   background: #000000;
-  position: relative;
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  /* ─── ENGENHARIA DO PARALLAX COBERTURA ─── */
+  position: sticky; /* Prende a Hero no topo enquanto o About sobe */
+  top: 0;           /* Ponto de fixação no topo da viewport */
+  z-index: 1;       /* Fica na camada de baixo, servindo de fundo para o About */
+  /* overflow: hidden; <- REMOVIDO: Destruía o cálculo do sticky no navegador */
 }
 
 /* Embrulho interno que centraliza os elementos e define os espaçamentos */
@@ -586,7 +590,7 @@
   /* REGRAS DE LARGURA (40%) E ALTURA (68PX) */
   .hero-cta-button, 
   .hero-cv-button {
-    width: 50% !important;               /* Exatos 50% de largura */
+    width: 50% !important;               /* Exatos 40% de largura */
     max-width: 50% !important;
     height: 68px !important;              /* Exatos 68px de altura */
     min-height: 68px !important;

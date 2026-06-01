@@ -186,3 +186,23 @@ textarea {
     scroll-behavior: auto !important;
   }
 }
+
+/* =========================================================================== */
+/* FIX PARA CONTEXTO DE EMPILHAMENTO (PARALLAX LAYER FIX)                      */
+/* =========================================================================== */
+
+/* 
+  Esta regra força as seções seguintes a ficarem ACIMA do palco do parallax,
+  garantindo que seus fundos e conteúdos apareçam normalmente no scroll.
+*/
+#hero ~ section,
+#about ~ section,
+.projects-section,
+.contact-section,
+.case-studies-section,
+footer {
+  position: relative;
+  z-index: 10 !important;
+  background-color: var(--bg-color, #ffffff); /* Herda a cor padrão ou cai no branco */
+  width: 100%;
+}

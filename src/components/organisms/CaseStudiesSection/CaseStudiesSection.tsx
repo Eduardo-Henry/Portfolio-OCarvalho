@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './CaseStudiesSection.css';
 import { NavPill, Carousel } from '../../molecules';
 import TIHelpImg from '../../../assets/images/TIHelp.png';
@@ -80,10 +80,58 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
   videos = defaultVideos,
 }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
-  // Estado para controlar quais vídeos estão com som ativado (por ID)
   const [mutedVideos, setMutedVideos] = useState<{ [key: string]: boolean }>(
     defaultVideos.reduce((acc, video) => ({ ...acc, [video.id]: true }), {})
   );
+
+  // Estados novos para a animação do contador de horas/projetos
+  const [count, setCount] = useState<number>(0);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const targetCount = 52; // Alvo final da sua contagem de projetos
+
+  useEffect(() => {
+    const currentSection = sectionRef.current;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          const duration = 1500; // Tempo da animação (1.5 segundos)
+          const startTime = performance.now();
+
+          const animate = (currentTime: number) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+
+            // Easing suavizado (easeOutQuad)
+            const easeOutQuad = (t: number) => t * (2 - t);
+            const currentCount = Math.floor(easeOutQuad(progress) * targetCount);
+
+            setCount(currentCount);
+
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            }
+          };
+
+          requestAnimationFrame(animate);
+          // Executa uma vez e remove para não ficar reiniciando em todo scroll
+          if (currentSection) observer.unobserve(currentSection);
+        }
+      },
+      {
+        threshold: 0.15, // Dispara ao avistar 15% da seção na tela
+      }
+    );
+
+    if (currentSection) {
+      observer.observe(currentSection);
+    }
+
+    return () => {
+      if (currentSection) observer.unobserve(currentSection);
+    };
+  }, []);
 
   const categories = [
     { id: 'all', label: 'UI DESIGN' },
@@ -95,7 +143,6 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
     setSelectedCategory(categoryId);
   };
 
-  // Alterna o som de um vídeo específico
   const toggleMute = (videoId: string) => {
     setMutedVideos((prev) => ({
       ...prev,
@@ -104,14 +151,15 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
   };
 
   return (
-    <section className="case-studies-section" id="works">
+    <section className="case-studies-section" id="works" ref={sectionRef}>
       <div className="case-studies-container">
         {/* Header da Seção */}
         <div className="case-studies-header">
           <div className="case-studies-title-wrapper">
             <h2 className="case-studies-title">CASE STUDIES<span className="case-studies-mark">®</span></h2>
           </div>
-          <div className="case-studies-counter">+52 PROJECTS</div>
+          {/* O valor dinâmico injetado aqui */}
+          <div className="case-studies-counter">+{count} PROJECTS</div>
         </div>
 
         {/* NavPill Filter */}
@@ -125,7 +173,6 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
             <Carousel images={socialMediaCarouselImages} />
           </div>
         ) : selectedCategory === 'web' ? (
-          /* Grid de Vídeos com Autoplay e Botão de Áudio */
           <div className="case-studies-grid">
             {videos.map((video) => {
               const isMuted = mutedVideos[video.id] ?? true;
@@ -134,7 +181,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
                   key={video.id}
                   className="case-study-card video-card scroll-reveal"
                   id={`video-${video.id}`}
-                  style={{ position: 'relative' }} // Necessário para posicionar o botão
+                  style={{ position: 'relative' }}
                 >
                   <video
                     autoPlay
@@ -151,7 +198,6 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
                     Seu navegador não suporta o elemento de vídeo.
                   </video>
 
-                  {/* Botão flutuante para Ativar/Desativar Som */}
                   <button
                     onClick={() => toggleMute(video.id)}
                     className="video-audio-toggle-btn"
@@ -182,7 +228,6 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
             })}
           </div>
         ) : (
-          /* Grid de Projetos UI Design */
           <div className="case-studies-grid">
             {caseStudies.map((caseStudy) => (
               <div

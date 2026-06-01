@@ -2,11 +2,18 @@
 /* SKILLS SECTION — WHITE BACKGROUND */
 /* ============================================ */
 
+:root {
+  --header-offset: 160px; /* Distância do topo para os cards travarem no desktop */
+}
+
 .skills-section {
   width: 100%;
   background: #ffffff;
-  padding: 2rem 0 15rem 0;
+  color: #000000;
+  font-family: Arial, sans-serif;
+  padding: 4rem 0 15rem 0;
   position: relative;
+  box-sizing: border-box;
 }
 
 .skills-container {
@@ -15,28 +22,26 @@
   padding: 2rem 4rem;
   display: flex;
   flex-direction: column;
-  gap: 6rem;
+  gap: 4rem;
 }
 
 /* ============================================ */
-/* HEADER */
+/* HEADER (ALL SKILLS / COUNTER) */
 /* ============================================ */
 
 .skills-header {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  align-items: start;
-  gap: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   width: 100%;
 }
 
 .skills-title {
-  font-family: var(--font-display), sans-serif;
-  font-size: 12rem;
+  font-size: 10rem;
   font-weight: 900;
   line-height: 0.85;
-  letter-spacing: -0.04em;
-  color: #000000;
+  letter-spacing: -4px;
+  color: #000000 !important;
   margin: 0;
   text-transform: uppercase;
 }
@@ -48,273 +53,161 @@
 }
 
 .skills-counter {
-  font-size: 1em;
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: 0.02em;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
   color: #000000;
   text-transform: uppercase;
+  margin-left: auto;
+  margin-right: 10%;
 }
 
+/* Menu de navegação lateral adicionado */
 .skills-nav-links {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 0.25rem;
-  justify-self: end;
+  align-items: flex-end;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #7f7f7f;
+}
+
+.skills-nav-links .nav-item.active {
+  color: #000000;
 }
 
 /* ============================================ */
-/* SKILLS GRID (STACK CARD LAYOUT)             */
+/* SKILLS LIST (STACK CARD LAYOUT) */
 /* ============================================ */
 
 .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
   width: 100%;
 }
 
 .skill-item {
-  display: flex;
-  flex-direction: column;
-  height: 320px;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #000000;
-  border-top: none;
-  padding: 0;
-  margin: 0;
-  position: relative;
+  position: sticky;
+  /* Trava o item no topo sequencialmente usando variáveis CSS */
+  top: calc(var(--header-offset) + (var(--stack-index, 0) * 15px));
   
-  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  cursor: pointer;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: flex-start;
+  gap: 50px;
+  background: #ffffff; /* Importante manter o fundo sólido para cobrir o card anterior */
+  
+  border-top: 2px solid #000000; 
+  padding: 30px 0;
+  margin: 0;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: visible;
+  height: auto;
 }
 
-.skill-item:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.2);
-  background: #000000;
-}
-
-.skill-item.is-sticky {
-  background: #000000;
+.skills-grid::after {
+  content: '';
+  display: block;
+  border-bottom: 2px solid #000000;
+  width: 100%;
 }
 
 .skill-number {
-  position: absolute;
-  top: 1.5rem;
-  left: 2rem;
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-size: clamp(3rem, 7vw, 6rem);
   font-weight: 900;
-  color: #ffffff;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  z-index: 2;
+  color: #000000 !important;
+  line-height: 0.8;
+  letter-spacing: -3px;
+  min-width: 140px;
 }
 
 .skill-content {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  padding: 6rem 2rem 2rem;
-  flex: 1;
-  justify-content: flex-end;
+  gap: 8px;
+  padding: 0;
+  margin-top: 5px;
+  max-width: 600px;
 }
 
 .skill-title-item {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #ffffff;
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  font-weight: 900;
+  color: #000000 !important;
   margin: 0;
-  line-height: 1.3;
-  transition: color 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  line-height: 1.2;
 }
 
 .skill-description {
-  display: block;
-  font-size: 0.75rem;
-  line-height: 1.5;
-  letter-spacing: -0.01em;
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #000000 !important;
+  font-weight: 500;
   margin: 0;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(15px);
-  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
-}
-
-.skill-item:hover .skill-description {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.skill-image {
-  display: none;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
 }
 
 /* ============================================ */
-/* RESPONSIVIDADE */
+/* RESPONSIVIDADE CORRIGIDA (STACK CARD ATIVO) */
 /* ============================================ */
-
-@media (max-width: 1600px) {
-  .skills-header {
-    grid-template-columns: 1.5fr 1fr;
-  }
-  
-  .skills-nav-links {
-    display: none;
-  }
-
-  .skills-container {
-    padding: 2rem;
-  }
-
-  .skills-title {
-    font-size: 6rem;
-  }
-
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-
-  .skill-item {
-    height: 300px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .skills-header {
-    grid-template-columns: 1.5fr 1fr;
-  }
-  
-  .skills-nav-links {
-    display: none;
-  }
-
-  .skills-container {
-    padding: 2rem;
-  }
-
-  .skills-title {
-    font-size: 4.5rem;
-  }
-
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-
-  .skill-item {
-    height: 280px;
-  }
-
-  .skill-number {
-    font-size: 2.5rem;
-  }
-
-  .skill-title-item {
-    font-size: 1.1rem;
-  }
-
-  .skill-description {
-    font-size: 0.7rem;
-  }
-}
 
 @media (max-width: 768px) {
+  :root {
+    /* Diminui a distância do topo no mobile porque o cabeçalho fica menor */
+    --header-offset: 100px; 
+  }
+
+  .skills-container {
+    padding: 2rem 1.5rem;
+    gap: 2.5rem;
+  }
+
   .skills-header {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 1.5rem;
+    position: relative;
   }
 
   .skills-counter {
-    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
   }
 
-  .skills-title {
-    font-size: 3rem;
+  .skills-nav-links {
+    position: absolute;
+    right: 0;
+    top: 0;
+    align-items: flex-end;
   }
 
-  .skills-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
+  /* Mantém o display flex horizontal para não quebrar o layout do card */
   .skill-item {
-    height: 240px;
+    display: flex;
+    flex-direction: row; 
+    gap: 20px; 
+    padding: 20px 0;
   }
 
   .skill-number {
-    font-size: 2rem;
-    top: 1rem;
-    left: 1.5rem;
+    min-width: 60px;
+    font-size: 2.5rem;
   }
 
   .skill-content {
-    padding: 5rem 1.5rem 1.5rem;
-  }
-
-  .skill-title-item {
-    font-size: 1rem;
-  }
-
-  .skill-description {
-    font-size: 0.65rem;
+    margin-top: 0;
   }
 }
 
 @media (max-width: 430px) {
-  .skills-title {
-    font-size: 2rem;
+  :root {
+    --header-offset: 140px; /* Ajuste fino para telas ultra estreitas */
   }
-
-  .skills-container {
-    padding: 1.5rem;
-    gap: 3rem;
-  }
-
-  .skills-header {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .skills-counter {
-    font-size: 0.75rem;
-  }
-
-  .skills-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .skill-item {
-    height: 220px;
-  }
-
-  .skill-number {
-    font-size: 1.75rem;
-    top: 1rem;
-    left: 1rem;
-  }
-
-  .skill-content {
-    padding: 4.5rem 1rem 1rem;
-  }
-
-  .skill-title-item {
-    font-size: 0.9rem;
-  }
-
-  .skill-description {
-    font-size: 0.6rem;
+  
+  .skills-nav-links {
+    display: none; /* Esconde o menu apenas em telas muito pequenas para dar espaço ao título */
   }
 }
