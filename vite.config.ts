@@ -10,4 +10,12 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] })
   ],
+  optimizeDeps: {
+    entries: [],
+  },
+  server: {
+    fs: {
+      strict: false
+    }
+  }
 })
