@@ -259,37 +259,35 @@
 
   .about-container {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
     padding: 0 1.5rem;
     height: auto;
   }
 
   .about-content {
-    gap: 1.25rem;
     max-width: 100%;
     padding-top: 0;
   }
 
   .about-title {
-    font-size: clamp(2.25rem, 6vw, 3.5rem);
+    font-size: 4rem;
   }
 
   .about-description {
     font-size: 0.9rem;
     line-height: 1.6;
+    
   }
-
-
   }
 
   /* Responsive image sizing for tablet */
   .about-image {
     width: 100%;
     height: 90vh;
+    margin-top: 3rem;
   }
 
   .about-image img {
-    margin-top: 1rem;
+    margin-top: 3rem;
     width: 100%;
     height: 100vh;
     aspect-ratio: 16 / 9; 
@@ -314,8 +312,139 @@
   }
 
 
-/* Celulares Pequenos (Abaixo de 480px) */
-@media (max-width: 390px) {
+/* Celulares com 430px (iPhone 14 Pro Max e similares) */
+@media (max-width: 430px) {
+  .about-section {
+    width: 100%;
+    height: auto;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    overflow: hidden;
+    padding: 1.5rem 0;
+  }
+
+  .about-container {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start; 
+    height: auto;
+    position: relative;
+    z-index: 1;
+    padding: 0 1rem;
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 0;
+    gap: 0.75rem;
+    max-width: 100%;
+    padding-top: 0;
+    width: 100%;
+  }
+
+  .about-title {
+    font-family: var(--font-display);
+    font-size: 3rem !important;
+    font-weight: 800;
+    color: #000000;
+    margin-top: 0;
+    text-transform: uppercase;
+    text-align: left;
+  }
+
+  .about-description {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    color: #1a1a1a;
+    margin: 0;
+    font-weight: 400;
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .about-cta {
+    display: flex;
+    width: 50%;
+    margin-top: 1rem;
+  }
+
+  .about-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 72px !important;
+    min-height: 48px;
+    border-radius: 999px;
+    background-color: #000;
+    color: #fff;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    padding: 0 1rem;
+    white-space: nowrap;
+    flex: 1;
+  }
+
+  .about-button-text {
+    display: inline-block;
+    color: #ffffff;
+    align-self: center;
+    font-weight: 600;
+  }
+
+  .about-button-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    border-radius: 999px;
+    color: #ffffff;
+    margin-left: 1rem;
+    flex-shrink: 0;
+    box-shadow: 0 8px 32px rgba(255, 59, 48, 0.22);
+  }
+
+  .about-button-circle:hover {
+    background-color: #ffffff;
+    color: var(--bg-color);
+  }
+
+  .about-button-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .about-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 80vh;
+    position: relative;
+    margin-top: 1rem;
+  }
+
+  .about-image img {
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+    object-position: center;
+    max-height: 300px;
+  }
+}
   .about-section {
     height: auto !important;
     min-height: auto;
@@ -371,7 +500,7 @@
     width: 18px;
     height: 18px;
   }
-}
+
 
 /* ==========================================================================
    ACESSIBILIDADE E PREFERÊNCIAS DO SISTEMA
