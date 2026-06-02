@@ -17,7 +17,7 @@ export const ContactSection: React.FC = () => {
           {/* TOPO DA COLUNA ESQUERDA: TÍTULO PRINCIPAL */}
           <div className="contact-brand">
             <h1 className="contact-title">
-              LET'S WORK<br />TOGETHER
+              LET'S WORK<span className="contact-mark">®</span><br />TOGETHER
             </h1>
           </div>
 
@@ -29,10 +29,12 @@ export const ContactSection: React.FC = () => {
           {/* BASE DA COLUNA ESQUERDA: TEXTOS DESCRITIVOS */}
           <div className="contact-content">
             <h2 className="contact-headline">
-              Designing intuitive digital experiences where clarity meets purpose.
+              Tired of generic design? Let’s build something people actually care about.
             </h2>
             <p className="contact-description">
-              Sou tudo o que sua empresa precisa e até um pouco mais.
+              I skip the fluff and focus on what works: clean aesthetics, bulletproof usability,
+              and design that drives revenue. You are not just hiring a designer; you’re
+              gaining a partner who values your business growth.
             </p>
           </div>
 

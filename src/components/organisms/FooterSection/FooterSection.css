@@ -100,6 +100,7 @@
 
 .footer-social {
   display: flex;
+  margin-top: 1rem;
   gap: 1rem;
   align-items: center;
 }

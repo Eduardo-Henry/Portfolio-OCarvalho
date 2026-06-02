@@ -398,7 +398,7 @@
     justify-content: flex-start !important; /* Alinha o bloco do botão à esquerda */
   }
 
-  /* BOTÃO COM 50% DA LARGURA DA TELA, CONTEÚDO UNIDO */
+  /* BOTÃO COM 40% DA LARGURA DA TELA, CONTEÚDO UNIDO */
   .about-button {
     display: inline-flex !important;
     align-items: center !important;
@@ -407,7 +407,7 @@
     
     height: 68px !important;
     min-height: 68px !important;
-    width: 50% !important; 
+    width: 40% !important; 
     min-width: 160px !important; 
     border-radius: 999px;
     background-color: #000000 !important;

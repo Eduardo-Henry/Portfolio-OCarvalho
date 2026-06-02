@@ -98,8 +98,8 @@ export const FooterSection: React.FC = () => {
           {/* Contact Column */}
           <div className="footer-column">
             <h4 className="footer-title">CONTACT</h4>
-            <a href="mailto:hello@eduardo.design" className="footer-email">
-              hello@eduardo.design
+            <a href="mailto:du.h.c.oliveira17@gmail.com" className="footer-email">
+              du.h.c.oliveira17@gmail.com
             </a>
           </div>
         </div>
