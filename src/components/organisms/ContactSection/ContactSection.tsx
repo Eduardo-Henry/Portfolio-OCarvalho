@@ -1,6 +1,5 @@
 import React from 'react';
 import { MdDownload } from 'react-icons/md';
-import { Button } from '../../atoms';
 import './ContactSection.css';
 import Image3D from '../../../assets/images/Image3D.png';
 
@@ -39,9 +38,7 @@ export const ContactSection: React.FC = () => {
 
           {/* BASE DA COLUNA DIREITA: OS DOIS BOTÕES PAREADOS */}
           <div className="contact-cta-wrapper">
-            <Button
-              variant="secondary"
-              size="large"
+            <button
               className="contact-cv-button"
               aria-label="Download CV"
               onClick={() => {
@@ -53,13 +50,14 @@ export const ContactSection: React.FC = () => {
                 document.body.removeChild(link);
               }}
             >
-              <MdDownload className="contact-cv-icon" />
+              {/* O círculo agora engloba o ícone sem quebrar a classe interna */}
+              <span className="contact-cv-circle-wrapper">
+                <MdDownload className="contact-cv-icon" />
+              </span>
               <span className="contact-cv-text">Download CV</span>
-            </Button>
+            </button>
 
-            <Button
-              variant="primary"
-              size="large"
+            <button
               onClick={handleContactClick}
               className="contact-button"
               aria-label="Get in touch"
@@ -76,7 +74,7 @@ export const ContactSection: React.FC = () => {
                   <path d="M7 17L17 7M17 7H7M17 7V17" />
                 </svg>
               </span>
-            </Button>
+            </button>
           </div>
 
         </div>
