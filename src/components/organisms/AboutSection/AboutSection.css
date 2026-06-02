@@ -330,129 +330,202 @@
   }
 }
 
-/* ============================================================ */
-/* CELULARES ATÉ 430PX (IPHONE 14 PRO MAX, MI NOTE 13, ETC)      */
-/* ============================================================ */
-/* ============================================================ */
-/* CELULARES ATÉ 430PX (IPHONE 14 PRO MAX, MI NOTE 13, ETC)      */
-/* ============================================================ */
-@media (max-width: 430px) {
+/* ==========================================================================
+   1. LAPTOPS / NOTEBOOKS (Abaixo de 1600px)
+   ========================================================================== */
+@media (max-width: 1600px) {
   .about-section {
     width: 100%;
-    height: auto !important; 
-    background: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    position: relative;
-    overflow: hidden;
-    padding: 2rem 0;
-  }
-
-  .about-container {
-    width: 100% !important;        /* Força ocupar toda a largura disponível */
-    max-width: 100%;    /* Centraliza o bloco pai na tela para alinhar com o cabeçalho */
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    justify-content: flex-start !important; /* Alinha o conteúdo ao topo */
     height: auto;
-    position: relative;
-    z-index: 1;
-    padding: 0 1rem;               /* Mantém o espaçamento seguro nas bordas da tela */
+    min-height: 90vh; /* Altura confortável para notebooks sem soterrar o conteúdo */
+    padding: 5rem 0;
+    display: flex;
+    align-items: center;
     box-sizing: border-box;
   }
 
-  .about-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;/* Trava todo o conteúdo textual à esquerda */
-    gap: 0.75rem;
+  .about-container {
     width: 100%;
-    text-align: left !important;
+    max-width: 1320px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr; /* Dá um pouco mais de espaço para o texto */
+    gap: 3.5rem;
+    padding: 0 3.5rem; /* Alinhamento lateral do grid nessa faixa */
+    box-sizing: border-box;
   }
 
   .about-title {
-    font-family: var(--font-display);
-    font-size: 2.2rem !important; 
-    font-weight: 800;
-    color: #000000;
-    text-transform: uppercase;
-    text-align: left !important;/* Fixa o título na esquerda */
+    font-size: 3rem;
   }
 
   .about-description {
-    font-size: 0.85rem;
-    line-height: 1.55;
-    letter-spacing: -0.01em;
-    color: #1a1a1a;
-    font-weight: 400;
-    width: 100%;
+    font-size: 1.05rem;
+    line-height: 1.6;
   }
 
-  /* CONTAINER DO BOTÃO - TRAVADO À ESQUERDA */
+  .about-image {
+    width: 100%;
+    height: 60vh; /* Mantém a imagem proporcional à altura da tela do notebook */
+    max-height: 520px;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+}
+
+/* ==========================================================================
+   2. TABLETS HORIZONTAL / TELAS MÉDIAS (Abaixo de 1024px)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .about-section {
+    padding: 4rem 0;
+    min-height: auto;
+  }
+
+  .about-container {
+    gap: 3rem;
+    padding: 0 2.5rem;
+  }
+
+  .about-title {
+    font-size: 2.6rem;
+  }
+
+  .about-image {
+    height: 45vh;
+  }
+}
+
+/* ==========================================================================
+   3. MOBILE E TELAS PEQUENAS (Abaixo de 767px) - O seu perfeito original
+   ========================================================================== */
+@media (max-width: 767px) {
+  .about-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important; 
+    background: #ffffff !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 3rem 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .about-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: none !important; /* Desfaz o grid do desktop */
+    gap: 2.5rem !important;
+    padding: 0 1.5rem !important; /* Seu alinhamento milimétrico com o 'E' de Eduardo */
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .about-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 1.25rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .about-title {
+    font-family: var(--font-display) !important;
+    font-size: 3rem !important; 
+    font-weight: 800 !important;
+    color: #000000 !important;
+    text-transform: uppercase !important;
+    text-align: left !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  .about-description {
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+    letter-spacing: -0.01em !important;
+    color: #1a1a1a !important;
+    font-weight: 400 !important;
+    text-align: left !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    word-break: break-word !important;
+  }
+
   .about-cta {
     display: flex !important;
     width: 100% !important; 
-    margin-top: 1rem;
-    justify-content: flex-start !important; /* Alinha o bloco do botão à esquerda */
+    margin-top: 0.5rem !important;
+    justify-content: flex-start !important;
+    padding: 0 !important;
   }
 
-  /* BOTÃO COM 40% DA LARGURA DA TELA, CONTEÚDO UNIDO */
   .about-button {
     display: inline-flex !important;
     align-items: center !important;
-    justify-content: center !important; /* Mantém o texto e a seta unidos no meio dos 50% */
-    gap: 0.5rem !important;             /* Distância entre texto e círculo */
-    
-    height: 68px !important;
-    min-height: 68px !important;
-    width: 40% !important; 
-    min-width: 160px !important; 
-    border-radius: 999px;
+    justify-content: space-between !important;
+    gap: 1.5rem !important;
+    height: 58px !important;
+    width: auto !important; 
+    min-width: 190px !important; 
+    border-radius: 999px !important;
     background-color: #000000 !important;
     color: #ffffff !important;
-    font-size: 0.65rem !important;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    padding: 0 1rem !important; 
-    white-space: nowrap;
+    font-size: 0.75rem !important;
+    text-transform: uppercase !important;
+    border: none !important;
+    cursor: pointer !important;
+    padding: 0 0.5rem 0 1.5rem !important; 
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
   }
 
   .about-button-text {
-    display: inline-block;
-    color: #ffffff;
-    font-weight: 700;
+    color: #ffffff !important;
+    font-weight: 700 !important;
   }
 
   .about-button-circle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px !important; 
-    height: 36px !important;
-    background: var(--primary-color, #ff3b30);
-    border-radius: 50%;
-    color: #ffffff;
-    flex-shrink: 0;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 42px !important; 
+    height: 42px !important;
+    background: var(--primary-color, #ff3b30) !important;
+    border-radius: 50% !important;
+    color: #ffffff !important;
+    flex-shrink: 0 !important;
   }
 
   .about-button-icon {
-    width: 12px !important;
-    height: 12px !important;
+    width: 14px !important;
+    height: 14px !important;
   }
 
-  /* IMAGEM COM 80VH DE ALTURA */
   .about-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex !important;
     width: 100% !important;
-    height: 80vh !important; 
-    max-height: none !important; 
-    position: relative;
-    margin-top: 2rem;
+    max-width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4 / 3 !important; /* Altura mobile baseada em proporção física */
+    margin: 1rem 0 0 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
   }
 
   .about-image img {
@@ -460,8 +533,153 @@
     height: 100% !important; 
     object-fit: cover !important; 
     object-position: center !important;
-    border-radius: 8px; 
   }
 }
+/* ============================================================ */
+/* CELULARES ATÉ 430PX (IPHONE 14 PRO MAX, MI NOTE 13, ETC)      */
+/* ============================================================ */
+@media (max-width: 430px) {
+  /* CONTAINER PAI DA SEÇÃO */
+  .about-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important; 
+    background: #ffffff !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 3rem 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
 
+  /* CONTÊINER INTERNO - ALINHAMENTO LATERAL */
+  .about-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2.5rem !important;
+    padding: 0 1.5rem !important; /* Ajuste exato para alinhar com o 'E' de Eduardo */
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
 
+  /* BLOCO DE TEXTO */
+  .about-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 1.25rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* TÍTULO ABOUT ME */
+  .about-title {
+    font-family: var(--font-display) !important;
+    font-size: 3rem !important; 
+    font-weight: 800 !important;
+    color: #000000 !important;
+    text-transform: uppercase !important;
+    text-align: left !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  /* PARÁGRAFO CORPO */
+  .about-description {
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+    letter-spacing: -0.01em !important;
+    color: #1a1a1a !important;
+    font-weight: 400 !important;
+    text-align: left !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    word-break: break-word !important; /* Evita quebra para fora da tela */
+  }
+
+  /* CONTAINER DO BOTÃO */
+  .about-cta {
+    display: flex !important;
+    width: 100% !important; 
+    margin-top: 0.5rem !important;
+    justify-content: flex-start !important;
+    padding: 0 !important;
+  }
+
+  /* BOTÃO RESPONSIVO */
+  .about-button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 1.5rem !important;
+    
+    height: 58px !important;
+    width: auto !important; 
+    min-width: 190px !important; 
+    border-radius: 999px !important;
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    font-size: 0.75rem !important;
+    text-transform: uppercase !important;
+    border: none !important;
+    cursor: pointer !important;
+    padding: 0 0.5rem 0 1.5rem !important; 
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+  }
+
+  .about-button-text {
+    color: #ffffff !important;
+    font-weight: 400 !important;
+  }
+
+  .about-button-circle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 42px !important; 
+    height: 42px !important;
+    background: var(--primary-color, #ff3b30) !important;
+    border-radius: 50% !important;
+    color: #ffffff !important;
+    flex-shrink: 0 !important;
+  }
+
+  .about-button-icon {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  /* IMAGEM DO DESIGNER */
+  .about-image {
+    display: flex !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4 / 3 !important; /* Mantém proporção perfeita no mobile */
+    margin: 1rem 0 0 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+  }
+
+  .about-image img {
+    width: 100% !important;
+    height: 100% !important; 
+    object-fit: cover !important; 
+    object-position: center !important;
+  }
+}
