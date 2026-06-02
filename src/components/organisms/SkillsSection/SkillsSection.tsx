@@ -57,7 +57,7 @@ export const SkillsSection: React.FC = () => {
 
             // Função de easing para suavizar a chegada no número final
             const easeOutQuad = (t: number) => t * (2 - t);
-            const currentCount = Math.floor(easeOutQuad(progress) * targetCount);
+            const currentCount = Math.floor(start + easeOutQuad(progress) * (targetCount - start));
 
             setCount(currentCount);
 
