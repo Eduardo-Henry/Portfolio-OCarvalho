@@ -1,7 +1,8 @@
+//import { useNavigate } from 'react-router-dom';
 import React, { useState, useEffect, useRef } from 'react';
 import './CaseStudiesSection.css';
 // No topo do arquivo, adicione:
-import { useNavigate } from 'react-router-dom';
+
 
 import { NavPill, Carousel } from '../../molecules';
 import TIHelpImg from '../../../assets/images/TIHelp.png';
