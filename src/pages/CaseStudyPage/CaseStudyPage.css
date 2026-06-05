@@ -80,14 +80,129 @@
   color: #666;
 }
 
-.design-showcase {
-  background: #f9f9f9;
-  padding: 80px 40px;
-  border-radius: 12px;
-  text-align: center;
-  color: #999;
-  font-style: italic;
+/* ── Final Design hover ── */
+
+.project-image-wrapper {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #1a1a1a;
 }
+
+.project-image-wrapper img {
+  width: 100%;
+  display: block;
+  border-radius: 16px;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.project-image-wrapper:hover img {
+  transform: scale(1.03);
+  opacity: 0.35;
+}
+
+.project-image-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.project-image-wrapper:hover .project-image-overlay {
+  opacity: 1;
+}
+
+/* Botão Watch Prototype */
+.btn-watch {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #000;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  padding: 14px 28px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-watch:hover {
+  background: #222;
+}
+
+.play-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.play-icon::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 9px;
+  border-color: transparent transparent transparent #fff;
+  margin-left: 2px;
+}
+
+/* Botão See entire project */
+.btn-see {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 28px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-see:hover {
+  background: #f0f0f0;
+}
+
+.arrow-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #e8302a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.arrow-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ── Restante ── */
 
 .decisions-list {
   list-style: none;
@@ -138,5 +253,16 @@
 
   .personas-grid {
     grid-template-columns: 1fr;
+  }
+
+  .project-image-overlay {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn-watch,
+  .btn-see {
+    font-size: 13px;
+    padding: 12px 20px;
   }
 }

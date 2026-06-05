@@ -8,7 +8,6 @@ export const CaseStudyPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
-  // Dados simulados dos case studies
   const caseStudies: { [key: string]: any } = {
     '1': {
       title: 'TI Help',
@@ -27,7 +26,10 @@ export const CaseStudyPage: React.FC = () => {
         'Opção de vídeo chamada integrada'
       ],
       impact: 'Redução de 45% no tempo médio de resolução, aumento de 4.7/5 na satisfação',
-      reflection: 'O projeto mostrou a importância de validar decisões com usuários reais durante o processo.'
+      reflection: 'O projeto mostrou a importância de validar decisões com usuários reais durante o processo.',
+      image: 'https://placehold.co/900x500/1a1a1a/ffffff?text=TI+Help',
+      prototypeUrl: '#',
+      projectUrl: '#'
     },
     '2': {
       title: 'Solar Panel Monitoring',
@@ -46,7 +48,10 @@ export const CaseStudyPage: React.FC = () => {
         'Comparativo com consumo anterior'
       ],
       impact: 'Aumentou engajamento de usuários em 200%, reduziu chamadas de suporte em 60%',
-      reflection: 'Simplicidade visual foi mais importante que completude de dados para este público.'
+      reflection: 'Simplicidade visual foi mais importante que completude de dados para este público.',
+      image: 'https://placehold.co/900x500/1a1a1a/ffffff?text=Solar+Panel',
+      prototypeUrl: '#',
+      projectUrl: '#'
     },
     '3': {
       title: 'DN Jeans',
@@ -65,7 +70,10 @@ export const CaseStudyPage: React.FC = () => {
         'Checkout simplificado em 3 passos'
       ],
       impact: 'Conversão aumentou 42%, devoluções caíram para 12%',
-      reflection: 'O guia visual de tamanho foi o diferencial mais impactante para reduzir devoluções.'
+      reflection: 'O guia visual de tamanho foi o diferencial mais impactante para reduzir devoluções.',
+      image: 'https://placehold.co/900x500/1a1a1a/ffffff?text=DN+Jeans',
+      prototypeUrl: '#',
+      projectUrl: '#'
     },
     '4': {
       title: 'Real State Platform',
@@ -84,7 +92,10 @@ export const CaseStudyPage: React.FC = () => {
         'Recomendações personalizadas'
       ],
       impact: 'Market share cresceu 25% em 6 meses',
-      reflection: 'A integração de IA foi crucial, mas UX clara foi igualmente importante.'
+      reflection: 'A integração de IA foi crucial, mas UX clara foi igualmente importante.',
+      image: 'https://placehold.co/900x500/1a1a1a/ffffff?text=Real+State',
+      prototypeUrl: '#',
+      projectUrl: '#'
     },
     '5': {
       title: 'Yacht Booking',
@@ -103,7 +114,10 @@ export const CaseStudyPage: React.FC = () => {
         'Gestos intuitivos premium'
       ],
       impact: 'Bookings cresceram 180%, ticket médio aumentou 45%',
-      reflection: 'Menos é mais: design limpo comunica qualidade melhor que informação em excesso.'
+      reflection: 'Menos é mais: design limpo comunica qualidade melhor que informação em excesso.',
+      image: 'https://placehold.co/900x500/1a1a1a/ffffff?text=Yacht+Booking',
+      prototypeUrl: '#',
+      projectUrl: '#'
     }
   };
 
@@ -112,10 +126,7 @@ export const CaseStudyPage: React.FC = () => {
   return (
     <MainLayout>
       <div className="case-study-page">
-        <button 
-          onClick={() => navigate('/')}
-          className="back-button"
-        >
+        <button onClick={() => navigate('/')} className="back-button">
           ← Voltar
         </button>
 
@@ -124,38 +135,32 @@ export const CaseStudyPage: React.FC = () => {
         </header>
 
         <main className="case-study-content">
-          
-          {/* Overview */}
+
           <section className="case-study-section">
             <h2>Overview</h2>
             <p>{project.overview}</p>
           </section>
 
-          {/* Challenge */}
           <section className="case-study-section">
             <h2>Challenge</h2>
             <p>{project.challenge}</p>
           </section>
 
-          {/* Research & Inspiration */}
           <section className="case-study-section">
             <h2>Research & Inspiration</h2>
             <p>{project.research}</p>
           </section>
 
-          {/* Design Goals */}
           <section className="case-study-section">
             <h2>Design Goals</h2>
             <p>{project.goals}</p>
           </section>
 
-          {/* Process */}
           <section className="case-study-section">
             <h2>Process</h2>
             <p>{project.process}</p>
           </section>
 
-          {/* Personas */}
           <section className="case-study-section">
             <h2>Personas</h2>
             <div className="personas-grid">
@@ -168,15 +173,38 @@ export const CaseStudyPage: React.FC = () => {
             </div>
           </section>
 
-          {/* Final Design */}
+          {/* Final Design com hover */}
           <section className="case-study-section">
             <h2>Final Design</h2>
-            <div className="design-showcase">
-              <p>Protótipos e designs finais em breve...</p>
+            <div className="project-image-wrapper">
+              <img
+                src={project.image}
+                alt={`${project.title} design`}
+              />
+              <div className="project-image-overlay">
+                <button
+                  className="btn-watch"
+                  onClick={() => window.open(project.prototypeUrl, '_blank')}
+                >
+                  <span className="play-icon" />
+                  Watch Prototype
+                </button>
+                <button
+                  className="btn-see"
+                  onClick={() => window.open(project.projectUrl, '_blank')}
+                >
+                  See entire project
+                  <span className="arrow-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <line x1="7" y1="17" x2="17" y2="7" />
+                      <polyline points="7 7 17 7 17 17" />
+                    </svg>
+                  </span>
+                </button>
+              </div>
             </div>
           </section>
 
-          {/* Key Decisions */}
           <section className="case-study-section">
             <h2>Key Decisions</h2>
             <ul className="decisions-list">
@@ -186,13 +214,11 @@ export const CaseStudyPage: React.FC = () => {
             </ul>
           </section>
 
-          {/* Expected Impact */}
           <section className="case-study-section">
             <h2>Expected Impact</h2>
             <p>{project.impact}</p>
           </section>
 
-          {/* Reflection */}
           <section className="case-study-section">
             <h2>Reflection</h2>
             <p>{project.reflection}</p>
@@ -201,11 +227,7 @@ export const CaseStudyPage: React.FC = () => {
         </main>
 
         <div className="case-study-footer">
-          <Button 
-            variant="primary"
-            size="large"
-            onClick={() => navigate('/')}
-          >
+          <Button variant="primary" size="large" onClick={() => navigate('/')}>
             Ver Mais Projetos
           </Button>
         </div>
@@ -213,3 +235,5 @@ export const CaseStudyPage: React.FC = () => {
     </MainLayout>
   );
 };
+
+export default CaseStudyPage;
