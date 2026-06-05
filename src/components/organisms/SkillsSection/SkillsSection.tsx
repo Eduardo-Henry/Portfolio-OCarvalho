@@ -5,33 +5,30 @@ interface Skill {
   id: number;
   number: string;
   title: string;
-  description: string;
 }
 
 const skills: Skill[] = [
   {
     id: 1,
     number: '01',
-    title: 'Sou tudo o que sua empresa',
-    description: 'precisa e até um pouco mais.',
+    title: 'UX Research & Strategy',
+   
   },
   {
     id: 2,
     number: '02',
-    title: 'Sou tudo o que sua empresa',
-    description: 'precisa e até um pouco mais.',
+    title: 'UI Design',
+    
   },
   {
     id: 3,
     number: '03',
-    title: 'Sou tudo o que sua empresa',
-    description: 'precisa e até um pouco mais.',
+    title: 'Architecture & Wireframing',
   },
   {
     id: 4,
     number: '04',
-    title: 'Sou tudo o que sua empresa',
-    description: 'precisa e até um pouco mais.',
+    title: 'User Testing',
   },
 ];
 
