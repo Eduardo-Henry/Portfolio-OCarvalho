@@ -1,25 +1,20 @@
-//import { useNavigate } from 'react-router-dom';
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './CaseStudiesSection.css';
-// No topo do arquivo, adicione:
-
 
 import { NavPill, Carousel } from '../../molecules';
 import TIHelpImg from '../../../assets/images/TIHelp.png';
 import SolarPanelImg from '../../../assets/images/SolarPanel.png';
 import DNJeansImg from '../../../assets/images/DNJeans.png';
-/* NOVAS IMPORTAÇÕES DE IMAGENS */
 import RealStateImg from '../../../assets/images/RealState.png';
 import YatchImg from '../../../assets/images/Yatch.jpeg';
 
-/* IMPORTAÇÕES DE VÍDEOS */
 import HappyEasterVideo from '../../../assets/Videos/HappyEaster.mp4';
 import OtavioVideo from '../../../assets/Videos/Otavio.mp4';
 import SalesVideo from '../../../assets/Videos/Sales.mp4';
 import TrevoElvisVideo from '../../../assets/Videos/TrevoElvis.mp4';
 import StreetsVideos from '../../../assets/Videos/StreetsRP.mp4';
 
-/* IMPORTAÇÕES DE IMAGENS PARA O CARROSSEL - DESIGN SOCIAL MEDIA */
 import CeiaDoFortalecimentoImg from '../../../assets/images/CeiaDoFortalecimento.jpg';
 import ColiseuImg from '../../../assets/images/coliseu.jpg';
 import CordeiroCoroaImg from '../../../assets/images/CordeiroCoroa.jpg';
@@ -42,6 +37,7 @@ import SantaCeiaOusadoAmorImg from '../../../assets/images/SantaCeiaOusadoAmor.j
 interface CaseStudy {
   id: string;
   image: string;
+  prototypeUrl?: string;
 }
 
 interface Video {
@@ -56,11 +52,11 @@ interface CaseStudiesSectionProps {
 }
 
 const defaultCaseStudies: CaseStudy[] = [
-  { id: '1', image: TIHelpImg },
-  { id: '2', image: SolarPanelImg },
-  { id: '3', image: DNJeansImg },
-  { id: '4', image: RealStateImg },
-  { id: '5', image: YatchImg },
+  { id: '1', image: TIHelpImg, prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/Gilberto---Pain%C3%A9is-Solares?node-id=10-172&p=f&m=draw&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=70%3A299' },
+  { id: '2', image: SolarPanelImg, prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/Gilberto---Pain%C3%A9is-Solares?node-id=10-172&p=f&m=draw&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=70%3A299' },
+  { id: '3', image: DNJeansImg, prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/Gilberto---Pain%C3%A9is-Solares?node-id=10-172&p=f&m=draw&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=70%3A299' },
+  { id: '4', image: RealStateImg, prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/Gilberto---Pain%C3%A9is-Solares?node-id=10-172&p=f&m=draw&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=70%3A299' },
+  { id: '5', image: YatchImg, prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/Gilberto---Pain%C3%A9is-Solares?node-id=10-172&p=f&m=draw&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=70%3A299' },
 ];
 
 const defaultVideos: Video[] = [
@@ -83,15 +79,15 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
   caseStudies = defaultCaseStudies,
   videos = defaultVideos,
 }) => {
+  const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [mutedVideos, setMutedVideos] = useState<{ [key: string]: boolean }>(
     defaultVideos.reduce((acc, video) => ({ ...acc, [video.id]: true }), {})
   );
 
-  // Estados novos para a animação do contador de horas/projetos
   const [count, setCount] = useState<number>(0);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const targetCount = 52; // Alvo final da sua contagem de projetos
+  const targetCount = 52;
 
   useEffect(() => {
     const currentSection = sectionRef.current;
@@ -100,38 +96,28 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
       (entries) => {
         const [entry] = entries;
         if (entry.isIntersecting) {
-          const duration = 1500; // Tempo da animação (1.5 segundos)
+          const duration = 1500;
           const startTime = performance.now();
 
           const animate = (currentTime: number) => {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
-
-            // Easing suavizado (easeOutQuad)
             const easeOutQuad = (t: number) => t * (2 - t);
             const currentCount = Math.floor(easeOutQuad(progress) * targetCount);
-
             setCount(currentCount);
-
             if (progress < 1) {
               requestAnimationFrame(animate);
             }
           };
 
           requestAnimationFrame(animate);
-          // Executa uma vez e remove para não ficar reiniciando em todo scroll
           if (currentSection) observer.unobserve(currentSection);
         }
       },
-      {
-        threshold: 0.15, // Dispara ao avistar 15% da seção na tela
-      }
+      { threshold: 0.15 }
     );
 
-    if (currentSection) {
-      observer.observe(currentSection);
-    }
-
+    if (currentSection) observer.observe(currentSection);
     return () => {
       if (currentSection) observer.unobserve(currentSection);
     };
@@ -154,24 +140,35 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
     }));
   };
 
+  const handleWatchPrototype = (e: React.MouseEvent, prototypeUrl?: string) => {
+    e.stopPropagation();
+    if (prototypeUrl) {
+      window.open(prototypeUrl, '_blank');
+    }
+  };
+
+  const handleSeeProject = (e: React.MouseEvent, id: string) => {
+    e.stopPropagation();
+    navigate(`/case-studies/${id}`);
+  };
+
   return (
     <section className="case-studies-section" id="works" ref={sectionRef}>
       <div className="case-studies-container">
-        {/* Header da Seção */}
+
         <div className="case-studies-header">
           <div className="case-studies-title-wrapper">
-            <h2 className="case-studies-title">CASE STUDIES<span className="case-studies-mark">®</span></h2>
+            <h2 className="case-studies-title">
+              CASE STUDIES<span className="case-studies-mark">®</span>
+            </h2>
           </div>
-          {/* O valor dinâmico injetado aqui */}
           <div className="case-studies-counter">+{count} PROJECTS</div>
         </div>
 
-        {/* NavPill Filter */}
         <div className="case-studies-filter">
           <NavPill items={categories} onSelect={handleCategoryChange} />
         </div>
 
-        {/* Renderização condicional */}
         {selectedCategory === 'mobile' ? (
           <div className="case-studies-carousel-wrapper">
             <Carousel images={socialMediaCarouselImages} />
@@ -192,11 +189,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
                     muted={isMuted}
                     loop
                     playsInline
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                    }}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   >
                     <source src={video.src} type="video/mp4" />
                     Seu navegador não suporta o elemento de vídeo.
@@ -222,7 +215,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
                       alignItems: 'center',
                       gap: '6px',
                       backdropFilter: 'blur(4px)',
-                      transition: 'background 0.2s ease'
+                      transition: 'background 0.2s ease',
                     }}
                   >
                     {isMuted ? '🔈 Ativar Som' : '🔊 Mutar'}
@@ -243,10 +236,26 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                 }}
-              />
+              >
+                <div className="case-card__overlay">
+                  <button
+                    className="case-card__btn"
+                    onClick={(e) => handleWatchPrototype(e, caseStudy.prototypeUrl)}
+                  >
+                    Watch Prototype
+                  </button>
+                  <button
+                    className="case-card__btn case-card__btn--primary"
+                    onClick={(e) => handleSeeProject(e, caseStudy.id)}
+                  >
+                    See Project
+                  </button>
+                </div>
+              </div>
             ))}
           </div>
         )}
+
       </div>
     </section>
   );

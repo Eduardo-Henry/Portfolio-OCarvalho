@@ -2,15 +2,13 @@
 /* SEÇÃO DE ESTUDOS DE CASO (CASE STUDIES) */
 /* ============================================ */
 
-/* Garante o empilhamento correto e fundo sólido para não vazar as seções de trás */
 .sua-proxima-secao {
   position: relative;
-  z-index: 2; /* Mantém no mesmo nível do restante da página */
-  background-color: #ffffff; /* Evita transparências indesejadas */
+  z-index: 2;
+  background-color: #ffffff;
   width: 100%;
 }
 
-/* Container master da seção de trabalhos */
 .case-studies-section {
   width: 100%;
   background: #ffffff;
@@ -20,7 +18,6 @@
   padding-right: 1rem;
 }
 
-/* Container de alinhamento interno */
 .case-studies-container {
   width: 100%;
   max-width: 100%;
@@ -31,7 +28,6 @@
 /* TOPO / CABEÇALHO (HEADER) */
 /* ============================================ */
 
-/* Alinha o título no centro e o contador na lateral oposta */
 .case-studies-header {
   display: flex;
   align-items: center;
@@ -41,14 +37,12 @@
   padding: 0 1rem;
 }
 
-/* Envolve o título principal para centralizá-lo com flexbox */
 .case-studies-title-wrapper {
   flex: 1;
   display: flex;
   justify-content: center;
 }
 
-/* Título gigante e brutalista idêntico ao do print */
 .case-studies-title {
   font-family: var(--font-display), sans-serif;
   font-size: 10rem;
@@ -61,14 +55,12 @@
   text-align: center;
 }
 
-/* Símbolo de marca registrada posicionado no topo da palavra */
 .case-studies-mark {
   font-size: 0.55em;
   vertical-align: super;
   margin-left: 0.1em;
 }
 
-/* Contador (+52 PROJECTS) fixado no canto esquerdo superior */
 .case-studies-counter {
   position: absolute;
   left: 1rem;
@@ -86,19 +78,17 @@
 /* FILTRO / BOTÕES DE SELEÇÃO (NAVPILLS) */
 /* ============================================ */
 
-/* Centraliza o bloco de botões na tela */
 .case-studies-filter {
   display: flex;
   justify-content: center;
   margin-bottom: 3rem;
 }
 
-/* SELETOR INJETADO: Aumenta o padding e espaçamento interno de todos os botões do filtro */
 .case-studies-filter button,
 .case-studies-filter .nav-pill-item,
 .case-studies-filter [class*="pill"] {
-  padding: 1.2rem 2.5rem !important; /* Padding maior vertical e horizontal */
-  font-size: 1rem !important; /* Deixa o texto levemente mais legível e proporcional */
+  padding: 1.2rem 2.5rem !important;
+  font-size: 1rem !important;
   font-weight: 700 !important;
   transition: all 0.3s ease !important;
 }
@@ -107,15 +97,13 @@
 /* GRID LAYOUT E CARDS DE PROJETO */
 /* ============================================ */
 
-/* Estrutura de duas colunas coladas nas bordas para as imagens */
 .case-studies-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.5rem; /* Espaço milimétrico entre as colunas */
+  gap: 0.5rem;
   width: 100%;
 }
 
-/* Card base de cada estudo de caso */
 .case-study-card {
   position: relative;
   display: flex;
@@ -123,19 +111,17 @@
   height: 600px;
   border-radius: 8px;
   overflow: hidden;
-  background: #000000; 
+  background: #000000;
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   cursor: pointer;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
 }
 
-/* Efeito de elevação sutil no hover */
 .case-study-card:hover {
   transform: translateY(-12px);
   box-shadow: 0 32px 80px rgba(0, 0, 0, 0.2);
 }
 
-/* Controla o comportamento das imagens dentro do card */
 .case-study-card img {
   transition: opacity 0.4s ease;
   width: 100%;
@@ -143,12 +129,10 @@
   object-fit: cover;
 }
 
-/* Escurece a foto do projeto ao passar o mouse */
 .case-study-card:hover img {
   opacity: 0.4;
 }
 
-/* Camada escura de fundo para dar contraste aos textos */
 .case-study-overlay {
   position: absolute;
   inset: 0;
@@ -161,7 +145,6 @@
   opacity: 0.4;
 }
 
-/* Bloco de conteúdo flutuante do card */
 .case-study-content {
   position: relative;
   z-index: 2;
@@ -173,7 +156,6 @@
   gap: 1rem;
 }
 
-/* Título em destaque do projeto interno */
 .case-study-card-title {
   font-size: clamp(1.25rem, 2.5vw, 1.5rem);
   font-weight: 800;
@@ -183,7 +165,6 @@
   text-transform: uppercase;
 }
 
-/* Alinhamento das tags do projeto */
 .case-study-tags {
   display: flex;
   gap: 0.75rem;
@@ -191,7 +172,6 @@
   margin-top: 0.5rem;
 }
 
-/* Estilização das pílulas de tags internas */
 .case-study-tag {
   font-size: 0.75rem;
   font-weight: 700;
@@ -209,7 +189,6 @@
   opacity: 0.8;
 }
 
-/* Links sociais se houver no card */
 .case-study-socials {
   display: flex;
   gap: 1rem;
@@ -240,7 +219,6 @@
   height: 18px;
 }
 
-/* Rodapé interno do card com degradê para leitura confortável */
 .case-study-footer {
   position: relative;
   z-index: 2;
@@ -253,7 +231,6 @@
   margin-top: auto;
 }
 
-/* Texto de descrição oculto por padrão */
 .case-study-description {
   font-size: 0.9rem;
   line-height: 1.6;
@@ -267,7 +244,6 @@
   transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
 }
 
-/* Botão de chamada para ação interno do card */
 .case-study-button {
   display: inline-flex;
   align-items: center;
@@ -292,7 +268,6 @@
   transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease, background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Exibe elementos ocultos ao passar o mouse por cima do card */
 .case-study-card:hover .case-study-description {
   opacity: 1;
   visibility: visible;
@@ -326,7 +301,6 @@
   font-weight: 800;
 }
 
-/* Círculo com ícone dentro do botão */
 .case-study-button-circle {
   display: inline-flex;
   align-items: center;
@@ -354,7 +328,6 @@
   stroke-linejoin: round;
 }
 
-/* Container do carrossel (categoria Social Media) */
 .case-studies-carousel-wrapper {
   width: 100%;
   padding: 0 1rem;
@@ -365,127 +338,111 @@
 /* HOVER OVERLAY DOS CARDS DE UI DESIGN         */
 /* ============================================ */
 
-/* Overlay invisível por padrão — aparece no hover do card */
-.project-image-overlay {
+.case-card__overlay {
   position: absolute;
   inset: 0;
+  background: rgba(0, 0, 0, 0.55);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 16px;
   opacity: 0;
   transition: opacity 0.35s ease;
-  z-index: 3;
+  z-index: 4;
 }
 
-/* Exibe o overlay ao passar o mouse no card */
-.case-study-card:hover .project-image-overlay {
+.case-study-card:hover .case-card__overlay {
   opacity: 1;
 }
 
-/* Botão "Watch Prototype" — dark com borda branca */
-.btn-watch {
+.case-card__btn {
   display: flex;
   align-items: center;
-  gap: 12px;
-  background: #000;
-  color: #fff;
-  border: 2px solid #fff;
+  gap: 10px;
   border-radius: 50px;
   padding: 14px 28px;
   font-size: 15px;
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.2s ease;
   white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  border: 2px solid #ffffff;
+  background: transparent;
+  color: #ffffff;
 }
 
-.btn-watch:hover {
-  background: #222;
+.case-card__btn:hover {
+  background: #ffffff;
+  color: #000000;
+  transform: translateY(-2px);
 }
 
-/* Ícone de play circular dentro do botão Watch */
-.play-icon {
-  width: 28px;
-  height: 28px;
+.case-card__btn--primary {
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #ffffff;
+}
+
+.case-card__btn--primary:hover {
+  background: transparent;
+  color: #ffffff;
+}
+
+/* Ícone de play circular dentro do botão Watch Prototype */
+.case-card__play-icon {
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
-  border: 2px solid #fff;
+  border: 2px solid currentColor;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: border-color 0.2s ease;
 }
 
-/* Triângulo do play feito com border trick */
-.play-icon::after {
+.case-card__play-icon::after {
   content: '';
   display: block;
   width: 0;
   height: 0;
   border-style: solid;
   border-width: 5px 0 5px 9px;
-  border-color: transparent transparent transparent #fff;
+  border-color: transparent transparent transparent currentColor;
   margin-left: 2px;
 }
 
-/* Botão "See entire project" — light com círculo vermelho */
-.btn-see {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: #fff;
-  color: #1a1a1a;
-  border: none;
-  border-radius: 50px;
-  padding: 14px 28px;
-  font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.2s ease;
-  white-space: nowrap;
-}
-
-.btn-see:hover {
-  background: #f0f0f0;
-}
-
-/* Círculo vermelho com ícone de seta ↗ */
-.arrow-icon {
-  width: 36px;
-  height: 36px;
+/* Círculo vermelho com seta no botão See Project */
+.case-card__arrow-icon {
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: #e8302a;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: transform 0.2s ease;
 }
 
-.arrow-icon svg {
-  width: 16px;
-  height: 16px;
-  stroke: #fff;
+.case-card__btn--primary:hover .case-card__arrow-icon {
+  transform: scale(1.1);
+}
+
+.case-card__arrow-icon svg {
+  width: 14px;
+  height: 14px;
+  stroke: #ffffff;
   fill: none;
   stroke-width: 2.5;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
-/* Responsivo: empilha os botões em telas pequenas */
-@media (max-width: 600px) {
-  .project-image-overlay {
-    flex-direction: column;
-    gap: 12px;
-  }
+/* ============================================ */
+/* ANIMAÇÕES */
+/* ============================================ */
 
-  .btn-watch,
-  .btn-see {
-    font-size: 13px;
-    padding: 12px 20px;
-  }
-}
-
-/* Animação suave para transição das abas do filtro */
 @keyframes caseFadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -495,37 +452,35 @@
 /* RESPONSIVIDADE COMPLETA (MEDIA QUERIES) */
 /* ============================================ */
 
-/* Notebooks e Desktops Grandes */
 @media (min-width: 1025px) {
   .case-studies-section {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
-  
+
   .case-study-card {
     height: 650px;
   }
 }
 
-/* Tablets e Notebooks Pequenos (Landscape/Portrait) */
 @media (max-width: 1024px) {
   .case-studies-section {
     padding: 4rem 0.5rem;
   }
 
   .case-studies-header {
-    flex-direction: column; /* Alinha verticalmente elementos do topo */
+    flex-direction: column;
     align-items: center;
     gap: 1.5rem;
     margin-bottom: 3rem;
   }
 
   .case-studies-title {
-    font-size: 6.5rem; /* Ajuste proporcional do título principal */
+    font-size: 6.5rem;
   }
 
   .case-studies-counter {
-    position: static; /* Tira o posicionamento absoluto para não quebrar a linha */
+    position: static;
     width: 100%;
     text-align: center;
     padding-left: 0;
@@ -538,20 +493,23 @@
   }
 
   .case-study-card {
-    height: 480px; /* Reduz a altura dos cards em tablets */
+    height: 480px;
+  }
+
+  .case-card__btn {
+    padding: 12px 20px;
+    font-size: 13px;
   }
 }
 
-/* Mobile Geral (Smartphones) */
 @media (max-width: 768px) {
-  /* Remove paddings do container para colar os cards nas quinas */
   .case-studies-container {
     padding: 1rem 0;
   }
 
   .case-studies-section {
-    padding-left: 4px;  /* Margem esquerda ultra baixa (4px) */
-    padding-right: 4px; /* Margem direita ultra baixa (4px) */
+    padding-left: 4px;
+    padding-right: 4px;
   }
 
   .case-studies-title {
@@ -564,7 +522,6 @@
     margin-bottom: 2rem;
   }
 
-  /* --- Container do Filtro --- */
   .case-studies-filter {
     width: 100%;
     margin-bottom: 2.5rem;
@@ -572,44 +529,35 @@
     display: block !important;
   }
 
-  /* Força o container dos botões a virar um grid de 3 colunas perfeitas sem quebrar linha */
   .case-studies-filter > div,
   .case-studies-filter nav,
   .case-studies-filter .nav-pills-container {
     display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important; /* Divide a linha exatamente em 3 */
+    grid-template-columns: repeat(3, 1fr) !important;
     width: 100% !important;
-    gap: 4px !important; /* Espaço mínimo entre os botões */
+    gap: 4px !important;
     flex-wrap: nowrap !important;
   }
 
-  /* --- Configuração Rígida dos 3 Botões --- */
   .case-studies-filter button,
   .case-studies-filter .nav-pill-item,
   .case-studies-filter [class*="pill"] {
-    width: 100% !important;     /* Ocupa o espaço total da sua coluna do grid */
-    height: 44px !important;    /* Força os 24px (1.5rem) de altura desejados */
-    
-    /* Zera absolutamente todos os paddings e margens ocultas que causam o corte */
-    padding: 0 !important;  
+    width: 100% !important;
+    height: 44px !important;
+    padding: 0 !important;
     margin: 0 !important;
-    
-    font-size: 8px !important;  /* Tamanho exato para caber os textos longos */
+    font-size: 8px !important;
     font-weight: 700 !important;
-    
-    /* Alinhamento vertical perfeito por Flexbox (Zere o line-height para não dar conflito) */
     line-height: 1 !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    
-    white-space: nowrap !important; /* Impede o texto de quebrar para baixo */
-    overflow: visible !important;   /* Permite que o texto respire sem sofrer clipping */
+    white-space: nowrap !important;
+    overflow: visible !important;
     border-radius: 999px !important;
     box-sizing: border-box !important;
   }
 
-  /* Garante que qualquer tag interna (como span) herde o alinhamento central */
   .case-studies-filter button *,
   .case-studies-filter .nav-pill-item * {
     padding: 0 !important;
@@ -618,10 +566,9 @@
     display: inline !important;
   }
 
-  /* --- Grid Layout dos Cards --- */
   .case-studies-grid {
-    grid-template-columns: 1fr !important; /* Empilha os cards um embaixo do outro */
-    gap: 16px !important;                  /* Espaçamento vertical entre os cards */
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
     width: 100% !important;
   }
 
@@ -629,14 +576,40 @@
     height: 380px !important;
     border-radius: 6px !important;
   }
+
+  /* Overlay sempre visível em mobile (sem hover) */
+  .case-card__overlay {
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .case-study-card:active .case-card__overlay {
+    opacity: 1;
+  }
+
+  .case-card__btn {
+    padding: 10px 16px;
+    font-size: 12px;
+    gap: 8px;
+  }
+
+  .case-card__play-icon,
+  .case-card__arrow-icon {
+    width: 22px;
+    height: 22px;
+  }
 }
 
-/* Ajuste cirúrgico para telas de celulares menores (ex: abaixo de 390px) */
 @media (max-width: 390px) {
   .case-studies-filter button,
   .case-studies-filter .nav-pill-item,
   .case-studies-filter [class*="pill"] {
-    font-size: 7.2px !important; /* Diminui ligeiramente a fonte para não estourar as laterais */
-    height: 44px !important;     /* Mantém a altura elegante de 24px sem esticar para 42px */
+    font-size: 7.2px !important;
+    height: 44px !important;
+  }
+
+  .case-card__btn {
+    font-size: 11px;
+    padding: 8px 14px;
   }
 }
