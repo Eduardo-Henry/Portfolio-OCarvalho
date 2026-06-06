@@ -96,12 +96,7 @@ export const SkillsSection: React.FC = () => {
             +{count}<br />HOURS OF<br />STUDYING
           </div>
 
-          <nav className="skills-nav-links">
-            <span className="nav-item">HOME</span>
-            <span className="nav-item">ABOUT ME</span>
-            <span className="nav-item active">SKILLS</span>
-            <span className="nav-item">WORKS</span>
-          </nav>
+          
         </div>
 
         {/* Lista de Cards Stack */}

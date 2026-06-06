@@ -1,6 +1,6 @@
 import React from 'react';
 import './ClientsSection.css';
-import MyPhotoImg from '../../../assets/images/MyPhoto.png';
+import CoWorkerPhoto from '../../../assets/images/GuiPhoto.png';
 
 interface Client {
   id: number;
@@ -14,7 +14,7 @@ const clients: Client[] = [
     id: 1,
     name: 'Mark',
     location: 'Minnesota',
-    image: MyPhotoImg,
+    image: CoWorkerPhoto,
   },
 ];
 
@@ -28,12 +28,12 @@ export const ClientsSection: React.FC = () => {
         {/* Contador flutuante fixado na extremidade superior esquerda */}
         <div className="clients-counter">
           <span className="counter-number">+23</span>
-          <span className="counter-label">CLIENTS</span>
+          <span className="counter-label">Networkings</span>
         </div>
 
         {/* Título Principal Atualizado */}
         <h2 className="clients-title">
-          CLIENT'S<span className="clients-mark">®</span><br />
+          CO-WORKERS<span className="clients-mark">®</span><br />
           FEEDBACK
         </h2>
       </div>
@@ -58,9 +58,12 @@ export const ClientsSection: React.FC = () => {
         {/* Coluna da Direita: Parágrafo e o Botão Alinhados Lado a Lado */}
         <div className="clients-body-zone">
           <p className="clients-description">
-            Designing intuitive digital experiences where clarity meets purpose. 
-            I am UX/UI Designer focused on usability,
-            systems, and human-centered design
+            "Trabalhar com este UX Designer é ter a certeza de que o utilizador e o negócio estão
+            em perfeita sintonia. A sua capacidade de transformar dados complexos de pesquisa em
+            jornadas simples e interfaces intuitivas é impressionante. Destaco o seu rigor metodológico,
+            que vai desde workshops de design thinking até entregas impecáveis para a engenharia. Além de técnico,
+            é um colega extremamente colaborativo, empático e focado em resolver problemas reais. É o profissiona
+            que qualquer equipa de produto de alta performance deseja ter."
           </p>
 
           {/* Botão em formato de Pílula correto */}

@@ -141,12 +141,11 @@
 
 .contact-button:hover {
   transform: translateY(-4px);
-  box-shadow: 0 28px 80px rgba(255, 59, 48, 0.25);
 }
 
 .contact-button-text {
   color: #000000;
-  font-weight: 800;
+  font-weight: 700;
   font-size: clamp(0.8rem, 1.2vw, 0.95rem);
   text-transform: uppercase;
 }

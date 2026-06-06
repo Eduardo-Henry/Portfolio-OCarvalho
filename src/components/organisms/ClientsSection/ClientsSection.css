@@ -138,8 +138,7 @@
 }
 
 .clients-description {
-  font-family: var(--font-display), sans-serif;
-  font-size: clamp(1.5rem, 2.5vw, 2rem); /* Aumentada a fonte para o visual elegante do print */
+  font-size: 1rem; /* Aumentada a fonte para o visual elegante do print */
   color: #000000; /* Texto preto conforme o novo design */
   line-height: 1.15;
   font-weight: 400;
