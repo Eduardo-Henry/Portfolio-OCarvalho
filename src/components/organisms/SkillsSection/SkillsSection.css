@@ -201,6 +201,8 @@
   .skills-title {
     max-width: 100%; /* Permite ocupar a largura total se quebrar linha */
     letter-spacing: -2px; /* Suaviza o recuo das letras grandes */
+    font-size: 4rem !important; /* Ajusta o título para um tamanho mais legível no celular */
+    font-weight: 900;
   }
 
   .skills-counter {
@@ -244,9 +246,8 @@
   
   .skills-title {
     font-size: 4rem !important; /* Ajusta o título para um tamanho mais legível no celular */
+    font-weight: 900;
   }
 
-  .skills-title {
-    font-size: 3.2rem; /* Tamanho limite seguro para telas de 320px a 400px */
-  }
+ 
 }

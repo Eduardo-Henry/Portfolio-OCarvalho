@@ -69,7 +69,7 @@ export const ClientsSection: React.FC = () => {
           {/* Botão em formato de Pílula correto */}
           <div className="clients-cta-container">
             <a href="#contact" className="clients-cta-wrapper">
-              <span className="cta-text">GET IN TOUCH</span>
+              <span className="cta-text">ENTRAR EM CONTATO</span>
               <div className="cta-icon-circle">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <path d="M7 17L17 7M17 7H7M17 7V17" />

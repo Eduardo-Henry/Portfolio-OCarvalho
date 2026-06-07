@@ -275,8 +275,8 @@
   }
   
   .client-featured-image {
-    width: clamp(100px, 30vw, 140px);
-    height: clamp(100px, 30vw, 140px);
+    width: 50%;
+    height: 20vh;
   }
   
   .clients-title {
