@@ -238,10 +238,6 @@
     --header-offset: 130px; /* Ajuste fino para o empilhamento não cobrir conteúdo */
   }
   
-  .skills-nav-links {
-    display: none; /* Oculta apenas os links laterais redundantes para dar espaço total ao título */
-  }
-  
   .skills-title {
     font-size: 3.2rem; /* Tamanho limite seguro para telas de 320px a 400px */
   }

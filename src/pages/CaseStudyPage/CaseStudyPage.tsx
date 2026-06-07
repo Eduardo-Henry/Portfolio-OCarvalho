@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { MainLayout } from '../../components/templates';
 import './CaseStudyPage.css';
+import TIHelpImg from '@/assets/images/TIHelp.png';
+import SolarPanelImg from '@/assets/images/SolarPanel.png';
+import DNJeansImg from '@/assets/images/DNJeans.png';
+import RealStateImg from '@/assets/images/RealState.png';
+import YatchImg from '@/assets/images/Yatch.jpeg';
 
 interface Persona {
   name: string;
@@ -77,7 +82,7 @@ const caseStudies: { [key: string]: CaseStudyData } = {
     ],
     solution: 'Desenvolvemos um sistema de abertura de tickets guiado por perguntas simples, eliminando a necessidade do usuário saber descrever o problema tecnicamente. A triagem automática por categoria reduziu o tempo de espera e o chat em tempo real com histórico preservado facilitou a comunicação contínua.',
     finalProject: 'O produto entregue reduziu em 45% o tempo médio de resolução de chamados e atingiu 4.7/5 de satisfação nas avaliações pós-atendimento. O template guiado de descrição de problema foi o diferencial mais citado pelos técnicos.',
-    image: 'https://placehold.co/900x500/1a1a1a/ffffff?text=TI+Help',
+    image: TIHelpImg,
     prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/',
   },
   '2': {
@@ -123,7 +128,7 @@ const caseStudies: { [key: string]: CaseStudyData } = {
     ],
     solution: 'Dashboard com linguagem acessível — "Você economizou R$ 120 este mês" em vez de "Geração: 340 kWh". Alertas com linguagem humana, comparativo visual com mês anterior e botão de contato direto com o instalador em caso de anomalia.',
     finalProject: 'O app aumentou o engajamento diário dos usuários em 200% comparado à versão anterior. As chamadas de suporte técnico caíram 60% pois os alertas passaram a ser acionáveis e compreensíveis. NPS atingiu 72.',
-    image: 'https://placehold.co/900x500/1a1a1a/ffffff?text=Solar+Panel',
+    image: SolarPanelImg,
     prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/',
   },
   '3': {
@@ -169,7 +174,7 @@ const caseStudies: { [key: string]: CaseStudyData } = {
     ],
     solution: 'Guia de tamanho interativo com medidas em centímetros (não apenas P/M/G), fotos 360° com modelos de diferentes biotipos, checkout reduzido para 3 passos com progresso visual e reviews com foto de cliente verificado.',
     finalProject: 'Taxa de conversão aumentou 42% em 60 dias. Devoluções caíram de 28% para 12%. O guia de tamanho foi citado em 78% das avaliações positivas como fator decisivo na compra.',
-    image: 'https://placehold.co/900x500/1a1a1a/ffffff?text=DN+Jeans',
+    image: DNJeansImg,
     prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/',
   },
   '4': {
@@ -215,7 +220,7 @@ const caseStudies: { [key: string]: CaseStudyData } = {
     ],
     solution: 'Onboarding com quiz de perfil que personaliza toda a experiência de busca. Filtros contextuais que se adaptam ao comportamento do usuário. Tour virtual 3D integrado. Sistema de proposta e negociação dentro da plataforma, eliminando intermediários desnecessários.',
     finalProject: 'Proposta apresentada ao cliente com validação de 85% de preferência em testes comparativos com as principais plataformas do mercado. O sistema de recomendação personalizado foi o diferencial mais valorizado pelos usuários testados.',
-    image: 'https://placehold.co/900x500/1a1a1a/ffffff?text=Real+State',
+    image: RealStateImg,
     prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/',
   },
   '5': {
@@ -234,7 +239,7 @@ const caseStudies: { [key: string]: CaseStudyData } = {
       suppositions: [
         'Interface minimalista comunica melhor qualidade que interface densa',
         'Gestos e micro-interações premium diferenciariam da concorrência',
-        'Curadoria editorial (como uma revista) seria mais eficaz que listagem tradicional',
+        'Curadoria editorial seria mais eficaz que listagem tradicional',
       ],
       doubts: [
         'Até onde ir na simplificação sem perder informação essencial para decisão?',
@@ -248,20 +253,20 @@ const caseStudies: { [key: string]: CaseStudyData } = {
         name: 'Eduardo Ximenes',
         age: 48,
         role: 'Empresário High Net Worth',
-        pain: 'Plataformas genéricas de aluguel não transmitem a confiança e exclusividade que ele espera para essa categoria de gasto.',
-        goal: 'Reservar uma experiência marítima única com a mesma praticidade de pedir um Uber, mas com nível de serviço de um hotel 5 estrelas.',
+        pain: 'Plataformas genéricas não transmitem a confiança e exclusividade que ele espera para essa categoria de gasto.',
+        goal: 'Reservar uma experiência marítima única com praticidade de um Uber mas nível de um hotel 5 estrelas.',
       },
       {
         name: 'Catarina Mello',
         age: 35,
         role: 'Gestora de Frota Náutica',
         pain: 'Controle de reservas, manutenção e disponibilidade de múltiplos iates em sistemas diferentes e desconectados.',
-        goal: 'Uma plataforma centralizada onde gerencie toda a operação e tenha visibilidade em tempo real de cada embarcação.',
+        goal: 'Uma plataforma centralizada onde gerencie toda a operação com visibilidade em tempo real.',
       },
     ],
     solution: 'Interface editorial com curadoria de experiências em vez de lista de produtos. Galeria imersiva de cada iate com vídeo. Processo de reserva simplificado em 4 toques. Verificação de identidade fluida e discreta. Concierge digital disponível 24h via chat.',
     finalProject: 'Projeto conceitual completo com design system documentado, 40 telas prototipadas e apresentação de case. Exploração aprofundada de micro-interações premium e linguagem visual de alto padrão como exercício de portfólio.',
-    image: 'https://placehold.co/900x500/1a1a1a/ffffff?text=Yacht+Booking',
+    image: YatchImg,
     prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/',
   },
 };
@@ -276,7 +281,11 @@ export const CaseStudyPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
-  const project = caseStudies[id || '1'];
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
+
+  const project = id ? caseStudies[id] : undefined;
 
   if (!project) {
     return (

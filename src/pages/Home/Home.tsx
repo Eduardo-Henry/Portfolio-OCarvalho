@@ -17,14 +17,14 @@ export const Home: React.FC = () => {
       {/* 1. PALCO DO PARALLAX SUPERIOR (Hero + About) */}
       <div style={{ position: 'relative', width: '100%', zIndex: 2 }}>
         <HeroSection
-          title="Designing digital products that scale businesses and delight users."
-          description="I combine user research, visual design, and strategy to turn complex problems into seamless digital solutions."
+          title="Desenvolvo produtos digitais que impulsionam o crescimento dos negócios e encantam os usuários."
+          description="Combino pesquisa de usuários, design visual e estratégia para transformar problemas complexos em soluções digitais perfeitas."
           ctaText="GET IN TOUCH"
         />
         <AboutSection
-          title="ABOUT ME®"
-          description="Product Designer combining systematic thinking with a strong understanding of front-end constraints. I specialize in building scalable Design Systems using Brad Frost’s Atomic Design methodology, seamlessly bridging the gap between Figma structure (components, variables, advanced auto-layout) and developer handoff. Driven by AI-assisted workflows, I leverage generative and productivity tools to accelerate user research, ideation, and rapid prototyping. I design intuitive, interactive digital products that are inherently built for accessibility (WCAG/ARIA) and modern business scale."
-          ctaText="See My Work"
+          title="SOBRE MIM®"
+          description="Atuo como Designer UX, que combina pensamento sistêmico com um profundo conhecimento das limitações do front-end. Sou especialista na construção de Sistemas de Design escaláveis ​​utilizando a metodologia de Design Atômico de Brad Frost, integrando perfeitamente a estrutura do Figma (componentes, variáveis, layout automático avançado) ao handoff para desenvolvedores. Para  por fluxos de trabalho por IA, utilizo ferramentas generativas e de produtividade para acelerar a pesquisa de usuários, a ideação e a prototipagem rápida. Desenvolvo produtos digitais intuitivos e interativos, inerentemente acessíveis (WCAG/ARIA) e escaláveis ​​para negócios modernos."
+          ctaText="VER PROJETOS"
         />
       </div>
 

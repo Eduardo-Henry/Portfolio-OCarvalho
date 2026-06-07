@@ -12,7 +12,7 @@ interface AboutSectionProps {
 
 export const AboutSection: React.FC<AboutSectionProps> = ({
   title = "ABOUT ME®",
-  description = "Designing intuitive digital experiences where clarity meets purpose. I am a UX/UI Designer focused on usability, systems, and human-centered design",
+  description = "Crio experiências digitais intuitivas onde a clareza encontra o propósito. Sou um designer de UX/UI com foco em usabilidade, sistemas e design centrado no usuário.",
   ctaText = 'GET IN TOUCH',
   imageSrc = MyPhoto,
 }) => {

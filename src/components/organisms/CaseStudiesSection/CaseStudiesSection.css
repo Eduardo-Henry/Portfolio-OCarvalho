@@ -355,67 +355,58 @@
   opacity: 1;
 }
 
-.case-card__btn {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  border-radius: 50px;
-  padding: 14px 28px;
-  font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
+/* Botão Watch Prototype */
+.case-card__watch-btn {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 999px !important;
+  padding: 0.6rem 1.4rem 0.6rem 0.6rem !important;
+  gap: 12px !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
   white-space: nowrap;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
-  border: 2px solid #ffffff;
-  background: transparent;
-  color: #ffffff;
+  transition: background 0.2s ease !important;
 }
 
-.case-card__btn:hover {
-  background: #ffffff;
-  color: #000000;
+.case-card__watch-btn:hover {
+  background: #1a1a1a !important;
   transform: translateY(-2px);
 }
 
-.case-card__btn--primary {
-  background: #ffffff;
-  color: #000000;
-  border: 2px solid #ffffff;
-}
-
-.case-card__btn--primary:hover {
-  background: transparent;
-  color: #ffffff;
-}
-
-/* Ícone de play circular dentro do botão Watch Prototype */
-.case-card__play-icon {
-  width: 26px;
-  height: 26px;
+.case-card__play-circle {
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  border: 2px solid currentColor;
+  border: 2px solid #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: border-color 0.2s ease;
 }
 
-.case-card__play-icon::after {
-  content: '';
-  display: block;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 5px 0 5px 9px;
-  border-color: transparent transparent transparent currentColor;
-  margin-left: 2px;
+/* Botão See Project */
+.case-card__see-btn {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: none !important;
+  border-radius: 999px !important;
+  padding: 0.6rem 0.6rem 0.6rem 1.4rem !important;
+  gap: 12px !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  white-space: nowrap;
+  transition: background 0.2s ease !important;
 }
 
-/* Círculo vermelho com seta no botão See Project */
-.case-card__arrow-icon {
-  width: 32px;
-  height: 32px;
+.case-card__see-btn:hover {
+  background: #f0f0f0 !important;
+  transform: translateY(-2px);
+}
+
+.case-card__arrow-circle {
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: #e8302a;
   display: flex;
@@ -425,18 +416,8 @@
   transition: transform 0.2s ease;
 }
 
-.case-card__btn--primary:hover .case-card__arrow-icon {
+.case-card__see-btn:hover .case-card__arrow-circle {
   transform: scale(1.1);
-}
-
-.case-card__arrow-icon svg {
-  width: 14px;
-  height: 14px;
-  stroke: #ffffff;
-  fill: none;
-  stroke-width: 2.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
 }
 
 /* ============================================ */
@@ -496,9 +477,20 @@
     height: 480px;
   }
 
-  .case-card__btn {
-    padding: 12px 20px;
-    font-size: 13px;
+  .case-card__watch-btn,
+  .case-card__see-btn {
+    font-size: 13px !important;
+    padding: 0.5rem 1rem 0.5rem 0.5rem !important;
+  }
+
+  .case-card__see-btn {
+    padding: 0.5rem 0.5rem 0.5rem 1rem !important;
+  }
+
+  .case-card__play-circle,
+  .case-card__arrow-circle {
+    width: 30px;
+    height: 30px;
   }
 }
 
@@ -577,8 +569,10 @@
     border-radius: 6px !important;
   }
 
-  /* Overlay sempre visível em mobile (sem hover) */
+  /* No mobile overlay sempre visível no toque */
   .case-card__overlay {
+    flex-direction: column;
+    gap: 12px;
     opacity: 0;
     background: rgba(0, 0, 0, 0.6);
   }
@@ -587,16 +581,27 @@
     opacity: 1;
   }
 
-  .case-card__btn {
-    padding: 10px 16px;
-    font-size: 12px;
-    gap: 8px;
+  .case-card__watch-btn,
+  .case-card__see-btn {
+    font-size: 12px !important;
+    padding: 0.4rem 0.8rem 0.4rem 0.4rem !important;
+    gap: 8px !important;
   }
 
-  .case-card__play-icon,
-  .case-card__arrow-icon {
-    width: 22px;
-    height: 22px;
+  .case-card__see-btn {
+    padding: 0.4rem 0.4rem 0.4rem 0.8rem !important;
+  }
+
+  .case-card__play-circle,
+  .case-card__arrow-circle {
+    width: 26px;
+    height: 26px;
+  }
+
+  .case-card__play-circle svg,
+  .case-card__arrow-circle svg {
+    width: 12px;
+    height: 12px;
   }
 }
 
@@ -608,8 +613,18 @@
     height: 44px !important;
   }
 
-  .case-card__btn {
-    font-size: 11px;
-    padding: 8px 14px;
+  .case-study-card {
+    height: 320px !important;
+  }
+
+  .case-card__watch-btn,
+  .case-card__see-btn {
+    font-size: 11px !important;
+  }
+
+  .case-card__play-circle,
+  .case-card__arrow-circle {
+    width: 22px;
+    height: 22px;
   }
 }

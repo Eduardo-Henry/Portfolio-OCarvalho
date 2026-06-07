@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './CaseStudiesSection.css';
 
 import { NavPill, Carousel } from '../../molecules';
+import { Button } from '../../atoms';
 import TIHelpImg from '../../../assets/images/TIHelp.png';
 import SolarPanelImg from '../../../assets/images/SolarPanel.png';
 import DNJeansImg from '../../../assets/images/DNJeans.png';
@@ -238,18 +239,38 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
                 }}
               >
                 <div className="case-card__overlay">
-                  <button
-                    className="case-card__btn"
+
+                  {/* Botão Watch Prototype — escuro com ícone play */}
+                  <Button
+                    variant="secondary"
+                    size="medium"
+                    className="case-card__watch-btn"
                     onClick={(e) => handleWatchPrototype(e, caseStudy.prototypeUrl)}
                   >
+                    <span className="case-card__play-circle">
+                      <svg viewBox="0 0 24 24" fill="white" width="14" height="14">
+                        <polygon points="6,4 20,12 6,20" />
+                      </svg>
+                    </span>
                     Watch Prototype
-                  </button>
-                  <button
-                    className="case-card__btn case-card__btn--primary"
+                  </Button>
+
+                  {/* Botão See Project — claro com círculo vermelho e seta */}
+                  <Button
+                    variant="primary"
+                    size="medium"
+                    className="case-card__see-btn"
                     onClick={(e) => handleSeeProject(e, caseStudy.id)}
                   >
-                    See Project
-                  </button>
+                    See entire project
+                    <span className="case-card__arrow-circle">
+                      <svg viewBox="0 0 24 24" fill="none" width="16" height="16" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7" />
+                        <polyline points="7 7 17 7 17 17" />
+                      </svg>
+                    </span>
+                  </Button>
+
                 </div>
               </div>
             ))}
