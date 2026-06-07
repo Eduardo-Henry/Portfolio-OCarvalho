@@ -124,7 +124,7 @@
   justify-content: space-between;
   
   width: 50% !important;   
-  height: 68px !important; /* ALTERADO: Altura travada em 68px */ 
+  height: 88px !important; /* ALTERADO: Altura travada em 68px */ 
   max-width: 260px;        /* ADICIONADO: Evita que o botão estique demais infinitamente para a esquerda */
   
   border-radius: 999px;
@@ -176,7 +176,7 @@
   justify-content: flex-start;
   
   width: 50% !important;   
-  height: 68px !important; /* ALTERADO: Altura travada em 68px */
+  height: 88px !important; /* ALTERADO: Altura travada em 68px */
   max-width: 260px;        /* ADICIONADO: Evita que o botão estique demais infinitamente para a esquerda */
   
   padding: 0 1rem 0 10px; 

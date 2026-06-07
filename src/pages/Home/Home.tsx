@@ -19,7 +19,7 @@ export const Home: React.FC = () => {
         <HeroSection
           title="Desenvolvo produtos digitais que impulsionam o crescimento dos negócios e encantam os usuários."
           description="Combino pesquisa de usuários, design visual e estratégia para transformar problemas complexos em soluções digitais perfeitas."
-          ctaText="GET IN TOUCH"
+          ctaText="ENTRAR EM CONTATO"
         />
         <AboutSection
           title="SOBRE MIM®"

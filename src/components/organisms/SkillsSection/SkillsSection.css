@@ -227,6 +227,10 @@
   .skill-number {
     min-width: 65px; /* Reduz a largura fixa do número mantendo o alinhamento */
   }
+
+  .skills-title {
+    font-size: 3.5rem; /* Ajusta o título para um tamanho mais legível no celular */
+  }
 }
 
 /* ============================================ */
@@ -238,6 +242,10 @@
     --header-offset: 130px; /* Ajuste fino para o empilhamento não cobrir conteúdo */
   }
   
+  .skills-title {
+    font-size: 4rem !important; /* Ajusta o título para um tamanho mais legível no celular */
+  }
+
   .skills-title {
     font-size: 3.2rem; /* Tamanho limite seguro para telas de 320px a 400px */
   }

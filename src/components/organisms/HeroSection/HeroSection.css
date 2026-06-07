@@ -171,6 +171,7 @@
   align-items: center;
   justify-content: center; /* Mantém o conteúdo agrupado no centro em telas grandes */
   height: 94px; 
+  max-width: 260px;        /* Evita que o botão estique demais infinitamente para a direita */
   border-radius: 999px;
   background-color: #fff;
   color: #000000;
@@ -245,6 +246,7 @@
   justify-content: center; /* Mantém o conteúdo agrupado no centro em telas grandes */
   height: 94px; 
   padding: 0 2.5rem 0 1.2rem; 
+  max-width: 260px;        /* Evita que o botão estique demais infinitamente para a direita */
   
   border-radius: 999px ;
   background-color: transparent ;
@@ -360,172 +362,8 @@
 /* ============================================================ */
 /* TABLETS E CELULARES DEITADOS (ATÉ 768PX)                     */
 /* ============================================================ */
-@media (max-width: 768px) {
-  .hero-section {
-    padding: 5rem 0 3rem 0;
-  }
-
-  .hero-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .hero-image-container {
-    width: 55%;
-    margin: 0 auto;
-  }
-
-  .hero-cta-wrapper {
-    display: flex !important;
-    flex-direction: row !important; 
-    flex-wrap: nowrap !important; /* IMPEDE a quebra de linha no mobile real */
-    align-items: center;
-    width: 100%;
-    gap: 1rem;
-  }
-
-  .hero-cta-button, 
-  .hero-cv-button {
-    flex: 1; 
-    min-width: 0 !important; /* Permite que o botão encolha proporcionalmente sem quebrar */
-    height: 72px !important;
-    justify-content: center !important; 
-    font-size: 0.9rem !important;
-    padding: 0 1rem !important;
-  }
-
-  .hero-cta-circle,
-  .hero-cv-icon {
-    width: 54px !important;
-    height: 54px !important;
-  }
-
-  .hero-cv-icon {
-    padding: 16px !important;
-    margin-right: 1rem; 
-  }
-
-  .hero-cta-circle {
-    margin-left: 2rem; /* Aproxima um pouco mais o círculo do texto no mobile */
-  }
-
-  /* Notebooks compactos e telas com menor altura vertical */
-@media (max-width: 1600px) {
-  .hero-cta-wrapper {
-    grid-column: 7 / 13;
-  }
-}
-
-/* Tablets em modo paisagem e telas intermediárias */
-@media (max-width: 1200px) {
-  .hero-grid {
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: auto auto auto auto;
-  }
-
-  .hero-brand {
-    grid-column: 1 / -1;
-  }
-
-  .hero-image-container {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    width: 40%;
-    margin-top: 0.5rem;
-  }
-
-  .hero-content {
-    grid-column: 1 / -1;
-    grid-row: 3;
-    max-width: 100%;
-    margin-top: 0.5rem;
-  }
-
-  /* Mantém os botões um ao lado do outro na linha de baixo */
-  .hero-cta-wrapper {
-    grid-column: 1 / -1;
-    grid-row: 4;
-    justify-self: start;
-    width: 100%;
-    display: flex;
-    flex-direction: row; 
-    gap: 1.5rem;
-    margin-top: 1rem;
-  }
-}
-
 /* ============================================================ */
-/* TABLETS E MOBILE (ATÉ 768PX) */
-/* ============================================================ */
-
-@media (max-width: 768px) {
-  .hero-section {
-    padding: 5rem 0 3rem;
-  }
-
-  .hero-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  /* Título da marca com tipografia de display e letras garrafais */
-.brand-title {
-  font-family: var(--font-display);
-  font-size: 3rem;
-  font-weight: var(--weight-extrabold);
-  letter-spacing: -0.06em;
-  color: #ffffff;
-  margin: 0;
-  text-transform: uppercase;
-  text-align: left;
-
-}
-  .hero-image-container {
-    width: 55%;
-    margin: 0 auto;
-  }
-
-  .hero-content {
-    max-width: 100%;
-  }
-
-  .hero-cta-wrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    gap: 1rem;
-  }
-
-  .hero-cta-button,
-  .hero-cv-button {
-    flex: 1;
-    height: 72px !important;
-    justify-content: center !important;
-    font-size: 0.9rem !important;
-    padding: 0 1rem !important;
-  }
-
-  .hero-cta-circle,
-  .hero-cv-icon {
-    width: 54px !important;
-    height: 54px !important;
-  }
-
-  .hero-cv-icon {
-    padding: 16px !important;
-    margin-right: 1rem;
-  }
-
-  .hero-cta-circle {
-    margin-left: 1rem;
-  }
-}
-
-/* ============================================================ */
-/* MOBILE (ATÉ 430PX) */
+/* MOBILE (ATÉ 430PX) - CORRIGIDO                               */
 /* ============================================================ */
 
 @media (max-width: 430px) {
@@ -586,59 +424,67 @@
     max-width: 100% !important;
   }
 
-  /* ALINHA OS BOTÕES LADO A LADO */
+  /* ALINHA OS BOTÕES LADO A LADO SEM QUEBRA */
   .hero-cta-wrapper {
     display: flex !important;
     flex-direction: row !important; 
+    flex-wrap: nowrap !important;
     width: 100% !important;
-    gap: 0.75rem !important; 
+    gap: 0.5rem !important; 
     margin-top: 1rem !important;
   }
 
-  /* PROPRIEDADES: 50% LARGURA E 68PX ALTURA */
+  /* PROPRIEDADES: AJUSTE DE ESPAÇO INTERNO DOS BOTÕES */
   .hero-cta-button, 
   .hero-cv-button {
-    width: 50% !important; 
-    height: 68px !important; 
-
+    flex: 1 1 50% !important; /* Divide o espaço exatamente ao meio */
+    height: 60px !important;  /* Reduzido de 68px para dar melhor proporção visual */
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-
-    font-size: 0.8rem !important;
+    font-size: 0.75rem !important; /* Levemente menor para garantir que o texto não quebre */
     padding: 0 0.5rem !important; 
-
-    white-space: nowrap;
-    overflow: hidden;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
   }
 
-  /* MANTÉM O TAMANHO DO CÍRCULO EXTERNO EM 36PX */
+  /* REDUÇÃO E PADRONIZAÇÃO DOS CÍRCULOS DOS ÍCONES */
   .hero-cta-circle,
   .hero-cv-icon {
-    width: 36px !important; 
-    height: 36px !important;
-    flex-shrink: 0;
+    width: 32px !important; 
+    height: 32px !important;
+    flex-shrink: 0 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    box-sizing: border-box !important; /* Garante que o padding não mude o tamanho externo */
+    box-sizing: border-box !important;
   }
 
-  /* USA PADDING AQUI PARA ENCOLHER A SETA INTERNA SEM MEXER NO CÍRCULO */
+  /* RESET DE MARGENS AGRESSIVAS QUE EMPURRAVAM O TEXTO */
   .hero-cv-icon {
-    padding: 8px !important; /* Ajuste esse valor para mais ou para menos se quiser a seta maior/menor */
-    margin-right: 0.5rem !important;
+    padding: 8px !important; 
+    margin-right: 0.35rem !important; /* Espaçamento sutil após o ícone */
+    margin-left: 0 !important;
   }
 
   .hero-cta-circle {
-    margin-left: 0.5rem !important;
     padding: 0 !important;
+    margin-left: 0.35rem !important;  /* Espaçamento sutil antes do ícone */
+    margin-right: 0 !important;
   }
 
-  .hero-cta-text { color: #000000 !important; margin-right: 0.25rem !important; }
-  .hero-cv-text { color: #cccccc !important; margin-left: 0.25rem !important; }
+  /* GARANTE AS CORES E CORREÇÃO DE MARGENS DOS TEXTOS */
+  .hero-cta-text { 
+    color: #000000 !important; 
+    margin: 0 !important; 
+  }
+  
+  .hero-cv-text { 
+    color: #cccccc !important; 
+    margin: 0 !important; 
+  }
 
-  /* COMPORTAMENTO PADRÃO DOS ÍCONES INTERNOS */
+  /* AJUSTE DOS SVGS INTERNOS */
   .hero-cta-icon,
   .hero-cta-circle svg,
   .hero-cta-circle img {
@@ -652,5 +498,4 @@
     height: 100% !important;
     display: block !important;
   }
-}
 }

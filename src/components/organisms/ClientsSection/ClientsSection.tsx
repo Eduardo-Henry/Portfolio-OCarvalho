@@ -1,6 +1,6 @@
 import React from 'react';
 import './ClientsSection.css';
-import CoWorkerPhoto from '../../../assets/images/GuiPhoto.png';
+import CoWorkerPhoto from '../../../assets/images/GuiPhoto.jpeg';
 
 interface Client {
   id: number;
@@ -12,8 +12,8 @@ interface Client {
 const clients: Client[] = [
   {
     id: 1,
-    name: 'Mark',
-    location: 'Minnesota',
+    name: 'Guilherme Lira',
+    location: 'Urupês-SP',
     image: CoWorkerPhoto,
   },
 ];
@@ -58,12 +58,12 @@ export const ClientsSection: React.FC = () => {
         {/* Coluna da Direita: Parágrafo e o Botão Alinhados Lado a Lado */}
         <div className="clients-body-zone">
           <p className="clients-description">
-            "Trabalhar com este UX Designer é ter a certeza de que o utilizador e o negócio estão
+            "Trabalhar com este UX Designer é ter a certeza de que o usuário e o negócio estão
             em perfeita sintonia. A sua capacidade de transformar dados complexos de pesquisa em
-            jornadas simples e interfaces intuitivas é impressionante. Destaco o seu rigor metodológico,
-            que vai desde workshops de design thinking até entregas impecáveis para a engenharia. Além de técnico,
-            é um colega extremamente colaborativo, empático e focado em resolver problemas reais. É o profissiona
-            que qualquer equipa de produto de alta performance deseja ter."
+            jornadas simples e interfaces intuitivas são impressionantes. Destaque para seu rigor metodológico,
+            que vai desde workshops de design thinking até entregas impecáveis ​​para a engenharia. Além de técnico,
+            é um colega extremamente colaborativo, empático e focado na resolução de problemas reais. É o profissional
+            que qualquer equipamento de produto de alto desempenho deseja ter."
           </p>
 
           {/* Botão em formato de Pílula correto */}

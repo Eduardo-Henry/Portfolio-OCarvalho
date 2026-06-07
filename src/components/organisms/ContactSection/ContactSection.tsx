@@ -17,7 +17,7 @@ export const ContactSection: React.FC = () => {
           {/* TOPO DA COLUNA ESQUERDA: TÍTULO PRINCIPAL */}
           <div className="contact-brand">
             <h1 className="contact-title">
-              LET'S WORK<span className="contact-mark">®</span><br />TOGETHER
+              VAMOS CRIAR<span className="contact-mark">®</span><br />JUNTOS
             </h1>
           </div>
 
@@ -29,12 +29,12 @@ export const ContactSection: React.FC = () => {
           {/* BASE DA COLUNA ESQUERDA: TEXTOS DESCRITIVOS */}
           <div className="contact-content">
             <h2 className="contact-headline">
-              Tired of generic design? Let’s build something people actually care about.
+              Cansado de design genérico? Vamos criar algo que realmente importe
             </h2>
             <p className="contact-description">
-              I skip the fluff and focus on what works: clean aesthetics, bulletproof usability,
-              and design that drives revenue. You are not just hiring a designer; you’re
-              gaining a partner who values your business growth.
+              Deixo a enrolação de lado e foco no que funciona: estética limpa, usabilidade à
+              prova de falhas e design focado em resultados. Você não está apenas contratando um designer,
+              está ganhando um parceiro para o crescimento do seu negócio
             </p>
           </div>
 
@@ -64,7 +64,7 @@ export const ContactSection: React.FC = () => {
               className="contact-button"
               aria-label="Get in touch"
             >
-              <span className="contact-button-text">GET IN TOUCH</span>
+              <span className="contact-button-text">ENTRAR EM CONTATO</span>
               <span className="contact-button-circle" aria-hidden="true">
                 <svg
                   className="contact-button-icon"

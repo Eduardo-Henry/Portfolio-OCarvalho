@@ -5,6 +5,7 @@ interface Skill {
   id: number;
   number: string;
   title: string;
+  description: string; 
 }
 
 const skills: Skill[] = [
@@ -12,30 +13,32 @@ const skills: Skill[] = [
     id: 1,
     number: '01',
     title: 'UX Research & Strategy',
-   
+    description: 'Compreensão do comportamento do usuário, dores e objetivos de negócio para construir bases sólidas.',
   },
   {
     id: 2,
     number: '02',
     title: 'UI Design',
-    
+    description: 'Criação de interfaces visuais impactantes, acessíveis e de alta fidelidade alinhadas à marca.',
   },
   {
     id: 3,
     number: '03',
     title: 'Architecture & Wireframing',
+    description: 'Estruturação de fluxos intuitivos, arquitetura de informação e layouts de baixa fidelidade.',
   },
   {
     id: 4,
     number: '04',
     title: 'User Testing',
+    description: 'Validação de conceitos com usuários reais para coletar insights, iterar e refinar o produto final.',
   },
 ];
 
 export const SkillsSection: React.FC = () => {
   const [count, setCount] = useState<number>(0);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const targetCount = 354; // Valor final da contagem
+  const targetCount = 354;
 
   useEffect(() => {
     const currentSection = sectionRef.current;
@@ -45,14 +48,13 @@ export const SkillsSection: React.FC = () => {
         const [entry] = entries;
         if (entry.isIntersecting) {
           let start = 0;
-          const duration = 1500; // Tempo total da animação em milissegundos (1.5s)
+          const duration = 1500;
           const startTime = performance.now();
 
           const animate = (currentTime: number) => {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
 
-            // Função de easing para suavizar a chegada no número final
             const easeOutQuad = (t: number) => t * (2 - t);
             const currentCount = Math.floor(start + easeOutQuad(progress) * (targetCount - start));
 
@@ -64,12 +66,11 @@ export const SkillsSection: React.FC = () => {
           };
 
           requestAnimationFrame(animate);
-          // Cancela o observer para rodar a animação apenas uma vez
           if (currentSection) observer.unobserve(currentSection);
         }
       },
       {
-        threshold: 0.2, // Dispara quando 20% da seção estiver visível na tela
+        threshold: 0.2,
       }
     );
 
@@ -86,20 +87,16 @@ export const SkillsSection: React.FC = () => {
     <section className="skills-section" id="skills" ref={sectionRef}>
       <div className="skills-container">
         
-        {/* Cabeçalho */}
         <div className="skills-header">
           <h2 className="skills-title">
-            ALL SKILLS<span className="skills-mark">®</span>
+            MEU PROCESSO<span className="skills-mark">®</span>
           </h2>
           
           <div className="skills-counter">
-            +{count}<br />HOURS OF<br />STUDYING
+            +{count}<br />HORAS<br />DE ESTUDO
           </div>
-
-          
         </div>
 
-        {/* Lista de Cards Stack */}
         <div className="skills-grid">
           {skills.map((skill, index) => (
             <div 
@@ -109,9 +106,12 @@ export const SkillsSection: React.FC = () => {
             >
               <div className="skill-number">{skill.number}</div>
               <div className="skill-content">
-                <span className="skill-title-item">
-                  {skill.title} {skill.description}
-                </span>
+                <h3 className="skill-title-item">
+                  {skill.title}
+                </h3>
+                <p className="skill-description-item">
+                  {skill.description}
+                </p>
               </div>
             </div>
           ))}
