@@ -121,3 +121,4 @@ export const SkillsSection: React.FC = () => {
     </section>
   );
 };
+

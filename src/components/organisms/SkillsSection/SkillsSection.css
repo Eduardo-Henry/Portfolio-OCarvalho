@@ -231,7 +231,7 @@
   }
 
   .skills-title {
-    font-size: 3.5rem; /* Ajusta o título para um tamanho mais legível no celular */
+    font-size: 4rem; /* Ajusta o título para um tamanho mais legível no celular */
   }
 }
 
@@ -245,7 +245,7 @@
   }
   
   .skills-title {
-    font-size: 4rem !important; /* Ajusta o título para um tamanho mais legível no celular */
+    font-size: 3.8rem !important; /* Ajusta o título para um tamanho mais legível no celular */
     font-weight: 900;
   }
 
