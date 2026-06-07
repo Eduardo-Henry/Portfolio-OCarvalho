@@ -398,14 +398,20 @@
     letter-spacing: -0.03em !important;
   }
 
-  .hero-image-container {
-    width: 65% !important;
-    margin: 0 auto !important;
+  .brand-mark {
+    font-size: 1rem !important;
   }
 
+    .hero-image-container {
+    width: 60% !important; /* Reduzido de 65% para encolher a imagem no mobile */
+    height: 90% !important;
+    margin: auto !important;
+  }
+
+
   .hero-image {
-    width: 100%;
-    height: auto;
+    width: 90%;
+    height: 75%;
     max-width: 100%;
   }
 
