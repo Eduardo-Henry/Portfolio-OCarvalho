@@ -56,7 +56,7 @@ export const ContactSection: React.FC = () => {
               <span className="contact-cv-circle-wrapper">
                 <MdDownload className="contact-cv-icon" />
               </span>
-              <span className="contact-cv-text">Download CV</span>
+              <span className="contact-cv-text">BAIXAR CV</span>
             </button>
 
             <button

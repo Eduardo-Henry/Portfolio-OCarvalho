@@ -70,7 +70,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               }}
             >
               <MdDownload className="hero-cv-icon" />
-              <span className="hero-cv-text">Download CV</span>
+              <span className="hero-cv-text">BAIXAR CV</span>
             </Button>
             <Button
               variant="primary"

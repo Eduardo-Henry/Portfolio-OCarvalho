@@ -403,16 +403,19 @@
   }
 
     .hero-image-container {
-    width: 60% !important; /* Reduzido de 65% para encolher a imagem no mobile */
-    height: 90% !important;
-    margin: auto !important;
+    width: 200px !important;       /* Define uma largura fixa e menor para a imagem */
+    height: 200px !important;      /* Força a altura a ser igual, matando o excesso vertical */
+    margin: 1rem auto !important;  /* Centraliza com pouca margem em cima e embaixo */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
-
+  /* AJUSTA A IMAGEM DENTRO DO NOVO CONTAINER PEQUENO */
   .hero-image {
-    width: 90%;
-    height: 75%;
-    max-width: 100%;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important; /* Garante que ela não distorça */
   }
 
   .hero-content {
@@ -436,6 +439,7 @@
     flex-wrap: nowrap !important;
     width: 100% !important;
     gap: 0.5rem !important; 
+    align-items: center !important;
     margin-top: 1rem !important;
   }
 
@@ -443,9 +447,8 @@
   .hero-cta-button, 
   .hero-cv-button {
     flex: 1 1 50% !important; /* Divide o espaço exatamente ao meio */
-    height: 60px !important;  /* Reduzido de 68px para dar melhor proporção visual */
+    height: 68px !important;  /* Reduzido de 68px para dar melhor proporção visual */
     display: flex !important;
-    align-items: center !important;
     justify-content: center !important;
     font-size: 0.75rem !important; /* Levemente menor para garantir que o texto não quebre */
     padding: 0 0.5rem !important; 
@@ -474,14 +477,13 @@
 
   .hero-cta-circle {
     padding: 0 !important;
-    margin-left: 0.35rem !important;  /* Espaçamento sutil antes do ícone */
     margin-right: 0 !important;
   }
 
   /* GARANTE AS CORES E CORREÇÃO DE MARGENS DOS TEXTOS */
   .hero-cta-text { 
     color: #000000 !important; 
-    margin: 0 !important; 
+    margin-right: -2.4rem !important; 
   }
   
   .hero-cv-text { 
@@ -495,6 +497,7 @@
   .hero-cta-circle img {
     width: 12px !important;
     height: 12px !important;
+    margin: 0 !important;
   }
 
   .hero-cv-icon svg,
