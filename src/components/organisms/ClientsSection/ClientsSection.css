@@ -128,6 +128,18 @@
   letter-spacing: -0.02em;
 }
 
+/* --- NOVA DESCRIÇÃO ABAIXO DO NOME --- */
+.client-meta-container {
+  margin-top: 12px;
+}
+
+.client-role {
+  font-size: 1rem;
+  font-weight: 300; /* Font Light */
+  color: #888888;
+  margin: 4px 0 0 0;
+}
+
 /* --- COLUNA DE CONTEÚDO (PARÁGRAFO + BOTÃO LADO A LADO) --- */
 .clients-body-zone {
   display: grid;
@@ -137,14 +149,33 @@
   width: 100%;
 }
 
+/* --- ANIMAÇÃO DE TEXTO SE ESCREVENDO (REVELADO GRADUAL) --- */
 .clients-description {
   font-size: 1.6rem; /* Aumentada a fonte para o visual elegante do print */
-  color: #000000; /* Texto preto conforme o novo design */
-  line-height: 1.15;
+  color: #888888; /* Inicializa em cinza para a parte oculta */
+  line-height: 1.3; /* Ajustado para espaçamento vertical harmônico */
   font-weight: 400;
-  letter-spacing: -0.03em;
+  letter-spacing: normal; /* Removido o esmagamento negativo para não juntar as letras */
   margin: 0;
   max-width: 600px;
+}
+
+.animated-word {
+  display: inline-block;
+  white-space: pre-wrap; /* Garante que os espaços entre as palavras sejam mantidos */
+  color: #888888;
+  transition: color 0.4s ease;
+}
+
+/* Ativado dinamicamente pelo Intersection Observer no React */
+.animated-word.animate {
+  animation: revealText 0.1s forwards;
+}
+
+@keyframes revealText {
+  to {
+    color: #000000; /* Transiciona para preto puro */
+  }
 }
 
 /* Contêiner invisível do botão para gerenciar alinhamentos */
