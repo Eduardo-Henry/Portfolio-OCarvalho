@@ -125,7 +125,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
   }, []);
 
   const categories = [
-    { id: 'all', label: 'UI DESIGN' },
+    { id: 'all', label: 'UX DESIGN' },
     { id: 'web', label: 'VIDEOS EDIT' },
     { id: 'mobile', label: 'DESIGN SOCIAL MEDIA' },
   ];

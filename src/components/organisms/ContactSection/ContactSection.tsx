@@ -64,7 +64,7 @@ export const ContactSection: React.FC = () => {
               className="contact-button"
               aria-label="Get in touch"
             >
-              <span className="contact-button-text">ENTRAR EM CONTATO</span>
+              <span className="contact-button-text">CONVERSAR</span>
               <span className="contact-button-circle" aria-hidden="true">
                 <svg
                   className="contact-button-icon"

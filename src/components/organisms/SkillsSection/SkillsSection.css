@@ -202,7 +202,7 @@
     max-width: 100%; /* Permite ocupar a largura total se quebrar linha */
     letter-spacing: -2px; /* Suaviza o recuo das letras grandes */
     font-size: 4rem !important; /* Ajusta o título para um tamanho mais legível no celular */
-    font-weight: 900 !important; /* Adicionado !important para garantir a aplicação */
+    font-weight: 700 !important; /* Adicionado !important para garantir a aplicação */
   }
 
   .skills-counter {
@@ -243,7 +243,7 @@
   
   .skills-title {
     font-size: 3.8rem !important; 
-    font-weight: 900 !important; /* Adicionado !important para forçar no mobile */
+    font-weight: 700 !important; /* Adicionado !important para forçar no mobile */
   }
 }
 

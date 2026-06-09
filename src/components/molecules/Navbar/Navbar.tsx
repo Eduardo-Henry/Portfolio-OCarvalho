@@ -10,10 +10,10 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { label: 'HOME', href: '#home', isActive: true },
-  { label: 'ABOUT ME', href: '#about' },
-  { label: 'SKILLS', href: '#skills' },
-  { label: 'WORKS', href: '#works' },
-  { label: 'CONTACT', href: '#contact' },
+  { label: 'SOBRE MIM', href: '#about' },
+  { label: 'PORTFOLIO', href: '#works' },
+  { label: 'MEU PROCESSO', href: '#skills' },
+  { label: 'CONTATO', href: '#contact' },
 ];
 
 const WHITE_BG_SECTIONS = ['about', 'skills'];

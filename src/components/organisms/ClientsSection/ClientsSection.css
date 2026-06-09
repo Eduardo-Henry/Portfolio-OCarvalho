@@ -117,6 +117,7 @@
   width: 100%;
   height: 40vh;
   object-fit: cover;
+  
 }
 
 .client-featured-info {
@@ -331,9 +332,9 @@
   }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 430px) {
   .clients-title {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
   }
   
   .clients-description {
@@ -359,5 +360,29 @@
   .cta-icon-circle svg {
     width: 16px;
     height: 16px;
+  }
+
+  /* ============================================================ */
+  /* CORREÇÃO DO ESPAÇAMENTO DA FOTO PARA O TEXTO SEGUINTE        */
+  /* ============================================================ */
+  
+  /* 1. Reduz o espaço padrão entre os blocos internos da foto */
+  .clients-featured {
+    gap: 4px !important; 
+  }
+
+  /* 2. Garante que o container tenha exatamente o mesmo tamanho da foto */
+  .client-featured-image {
+    width: 100px !important;
+    height: 100px !important; 
+  }
+
+  /* 3. Ajusta a foto para preencher o bloco perfeitamente */
+  .client-featured-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain; 
+    border-radius: 8px; 
+    margin: 0 !important;
   }
 }
