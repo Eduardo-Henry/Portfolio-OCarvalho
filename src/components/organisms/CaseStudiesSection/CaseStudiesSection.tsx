@@ -48,6 +48,7 @@ interface Video {
 }
 
 interface CaseStudiesSectionProps {
+  id?: string; // 1. Adicionado id opcional
   caseStudies?: CaseStudy[];
   videos?: Video[];
 }
@@ -77,6 +78,7 @@ const socialMediaCarouselImages = [
 ];
 
 export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
+  id, // 2. Recebendo o id
   caseStudies = defaultCaseStudies,
   videos = defaultVideos,
 }) => {
@@ -154,7 +156,8 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
   };
 
   return (
-    <section className="case-studies-section" id="works" ref={sectionRef}>
+    // 3. id={id} substitui o id="works" fixo
+    <section className="case-studies-section" id={id} ref={sectionRef}>
       <div className="case-studies-container">
 
         <div className="case-studies-header">
@@ -240,7 +243,6 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
               >
                 <div className="case-card__overlay">
 
-                  {/* Botão Watch Prototype — escuro com ícone play */}
                   <Button
                     variant="secondary"
                     size="medium"
@@ -255,7 +257,6 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
                     ASSISTIR PROTÓTIPO
                   </Button>
 
-                  {/* Botão See Project — claro com círculo vermelho e seta */}
                   <Button
                     variant="primary"
                     size="medium"

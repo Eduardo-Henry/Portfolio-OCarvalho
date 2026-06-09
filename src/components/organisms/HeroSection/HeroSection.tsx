@@ -5,6 +5,7 @@ import './HeroSection.css';
 import Image3D from '../../../assets/images/Image3D.png';
 
 interface HeroSectionProps {
+  id?: string; // 1. Adicionado o id opcional nas Props
   title: string;
   subtitle?: string;
   description: string;
@@ -13,6 +14,7 @@ interface HeroSectionProps {
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
+  id, // 2. Recebendo o id aqui
   title,
   description,
   ctaText = 'GET IN TOUCH',
@@ -24,7 +26,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   };
 
   return (
-    <section className="hero-section" id="hero">
+    // 3. Modificado de id="hero" para id={id} para receber o valor do Home.tsx
+    <section className="hero-section" id={id}>
       <div className="hero-wrapper">
         {/* Grid Layout */}
         <div className="hero-grid">
@@ -58,12 +61,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               aria-label="Download CV"
               onClick={() => {
                 const link = document.createElement('a');
-                // O href busca exatamente o arquivo que está na sua pasta public
                 link.href = '/EduardoHCarvalho-UXDesigner.pdf'; 
-                
-                // O download define o nome que vai aparecer para o usuário quando baixar
                 link.download = 'EduardoHCarvalho-UXDesigner.pdf'; 
-                
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);

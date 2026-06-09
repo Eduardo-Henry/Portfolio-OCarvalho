@@ -4,6 +4,7 @@ import './AboutSection.css';
 import MyPhoto from '../../../assets/images/MyPhoto.png';
 
 interface AboutSectionProps {
+  id?: string; // 1. Adicionado o id opcional nas Props
   title?: string;
   description?: string;
   ctaText?: string;
@@ -34,6 +35,7 @@ const MemoizedDescription = memo(({ text, isVisible }: { text: string; isVisible
 MemoizedDescription.displayName = 'MemoizedDescription';
 
 export const AboutSection: React.FC<AboutSectionProps> = ({
+  id, // 2. Recebendo o id dinâmico aqui
   title = "ABOUT ME®",
   description = "Crio experiências digitais intuitivas onde a clareza encontra o propósito. Sou um designer de UX/UI com foco em usabilidade, sistemas e design centrado no usuário.",
   ctaText = 'CONTATO',
@@ -91,7 +93,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
   }, []);
 
   return (
-    <section className="about-section" id="about" ref={sectionRef}>
+    // 3. Alterado o id="about" estático para id={id} para receber a tag do Home.tsx
+    <section className="about-section" id={id} ref={sectionRef}>
       <div className="about-container">
         {/* Left Column: Text Content */}
         <div className="about-content">
