@@ -18,17 +18,26 @@ const clients: Client[] = [
     id: 1,
     name: 'Guilherme Lira',
     location: 'Urupês-SP',
-    role: 'Co-worker / Fullstack Developer',
+    role: 'Video maker / Editor de Vídeo ',
     image: CoWorkerPhoto,
-    feedback: "Eduardo Henry é um designer diferenciado, criativo e extremamente habilidoso. Ele consegue captar com precisão a ideia do cliente e transformar em uma arte de alto nível. Quando recebe liberdade para criar, vai além do esperado e surpreende nos detalhes. Do básico ao mais complexo, sabe combinar elementos de forma limpa, moderna e impactante. Seu trabalho chama atenção pela qualidade, organização visual e bom gosto. Sem dúvidas, um excelente profissional, sempre entregando mais do que o esperado."
+    feedback: "Eduardo é um designer diferenciado, criativo e extremamente habilidoso. Ele consegue captar com precisão a ideia do cliente e transformar em uma arte de alto nível. Quando recebe liberdade para criar, vai além do esperado e surpreende nos detalhes. Do básico ao mais complexo, sabe combinar elementos de forma limpa, moderna e impactante. Seu trabalho chama atenção pela qualidade, organização visual e bom gosto. Sem dúvidas, um excelente profissional, sempre entregando mais do que o esperado."
   },
   {
     id: 2,
-    name: 'Ana Silva',
-    location: 'São Paulo-SP',
-    role: 'Product Manager',
+    name: 'Mariana Terradas',
+    location: 'Polônia-SP',
+    role: 'Cliente',
     image: CoWorkerPhoto, // Substitua pela foto real depois
-    feedback: "Trabalhar com o Eduardo foi uma experiência incrível. Ele tem uma visão estética apurada e consegue simplificar fluxos complexos em interfaces totalmente intuitivas e limpas. Entrega rápida e comunicação impecável durante todo o processo do projeto."
+    feedback: "Tive uma ótima experiência com o trabalho do Eduardo. Enviei uma ideia e um modelo de referência para o design do meu terceirão, e ele conseguiu entender exatamente o que eu queria. O resultado ficou incrível, superando minhas expectativas em todos os detalhes. Além de muito talentoso, ele é atencioso e dedicado ao que faz. Recomendo seu trabalho para qualquer pessoa que esteja procurando um designer criativo e competente."
+  },
+
+   {
+    id: 3,
+    name: 'Matheus Terradas',
+    location: 'Polônia-SP',
+    role: 'Desenvolvedor Front-end',
+    image: CoWorkerPhoto, // Substitua pela foto real depois
+    feedback: "Tive ótimas experiências com os trabalhos do Eduardo como designer. Ele sempre demonstrou criatividade, atenção aos detalhes e muito profissionalismo em cada projeto. Além de entregar trabalhos de qualidade, foi prestativo e aberto a sugestões durante todo o processo. O resultado final sempre atendeu minhas expectativas, por isso recomendo seu trabalho com confiança."
   }
 ];
 
@@ -96,8 +105,7 @@ export const ClientsSection: React.FC = () => {
         </div>
 
         <h2 className="clients-title">
-          CO-WORKERS AND CLIENTS<span className="clients-mark">®</span><br />
-          FEEDBACK
+          FEEDBACKS <span className="clients-mark">®</span>
         </h2>
       </div>
 

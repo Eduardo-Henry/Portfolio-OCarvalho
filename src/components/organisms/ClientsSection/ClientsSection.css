@@ -42,7 +42,7 @@
 /* Título Principal "NUMBERS DON'T LIE" */
 .clients-title {
   font-family: var(--font-display), sans-serif;
-  font-size: clamp(4rem, 8vw, 8rem);
+  font-size: clamp(4rem, 8vw, 10rem);
   font-weight: 900; /* Força o peso idêntico ao da imagem */
   line-height: 0.85;
   letter-spacing: -0.05em;

@@ -202,7 +202,7 @@
     max-width: 100%; /* Permite ocupar a largura total se quebrar linha */
     letter-spacing: -2px; /* Suaviza o recuo das letras grandes */
     font-size: 4rem !important; /* Ajusta o título para um tamanho mais legível no celular */
-    font-weight: 900;
+    font-weight: 900 !important; /* Adicionado !important para garantir a aplicação */
   }
 
   .skills-counter {
@@ -229,10 +229,7 @@
   .skill-number {
     min-width: 65px; /* Reduz a largura fixa do número mantendo o alinhamento */
   }
-
-  .skills-title {
-    font-size: 4rem; /* Ajusta o título para um tamanho mais legível no celular */
-  }
+  /* REMOVIDO: .skills-title duplicado que estava quebrando o código */
 }
 
 /* ============================================ */
@@ -245,9 +242,8 @@
   }
   
   .skills-title {
-    font-size: 3.8rem !important; /* Ajusta o título para um tamanho mais legível no celular */
-    font-weight: 900;
+    font-size: 3.8rem !important; 
+    font-weight: 900 !important; /* Adicionado !important para forçar no mobile */
   }
-
- 
 }
+

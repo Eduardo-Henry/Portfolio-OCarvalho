@@ -252,7 +252,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
                         <polygon points="6,4 20,12 6,20" />
                       </svg>
                     </span>
-                    Watch Prototype
+                    ASSISTIR PROTÓTIPO
                   </Button>
 
                   {/* Botão See Project — claro com círculo vermelho e seta */}
@@ -262,7 +262,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
                     className="case-card__see-btn"
                     onClick={(e) => handleSeeProject(e, caseStudy.id)}
                   >
-                    See entire project
+                    VER PROJETO
                     <span className="case-card__arrow-circle">
                       <svg viewBox="0 0 24 24" fill="none" width="16" height="16" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <line x1="7" y1="17" x2="17" y2="7" />

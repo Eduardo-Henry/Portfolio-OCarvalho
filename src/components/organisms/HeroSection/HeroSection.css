@@ -55,10 +55,11 @@
   padding-top: 0;
 }
 
+
 /* Título da marca com tipografia de display e letras garrafais */
 .brand-title {
   font-family: var(--font-display);
-  font-size: clamp(4rem, 12vw, 10rem);
+  font-size: 10rem;
   font-weight: var(--weight-extrabold);
   letter-spacing: -0.06em;
   color: #ffffff;
