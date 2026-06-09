@@ -17,13 +17,13 @@ export const Home: React.FC = () => {
       {/* 1. PALCO DO PARALLAX SUPERIOR (Hero + About) */}
       <div style={{ position: 'relative', width: '100%', zIndex: 2 }}>
         <HeroSection
-          title="Desenvolvo produtos digitais que impulsionam o crescimento dos negócios e encantam os usuários."
+          title="Desenvolvo produtos digitais que impulsionam o crescimento de empresas e encantam os usuários."
           description="Combino pesquisa de usuários, design visual e estratégia para transformar problemas complexos em soluções digitais perfeitas."
           ctaText="CONVERSAR"
         />
         <AboutSection
           title="SOBRE MIM®"
-          description="Atuo como Designer UX, que combina pensamento sistêmico com um profundo conhecimento das limitações do front-end. Sou especialista na construção de Sistemas de Design escaláveis ​​utilizando a metodologia de Design Atômico de Brad Frost, integrando perfeitamente a estrutura do Figma (componentes, variáveis, layout automático avançado) ao handoff para desenvolvedores. Para  por fluxos de trabalho por IA, utilizo ferramentas generativas e de produtividade para acelerar a pesquisa de usuários, a ideação e a prototipagem rápida. Desenvolvo produtos digitais intuitivos e interativos, inerentemente acessíveis (WCAG/ARIA) e escaláveis ​​para negócios modernos."
+          description="Designer de UX com pensamento sistêmico e visão de front-end. Especialista em Design Systems escaláveis (Design Atômico) com estrutura avançada no Figma focada em handoff técnico. Otimizo fluxos de produto através de AI-Driven Design, utilizando inteligência artificial para acelerar a síntese de pesquisas com usuários, ideação e prototipagem rápida. Desenvolvo produtos interativos, de alta conversão e estritamente acessíveis (WCAG/ARIA)."
           ctaText="VER PROJETOS"
         />
       </div>

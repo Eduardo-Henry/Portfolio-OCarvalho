@@ -335,6 +335,7 @@
 @media (max-width: 430px) {
   .clients-title {
     font-size: 3.5rem;
+    font-weight: 700 !important;
   }
   
   .clients-description {

@@ -1,5 +1,5 @@
 /* ============================================ */
-/* SKILLS SECTION — WHITE BACKGROUND */
+/* SKILLS SECTION — WHITE BACKGROUND            */
 /* ============================================ */
 
 :root {
@@ -11,7 +11,8 @@
   width: 100%;
   background: #ffffff;
   color: #000000;
-  font-family: Arial, sans-serif;
+  /* CORREÇÃO: Usa a fonte display padrão do projeto para aceitar o peso 900 */
+  font-family: var(--font-display), sans-serif;
   padding: 4rem 0 15rem 0;
   position: relative;
   box-sizing: border-box;
@@ -28,7 +29,7 @@
 }
 
 /* ============================================ */
-/* HEADER (ALL SKILLS / COUNTER) */
+/* HEADER (ALL SKILLS / COUNTER)                */
 /* ============================================ */
 
 .skills-header {
@@ -40,15 +41,15 @@
 }
 
 .skills-title {
+  font-family: var(--font-display), sans-serif;
   /* Fonte fluida: reduz proporcionalmente com a tela (mínimo 3.8rem, máximo 10rem) */
   font-size: clamp(3.8rem, 10vw, 10rem);
-  font-weight: 900;
+  font-weight: 900; /* Agora o peso funciona devido à troca da família de fonte */
   line-height: 0.85;
-  letter-spacing: -4px;
+  letter-spacing: -0.05em; /* Unidade em relativa mantém a proporção perfeita em qualquer tela */
   color: #000000 !important;
   margin: 0;
   text-transform: uppercase;
-  /* Evita hifenação incorreta e força quebra de palavra se necessário */
   word-break: break-word; 
   max-width: 70%;
 }
@@ -60,10 +61,11 @@
 }
 
 .skills-counter {
+  font-family: var(--font-display), sans-serif;
   font-size: 2rem;
   font-weight: 900;
   line-height: 1.2;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.02em;
   color: #000000;
   text-transform: uppercase;
   margin-left: auto;
@@ -88,7 +90,7 @@
 }
 
 /* ============================================ */
-/* SKILLS LIST (STACK CARD LAYOUT) */
+/* SKILLS LIST (STACK CARD LAYOUT)              */
 /* ============================================ */
 
 .skills-grid {
@@ -125,12 +127,13 @@
 }
 
 .skill-number {
+  font-family: var(--font-display), sans-serif;
   /* Fonte fluida para o número do card acompanhar o redimensionamento */
   font-size: clamp(2.5rem, 6vw, 6rem);
   font-weight: 900;
   color: #000000 !important;
   line-height: 0.8;
-  letter-spacing: -3px;
+  letter-spacing: -0.03em;
   min-width: 140px;
   flex-shrink: 0; /* Garante que o número não esmague em telas médias */
 }
@@ -146,6 +149,7 @@
 }
 
 .skill-title-item {
+  font-family: var(--font-display), sans-serif;
   font-size: clamp(1.2rem, 2vw, 1.8rem);
   font-weight: 900;
   color: #000000 !important;
@@ -154,6 +158,7 @@
 }
 
 .skill-description {
+  font-family: sans-serif; /* Parágrafo mantém leitura limpa sem ser fonte display */
   font-size: 1rem;
   line-height: 1.4;
   color: #000000 !important;
@@ -165,7 +170,7 @@
 }
 
 /* ============================================ */
-/* RESPONSIVIDADE INTERMEDIÁRIA (LAPTOPS/TABLETS) */
+/* RESPONSIVIDADE INTERMEDIÁRIA (LAPTOPS)       */
 /* ============================================ */
 
 @media (max-width: 1024px) {
@@ -179,7 +184,7 @@
 }
 
 /* ============================================ */
-/* RESPONSIVIDADE SMARTPHONES (TELA INFERIOR A 768px) */
+/* RESPONSIVIDADE SMARTPHONES (TELA < 768px)    */
 /* ============================================ */
 
 @media (max-width: 768px) {
@@ -200,9 +205,9 @@
   
   .skills-title {
     max-width: 100%; /* Permite ocupar a largura total se quebrar linha */
-    letter-spacing: -2px; /* Suaviza o recuo das letras grandes */
-    font-size: 4rem !important; /* Ajusta o título para um tamanho mais legível no celular */
-    font-weight: 700 !important; /* Adicionado !important para garantir a aplicação */
+    letter-spacing: -0.04em; /* Mantém o recuo forte ajustado de forma proporcional */
+    font-size: 4rem !important; 
+    font-weight: 900 !important; /* Força o peso máximo também em tablets e celulares */
   }
 
   .skills-counter {
@@ -229,11 +234,10 @@
   .skill-number {
     min-width: 65px; /* Reduz a largura fixa do número mantendo o alinhamento */
   }
-  /* REMOVIDO: .skills-title duplicado que estava quebrando o código */
 }
 
 /* ============================================ */
-/* RESPONSIVIDADE ULTRA ESTREITA (CELULARES PEQUENOS) */
+/* RESPONSIVIDADE ULTRA ESTREITA (MOBILE FINA)   */
 /* ============================================ */
 
 @media (max-width: 430px) {
@@ -243,7 +247,6 @@
   
   .skills-title {
     font-size: 3.8rem !important; 
-    font-weight: 700 !important; /* Adicionado !important para forçar no mobile */
+    font-weight: 900 !important; /* Mantém o peso ultra agressivo da fonte estrutural */
   }
 }
-

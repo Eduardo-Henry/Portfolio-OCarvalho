@@ -1,9 +1,13 @@
+/* ============================================ */
+/* CONFIGURAÇÕES GERAIS DA NAVBAR               */
+/* ============================================ */
+
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 0; /* containerless header so layout sits over hero */
+  height: 0; 
   z-index: var(--z-fixed);
   pointer-events: none;
 }
@@ -16,11 +20,16 @@
   pointer-events: none;
 }
 
+/* ============================================ */
+/* BRAND / LOGO (DESKTOP CONTRAST)              */
+/* ============================================ */
+
 .navbar-brand {
   position: absolute;
   top: 1.25rem;
   left: 1.5rem;
   pointer-events: auto;
+  mix-blend-mode: difference;
 }
 
 .brand-title {
@@ -29,9 +38,9 @@
   font-weight: var(--weight-extrabold);
   line-height: 0.82;
   letter-spacing: -0.06em;
-  color: var(--text-color);
   margin: 0;
   text-transform: uppercase;
+  color: #ffffff !important; 
 }
 
 .brand-trademark {
@@ -40,7 +49,10 @@
   margin-left: 0.25rem;
 }
 
-/* Desktop Menu */
+/* ============================================ */
+/* MENU DESKTOP: INTERAÇÃO E DIFFERENCE         */
+/* ============================================ */
+
 .navbar-menu--desktop {
   position: absolute;
   top: 2.25rem;
@@ -55,58 +67,115 @@
   pointer-events: auto;
 }
 
-.nav-link {
-  color: rgba(255, 255, 255, 0.65);
+/* Efeito Difference aplicado estritamente no link do desktop */
+.navbar-menu--desktop .nav-link {
+  mix-blend-mode: difference !important;
+  color: #ffffff !important; 
   text-decoration: none;
   font-size: 1.125rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  transition: color 0.18s ease;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   font-family: var(--font-headline);
+  position: relative;
 }
 
-.nav-link.active {
-  color: var(--text-color);
+/* Comportamento de opacidade para links inativos */
+.navbar-menu--desktop .nav-link.inactive {
+  opacity: 0.4 !important;
 }
 
-.nav-link:hover {
-  color: var(--text-color);
+.navbar-menu--desktop .nav-link.active {
+  opacity: 1 !important;
+  transform: translateX(-6px);
+}
+
+.navbar-menu--desktop:has(.nav-link:hover) .nav-link:not(:hover) {
+  opacity: 0.2 !important;
+}
+
+.navbar-menu--desktop .nav-link:hover {
+  opacity: 1 !important;
+}
+
+.nav-link:active {
+  transform: scale(0.93) !important;
 }
 
 /* ============================================ */
-/* MOBILE & TABLET MENU */
+/* BOTÃO MOBILE: QUADRADO PRETO FIXO            */
 /* ============================================ */
 
 .navbar-toggle {
   display: none;
-  background: none;
+  background: #000000 !important; /* Quadrado preto sólido solicitado */
+  border-radius: 8px;
   border: none;
-  color: var(--text-color);
   cursor: pointer;
-  padding: 0.5rem;
   pointer-events: auto;
-  font-size: 1.5rem;
   position: fixed;
   top: 1.5rem;
   right: 1.5rem;
-  z-index: var(--z-fixed);
-  transition: color 0.18s ease;
+  z-index: 9999;
+  
+  /* Dimensões do quadrado perfeitamente simétricas */
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.navbar-toggle:hover {
-  color: var(--primary-color);
+.navbar-toggle svg {
+  color: #ffffff !important;
 }
 
-/* Mobile Menu */
+.navbar-toggle svg line {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  transform-origin: center;
+}
+
+/* Gira o bloco em 90 graus exatos */
+.navbar-toggle.toggle-active {
+  transform: rotate(90deg);
+}
+
+/* Transforma as linhas no X sem achatar ou estragar o shape */
+.navbar-toggle.toggle-active .line-top {
+  transform: translateY(3px) rotate(45deg);
+}
+
+.navbar-toggle.toggle-active .line-middle {
+  opacity: 0;
+}
+
+.navbar-toggle.toggle-active .line-bottom {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.navbar-toggle:active {
+  transform: scale(0.9) rotate(0deg);
+}
+
+.navbar-toggle.toggle-active:active {
+  transform: scale(0.9) rotate(90deg);
+}
+
+/* ============================================ */
+/* MENU MOBILE: PRETO PURO (SEM BLEND)          */
+/* ============================================ */
+
 .navbar-menu--mobile {
-  display: none;
+  display: flex;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.98);
+  background: #050505; 
+  mix-blend-mode: normal !important; /* Bloqueia o difference no mobile */
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -114,127 +183,71 @@
   list-style: none;
   margin: 0;
   padding: 2rem;
-  pointer-events: auto;
-  z-index: calc(var(--z-fixed) - 1);
-  animation: slideIn 0.3s ease-out;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0;
+  transition: opacity 0.3s ease, pointer-events 0.3s;
 }
 
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.navbar-menu--mobile.active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .navbar-menu--mobile .nav-link {
-  font-size: 1.5rem;
-  color: rgba(255, 255, 255, 0.75);
-  transition: all 0.18s ease;
+  font-size: 2.2rem !important;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff !important; 
+  mix-blend-mode: normal !important; /* Isolamento estrito */
+  opacity: 0.4;
+  transform: translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
 }
 
-.navbar-menu--mobile .nav-link:hover,
+/* Efeito Cascata dos Links */
+.navbar-menu--mobile.active li:nth-child(1) .nav-link { transform: translateY(0); opacity: 0.4; transition-delay: 0.05s; }
+.navbar-menu--mobile.active li:nth-child(2) .nav-link { transform: translateY(0); opacity: 0.4; transition-delay: 0.10s; }
+.navbar-menu--mobile.active li:nth-child(3) .nav-link { transform: translateY(0); opacity: 0.4; transition-delay: 0.15s; }
+.navbar-menu--mobile.active li:nth-child(4) .nav-link { transform: translateY(0); opacity: 0.4; transition-delay: 0.20s; }
+.navbar-menu--mobile.active li:nth-child(5) .nav-link { transform: translateY(0); opacity: 0.4; transition-delay: 0.25s; }
+.navbar-menu--mobile.active li:nth-child(6) .nav-link { transform: translateY(0); opacity: 0.4; transition-delay: 0.30s; }
+
 .navbar-menu--mobile .nav-link.active {
-  color: var(--primary-color);
-  font-size: 1.6rem;
+  opacity: 1 !important;
+  color: var(--primary-color, #ff2d55) !important;
+  transform: scale(1.05) !important;
+}
+
+.navbar-menu--mobile .nav-link:hover {
+  opacity: 1 !important;
 }
 
 /* ============================================ */
-/* MEDIA QUERIES */
+/* MEDIA QUERIES                                */
 /* ============================================ */
 
 @media (max-width: 768px) {
   .navbar-container {
     padding: 1.5rem 1rem;
+    border-radius: 8px
   }
-
   .brand-title {
     font-size: clamp(1.5rem, 6vw, 3rem);
   }
-
-  /* Hide desktop menu, show toggle */
   .navbar-menu--desktop {
     display: none;
   }
-
   .navbar-toggle {
     display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* Show mobile menu when active */
-  .navbar-menu--mobile {
-    display: flex;
-  }
-}
-
-@media (min-width: 1200px) {
-  .brand-title {
-    font-size: 9.5rem;
-    line-height: 0.84;
   }
 }
 
 @media (max-width: 480px) {
-  .brand-title {
-    font-size: 2rem;
-  }
-
-  .nav-link {
-    font-size: 0.8rem;
-  }
-
   .navbar-menu--mobile {
-    gap: 1rem;
+    gap: 1.8rem;
   }
-
   .navbar-menu--mobile .nav-link {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 1.8rem !important;
   }
-
-  .navbar-menu--mobile .nav-link:hover,
-  .navbar-menu--mobile .nav-link.active {
-    font-size: 2rem;
-    font-weight: 700;
-  }
-}
-
-/* Muted appearance for non-active right menu items */
-.navbar-menu--desktop .nav-link:not(.active) {
-  color: #888;
-}
-
-/* Ensure brand line-break behaves consistently */
-.brand-title br {
-  display: block;
-}
-
-/* ============================================ */
-/* NAVBAR ON WHITE BACKGROUND */
-/* ============================================ */
-
-.navbar--on-white .nav-link {
-  color: #000;
-  transition: color 0.18s ease;
-}
-
-.navbar--on-white .nav-link:hover {
-  color: #000;
-}
-
-.navbar--on-white .nav-link.active {
-  color: #000;
-}
-
-.navbar--on-white .navbar-toggle {
-  color: #000;
-}
-
-.navbar--on-white .navbar-toggle:hover {
-  color: var(--primary-color);
 }

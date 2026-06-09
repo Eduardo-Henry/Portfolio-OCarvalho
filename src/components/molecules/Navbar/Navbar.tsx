@@ -1,100 +1,160 @@
 import React, { useState, useEffect } from 'react';
-import { IoMenuSharp, IoClose } from 'react-icons/io5';
 import './Navbar.css';
 
-interface NavItem {
-  label: string;
-  href: string;
-  isActive?: boolean;
-}
-
-const navItems: NavItem[] = [
-  { label: 'HOME', href: '#home', isActive: true },
-  { label: 'SOBRE MIM', href: '#about' },
-  { label: 'PORTFOLIO', href: '#works' },
-  { label: 'MEU PROCESSO', href: '#skills' },
-  { label: 'CONTATO', href: '#contact' },
-];
-
-const WHITE_BG_SECTIONS = ['about', 'skills'];
-
 export const Navbar: React.FC = () => {
-  const [isOnWhiteBg, setIsOnWhiteBg] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = WHITE_BG_SECTIONS.map(id => document.getElementById(id)).filter(Boolean);
-      
-      let onWhiteBg = false;
-      for (const section of sections) {
-        if (!section) continue;
-        const rect = section.getBoundingClientRect();
-        if (rect.top < 200 && rect.bottom > 0) {
-          onWhiteBg = true;
-          break;
-        }
-      }
-      
-      setIsOnWhiteBg(onWhiteBg);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const handleNavClick = () => {
-    setIsMobileMenuOpen(false);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleLinkClick = (sectionId: string) => {
+    setActiveSection(sectionId);
+    setIsMenuOpen(false);
+  };
+
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [isMenuOpen]);
+
   return (
-    <nav className={`navbar ${isOnWhiteBg ? 'navbar--on-white' : ''}`}>
+    <header className="navbar">
       <div className="navbar-container">
-        {/* Desktop Menu */}
-        <ul className="navbar-menu navbar-menu--desktop">
-          {navItems.map((item) => (
-            <li key={item.label}>
-              <a
-                href={item.href}
-                className={`nav-link ${item.isActive ? 'active' : ''}`}
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
+        
+        
+
+        {/* MENU DESKTOP */}
+        <ul className="navbar-menu--desktop">
+          <li>
+            <a 
+              href="#home" 
+              className={`nav-link ${activeSection === 'home' ? 'active' : 'inactive'}`}
+              onClick={() => handleLinkClick('home')}
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#about" 
+              className={`nav-link ${activeSection === 'about' ? 'active' : 'inactive'}`}
+              onClick={() => handleLinkClick('about')}
+            >
+              Sobre Mim
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#portfolio" 
+              className={`nav-link ${activeSection === 'portfolio' ? 'active' : 'inactive'}`}
+              onClick={() => handleLinkClick('portfolio')}
+            >
+              Portfolio
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#process" 
+              className={`nav-link ${activeSection === 'process' ? 'active' : 'inactive'}`}
+              onClick={() => handleLinkClick('process')}
+            >
+              Meu Processo
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#clients" 
+              className={`nav-link ${activeSection === 'clients' ? 'active' : 'inactive'}`}
+              onClick={() => handleLinkClick('clients')}
+            >
+              Feedbacks
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#contact" 
+              className={`nav-link ${activeSection === 'contact' ? 'active' : 'inactive'}`}
+              onClick={() => handleLinkClick('contact')}
+            >
+              Contato
+            </a>
+          </li>
         </ul>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="navbar-toggle"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
-          aria-expanded={isMobileMenuOpen}
+        {/* BOTÃO MOBILE COM FUNDO QUADRADO PRETO */}
+        <button 
+          className={`navbar-toggle ${isMenuOpen ? 'toggle-active' : ''}`} 
+          onClick={toggleMenu} 
+          aria-label="Menu"
         >
-          {isMobileMenuOpen ? (
-            <IoClose size={40} />
-          ) : (
-            <IoMenuSharp size={40} />
-          )}
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <line className="line-top" x1="3" y1="6" x2="21" y2="6"></line>
+            <line className="line-middle" x1="3" y1="12" x2="21" y2="12"></line>
+            <line className="line-bottom" x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
         </button>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <ul className="navbar-menu navbar-menu--mobile">
-            {navItems.map((item) => (
-              <li key={item.label}>
-                <a
-                  href={item.href}
-                  className={`nav-link ${item.isActive ? 'active' : ''}`}
-                  onClick={handleNavClick}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        )}
+        {/* MENU MOBILE INTERATIVO */}
+        <ul className={`navbar-menu--mobile ${isMenuOpen ? 'active' : ''}`}>
+          <li>
+            <a 
+              href="#home" 
+              className={`nav-link ${activeSection === 'home' ? 'active' : 'inactive'}`}
+              onClick={() => handleLinkClick('home')}
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#about" 
+              className={`nav-link ${activeSection === 'about' ? 'active' : 'inactive'}`}
+              onClick={() => handleLinkClick('about')}
+            >
+              Sobre Mim
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#portfolio" 
+              className={`nav-link ${activeSection === 'portfolio' ? 'active' : 'inactive'}`}
+              onClick={() => handleLinkClick('portfolio')}
+            >
+              Portfolio
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#process" 
+              className={`nav-link ${activeSection === 'process' ? 'active' : 'inactive'}`}
+              onClick={() => handleLinkClick('process')}
+            >
+              Meu Processo
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#clients" 
+              className={`nav-link ${activeSection === 'clients' ? 'active' : 'inactive'}`}
+              onClick={() => handleLinkClick('clients')}
+            >
+              Feedbacks
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#contact" 
+              className={`nav-link ${activeSection === 'contact' ? 'active' : 'inactive'}`}
+              onClick={() => handleLinkClick('contact')}
+            >
+              Contato
+            </a>
+          </li>
+        </ul>
+
       </div>
-    </nav>
+    </header>
   );
 };

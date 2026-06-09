@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState, useRef, memo } from 'react';
 import { Button } from '../../atoms';
 import './AboutSection.css';
 import MyPhoto from '../../../assets/images/MyPhoto.png';
@@ -10,24 +10,108 @@ interface AboutSectionProps {
   imageSrc?: string;
 }
 
+// 1. COMPONENTE MEMORIZADO: Isola a descrição para que o scroll do título não quebre o delay das palavras
+const MemoizedDescription = memo(({ text, isVisible }: { text: string; isVisible: boolean }) => {
+  const words = text.split(' ');
+  return (
+    <>
+      {words.map((word, index) => {
+        const delay = index * 0.035; 
+        return (
+          <span
+            key={index}
+            className={`animated-word ${isVisible ? 'animate' : ''}`}
+            style={{ animationDelay: `${delay}s` }}
+          >
+            {word}{" "}
+          </span>
+        );
+      })}
+    </>
+  );
+});
+
+MemoizedDescription.displayName = 'MemoizedDescription';
+
 export const AboutSection: React.FC<AboutSectionProps> = ({
   title = "ABOUT ME®",
   description = "Crio experiências digitais intuitivas onde a clareza encontra o propósito. Sou um designer de UX/UI com foco em usabilidade, sistemas e design centrado no usuário.",
   ctaText = 'CONTATO',
   imageSrc = MyPhoto,
 }) => {
+  const [isSectionVisible, setIsSectionVisible] = useState(false);
+  const [titleProgress, setTitleProgress] = useState(0); 
+  const sectionRef = useRef<HTMLElement>(null);
+
   const handleContactClick = () => {
     const contactSection = document.getElementById('contact');
     contactSection?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // SCROLL REVEAL DO TÍTULO
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+
+      const rect = sectionRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      const elementTop = rect.top;
+      const startReveal = windowHeight - 50; 
+      
+      const progress = (startReveal - elementTop) / 350; 
+      const clampedProgress = Math.max(0, Math.min(1, progress));
+      
+      setTitleProgress(clampedProgress);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); 
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // INTERSECTION OBSERVER: Controla estritamente quando a descrição começa a se escrever
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsSectionVisible(entry.isIntersecting);
+      },
+      { 
+        threshold: 0.2, // Ativa um pouco mais cedo para a escrita começar de forma fluida
+        rootMargin: "0px 0px -150px 0px"
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="about-section" id="about">
+    <section className="about-section" id="about" ref={sectionRef}>
       <div className="about-container">
         {/* Left Column: Text Content */}
         <div className="about-content">
-          <h2 className="about-title">{title}</h2>
-          <p className="about-description">{description}</p>
+          
+          {/* TÍTULO INTERATIVO */}
+          <h2 
+            className="about-title"
+            style={{
+              opacity: titleProgress,
+              transform: `translateY(${(1 - titleProgress) * 35}px)`,
+              transition: 'opacity 0.1s ease-out, transform 0.1s ease-out'
+            }}
+          >
+            {title}
+          </h2>
+          
+          {/* DESCRIÇÃO PROTEGIDA COM O MEMO */}
+          <p className="about-description">
+            <MemoizedDescription text={description} isVisible={isSectionVisible} />
+          </p>
           
           <div className="about-cta">
             <Button
