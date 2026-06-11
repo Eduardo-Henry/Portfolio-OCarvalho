@@ -39,7 +39,6 @@
   top: 1.25rem;
   left: 1.5rem;
   pointer-events: auto;
-  mix-blend-mode: difference;
 }
 
 .brand-title {

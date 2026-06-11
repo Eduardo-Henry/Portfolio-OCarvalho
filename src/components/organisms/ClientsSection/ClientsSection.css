@@ -167,9 +167,7 @@
   margin-top: clamp(var(--spacing-xl), 3vw, var(--spacing-2xl));
 }
 
-.clients-footer-left {
-  /* placeholder — ocupa o espaço da coluna da foto */
-}
+
 
 /* Nav + botão inline na coluna direita */
 .clients-footer-right {
