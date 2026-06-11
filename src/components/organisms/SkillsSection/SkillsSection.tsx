@@ -116,7 +116,8 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ id }) => {
                 <h3 className="skill-title-item">
                   {skill.title}
                 </h3>
-                <p className="skill-description-item">
+                {/* CORREÇÃO: Alterado de skill-description-item para skill-description para bater com o CSS */}
+                <p className="skill-description">
                   {skill.description}
                 </p>
               </div>

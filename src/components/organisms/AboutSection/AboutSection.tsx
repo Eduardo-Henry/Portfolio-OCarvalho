@@ -1,23 +1,25 @@
-import React, { useEffect, useState, useRef, memo } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Button } from '../../atoms';
 import './AboutSection.css';
 import MyPhoto from '../../../assets/images/MyPhoto.png';
 
 interface AboutSectionProps {
-  id?: string; // 1. Adicionado o id opcional nas Props
+  id?: string;
   title?: string;
   description?: string;
   ctaText?: string;
   imageSrc?: string;
 }
 
-// 1. COMPONENTE MEMORIZADO: Isola a descrição para que o scroll do título não quebre o delay das palavras
-const MemoizedDescription = memo(({ text, isVisible }: { text: string; isVisible: boolean }) => {
+
+
+// Efeito de escrita por palavras de forma fluida
+const TypewriterDescription = ({ text, isVisible }: { text: string; isVisible: boolean }) => {
   const words = text.split(' ');
   return (
     <>
       {words.map((word, index) => {
-        const delay = index * 0.035; 
+        const delay = index * 0.04; // Velocidade da escrita (ajusta se necessário)
         return (
           <span
             key={index}
@@ -30,19 +32,16 @@ const MemoizedDescription = memo(({ text, isVisible }: { text: string; isVisible
       })}
     </>
   );
-});
-
-MemoizedDescription.displayName = 'MemoizedDescription';
+};
 
 export const AboutSection: React.FC<AboutSectionProps> = ({
-  id, // 2. Recebendo o id dinâmico aqui
+  id,
   title = "ABOUT ME®",
   description = "Crio experiências digitais intuitivas onde a clareza encontra o propósito. Sou um designer de UX/UI com foco em usabilidade, sistemas e design centrado no usuário.",
   ctaText = 'CONTATO',
   imageSrc = MyPhoto,
 }) => {
   const [isSectionVisible, setIsSectionVisible] = useState(false);
-  const [titleProgress, setTitleProgress] = useState(0); 
   const sectionRef = useRef<HTMLElement>(null);
 
   const handleContactClick = () => {
@@ -50,38 +49,17 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
     contactSection?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // SCROLL REVEAL DO TÍTULO
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return;
-
-      const rect = sectionRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      const elementTop = rect.top;
-      const startReveal = windowHeight - 50; 
-      
-      const progress = (startReveal - elementTop) / 350; 
-      const clampedProgress = Math.max(0, Math.min(1, progress));
-      
-      setTitleProgress(clampedProgress);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); 
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // INTERSECTION OBSERVER: Controla estritamente quando a descrição começa a se escrever
+  // Dispara a animação de escrita assim que a secção aparece 20% no ecrã
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsSectionVisible(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          setIsSectionVisible(true); // Ativa e mantém ativo
+        }
       },
       { 
-        threshold: 0.2, // Ativa um pouco mais cedo para a escrita começar de forma fluida
-        rootMargin: "0px 0px -150px 0px"
+        threshold: 0.2,
+        rootMargin: "0px 0px -100px 0px"
       }
     );
 
@@ -93,27 +71,19 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
   }, []);
 
   return (
-    // 3. Alterado o id="about" estático para id={id} para receber a tag do Home.tsx
     <section className="about-section" id={id} ref={sectionRef}>
       <div className="about-container">
         {/* Left Column: Text Content */}
         <div className="about-content">
           
-          {/* TÍTULO INTERATIVO */}
-          <h2 
-            className="about-title"
-            style={{
-              opacity: titleProgress,
-              transform: `translateY(${(1 - titleProgress) * 35}px)`,
-              transition: 'opacity 0.1s ease-out, transform 0.1s ease-out'
-            }}
-          >
+          {/* TÍTULO ESTÁTICO (Sem efeito de scroll) */}
+          <h2 className="about-title">
             {title}
           </h2>
           
-          {/* DESCRIÇÃO PROTEGIDA COM O MEMO */}
+          {/* DESCRIÇÃO COM EFEITO DE ESCRITA */}
           <p className="about-description">
-            <MemoizedDescription text={description} isVisible={isSectionVisible} />
+            <TypewriterDescription text={description} isVisible={isSectionVisible} />
           </p>
           
           <div className="about-cta">
@@ -148,6 +118,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
           </div>
         )}
       </div>
-    </section>
+      </section>
+      
   );
 };

@@ -7,9 +7,16 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 0; 
+  height: 0;
   z-index: var(--z-fixed);
   pointer-events: none;
+  /*
+   * ✅ NÃO adicionar isolation: isolate aqui.
+   * isolation no ancestral corta o blend mode do descendente,
+   * impedindo que ele enxergue o fundo da página.
+   * A navbar precisa estar no mesmo stacking context do conteúdo
+   * que ela vai blender.
+   */
 }
 
 .navbar-container {
@@ -18,10 +25,13 @@
   padding: 2rem 4rem;
   position: relative;
   pointer-events: none;
+  /* ✅ Sem isolation, transform, filter ou backdrop-filter aqui.
+     Qualquer uma dessas propriedades criaria um stacking context
+     que quebraria o blend mode dos filhos. */
 }
 
 /* ============================================ */
-/* BRAND / LOGO (DESKTOP CONTRAST)              */
+/* BRAND / LOGO                                 */
 /* ============================================ */
 
 .navbar-brand {
@@ -40,7 +50,7 @@
   letter-spacing: -0.06em;
   margin: 0;
   text-transform: uppercase;
-  color: #ffffff !important; 
+  color: #ffffff;
 }
 
 .brand-trademark {
@@ -50,11 +60,11 @@
 }
 
 /* ============================================ */
-/* MENU DESKTOP: INTERAÇÃO E DIFFERENCE         */
+/* MENU DESKTOP                                 */
 /* ============================================ */
 
 .navbar-menu--desktop {
-  position: absolute;
+  position: fixed;
   top: 2.25rem;
   right: 3.25rem;
   display: flex;
@@ -65,51 +75,78 @@
   padding: 0;
   align-items: flex-end;
   pointer-events: auto;
+  /*
+   * ✅ SEM mix-blend-mode aqui.
+   * ✅ SEM isolation aqui.
+   * ✅ SEM transform aqui.
+   * Qualquer uma dessas no container mataria o blend dos filhos.
+   */
 }
 
-/* Efeito Difference aplicado estritamente no link do desktop */
+.navbar-menu--desktop li {
+  /* ✅ O <li> também precisa ser neutro — sem blend, sem isolation */
+  list-style: none;
+}
+
+/* BASE: todos os links brancos, sem blend */
 .navbar-menu--desktop .nav-link {
-  mix-blend-mode: difference !important;
-  color: #ffffff !important; 
-  text-decoration: none;
+  display: block;
+  color: #ffffff;
   font-size: 1.125rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   font-family: var(--font-headline);
-  position: relative;
+  transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+              transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Comportamento de opacidade para links inativos */
+/* INATIVO: sem blend, só opacidade reduzida */
 .navbar-menu--desktop .nav-link.inactive {
-  opacity: 0.4 !important;
+  opacity: 0.4;
+  mix-blend-mode: normal; /* explícito para garantir reset */
 }
 
+/*
+ * ✅ ATIVO: blend mode aplicado DIRETAMENTE no .nav-link (o <button>).
+ *
+ * Por que funciona:
+ * - O <button> é o elemento que contém o texto renderizado.
+ * - mix-blend-mode: difference nele faz o browser calcular:
+ *   cor_resultado = |cor_elemento - cor_fundo|
+ * - Com color: #ffffff (#fff = rgb(255,255,255)):
+ *   fundo preto  (#000): |255-0|   = 255 → branco ✅
+ *   fundo branco (#fff): |255-255| = 0   → preto  ✅
+ *   fundo cinza  (#888): |255-136| = 119 → cinza médio invertido ✅
+ * - O efeito acontece em tempo real durante o scroll, sem JS.
+ */
 .navbar-menu--desktop .nav-link.active {
-  opacity: 1 !important;
+  color: #ffffff; /* obrigatório — sem isso o blend não funciona como inversão */
+  mix-blend-mode: difference;
+  opacity: 1;
   transform: translateX(-6px);
 }
 
+/* Hover: resto some, hovered fica full */
 .navbar-menu--desktop:has(.nav-link:hover) .nav-link:not(:hover) {
-  opacity: 0.2 !important;
+  opacity: 0.15;
 }
 
 .navbar-menu--desktop .nav-link:hover {
-  opacity: 1 !important;
+  opacity: 1;
 }
 
-.nav-link:active {
-  transform: scale(0.93) !important;
+.navbar-menu--desktop .nav-link:active {
+  transform: scale(0.93) translateX(-6px);
 }
 
 /* ============================================ */
-/* BOTÃO MOBILE: QUADRADO PRETO FIXO            */
+/* BOTÃO MOBILE                                 */
 /* ============================================ */
 
 .navbar-toggle {
   display: none;
-  background: #000000 !important; /* Quadrado preto sólido solicitado */
+  background: #000000;
   border-radius: 8px;
   border: none;
   cursor: pointer;
@@ -118,31 +155,24 @@
   top: 1.5rem;
   right: 1.5rem;
   z-index: 9999;
-  
-  /* Dimensões do quadrado perfeitamente simétricas */
   width: 48px;
   height: 48px;
   align-items: center;
   justify-content: center;
-  
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.navbar-toggle svg {
-  color: #ffffff !important;
+  color: #ffffff;
 }
 
 .navbar-toggle svg line {
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.3s ease;
   transform-origin: center;
 }
 
-/* Gira o bloco em 90 graus exatos */
 .navbar-toggle.toggle-active {
   transform: rotate(90deg);
 }
 
-/* Transforma as linhas no X sem achatar ou estragar o shape */
 .navbar-toggle.toggle-active .line-top {
   transform: translateY(3px) rotate(45deg);
 }
@@ -156,7 +186,7 @@
 }
 
 .navbar-toggle:active {
-  transform: scale(0.9) rotate(0deg);
+  transform: scale(0.9);
 }
 
 .navbar-toggle.toggle-active:active {
@@ -164,7 +194,7 @@
 }
 
 /* ============================================ */
-/* MENU MOBILE: PRETO PURO (SEM BLEND)          */
+/* MENU MOBILE                                  */
 /* ============================================ */
 
 .navbar-menu--mobile {
@@ -174,8 +204,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: #050505; 
-  mix-blend-mode: normal !important; /* Bloqueia o difference no mobile */
+  background: #050505;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -186,7 +215,7 @@
   pointer-events: none;
   z-index: 9998;
   opacity: 0;
-  transition: opacity 0.3s ease, pointer-events 0.3s;
+  transition: opacity 0.3s ease;
 }
 
 .navbar-menu--mobile.active {
@@ -195,32 +224,34 @@
 }
 
 .navbar-menu--mobile .nav-link {
-  font-size: 2.2rem !important;
+  font-size: 2.2rem;
   font-weight: 800;
   letter-spacing: -0.02em;
-  color: #ffffff !important; 
-  mix-blend-mode: normal !important; /* Isolamento estrito */
+  color: #ffffff;
   opacity: 0.4;
   transform: translateY(20px);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.4s ease;
+  /* ✅ No mobile o fundo é sempre #050505 (sólido escuro),
+     então cor fixa é mais confiável e legível que blend */
+  mix-blend-mode: normal;
 }
 
-/* Efeito Cascata dos Links */
-.navbar-menu--mobile.active li:nth-child(1) .nav-link { transform: translateY(0); opacity: 0.4; transition-delay: 0.05s; }
-.navbar-menu--mobile.active li:nth-child(2) .nav-link { transform: translateY(0); opacity: 0.4; transition-delay: 0.10s; }
-.navbar-menu--mobile.active li:nth-child(3) .nav-link { transform: translateY(0); opacity: 0.4; transition-delay: 0.15s; }
-.navbar-menu--mobile.active li:nth-child(4) .nav-link { transform: translateY(0); opacity: 0.4; transition-delay: 0.20s; }
-.navbar-menu--mobile.active li:nth-child(5) .nav-link { transform: translateY(0); opacity: 0.4; transition-delay: 0.25s; }
-.navbar-menu--mobile.active li:nth-child(6) .nav-link { transform: translateY(0); opacity: 0.4; transition-delay: 0.30s; }
+.navbar-menu--mobile.active li:nth-child(1) .nav-link { transform: translateY(0); transition-delay: 0.05s; }
+.navbar-menu--mobile.active li:nth-child(2) .nav-link { transform: translateY(0); transition-delay: 0.10s; }
+.navbar-menu--mobile.active li:nth-child(3) .nav-link { transform: translateY(0); transition-delay: 0.15s; }
+.navbar-menu--mobile.active li:nth-child(4) .nav-link { transform: translateY(0); transition-delay: 0.20s; }
+.navbar-menu--mobile.active li:nth-child(5) .nav-link { transform: translateY(0); transition-delay: 0.25s; }
+.navbar-menu--mobile.active li:nth-child(6) .nav-link { transform: translateY(0); transition-delay: 0.30s; }
 
 .navbar-menu--mobile .nav-link.active {
-  opacity: 1 !important;
-  color: var(--primary-color, #ff2d55) !important;
-  transform: scale(1.05) !important;
+  opacity: 1;
+  color: var(--primary-color, #e8302a);
+  transform: scale(1.05);
 }
 
 .navbar-menu--mobile .nav-link:hover {
-  opacity: 1 !important;
+  opacity: 1;
 }
 
 /* ============================================ */
@@ -230,14 +261,16 @@
 @media (max-width: 768px) {
   .navbar-container {
     padding: 1.5rem 1rem;
-    border-radius: 8px
   }
+
   .brand-title {
     font-size: clamp(1.5rem, 6vw, 3rem);
   }
+
   .navbar-menu--desktop {
     display: none;
   }
+
   .navbar-toggle {
     display: flex;
   }
@@ -247,7 +280,16 @@
   .navbar-menu--mobile {
     gap: 1.8rem;
   }
+
   .navbar-menu--mobile .nav-link {
-    font-size: 1.8rem !important;
+    font-size: 1.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar-menu--desktop .nav-link,
+  .navbar-menu--mobile .nav-link,
+  .navbar-toggle {
+    transition: none;
   }
 }

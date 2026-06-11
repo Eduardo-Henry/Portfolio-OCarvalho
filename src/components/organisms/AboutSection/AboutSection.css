@@ -52,18 +52,20 @@
   transform-origin: left center;
 }
 
-/* Mantendo os estilos necessários para a escrita das palavras da sua descrição */
-.about-description .animated-word {
+
+/* Garante que as palavras começam invisíveis e aparecem com fade + subida leve */
+.animated-word {
   display: inline-block;
-  white-space: pre-wrap;
-  color: #e5e5e5;
-  transition: color 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  opacity: 0;
+  transform: translateY(5px);
+  transition: opacity 0.25s ease-out, transform 0.25s ease-out;
 }
 
-.about-description .animated-word.animate {
-  color: #000000 !important;
+/* Classe aplicada via React quando a secção fica visível */
+.animated-word.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
-
 
 
 /* Descrição / Texto de Apoio */

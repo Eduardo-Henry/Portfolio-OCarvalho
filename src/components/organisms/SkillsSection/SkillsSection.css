@@ -73,21 +73,7 @@
   white-space: nowrap;
 }
 
-/* Menu de navegação lateral */
-.skills-nav-links {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 4px;
-  font-size: 14px;
-  font-weight: 700;
-  color: #7f7f7f;
-  white-space: nowrap;
-}
 
-.skills-nav-links .nav-item.active {
-  color: #000000;
-}
 
 /* ============================================ */
 /* SKILLS LIST (STACK CARD LAYOUT)              */
@@ -161,8 +147,8 @@
   font-family: sans-serif; /* Parágrafo mantém leitura limpa sem ser fonte display */
   font-size: 1rem;
   line-height: 1.4;
+  font-weight: 400 !important; /* CORREÇÃO: Removido o conflito com a linha que forçava 500 logo abaixo */
   color: #000000 !important;
-  font-weight: 500;
   margin: 0;
   opacity: 1 !important;
   visibility: visible !important;

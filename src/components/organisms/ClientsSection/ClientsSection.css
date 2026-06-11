@@ -1,34 +1,29 @@
 /* ============================================ */
-/* CLIENTS SECTION — WHITE BACKGROUND           */
+/* CLIENTS SECTION                              */
 /* ============================================ */
 
 .clients-section {
   width: 100%;
   background: #ffffff;
   position: relative;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: clamp(var(--spacing-xl), 5vw, var(--spacing-3xl)) clamp(var(--spacing-lg), 4vw, var(--spacing-3xl));
+  padding: clamp(var(--spacing-xl), 5vw, var(--spacing-3xl))
+    clamp(var(--spacing-lg), 4vw, var(--spacing-3xl));
   box-sizing: border-box;
 }
 
-/* ============================================================ */
-/* TOPO DA SEÇÃO: CONTADOR, TÍTULO E MENU ALINHADOS EM LINHA    */
-/* ============================================================ */
+/* ── HEADER ───────────────────────────────── */
 
 .clients-header-zone {
   display: grid;
-  grid-template-columns: clamp(200px, 25vw, 280px) 1fr auto;
+  grid-template-columns: clamp(160px, 18vw, 220px) 1fr;
   gap: clamp(var(--spacing-2xl), 4vw, var(--spacing-3xl));
   align-items: start;
   width: 100%;
   margin-bottom: clamp(var(--spacing-xl), 3vw, var(--spacing-2xl));
-  position: relative;
 }
 
-/* Contador discreto no canto superior esquerdo */
 .clients-counter {
   font-family: var(--font-display), sans-serif;
   font-size: 1.1rem;
@@ -39,11 +34,10 @@
   text-transform: uppercase;
 }
 
-/* Título Principal "NUMBERS DON'T LIE" */
 .clients-title {
   font-family: var(--font-display), sans-serif;
   font-size: clamp(4rem, 8vw, 10rem);
-  font-weight: 900; /* Força o peso idêntico ao da imagem */
+  font-weight: 900;
   line-height: 0.85;
   letter-spacing: -0.05em;
   color: #000000;
@@ -51,7 +45,6 @@
   text-transform: uppercase;
 }
 
-/* Ícone de marca registrada ® */
 .clients-mark {
   font-size: 0.4em;
   vertical-align: super;
@@ -59,43 +52,40 @@
   font-weight: 400;
 }
 
-/* Menu de Navegação do Canto Superior Direito */
-.clients-nav-links {
+/* ── CAROUSEL ─────────────────────────────── */
+
+.clients-carousel-outer {
+  width: 100%;
+  overflow: hidden;
+  cursor: grab;
+  position: relative;
+}
+
+.clients-carousel-outer:active {
+  cursor: grabbing;
+}
+
+.clients-carousel-track {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.25rem;
+  will-change: transform;
 }
 
-.clients-nav-links a {
-  font-family: var(--font-display), sans-serif;
-  font-size: 1rem;
-  font-weight: 800;
-  color: #888888;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  transition: color 0.25s ease;
-}
+/* ── SLIDE ────────────────────────────────── */
 
-.clients-nav-links a:hover,
-.clients-nav-links a.active {
-  color: #000000; /* Destaque preto para a seção atual */
-}
-
-/* ============================================================ */
-/* GRID INFERIOR (FOTO À ESQUERDA E BLOCO DE CONTEÚDO À DIREITA) */
-/* ============================================================ */
-
-.clients-main-grid {
+.clients-slide {
+  min-width: 100%;
+  width: 100%;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  overflow: hidden;
   display: grid;
-  grid-template-columns: clamp(200px, 25vw, 280px) 1fr;
+  grid-template-columns: clamp(160px, 18vw, 220px) clamp(300px, 40vw, 560px);
   gap: clamp(var(--spacing-2xl), 4vw, var(--spacing-3xl));
   align-items: start;
-  width: 100%;
 }
 
-/* --- COLUNA DA FOTO --- */
+/* ── FOTO ─────────────────────────────────── */
+
 .clients-profile-zone {
   display: flex;
   flex-direction: column;
@@ -109,15 +99,16 @@
 
 .client-featured-image {
   width: 100%;
-  height: 30vh;
+  aspect-ratio: 2 / 3;
   overflow: hidden;
 }
 
 .client-featured-image img {
   width: 100%;
-  height: 40vh;
+  height: 100%;
   object-fit: cover;
-  
+  display: block;
+  pointer-events: none;
 }
 
 .client-featured-info {
@@ -129,71 +120,86 @@
   letter-spacing: -0.02em;
 }
 
-/* --- NOVA DESCRIÇÃO ABAIXO DO NOME --- */
 .client-meta-container {
   margin-top: 12px;
 }
 
 .client-role {
   font-size: 1rem;
-  font-weight: 300; /* Font Light */
+  font-weight: 300;
   color: #888888;
   margin: 4px 0 0 0;
 }
 
-/* --- COLUNA DE CONTEÚDO (PARÁGRAFO + BOTÃO LADO A LADO) --- */
-.clients-body-zone {
-  display: grid;
-  grid-template-columns: 1fr auto; /* Texto ocupa o espaço fluido e o botão fica preso na ponta */
-  gap: clamp(var(--spacing-xl), 3vw, var(--spacing-3xl));
-  align-items: center; /* Centraliza verticalmente o parágrafo em relação ao botão */
-  width: 100%;
-}
+/* ── TEXTO ────────────────────────────────── */
 
-/* --- ANIMAÇÃO DE TEXTO SE ESCREVENDO (REVELADO GRADUAL) --- */
 .clients-description {
-  font-size: 1.6rem; /* Aumentada a fonte para o visual elegante do print */
-  color: #888888; /* Inicializa em cinza para a parte oculta */
-  line-height: 1.3; /* Ajustado para espaçamento vertical harmônico */
+  font-size: 1.6rem;
+  color: #888888;
+  line-height: 1.3;
   font-weight: 400;
-  letter-spacing: normal; /* Removido o esmagamento negativo para não juntar as letras */
   margin: 0;
-  max-width: 600px;
+  align-self: center;
 }
 
 .animated-word {
-  display: inline-block;
-  white-space: pre-wrap; /* Garante que os espaços entre as palavras sejam mantidos */
+  display: inline;
   color: #888888;
-  transition: color 0.4s ease;
 }
 
-/* Ativado dinamicamente pelo Intersection Observer no React */
 .animated-word.animate {
   animation: revealText 0.1s forwards;
 }
 
 @keyframes revealText {
   to {
-    color: #000000; /* Transiciona para preto puro */
+    color: #000000;
   }
 }
 
-/* Contêiner invisível do botão para gerenciar alinhamentos */
+/* ── RODAPÉ FIXO ──────────────────────────── */
+
+.clients-footer-fixed {
+  display: grid;
+  grid-template-columns: clamp(160px, 18vw, 220px) clamp(300px, 40vw, 560px);
+  gap: clamp(var(--spacing-2xl), 4vw, var(--spacing-3xl));
+  align-items: center;
+  margin-top: clamp(var(--spacing-xl), 3vw, var(--spacing-2xl));
+}
+
+.clients-footer-left {
+  /* placeholder — ocupa o espaço da coluna da foto */
+}
+
+/* Nav + botão inline na coluna direita */
+.clients-footer-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.clients-nav-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
 .clients-cta-container {
   display: flex;
   justify-content: flex-end;
+  flex-shrink: 0;
 }
 
-/* ============================================================ */
-/* BOTÃO CTA (PÍLULA PRETA + BOLA VERMELHA — PROPRIEDADES FIXAS)*/
-/* ============================================================ */
+/* ── BOTÃO CTA ────────────────────────────── */
 
 .clients-cta-wrapper {
   display: inline-flex;
   align-items: center;
-  justify-content: center; 
-  height: 94px; /* Casado perfeitamente com a altura global do Hero */
+  height: 94px;
   border-radius: 999px;
   background-color: #000000;
   color: #ffffff;
@@ -202,12 +208,9 @@
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
   white-space: nowrap;
-  
-  /* Paddings laterais corrigidos para travar a largura exagerada */
-  padding: 0 1.2rem 0 3rem; 
+  padding: 0 1.2rem 0 3rem;
 }
 
-/* Interações e Estados de Hover */
 .clients-cta-wrapper:hover {
   transform: translateY(-4px) scale(1.02);
 }
@@ -217,32 +220,30 @@
 }
 
 .clients-cta-wrapper:focus-visible {
-  outline: 3px solid rgba(255, 59, 48, 0.3);
+  outline: 3px solid rgba(232, 48, 42, 0.3);
   outline-offset: 4px;
 }
 
-/* Estilo do Texto Interno */
 .cta-text {
-  font-weight: 400; /* MANTIDO INTEGRAMENTE EM 400 CONFORME SOLICITADO */
+  font-weight: 400;
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.03em;
   color: #ffffff;
 }
 
-/* Círculo vermelho com a seta */
 .cta-icon-circle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 68px;  
-  height: 68px; 
-  background: var(--primary-color, #ff2d55);
+  width: 68px;
+  height: 68px;
+  background: var(--primary-color, #e8302a);
   border-radius: 999px;
   color: #ffffff;
-  margin-left: 1.5rem; 
+  margin-left: 1.5rem;
   flex-shrink: 0;
-  box-shadow: 0 8px 32px rgba(255, 59, 48, 0.22);
+  box-shadow: 0 8px 32px rgba(232, 48, 42, 0.22);
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
@@ -251,139 +252,190 @@
   color: #000000;
 }
 
-/* Configuração do SVG da Seta */
 .cta-icon-circle svg {
   width: 20px;
   height: 20px;
   stroke: currentColor;
   stroke-width: 2.5;
-  transition: stroke 0.25s ease;
 }
 
-/* ============================================ */
-/* RESPONSIVIDADE ADAPTATIVA                    */
-/* ============================================ */
+/* ── NAV BUTTONS ──────────────────────────── */
+
+.carousel-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  color: #000000;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.carousel-btn svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 2.5;
+}
+
+.carousel-btn:hover {
+  opacity: 0.4;
+  transform: scale(1.1);
+}
+
+.carousel-btn:active {
+  transform: scale(0.92);
+}
+
+.carousel-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: none;
+  background: #cccccc;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.25s ease, width 0.3s ease;
+}
+
+.carousel-dot.active {
+  background: #000000;
+  width: 24px;
+}
+
+/* Desktop: esconde o botão da coluna esquerda */
+.clients-cta-mobile {
+  display: none;
+}
+/* ── RESPONSIVIDADE ───────────────────────── */
 
 @media (max-width: 1200px) {
   .clients-header-zone {
-    grid-template-columns: 1fr auto;
-  }
-  
-  .clients-counter {
-    display: none; /* Oculta o contador em telas menores para dar foco ao título */
+    grid-template-columns: 1fr;
   }
 
-  .clients-body-zone {
-    grid-template-columns: 1fr; /* Transiciona parágrafo e botão para blocos verticais */
-    gap: var(--spacing-xl);
-  }
-  
-  .clients-cta-container {
-    justify-content: flex-start; /* Joga o botão de volta para a esquerda no mobile */
+  .clients-counter {
+    display: none;
   }
 }
 
 @media (max-width: 768px) {
+  /* Mobile: mostra o botão da coluna esquerda, esconde o da direita */
+@media (max-width: 768px) {
+  .clients-cta-mobile {
+    display: inline-flex;
+  }
+
+  .clients-footer-right .clients-cta-container {
+    display: none;
+  }
+}
+
   .clients-section {
-    padding: clamp(var(--spacing-lg), 3vw, var(--spacing-xl)) clamp(var(--spacing-md), 2.5vw, var(--spacing-lg));
-  }
-  
-  .clients-header-zone {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);
+    padding: clamp(var(--spacing-lg), 4vw, var(--spacing-xl))
+      clamp(var(--spacing-md), 4vw, var(--spacing-lg));
   }
 
-  .clients-nav-links {
-    align-items: flex-start; /* Menu alinha à esquerda no celular */
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  
-  .clients-main-grid {
+  /* Slide: coluna única */
+  .clients-slide {
     grid-template-columns: 1fr;
-    gap: clamp(var(--spacing-xl), 2.5vw, var(--spacing-2xl));
-  }
-  
-  .client-featured-image {
-    width: 50%;
-    height: 20vh;
-  }
-  
-  .clients-title {
-    font-size: 3.5rem;
-  }
-  
-  .clients-description {
-    font-size: 1.3rem;
+    gap: var(--spacing-lg);
   }
 
-  /* Redução adaptativa simétrica do botão no tablet */
+  /* Footer: duas colunas — botão à esquerda alinhado à foto, nav à direita */
+  .clients-footer-fixed {
+    grid-template-columns: auto 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+  }
+
+  /* Coluna esquerda vira o botão CTA */
+  .clients-footer-left {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Move o botão para a coluna esquerda via order */
+  .clients-footer-right {
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+
+  /* Esconde o cta-container da coluna direita no mobile */
+  .clients-footer-right .clients-cta-container {
+    display: none;
+  }
+
+  /* Mostra o botão CTA dentro da coluna esquerda */
+  .clients-footer-left::after {
+    display: none;
+  }
+
+  .clients-nav-buttons {
+    justify-content: flex-end;
+  }
+
+  .client-featured-image {
+    width: 120px;
+    aspect-ratio: 1 / 1;
+  }
+
+  .clients-title {
+    font-size: clamp(2.8rem, 10vw, 3.5rem);
+  }
+
+  .clients-description {
+    font-size: 1.15rem;
+  }
+
   .clients-cta-wrapper {
-    height: 72px !important;
-    padding: 0 1rem 0 2rem !important;
+    height: 72px;
+    padding: 0 1rem 0 2rem;
   }
 
   .cta-icon-circle {
-    width: 54px !important;
-    height: 54px !important;
-    margin-left: 1.2rem;
+    width: 52px;
+    height: 52px;
+    margin-left: 1rem;
   }
 }
 
 @media (max-width: 430px) {
   .clients-title {
-    font-size: 3.5rem;
-    font-weight: 700 !important;
-  }
-  
-  .clients-description {
-    font-size: 1.1rem;
+    font-size: 2.8rem;
   }
 
-  /* Redução fina e travada para os botões caberem sem quebras no iPhone de 390px */
+  .clients-description {
+    font-size: 1rem;
+  }
+
   .clients-cta-wrapper {
-    height: 58px !important;
-    padding: 0 0.6rem 0 1.5rem !important;
+    height: 58px;
+    padding: 0 0.6rem 0 1.5rem;
   }
 
   .cta-text {
-    font-size: 0.75rem !important;
+    font-size: 0.8rem;
   }
 
   .cta-icon-circle {
-    width: 42px !important;
-    height: 42px !important;
+    width: 42px;
+    height: 42px;
     margin-left: 0.8rem;
   }
-  
+
   .cta-icon-circle svg {
     width: 16px;
     height: 16px;
-  }
-
-  /* ============================================================ */
-  /* CORREÇÃO DO ESPAÇAMENTO DA FOTO PARA O TEXTO SEGUINTE        */
-  /* ============================================================ */
-  
-  /* 1. Reduz o espaço padrão entre os blocos internos da foto */
-  .clients-featured {
-    gap: 4px !important; 
-  }
-
-  /* 2. Garante que o container tenha exatamente o mesmo tamanho da foto */
-  .client-featured-image {
-    width: 100px !important;
-    height: 100px !important; 
-  }
-
-  /* 3. Ajusta a foto para preencher o bloco perfeitamente */
-  .client-featured-image img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: contain; 
-    border-radius: 8px; 
-    margin: 0 !important;
   }
 }
