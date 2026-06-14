@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { MainLayout } from '../../components/templates';
 import {
   HeroSection,
@@ -11,22 +12,24 @@ import {
 } from '../../components/organisms';
 
 export const Home: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <MainLayout>
       
       {/* 1. PALCO DO PARALLAX SUPERIOR (Hero + About) */}
       <div style={{ position: 'relative', width: '100%', zIndex: 2 }}>
         <HeroSection
-          id="hero" // Passando o ID via propriedade
-          title="Desenvolvo produtos digitais que impulsionam o crescimento de empresas e encantam os usuários."
-          description="Combino pesquisa de usuários, design visual e estratégia para transformar problemas complexos em soluções digitais perfeitas."
-          ctaText="CONVERSAR"
+          id="hero"
+          title={t('hero.title')}
+          description={t('hero.description')}
+          ctaText={t('hero.cta')}
         />
         <AboutSection
-          id="about" // Passando o ID via propriedade
-          title="SOBRE MIM®"
-          description="Designer de UX com pensamento sistêmico e visão de front-end. Especialista em Design Systems escaláveis (Design Atômico) com estrutura avançada no Figma focada em handoff técnico. Otimizo fluxos de produto através de AI-Driven Design, utilizando inteligência artificial para acelerar a síntese de pesquisas com usuários, ideação e prototipagem rápida. Desenvolvo produtos interativos, de alta conversão e estritamente acessíveis (WCAG/ARIA)."
-          ctaText="VER PROJETOS"
+          id="about"
+          title={t('about.title')}
+          description={t('about.description')}
+          ctaText={t('about.cta')}
         />
       </div>
 

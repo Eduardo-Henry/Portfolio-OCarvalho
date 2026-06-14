@@ -10,13 +10,6 @@
   height: 0;
   z-index: var(--z-fixed);
   pointer-events: none;
-  /*
-   * ✅ NÃO adicionar isolation: isolate aqui.
-   * isolation no ancestral corta o blend mode do descendente,
-   * impedindo que ele enxergue o fundo da página.
-   * A navbar precisa estar no mesmo stacking context do conteúdo
-   * que ela vai blender.
-   */
 }
 
 .navbar-container {
@@ -25,9 +18,6 @@
   padding: 2rem 4rem;
   position: relative;
   pointer-events: none;
-  /* ✅ Sem isolation, transform, filter ou backdrop-filter aqui.
-     Qualquer uma dessas propriedades criaria um stacking context
-     que quebraria o blend mode dos filhos. */
 }
 
 /* ============================================ */
@@ -74,16 +64,9 @@
   padding: 0;
   align-items: flex-end;
   pointer-events: auto;
-  /*
-   * ✅ SEM mix-blend-mode aqui.
-   * ✅ SEM isolation aqui.
-   * ✅ SEM transform aqui.
-   * Qualquer uma dessas no container mataria o blend dos filhos.
-   */
 }
 
 .navbar-menu--desktop li {
-  /* ✅ O <li> também precisa ser neutro — sem blend, sem isolation */
   list-style: none;
 }
 
@@ -100,33 +83,18 @@
               transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* INATIVO: sem blend, só opacidade reduzida */
 .navbar-menu--desktop .nav-link.inactive {
   opacity: 0.4;
-  mix-blend-mode: normal; /* explícito para garantir reset */
+  mix-blend-mode: normal;
 }
 
-/*
- * ✅ ATIVO: blend mode aplicado DIRETAMENTE no .nav-link (o <button>).
- *
- * Por que funciona:
- * - O <button> é o elemento que contém o texto renderizado.
- * - mix-blend-mode: difference nele faz o browser calcular:
- *   cor_resultado = |cor_elemento - cor_fundo|
- * - Com color: #ffffff (#fff = rgb(255,255,255)):
- *   fundo preto  (#000): |255-0|   = 255 → branco ✅
- *   fundo branco (#fff): |255-255| = 0   → preto  ✅
- *   fundo cinza  (#888): |255-136| = 119 → cinza médio invertido ✅
- * - O efeito acontece em tempo real durante o scroll, sem JS.
- */
 .navbar-menu--desktop .nav-link.active {
-  color: #ffffff; /* obrigatório — sem isso o blend não funciona como inversão */
+  color: #ffffff;
   mix-blend-mode: difference;
   opacity: 1;
   transform: translateX(-6px);
 }
 
-/* Hover: resto some, hovered fica full */
 .navbar-menu--desktop:has(.nav-link:hover) .nav-link:not(:hover) {
   opacity: 0.15;
 }
@@ -137,6 +105,44 @@
 
 .navbar-menu--desktop .nav-link:active {
   transform: scale(0.93) translateX(-6px);
+}
+
+/* ============================================ */
+/* BOTÃO DE TRADUÇÃO                             */
+/* ============================================ */
+
+/* DESKTOP: vira o primeiro item da lista de navegação,
+   herda o gap (0.9rem) e o alinhamento à direita do menu */
+.navbar-menu__translate-item {
+  margin-bottom: 0.4rem; /* respiro extra antes dos links de texto */
+}
+
+.navbar-translate--desktop {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: opacity 0.25s ease, border-color 0.25s ease;
+}
+
+.navbar-translate--desktop:hover {
+  opacity: 0.7;
+  border-color: #ffffff;
+}
+
+.navbar-translate--desktop:active {
+  transform: scale(0.93);
+}
+
+/* MOBILE: oculto por padrão, vira fixed ao lado do hamburger */
+.navbar-translate--mobile {
+  display: none;
 }
 
 /* ============================================ */
@@ -231,8 +237,6 @@
   transform: translateY(20px);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
               opacity 0.4s ease;
-  /* ✅ No mobile o fundo é sempre #050505 (sólido escuro),
-     então cor fixa é mais confiável e legível que blend */
   mix-blend-mode: normal;
 }
 
@@ -272,6 +276,30 @@
 
   .navbar-toggle {
     display: flex;
+  }
+
+  /* gap de 16px entre o botão de tradução e o hamburger:
+     1.5rem (margem do toggle) + 48px (largura do toggle) + 16px (gap) */
+  .navbar-translate--mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 1.5rem;
+    right: calc(1.5rem + 48px + 16px);
+    width: 48px;
+    height: 48px;
+    background: #000000;
+    border-radius: 8px;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    pointer-events: auto;
+    z-index: 9999;
+  }
+
+  .navbar-translate--mobile:active {
+    transform: scale(0.9);
   }
 }
 

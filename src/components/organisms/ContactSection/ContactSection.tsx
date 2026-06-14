@@ -1,9 +1,12 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { MdDownload } from 'react-icons/md';
 import './ContactSection.css';
 import Image3D from '../../../assets/images/Image3D.png';
 
 export const ContactSection: React.FC = () => {
+  const { t } = useTranslation();
+
   const handleContactClick = () => {
     const email = 'du.h.c.oliveira17@gmail.com';
     window.location.href = `mailto:${email}`;
@@ -17,24 +20,22 @@ export const ContactSection: React.FC = () => {
           {/* TOPO DA COLUNA ESQUERDA: TÍTULO PRINCIPAL */}
           <div className="contact-brand">
             <h1 className="contact-title">
-              VAMOS CRIAR<span className="contact-mark">®</span><br />JUNTOS
+              {t('contact.titleLine1')}<span className="contact-mark">®</span><br />{t('contact.titleLine2')}
             </h1>
           </div>
 
           {/* CENTRO DA COLUNA ESQUERDA: APENAS A IMAGEM 3D */}
           <div className="contact-image-container">
-            <img src={Image3D} alt="3D Illustration" loading="lazy" className="contact-image" />
+            <img src={Image3D} alt={t('contact.imageAlt')} loading="lazy" className="contact-image" />
           </div>
 
           {/* BASE DA COLUNA ESQUERDA: TEXTOS DESCRITIVOS */}
           <div className="contact-content">
             <h2 className="contact-headline">
-              Cansado de design genérico? Vamos criar algo que realmente importe
+              {t('contact.headline')}
             </h2>
             <p className="contact-description">
-              Deixo a enrolação de lado e foco no que funciona: estética limpa, usabilidade à
-              prova de falhas e design focado em resultados. Você não está apenas contratando um designer,
-              está ganhando um parceiro para o crescimento do seu negócio
+              {t('contact.description')}
             </p>
           </div>
 
@@ -42,7 +43,7 @@ export const ContactSection: React.FC = () => {
           <div className="contact-cta-wrapper">
             <button
               className="contact-cv-button"
-              aria-label="Download CV"
+              aria-label={t('contact.downloadCV')}
               onClick={() => {
                 const link = document.createElement('a');
                 link.href = '/EduardoHCarvalho-UXDesigner.pdf'; 
@@ -56,15 +57,15 @@ export const ContactSection: React.FC = () => {
               <span className="contact-cv-circle-wrapper">
                 <MdDownload className="contact-cv-icon" />
               </span>
-              <span className="contact-cv-text">BAIXAR CV</span>
+              <span className="contact-cv-text">{t('contact.downloadCV')}</span>
             </button>
 
             <button
               onClick={handleContactClick}
               className="contact-button"
-              aria-label="Get in touch"
+              aria-label={t('contact.getInTouch')}
             >
-              <span className="contact-button-text">CONVERSAR</span>
+              <span className="contact-button-text">{t('contact.cta')}</span>
               <span className="contact-button-circle" aria-hidden="true">
                 <svg
                   className="contact-button-icon"

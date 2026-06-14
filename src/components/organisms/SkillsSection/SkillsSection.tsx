@@ -1,47 +1,25 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import './SkillsSection.css';
 
 interface Skill {
   id: number;
   number: string;
-  title: string;
-  description: string; 
 }
 
-// 1. Adicionada interface de Props com id opcional
 interface SkillsSectionProps {
   id?: string;
 }
 
 const skills: Skill[] = [
-  {
-    id: 1,
-    number: '01',
-    title: 'UX Research & Strategy',
-    description: 'Compreensão do comportamento do usuário, dores e objetivos de negócio para construir bases sólidas.',
-  },
-  {
-    id: 2,
-    number: '02',
-    title: 'UI Design',
-    description: 'Criação de interfaces visuais impactantes, acessíveis e de alta fidelidade alinhadas à marca.',
-  },
-  {
-    id: 3,
-    number: '03',
-    title: 'Architecture & Wireframing',
-    description: 'Estruturação de fluxos intuitivos, arquitetura de informação e layouts de baixa fidelidade.',
-  },
-  {
-    id: 4,
-    number: '04',
-    title: 'User Testing',
-    description: 'Validação de conceitos com usuários reais para coletar insights, iterar e refinar o produto final.',
-  },
+  { id: 1, number: '01' },
+  { id: 2, number: '02' },
+  { id: 3, number: '03' },
+  { id: 4, number: '04' },
 ];
 
-// 2. Componente agora recebe SkillsSectionProps
 export const SkillsSection: React.FC<SkillsSectionProps> = ({ id }) => {
+  const { t } = useTranslation();
   const [count, setCount] = useState<number>(0);
   const sectionRef = useRef<HTMLDivElement>(null);
   const targetCount = 354;
@@ -90,17 +68,16 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ id }) => {
   }, []);
 
   return (
-    // 3. id={id} substitui o id="skills" fixo, recebendo o valor via prop
     <section className="skills-section" id={id} ref={sectionRef}>
       <div className="skills-container">
         
         <div className="skills-header">
           <h2 className="skills-title">
-            MEU PROCESSO<span className="skills-mark">®</span>
+            {t('skills.title')}<span className="skills-mark">®</span>
           </h2>
           
           <div className="skills-counter">
-            +{count}<br />HORAS<br />DE ESTUDO
+            +{count}<br />{t('skills.counterLine1')}<br />{t('skills.counterLine2')}
           </div>
         </div>
 
@@ -114,11 +91,10 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ id }) => {
               <div className="skill-number">{skill.number}</div>
               <div className="skill-content">
                 <h3 className="skill-title-item">
-                  {skill.title}
+                  {t(`skills.items.${skill.id}.title`)}
                 </h3>
-                {/* CORREÇÃO: Alterado de skill-description-item para skill-description para bater com o CSS */}
                 <p className="skill-description">
-                  {skill.description}
+                  {t(`skills.items.${skill.id}.description`)}
                 </p>
               </div>
             </div>

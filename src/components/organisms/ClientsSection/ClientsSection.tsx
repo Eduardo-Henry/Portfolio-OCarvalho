@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import './ClientsSection.css';
 import CoWorkerPhoto from '../../../assets/images/GuiPhoto.png';
 import FirstClient from '../../../assets/images/Matheus.png';
@@ -8,9 +9,7 @@ interface Client {
   id: number;
   name: string;
   location: string;
-  role: string;
   image?: string;
-  feedback: string;
 }
 
 const clients: Client[] = [
@@ -18,32 +17,24 @@ const clients: Client[] = [
     id: 1,
     name: 'Guilherme Lira',
     location: 'Urupês-SP',
-    role: 'Video maker / Editor de Vídeo',
     image: CoWorkerPhoto,
-    feedback:
-      'Eduardo é um designer diferenciado, criativo e extremamente habilidoso. Ele consegue captar com precisão a ideia do cliente e transformar em uma arte de alto nível. Quando recebe liberdade para criar, vai além do esperado e surpreende nos detalhes. Do básico ao mais complexo, sabe combinar elementos de forma limpa, moderna e impactante. Seu trabalho chama atenção pela qualidade, organização visual e bom gosto. Sem dúvidas, um excelente profissional, sempre entregando mais do que o esperado.',
   },
   {
     id: 2,
     name: 'Matheus Terradas',
     location: 'Polônia-SP',
-    role: 'Desenvolvedor Front-end',
     image: FirstClient,
-    feedback:
-      'Tive ótimas experiências com os trabalhos do Eduardo como designer. Ele sempre demonstrou criatividade, atenção aos detalhes e muito profissionalismo em cada projeto. Além de entregar trabalhos de qualidade, foi prestativo e aberto a sugestões durante todo o processo. O resultado final sempre atendeu minhas expectativas, por isso recomendo seu trabalho com confiança.',
   },
   {
     id: 3,
     name: 'Mariana Terradas',
     location: 'Polônia-SP',
-    role: 'Cliente',
     image: SecondClient,
-    feedback:
-      'Tive uma ótima experiência com o trabalho do Eduardo. Enviei uma ideia e um modelo de referência para o design do meu terceirão, e ele conseguiu entender exatamente o que eu queria. O resultado ficou incrível, superando minhas expectativas em todos os detalhes. Além de muito talentoso, ele é atencioso e dedicado ao que faz. Recomendo seu trabalho para qualquer pessoa que esteja procurando um designer criativo e competente.',
   },
 ];
 
 export const ClientsSection: React.FC = () => {
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isSectionVisible, setIsSectionVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
@@ -198,10 +189,10 @@ export const ClientsSection: React.FC = () => {
       <div className="clients-header-zone">
         <div className="clients-counter">
           <span className="counter-number">+23</span>
-          <span className="counter-label">Networkings</span>
+          <span className="counter-label">{t('clients.networkings')}</span>
         </div>
         <h2 className="clients-title">
-          FEEDBACKS <span className="clients-mark">®</span>
+          {t('clients.title')} <span className="clients-mark">®</span>
         </h2>
       </div>
 
@@ -218,33 +209,37 @@ export const ClientsSection: React.FC = () => {
         onTouchEnd={handleTouchEnd}
       >
         <div className="clients-carousel-track" ref={trackRef}>
-          {clients.map((client, i) => (
-            <div className="clients-slide" key={client.id}>
-              {/* FOTO + META */}
-              <div className="clients-profile-zone">
-                <div className="clients-featured">
-                  <div className="client-featured-image">
-                    <img src={client.image} alt={client.name} draggable={false} />
-                  </div>
-                  <div className="client-meta-container">
-                    <h3 className="client-featured-info">
-                      {client.name}, {client.location}
-                    </h3>
-                    <p className="client-role">{client.role}</p>
+          {clients.map((client, i) => {
+            const role = t(`clients.items.${client.id}.role`);
+            const feedback = t(`clients.items.${client.id}.feedback`);
+            return (
+              <div className="clients-slide" key={client.id}>
+                {/* FOTO + META */}
+                <div className="clients-profile-zone">
+                  <div className="clients-featured">
+                    <div className="client-featured-image">
+                      <img src={client.image} alt={client.name} draggable={false} />
+                    </div>
+                    <div className="client-meta-container">
+                      <h3 className="client-featured-info">
+                        {client.name}, {client.location}
+                      </h3>
+                      <p className="client-role">{role}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* TEXTO */}
-              <p className="clients-description">
-                &ldquo;
-                {i === currentIndex
-                  ? renderAnimatedText(client.feedback)
-                  : client.feedback}
-                &rdquo;
-              </p>
-            </div>
-          ))}
+                {/* TEXTO */}
+                <p className="clients-description">
+                  &ldquo;
+                  {i === currentIndex
+                    ? renderAnimatedText(feedback)
+                    : feedback}
+                  &rdquo;
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
 
@@ -254,7 +249,7 @@ export const ClientsSection: React.FC = () => {
         {/* Coluna esquerda — no mobile vira o botão CTA alinhado à foto */}
         <div className="clients-footer-left">
           <a href="#contact" className="clients-cta-wrapper clients-cta-mobile">
-            <span className="cta-text">CONVERSAR</span>
+            <span className="cta-text">{t('clients.cta')}</span>
             <div className="cta-icon-circle">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path d="M7 17L17 7M17 7H7M17 7V17" />
@@ -270,7 +265,7 @@ export const ClientsSection: React.FC = () => {
             <button
               className="carousel-btn"
               onClick={() => { stopAutoPlay(); goPrev(); startAutoPlay(); }}
-              aria-label="Anterior"
+              aria-label={t('clients.previous')}
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path d="M15 18l-6-6 6-6" />
@@ -283,7 +278,7 @@ export const ClientsSection: React.FC = () => {
                   key={i}
                   className={`carousel-dot ${i === currentIndex ? 'active' : ''}`}
                   onClick={() => { stopAutoPlay(); goTo(i); startAutoPlay(); }}
-                  aria-label={`Feedback ${i + 1}`}
+                  aria-label={t('clients.feedbackLabel', { number: i + 1 })}
                 />
               ))}
             </div>
@@ -291,7 +286,7 @@ export const ClientsSection: React.FC = () => {
             <button
               className="carousel-btn"
               onClick={() => { stopAutoPlay(); goNext(); startAutoPlay(); }}
-              aria-label="Próximo"
+              aria-label={t('clients.next')}
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path d="M9 18l6-6-6-6" />
@@ -302,7 +297,7 @@ export const ClientsSection: React.FC = () => {
           {/* Botão CTA — só aparece no desktop */}
           <div className="clients-cta-container">
             <a href="#contact" className="clients-cta-wrapper">
-              <span className="cta-text">CONVERSAR</span>
+              <span className="cta-text">{t('clients.cta')}</span>
               <div className="cta-icon-circle">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <path d="M7 17L17 7M17 7H7M17 7V17" />

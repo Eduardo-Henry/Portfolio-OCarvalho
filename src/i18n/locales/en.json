@@ -1,0 +1,113 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Me",
+    "portfolio": "Portfolio",
+    "process": "My Process",
+    "feedback": "Feedback",
+    "contact": "Contact",
+    "menuLabel": "Open navigation menu"
+  },
+  "hero": {
+    "title": "I build digital products that drive business growth and delight users.",
+    "description": "I combine user research, visual design, and strategy to turn complex problems into perfect digital solutions.",
+    "cta": "GET IN TOUCH",
+    "downloadCV": "DOWNLOAD CV",
+    "imageAlt": "Designer work"
+  },
+  "about": {
+    "title": "ABOUT ME®",
+    "description": "UX designer with systems thinking and a front-end perspective. Specialist in scalable Design Systems (Atomic Design) with advanced Figma structures focused on technical handoff. I optimize product flows through AI-Driven Design, using artificial intelligence to accelerate user research synthesis, ideation, and rapid prototyping. I build interactive, high-conversion products that are strictly accessible (WCAG/ARIA).",
+    "cta": "VIEW PROJECTS",
+    "imageAlt": "Photo of the designer"
+  },
+
+  "caseStudies": {
+    "title": "CASE STUDIES",
+    "projectsCount": "+{{count}} PROJECTS",
+    "categories": {
+      "uxDesign": "UX DESIGN",
+      "videoEdit": "VIDEO EDITING",
+      "socialMedia": "SOCIAL MEDIA DESIGN"
+    },
+    "videoNotSupported": "Your browser does not support the video tag.",
+    "unmute": "🔈 Unmute",
+    "mute": "🔊 Mute",
+    "watchPrototype": "WATCH PROTOTYPE",
+    "viewProject": "VIEW PROJECT"
+  },
+
+  "clients": {
+    "title": "FEEDBACK",
+    "networkings": "Networkings",
+    "previous": "Previous",
+    "next": "Next",
+    "feedbackLabel": "Feedback {{number}}",
+    "cta": "GET IN TOUCH",
+    "items": {
+      "1": {
+        "role": "Video Maker / Video Editor",
+        "feedback": "Eduardo is a standout designer — creative and extremely skilled. He's able to capture exactly what a client has in mind and turn it into high-level work. When given creative freedom, he goes beyond expectations and surprises with the details. From the simplest to the most complex projects, he knows how to combine elements in a clean, modern, and impactful way. His work stands out for its quality, visual organization, and great taste. Without a doubt, an excellent professional who always delivers more than expected."
+      },
+      "2": {
+        "role": "Front-end Developer",
+        "feedback": "I've had great experiences working with Eduardo as a designer. He's always shown creativity, attention to detail, and a lot of professionalism on every project. Beyond delivering quality work, he was helpful and open to feedback throughout the whole process. The final result always met my expectations, which is why I confidently recommend his work."
+      },
+      "3": {
+        "role": "Client",
+        "feedback": "I had a great experience with Eduardo's work. I sent him an idea and a reference for the design of my senior class jacket, and he understood exactly what I wanted. The result was amazing, exceeding my expectations down to every detail. Besides being very talented, he's attentive and dedicated to what he does. I recommend his work to anyone looking for a creative and skilled designer."
+      }
+    }
+  },
+
+  "footer": {
+    "description": "UX/UI Designer focused on usability, systems, and human-centered design.",
+    "nav": {
+      "title": "NAVIGATION",
+      "home": "HOME",
+      "about": "ABOUT ME",
+      "skills": "SKILLS",
+      "works": "WORKS"
+    },
+    "social": "SOCIAL",
+    "contact": "CONTACT",
+    "copyright": "© {{year}} Eduardo. All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service"
+  },
+
+  "skills": {
+    "title": "MY PROCESS",
+    "counterLine1": "STUDY",
+    "counterLine2": "HOURS",
+    "items": {
+      "1": {
+        "title": "UX Research & Strategy",
+        "description": "Understanding user behavior, pain points, and business goals to build a solid foundation."
+      },
+      "2": {
+        "title": "UI Design",
+        "description": "Creating high-fidelity, accessible, and visually impactful interfaces aligned with the brand."
+      },
+      "3": {
+        "title": "Architecture & Wireframing",
+        "description": "Structuring intuitive flows, information architecture, and low-fidelity layouts."
+      },
+      "4": {
+        "title": "User Testing",
+        "description": "Validating concepts with real users to gather insights, iterate, and refine the final product."
+      }
+    }
+  },
+
+  "contact": {
+    "titleLine1": "LET'S CREATE",
+    "titleLine2": "TOGETHER",
+    "imageAlt": "3D Illustration",
+    "headline": "Tired of generic design? Let's build something that actually matters",
+    "description": "I cut the fluff and focus on what works: clean aesthetics, foolproof usability, and results-driven design. You're not just hiring a designer, you're gaining a partner for your business growth.",
+    "downloadCV": "DOWNLOAD CV",
+    "cta": "GET IN TOUCH",
+    "getInTouch": "Get in touch"
+  }
+}

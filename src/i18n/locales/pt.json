@@ -1,0 +1,114 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "Sobre Mim",
+    "portfolio": "Portfolio",
+    "process": "Meu Processo",
+    "feedback": "Feedbacks",
+    "contact": "Contato",
+    "menuLabel": "Abrir menu de navegação"
+  },
+  "hero": {
+    "title": "Desenvolvo produtos digitais que impulsionam o crescimento de empresas e encantam os usuários.",
+    "description": "Combino pesquisa de usuários, design visual e estratégia para transformar problemas complexos em soluções digitais perfeitas.",
+    "cta": "CONVERSAR",
+    "downloadCV": "BAIXAR CV",
+    "imageAlt": "Trabalho do designer"
+  },
+  "about": {
+    "title": "SOBRE MIM®",
+    "description": "Designer de UX com pensamento sistêmico e visão de front-end. Especialista em Design Systems escaláveis (Design Atômico) com estrutura avançada no Figma focada em handoff técnico. Otimizo fluxos de produto através de AI-Driven Design, utilizando inteligência artificial para acelerar a síntese de pesquisas com usuários, ideação e prototipagem rápida. Desenvolvo produtos interativos, de alta conversão e estritamente acessíveis (WCAG/ARIA).",
+    "cta": "VER PROJETOS",
+    "imageAlt": "Foto do designer"
+  },
+
+  "caseStudies": {
+    "title": "CASE STUDIES",
+    "projectsCount": "+{{count}} PROJETOS",
+    "categories": {
+      "uxDesign": "UX DESIGN",
+      "videoEdit": "EDIÇÃO DE VÍDEOS",
+      "socialMedia": "DESIGN SOCIAL MEDIA"
+    },
+    "videoNotSupported": "Seu navegador não suporta o elemento de vídeo.",
+    "unmute": "🔈 Ativar Som",
+    "mute": "🔊 Mutar",
+    "watchPrototype": "ASSISTIR PROTÓTIPO",
+    "viewProject": "VER PROJETO"
+  },
+
+  "clients": {
+    "title": "FEEDBACKS",
+    "networkings": "Networkings",
+    "previous": "Anterior",
+    "next": "Próximo",
+    "feedbackLabel": "Feedback {{number}}",
+    "cta": "CONVERSAR",
+    "items": {
+      "1": {
+        "role": "Video maker / Editor de Vídeo",
+        "feedback": "Eduardo é um designer diferenciado, criativo e extremamente habilidoso. Ele consegue captar com precisão a ideia do cliente e transformar em uma arte de alto nível. Quando recebe liberdade para criar, vai além do esperado e surpreende nos detalhes. Do básico ao mais complexo, sabe combinar elementos de forma limpa, moderna e impactante. Seu trabalho chama atenção pela qualidade, organização visual e bom gosto. Sem dúvidas, um excelente profissional, sempre entregando mais do que o esperado."
+      },
+      "2": {
+        "role": "Desenvolvedor Front-end",
+        "feedback": "Tive ótimas experiências com os trabalhos do Eduardo como designer. Ele sempre demonstrou criatividade, atenção aos detalhes e muito profissionalismo em cada projeto. Além de entregar trabalhos de qualidade, foi prestativo e aberto a sugestões durante todo o processo. O resultado final sempre atendeu minhas expectativas, por isso recomendo seu trabalho com confiança."
+      },
+      "3": {
+        "role": "Cliente",
+        "feedback": "Tive uma ótima experiência com o trabalho do Eduardo. Enviei uma ideia e um modelo de referência para o design do meu terceirão, e ele conseguiu entender exatamente o que eu queria. O resultado ficou incrível, superando minhas expectativas em todos os detalhes. Além de muito talentoso, ele é atencioso e dedicado ao que faz. Recomendo seu trabalho para qualquer pessoa que esteja procurando um designer criativo e competente."
+      }
+    }
+  },
+
+  "footer": {
+    "description": "Designer UX/UI focado em usabilidade, sistemas e design centrado no usuário.",
+    "nav": {
+      "title": "NAVEGAÇÃO",
+      "home": "HOME",
+      "about": "SOBRE MIM",
+      "skills": "HABILIDADES",
+      "works": "PROJETOS"
+    },
+    "social": "SOCIAL",
+    "contact": "CONTATO",
+    "copyright": "© {{year}} Eduardo. Todos os direitos reservados.",
+    "privacyPolicy": "Política de Privacidade",
+    "termsOfService": "Termos de Serviço"
+  },
+
+  "skills": {
+    "title": "MEU PROCESSO",
+    "counterLine1": "HORAS",
+    "counterLine2": "DE ESTUDO",
+    "items": {
+      "1": {
+        "title": "UX Research & Strategy",
+        "description": "Compreensão do comportamento do usuário, dores e objetivos de negócio para construir bases sólidas."
+      },
+      "2": {
+        "title": "UI Design",
+        "description": "Criação de interfaces visuais impactantes, acessíveis e de alta fidelidade alinhadas à marca."
+      },
+      "3": {
+        "title": "Arquitetura & Wireframing",
+        "description": "Estruturação de fluxos intuitivos, arquitetura de informação e layouts de baixa fidelidade."
+      },
+      "4": {
+        "title": "Testes com Usuários",
+        "description": "Validação de conceitos com usuários reais para coletar insights, iterar e refinar o produto final."
+      }
+    }
+  },
+
+  "contact": {
+    "titleLine1": "VAMOS CRIAR",
+    "titleLine2": "JUNTOS",
+    "imageAlt": "Ilustração 3D",
+    "headline": "Cansado de design genérico? Vamos criar algo que realmente importe",
+    "description": "Deixo a enrolação de lado e foco no que funciona: estética limpa, usabilidade à prova de falhas e design focado em resultados. Você não está apenas contratando um designer, está ganhando um parceiro para o crescimento do seu negócio.",
+    "downloadCV": "BAIXAR CV",
+    "cta": "CONVERSAR",
+    "getInTouch": "Entrar em contato"
+  }
+
+}

@@ -1,11 +1,12 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { MdDownload } from 'react-icons/md';
 import { Button } from '../../atoms';
 import './HeroSection.css';
 import Image3D from '../../../assets/images/Image3D.png';
 
 interface HeroSectionProps {
-  id?: string; // 1. Adicionado o id opcional nas Props
+  id?: string;
   title: string;
   subtitle?: string;
   description: string;
@@ -14,24 +15,25 @@ interface HeroSectionProps {
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
-  id, // 2. Recebendo o id aqui
+  id,
   title,
   description,
-  ctaText = 'GET IN TOUCH',
+  ctaText,
   imageSrc = Image3D,
 }) => {
+  const { t } = useTranslation();
+
   const handleContactClick = () => {
     const contactSection = document.getElementById('contact');
     contactSection?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const resolvedCtaText = ctaText ?? t('hero.cta');
+
   return (
-    // 3. Modificado de id="hero" para id={id} para receber o valor do Home.tsx
     <section className="hero-section" id={id}>
       <div className="hero-wrapper">
-        {/* Grid Layout */}
         <div className="hero-grid">
-          {/* Top Row: Brand + Menu */}
           <div className="hero-brand">
             <h1 className="brand-title">
               EDUARDO<span className="brand-mark">®</span>
@@ -39,26 +41,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </h1>
           </div>
 
-          {/* Image: Left Center */}
           {imageSrc && (
             <div className="hero-image-container">
-              <img src={Image3D} alt="Designer work" loading="lazy" className="hero-image" />
+              <img src={imageSrc} alt={t('hero.imageAlt')} loading="lazy" className="hero-image" />
             </div>
           )}
 
-          {/* Bottom: Headline + Description */}
           <div className="hero-content">
             <h2 className="hero-headline">{title}</h2>
             <p className="hero-description">{description}</p>
           </div>
 
-          {/* CTA Button: Bottom Right */}
           <div className="hero-cta-wrapper">
              <Button
               variant="secondary"
               size="large"
               className="hero-cv-button"
-              aria-label="Download CV"
+              aria-label={t('hero.downloadCV')}
               onClick={() => {
                 const link = document.createElement('a');
                 link.href = '/EduardoHCarvalho-UXDesigner.pdf'; 
@@ -69,16 +68,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               }}
             >
               <MdDownload className="hero-cv-icon" />
-              <span className="hero-cv-text">BAIXAR CV</span>
+              <span className="hero-cv-text">{t('hero.downloadCV')}</span>
             </Button>
             <Button
               variant="primary"
               size="large"
               onClick={handleContactClick}
               className="hero-cta-button"
-              aria-label={ctaText}
+              aria-label={resolvedCtaText}
             >
-              <span className="hero-cta-text">{ctaText}</span>
+              <span className="hero-cta-text">{resolvedCtaText}</span>
               <span className="hero-cta-circle" aria-hidden="true">
                 <svg
                   className="hero-cta-icon"

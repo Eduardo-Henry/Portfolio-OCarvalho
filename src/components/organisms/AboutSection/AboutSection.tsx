@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '../../atoms';
 import './AboutSection.css';
 import MyPhoto from '../../../assets/images/MyPhoto.png';
@@ -36,13 +37,18 @@ const TypewriterDescription = ({ text, isVisible }: { text: string; isVisible: b
 
 export const AboutSection: React.FC<AboutSectionProps> = ({
   id,
-  title = "ABOUT ME®",
-  description = "Crio experiências digitais intuitivas onde a clareza encontra o propósito. Sou um designer de UX/UI com foco em usabilidade, sistemas e design centrado no usuário.",
-  ctaText = 'CONTATO',
+  title,
+  description,
+  ctaText,
   imageSrc = MyPhoto,
 }) => {
+  const { t } = useTranslation();
   const [isSectionVisible, setIsSectionVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+
+  const resolvedTitle = title ?? t('about.title');
+  const resolvedDescription = description ?? t('about.description');
+  const resolvedCtaText = ctaText ?? t('about.cta');
 
   const handleContactClick = () => {
     const contactSection = document.getElementById('contact');
@@ -78,12 +84,12 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
           
           {/* TÍTULO ESTÁTICO (Sem efeito de scroll) */}
           <h2 className="about-title">
-            {title}
+            {resolvedTitle}
           </h2>
           
           {/* DESCRIÇÃO COM EFEITO DE ESCRITA */}
           <p className="about-description">
-            <TypewriterDescription text={description} isVisible={isSectionVisible} />
+            <TypewriterDescription text={resolvedDescription} isVisible={isSectionVisible} />
           </p>
           
           <div className="about-cta">
@@ -92,9 +98,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
               size="large"
               onClick={handleContactClick}
               className="about-button"
-              aria-label={ctaText}
+              aria-label={resolvedCtaText}
             >
-              <span className="about-button-text">{ctaText}</span>
+              <span className="about-button-text">{resolvedCtaText}</span>
               <span className="about-button-circle" aria-hidden="true">
                 <svg
                   className="about-button-icon"
@@ -114,7 +120,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
         {/* Right Column: Image */}
         {imageSrc && (
           <div className="about-image">
-            <img src={imageSrc} alt="About the designer" loading="lazy" />
+            <img src={imageSrc} alt={t('about.imageAlt')} loading="lazy" />
           </div>
         )}
       </div>

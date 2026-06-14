@@ -1,24 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { MdTranslate } from 'react-icons/md';
 import './Navbar.css';
 
 export const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const { t, i18n } = useTranslation();
 
   const navigate = useNavigate();
   const location = useLocation();
 
   const menuItems = [
-    { id: 'hero', label: 'Home' },
-    { id: 'about', label: 'Sobre Mim' },
-    { id: 'case-studies', label: 'Portfolio' },
-    { id: 'all-skills', label: 'Meu Processo' },
-    { id: 'clients', label: 'Feedbacks' },
-    { id: 'contact', label: 'Contato' },
+    { id: 'hero', label: t('nav.home') },
+    { id: 'about', label: t('nav.about') },
+    { id: 'case-studies', label: t('nav.portfolio') },
+    { id: 'all-skills', label: t('nav.process') },
+    { id: 'clients', label: t('nav.feedback') },
+    { id: 'contact', label: t('nav.contact') },
   ];
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  const toggleLanguage = () => {
+    i18n.changeLanguage(i18n.language === 'pt' ? 'en' : 'pt');
+  };
+
+  const translateLabel =
+    i18n.language === 'pt' ? 'Switch to English' : 'Mudar para Português';
 
   const handleLinkClick = (sectionId: string) => {
     setIsMenuOpen(false);
@@ -83,11 +93,20 @@ export const Navbar: React.FC = () => {
     <header className="navbar">
       <div className="navbar-container">
 
-        
-
         {/* MENU DESKTOP */}
         {/* ✅ Sem mixBlendMode no <li> — o blend fica só no .nav-link.active via CSS */}
         <ul className="navbar-menu--desktop">
+          {/* Botão de tradução: entra como o 1º item da lista, herda o gap dos links */}
+          <li className="navbar-menu__translate-item">
+            <button
+              onClick={toggleLanguage}
+              className="navbar-translate navbar-translate--desktop"
+              aria-label={translateLabel}
+              title={translateLabel}
+            >
+              <MdTranslate size={20} />
+            </button>
+          </li>
           {menuItems.map((item) => (
             <li key={item.id}>
               <button
@@ -101,11 +120,21 @@ export const Navbar: React.FC = () => {
           ))}
         </ul>
 
+        {/* BOTÃO DE TRADUÇÃO (mobile) */}
+        <button
+          className="navbar-translate navbar-translate--mobile"
+          onClick={toggleLanguage}
+          aria-label={translateLabel}
+          title={translateLabel}
+        >
+          <MdTranslate size={22} />
+        </button>
+
         {/* BOTÃO MOBILE */}
         <button
           className={`navbar-toggle ${isMenuOpen ? 'toggle-active' : ''}`}
           onClick={toggleMenu}
-          aria-label="Abrir menu de navegação"
+          aria-label={t('nav.menuLabel')}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <line className="line-top" x1="3" y1="6" x2="21" y2="6" />

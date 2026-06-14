@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import './CaseStudiesSection.css';
 
 import { NavPill, Carousel } from '../../molecules';
@@ -82,6 +83,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
   caseStudies = defaultCaseStudies,
   videos = defaultVideos,
 }) => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [mutedVideos, setMutedVideos] = useState<{ [key: string]: boolean }>(
@@ -127,9 +129,9 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
   }, []);
 
   const categories = [
-    { id: 'all', label: 'UX DESIGN' },
-    { id: 'web', label: 'VIDEOS EDIT' },
-    { id: 'mobile', label: 'DESIGN SOCIAL MEDIA' },
+    { id: 'all', label: t('caseStudies.categories.uxDesign') },
+    { id: 'web', label: t('caseStudies.categories.videoEdit') },
+    { id: 'mobile', label: t('caseStudies.categories.socialMedia') },
   ];
 
   const handleCategoryChange = (categoryId: string) => {
@@ -163,10 +165,12 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
         <div className="case-studies-header">
           <div className="case-studies-title-wrapper">
             <h2 className="case-studies-title">
-              CASE STUDIES<span className="case-studies-mark">®</span>
+              {t('caseStudies.title')}<span className="case-studies-mark">®</span>
             </h2>
           </div>
-          <div className="case-studies-counter">+{count} PROJECTS</div>
+          <div className="case-studies-counter">
+            {t('caseStudies.projectsCount', { count })}
+          </div>
         </div>
 
         <div className="case-studies-filter">
@@ -196,7 +200,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   >
                     <source src={video.src} type="video/mp4" />
-                    Seu navegador não suporta o elemento de vídeo.
+                    {t('caseStudies.videoNotSupported')}
                   </video>
 
                   <button
@@ -222,7 +226,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
                       transition: 'background 0.2s ease',
                     }}
                   >
-                    {isMuted ? '🔈 Ativar Som' : '🔊 Mutar'}
+                    {isMuted ? t('caseStudies.unmute') : t('caseStudies.mute')}
                   </button>
                 </div>
               );
@@ -254,7 +258,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
                         <polygon points="6,4 20,12 6,20" />
                       </svg>
                     </span>
-                    ASSISTIR PROTÓTIPO
+                    {t('caseStudies.watchPrototype')}
                   </Button>
 
                   <Button
@@ -263,7 +267,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
                     className="case-card__see-btn"
                     onClick={(e) => handleSeeProject(e, caseStudy.id)}
                   >
-                    VER PROJETO
+                    {t('caseStudies.viewProject')}
                     <span className="case-card__arrow-circle">
                       <svg viewBox="0 0 24 24" fill="none" width="16" height="16" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <line x1="7" y1="17" x2="17" y2="7" />
