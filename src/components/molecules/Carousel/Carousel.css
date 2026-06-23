@@ -1,71 +1,72 @@
 /* ============================================================
-   CAROUSEL — Esteira Infinita com Efeito Sanfona
+   CAROUSEL — Duas fileiras horizontais opostas
+   Auto-scroll + drag com inércia
    ============================================================ */
 
 .carousel-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   width: 100%;
-  overflow: hidden;
   cursor: grab;
   user-select: none;
   -webkit-user-select: none;
-  isolation: isolate;
 }
 
 .carousel-container:active {
   cursor: grabbing;
 }
 
-/* ── Trilho ─────────────────────────────────────────────────── */
-.carousel-track {
+/* ── Fileira: janela que oculta o overflow ──────────────────── */
+.carousel-row {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* ── Track: faixa com todas as imagens em linha ─────────────── */
+.carousel-row-track {
   display: flex;
-  align-items: stretch;
-  /* Desktop: altura generosa para artes widescreen */
-  height: clamp(220px, 32vw, 500px);
-  gap: clamp(6px, 0.8vw, 14px);
+  flex-direction: row;
+  gap: 8px;
+  width: max-content;
   will-change: transform;
 }
 
-/* ── Card fechado (sanfona comprimida) ──────────────────────── */
+/* ── Card ───────────────────────────────────────────────────── */
 .carousel-item {
-  position: relative;
-  height: 100%;
   flex-shrink: 0;
-  width: clamp(160px, 18vw, 260px);
+  border-radius: 8px;
   overflow: hidden;
-  border-radius: clamp(6px, 0.6vw, 12px);
-  filter: brightness(0.55) saturate(0.8);
-
-  /* Só transiciona width e filter — nunca transform */
-  transition:
-    width  0.65s cubic-bezier(0.25, 1, 0.5, 1),
-    filter 0.45s cubic-bezier(0.25, 1, 0.5, 1);
-
-  will-change: width, filter;
+  height: 320px;
 }
 
-/* ── Imagem interna ─────────────────────────────────────────── */
 .carousel-image {
   display: block;
-  /* Ocupa 100% do card em qualquer tamanho — sem zoom, sem barras */
-  width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center center;
+  width: auto;
+  border-radius: 8px;
   pointer-events: none;
   -webkit-user-drag: none;
-  /* Sem transform aqui: o zoom era causado por scale herdado */
+  transition: filter 0.3s ease;
 }
 
-/* ── Card expandido (sanfona aberta) ────────────────────────── */
-/*
- * Só expande a LARGURA do card.
- * A imagem preenche naturalmente via width/height 100% + object-fit cover.
- * Nenhum scale, nenhum transform — zero zoom.
- */
-.carousel-item:hover {
-  width: clamp(320px, 48vw, 820px);
-  filter: brightness(1) saturate(1);
-  cursor: zoom-in;
+.carousel-item:hover .carousel-image {
+  filter: brightness(0.82);
+}
+
+/* ── Loading shimmer ────────────────────────────────────────── */
+.carousel-loading {
+  width: 100%;
+  height: 660px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
 /* ── Estado vazio ───────────────────────────────────────────── */
@@ -74,7 +75,6 @@
   align-items: center;
   justify-content: center;
   height: 200px;
-  font-family: sans-serif;
   color: #888;
   font-size: 1rem;
 }
@@ -83,61 +83,19 @@
    RESPONSIVIDADE
    ============================================================ */
 
-/* ── Tablet (≤ 1024px) ─────────────────────────────────────── */
-@media (max-width: 1024px) {
-  .carousel-track {
-    height: clamp(180px, 28vw, 380px);
-  }
-
-  .carousel-item {
-    width: clamp(140px, 20vw, 220px);
-  }
-
-  .carousel-item:hover {
-    width: clamp(280px, 55vw, 680px);
-  }
-}
-
-/* ── Mobile (≤ 768px) ──────────────────────────────────────── */
 @media (max-width: 768px) {
-  .carousel-track {
-    /* ~metade da tela em portrait */
-    height: clamp(180px, 45vw, 320px);
-    gap: clamp(4px, 0.8vw, 8px);
-  }
-
-  .carousel-item {
-    width: clamp(130px, 30vw, 210px);
-    filter: brightness(0.7) saturate(0.85);
-  }
-
-  .carousel-item:hover,
-  .carousel-item:focus-visible {
-    width: clamp(240px, 62vw, 520px);
-  }
+  .carousel-container { gap: 6px; }
+  .carousel-row-track  { gap: 6px; }
+  .carousel-item       { height: 260px; border-radius: 6px; }
+  .carousel-image      { border-radius: 6px; }
+  .carousel-loading    { height: 540px; }
 }
 
-/* ── Small Mobile (≤ 480px) ───────────────────────────────── */
 @media (max-width: 480px) {
-  .carousel-track {
-    height: clamp(160px, 48vw, 260px);
-    gap: 4px;
-  }
-
-  .carousel-item {
-    width: clamp(110px, 32vw, 170px);
-    border-radius: 6px;
-  }
-
-  .carousel-item:hover,
-  .carousel-item:focus-visible {
-    width: clamp(200px, 68vw, 400px);
-  }
+  .carousel-item    { height: 200px; border-radius: 5px; }
+  .carousel-loading { height: 420px; }
 }
 
-/* ── Acessibilidade ────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  .carousel-item {
-    transition: filter 0.2s ease;
-  }
+  .carousel-image { transition: none; }
 }

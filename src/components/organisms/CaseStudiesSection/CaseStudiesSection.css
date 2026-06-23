@@ -1,5 +1,5 @@
 /* ============================================ */
-/* SEÇÃO DE ESTUDOS DE CASO (CASE STUDIES) */
+/* SEÇÃO DE ESTUDOS DE CASO (CASE STUDIES)      */
 /* ============================================ */
 
 .sua-proxima-secao {
@@ -25,7 +25,7 @@
 }
 
 /* ============================================ */
-/* TOPO / CABEÇALHO (HEADER) */
+/* TOPO / CABEÇALHO (HEADER)                    */
 /* ============================================ */
 
 .case-studies-header {
@@ -53,6 +53,7 @@
   margin: 0;
   text-transform: uppercase;
   text-align: center;
+  transition: opacity 0.25s ease;
 }
 
 .case-studies-mark {
@@ -75,7 +76,7 @@
 }
 
 /* ============================================ */
-/* FILTRO / BOTÕES DE SELEÇÃO (NAVPILLS) */
+/* FILTRO / BOTÕES DE SELEÇÃO (NAVPILLS)        */
 /* ============================================ */
 
 .case-studies-filter {
@@ -94,7 +95,7 @@
 }
 
 /* ============================================ */
-/* GRID LAYOUT E CARDS DE PROJETO */
+/* GRID LAYOUT E CARDS DE PROJETO               */
 /* ============================================ */
 
 .case-studies-grid {
@@ -104,11 +105,11 @@
   width: 100%;
 }
 
+/* Card: flex column para suportar botões abaixo da imagem no mobile */
 .case-study-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 600px;
   border-radius: 8px;
   overflow: hidden;
   background: #000000;
@@ -122,220 +123,20 @@
   box-shadow: 0 32px 80px rgba(0, 0, 0, 0.2);
 }
 
-.case-study-card img {
-  transition: opacity 0.4s ease;
+/* ============================================ */
+/* ÁREA DE IMAGEM DO CARD                       */
+/* ============================================ */
+
+.case-card__image {
+  position: relative;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.case-study-card:hover img {
-  opacity: 0.4;
-}
-
-.case-study-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  opacity: 0.95;
-  transition: opacity 0.4s ease;
-}
-
-.case-study-card:hover .case-study-overlay {
-  opacity: 0.4;
-}
-
-.case-study-content {
-  position: relative;
-  z-index: 2;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 2.5rem 2rem 0;
-  gap: 1rem;
-}
-
-.case-study-card-title {
-  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-  font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  margin: 0;
-  text-transform: uppercase;
-}
-
-.case-study-tags {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  margin-top: 0.5rem;
-}
-
-.case-study-tag {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  padding: 0.5rem 1rem;
-  border: 1px solid currentColor;
-  border-radius: 999px;
-  text-transform: uppercase;
-  background: transparent;
-  transition: all 0.3s ease;
-}
-
-.case-study-tag:hover {
-  background: currentColor;
-  opacity: 0.8;
-}
-
-.case-study-socials {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.case-study-socials a {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: #888;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  color: currentColor;
-  border: none;
-  cursor: pointer;
-}
-
-.case-study-socials a:hover {
-  background: rgba(255, 255, 255, 0.4);
-  transform: scale(1.1);
-}
-
-.case-study-socials svg {
-  width: 18px;
-  height: 18px;
-}
-
-.case-study-footer {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding: 2rem;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
-  color: #ffffff;
-  margin-top: auto;
-}
-
-.case-study-description {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  letter-spacing: -0.01em;
-  margin: 0;
-  color: rgba(255, 255, 255, 0.85);
-  font-weight: 400;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(15px);
-  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
-}
-
-.case-study-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0;
-  height: 56px;
-  border-radius: 999px;
-  background-color: #000000;
-  color: #ffffff;
-  font-weight: 400;
-  font-size: 1rem;
-  letter-spacing: 0.02em;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-  padding: 0 0 0 20px;
-  white-space: nowrap;
-  align-self: flex-start;
-  width: fit-content;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(20px);
-  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease, background-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-.case-study-card:hover .case-study-description {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.case-study-card:hover .case-study-button {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.case-study-button:hover {
-  transform: translateY(-3px) !important;
-  box-shadow: 0 12px 32px rgba(255, 59, 48, 0.3);
-}
-
-.case-study-button:active {
-  transform: translateY(-1px) !important;
-}
-
-.case-study-button:focus-visible {
-  outline: 2px solid rgba(255, 59, 48, 0.4);
-  outline-offset: 2px;
-}
-
-.case-study-button-text {
-  display: inline-block;
-  padding: 0 16px 0 8px;
-  color: #ffffff;
-  font-weight: 800;
-}
-
-.case-study-button-circle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  background: var(--primary-color, #ff3b30);
-  border-radius: 999px;
-  color: #ffffff;
-  margin-left: -16px;
+  height: 600px; /* altura desktop */
   flex-shrink: 0;
-  box-shadow: 0 4px 16px rgba(255, 59, 48, 0.3);
-  transition: transform 0.3s ease;
-}
-
-.case-study-button:hover .case-study-button-circle {
-  transform: scale(1.1);
-}
-
-.case-study-button svg {
-  width: 16px;
-  height: 16px;
-  stroke-width: 2.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.case-studies-carousel-wrapper {
-  width: 100%;
-  padding: 0 1rem;
-  animation: caseFadeIn 0.5s ease;
+  overflow: hidden;
 }
 
 /* ============================================ */
-/* HOVER OVERLAY DOS CARDS DE UI DESIGN         */
+/* HOVER OVERLAY DOS CARDS (DESKTOP)            */
 /* ============================================ */
 
 .case-card__overlay {
@@ -353,6 +154,15 @@
 
 .case-study-card:hover .case-card__overlay {
   opacity: 1;
+}
+
+/* ============================================ */
+/* BOTÕES MOBILE — abaixo da imagem             */
+/* ============================================ */
+
+/* Oculto por padrão no desktop */
+.case-card__actions {
+  display: none;
 }
 
 /* Botão Watch Prototype */
@@ -421,7 +231,17 @@
 }
 
 /* ============================================ */
-/* ANIMAÇÕES */
+/* CAROUSEL WRAPPER                             */
+/* ============================================ */
+
+.case-studies-carousel-wrapper {
+  width: 100%;
+  padding: 0;
+  animation: caseFadeIn 0.5s ease;
+}
+
+/* ============================================ */
+/* ANIMAÇÕES                                    */
 /* ============================================ */
 
 @keyframes caseFadeIn {
@@ -430,7 +250,7 @@
 }
 
 /* ============================================ */
-/* RESPONSIVIDADE COMPLETA (MEDIA QUERIES) */
+/* RESPONSIVIDADE — DESKTOP LARGE (≥ 1025px)   */
 /* ============================================ */
 
 @media (min-width: 1025px) {
@@ -439,10 +259,14 @@
     padding-right: 0.5rem;
   }
 
-  .case-study-card {
+  .case-card__image {
     height: 650px;
   }
 }
+
+/* ============================================ */
+/* RESPONSIVIDADE — TABLET (≤ 1024px)           */
+/* ============================================ */
 
 @media (max-width: 1024px) {
   .case-studies-section {
@@ -473,7 +297,7 @@
     gap: 0.5rem;
   }
 
-  .case-study-card {
+  .case-card__image {
     height: 480px;
   }
 
@@ -493,6 +317,10 @@
     height: 30px;
   }
 }
+
+/* ============================================ */
+/* RESPONSIVIDADE — MOBILE (≤ 768px)            */
+/* ============================================ */
 
 @media (max-width: 768px) {
   .case-studies-container {
@@ -564,46 +392,121 @@
     width: 100% !important;
   }
 
+  /* Card mobile: altura auto para acomodar botões abaixo */
   .case-study-card {
-    height: 380px !important;
+    height: auto !important;
     border-radius: 6px !important;
   }
 
-  /* No mobile overlay sempre visível no toque */
+  /* Imagem com altura fixa */
+  .case-card__image {
+    height: 300px !important;
+    width: 100%;
+  }
+
+  /* Overlay de hover: escondido no mobile (botões estão abaixo) */
   .case-card__overlay {
+    display: none !important;
+  }
+
+  /* Botões mobile: sempre visíveis abaixo da imagem */
+  .case-card__actions {
+    display: flex !important;
     flex-direction: column;
-    gap: 12px;
-    opacity: 0;
-    background: rgba(0, 0, 0, 0.6);
+    gap: 14px;
+    padding: 16px 14px;
+    background: #ffffff;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
   }
 
-  .case-study-card:active .case-card__overlay {
-    opacity: 1;
+  /* Bloco de texto: tag + título + descrição */
+  .case-card__info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
   }
 
-  .case-card__watch-btn,
-  .case-card__see-btn {
+  .case-card__tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #888888;
+  }
+
+  .case-card__title {
+    font-size: 15px;
+    font-weight: 800;
+    color: #000000;
+    margin: 0;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+  }
+
+  .case-card__desc {
+    font-size: 12px;
+    font-weight: 400;
+    color: #555555;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* Linha de botões */
+  .case-card__buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  /* Watch Prototype mobile: outline preto, sem bg */
+  .case-card__watch-btn--mobile {
     font-size: 12px !important;
-    padding: 0.4rem 0.8rem 0.4rem 0.4rem !important;
+    padding: 0.55rem 1rem 0.55rem 0.55rem !important;
     gap: 8px !important;
+    background: transparent !important;
+    color: #000000 !important;
+    border: 2px solid #000000 !important;
+    flex: 1;
   }
 
-  .case-card__see-btn {
-    padding: 0.4rem 0.4rem 0.4rem 0.8rem !important;
+  .case-card__watch-btn--mobile .case-card__play-circle {
+    border-color: #000000 !important;
+  }
+
+  .case-card__watch-btn--mobile .case-card__play-circle svg polygon {
+    fill: #000000 !important;
+  }
+
+  /* View Project mobile: bg preto, mesmo tamanho */
+  .case-card__see-btn--mobile {
+    font-size: 12px !important;
+    padding: 0.55rem 0.55rem 0.55rem 1rem !important;
+    gap: 8px !important;
+    background: #000000 !important;
+    color: #ffffff !important;
+    border: 2px solid #000000 !important;
+    flex: 1;
   }
 
   .case-card__play-circle,
   .case-card__arrow-circle {
-    width: 26px;
-    height: 26px;
+    width: 28px !important;
+    height: 28px !important;
   }
 
   .case-card__play-circle svg,
   .case-card__arrow-circle svg {
-    width: 12px;
-    height: 12px;
+    width: 12px !important;
+    height: 12px !important;
   }
 }
+
+/* ============================================ */
+/* RESPONSIVIDADE — SMALL MOBILE (≤ 390px)      */
+/* ============================================ */
 
 @media (max-width: 390px) {
   .case-studies-filter button,
@@ -613,18 +516,19 @@
     height: 44px !important;
   }
 
-  .case-study-card {
-    height: 320px !important;
+  .case-card__image {
+    height: 260px !important;
   }
 
-  .case-card__watch-btn,
-  .case-card__see-btn {
+  .case-card__watch-btn--mobile,
+  .case-card__see-btn--mobile {
     font-size: 11px !important;
+    max-width: 140px;
   }
 
   .case-card__play-circle,
   .case-card__arrow-circle {
-    width: 22px;
-    height: 22px;
+    width: 24px !important;
+    height: 24px !important;
   }
 }

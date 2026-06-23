@@ -40,6 +40,9 @@ interface CaseStudy {
   id: string;
   image: string;
   prototypeUrl?: string;
+  title?: string;
+  description?: string;
+  tag?: string;
 }
 
 interface Video {
@@ -49,17 +52,52 @@ interface Video {
 }
 
 interface CaseStudiesSectionProps {
-  id?: string; // 1. Adicionado id opcional
+  id?: string;
   caseStudies?: CaseStudy[];
   videos?: Video[];
 }
 
 const defaultCaseStudies: CaseStudy[] = [
-  { id: '1', image: TIHelpImg, prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/Gilberto---Pain%C3%A9is-Solares?node-id=10-172&p=f&m=draw&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=70%3A299' },
-  { id: '2', image: SolarPanelImg, prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/Gilberto---Pain%C3%A9is-Solares?node-id=10-172&p=f&m=draw&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=70%3A299' },
-  { id: '3', image: DNJeansImg, prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/Gilberto---Pain%C3%A9is-Solares?node-id=10-172&p=f&m=draw&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=70%3A299' },
-  { id: '4', image: RealStateImg, prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/Gilberto---Pain%C3%A9is-Solares?node-id=10-172&p=f&m=draw&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=70%3A299' },
-  { id: '5', image: YatchImg, prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/Gilberto---Pain%C3%A9is-Solares?node-id=10-172&p=f&m=draw&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=70%3A299' },
+  {
+    id: '1',
+    image: TIHelpImg,
+    tag: 'UX Design · Web',
+    title: 'TIHelp TCC',
+    description: 'Plataforma de suporte técnico que conecta alunos a monitores em tempo real.',
+    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/Gilberto---Pain%C3%A9is-Solares?node-id=10-172&p=f&m=draw&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=70%3A299',
+  },
+  {
+    id: '2',
+    image: SolarPanelImg,
+    tag: 'UX Design · Dashboard',
+    title: 'Painéis Solares',
+    description: 'Dashboard de monitoramento de energia solar com foco em clareza e eficiência.',
+    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/Gilberto---Pain%C3%A9is-Solares?node-id=10-172&p=f&m=draw&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=70%3A299',
+  },
+  {
+    id: '3',
+    image: DNJeansImg,
+    tag: 'UX Design · E-commerce',
+    title: 'DN Jeans',
+    description: 'Redesign da experiência de compra online para uma marca de moda local.',
+    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/Gilberto---Pain%C3%A9is-Solares?node-id=10-172&p=f&m=draw&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=70%3A299',
+  },
+  {
+    id: '4',
+    image: RealStateImg,
+    tag: 'UX Design · Mobile',
+    title: 'ImovePro',
+    description: 'App de gestão imobiliária que simplifica o processo de compra e aluguel.',
+    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/Gilberto---Pain%C3%A9is-Solares?node-id=10-172&p=f&m=draw&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=70%3A299',
+  },
+  {
+    id: '5',
+    image: YatchImg,
+    tag: 'UX Design · Luxury',
+    title: 'Yatch Experience',
+    description: 'Plataforma de reservas de iatismo premium com foco em exclusividade.',
+    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/Gilberto---Pain%C3%A9is-Solares?node-id=10-172&p=f&m=draw&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=70%3A299',
+  },
 ];
 
 const defaultVideos: Video[] = [
@@ -79,7 +117,7 @@ const socialMediaCarouselImages = [
 ];
 
 export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
-  id, // 2. Recebendo o id
+  id,
   caseStudies = defaultCaseStudies,
   videos = defaultVideos,
 }) => {
@@ -134,6 +172,9 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
     { id: 'mobile', label: t('caseStudies.categories.socialMedia') },
   ];
 
+  // Título sempre fixo
+  const dynamicTitle = 'Portfolio';
+
   const handleCategoryChange = (categoryId: string) => {
     setSelectedCategory(categoryId);
   };
@@ -158,14 +199,13 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
   };
 
   return (
-    // 3. id={id} substitui o id="works" fixo
     <section className="case-studies-section" id={id} ref={sectionRef}>
       <div className="case-studies-container">
 
         <div className="case-studies-header">
           <div className="case-studies-title-wrapper">
             <h2 className="case-studies-title">
-              {t('caseStudies.title')}<span className="case-studies-mark">®</span>
+              {dynamicTitle}<span className="case-studies-mark">®</span>
             </h2>
           </div>
           <div className="case-studies-counter">
@@ -239,44 +279,98 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
                 key={caseStudy.id}
                 className="case-study-card scroll-reveal"
                 id={`project-${caseStudy.id}`}
-                style={{
-                  backgroundImage: `url(${caseStudy.image})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                }}
               >
-                <div className="case-card__overlay">
+                {/* Imagem com overlay de hover (desktop) */}
+                <div
+                  className="case-card__image"
+                  style={{
+                    backgroundImage: `url(${caseStudy.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                >
+                  <div className="case-card__overlay">
+                    <Button
+                      variant="secondary"
+                      size="medium"
+                      className="case-card__watch-btn"
+                      onClick={(e) => handleWatchPrototype(e, caseStudy.prototypeUrl)}
+                    >
+                      <span className="case-card__play-circle">
+                        <svg viewBox="0 0 24 24" fill="white" width="14" height="14">
+                          <polygon points="6,4 20,12 6,20" />
+                        </svg>
+                      </span>
+                      {t('caseStudies.watchPrototype')}
+                    </Button>
 
-                  <Button
-                    variant="secondary"
-                    size="medium"
-                    className="case-card__watch-btn"
-                    onClick={(e) => handleWatchPrototype(e, caseStudy.prototypeUrl)}
-                  >
-                    <span className="case-card__play-circle">
-                      <svg viewBox="0 0 24 24" fill="white" width="14" height="14">
-                        <polygon points="6,4 20,12 6,20" />
-                      </svg>
-                    </span>
-                    {t('caseStudies.watchPrototype')}
-                  </Button>
+                    <Button
+                      variant="primary"
+                      size="medium"
+                      className="case-card__see-btn"
+                      onClick={(e) => handleSeeProject(e, caseStudy.id)}
+                    >
+                      {t('caseStudies.viewProject')}
+                      <span className="case-card__arrow-circle">
+                        <svg viewBox="0 0 24 24" fill="none" width="16" height="16" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <line x1="7" y1="17" x2="17" y2="7" />
+                          <polyline points="7 7 17 7 17 17" />
+                        </svg>
+                      </span>
+                    </Button>
+                  </div>
+                </div>
 
-                  <Button
-                    variant="primary"
-                    size="medium"
-                    className="case-card__see-btn"
-                    onClick={(e) => handleSeeProject(e, caseStudy.id)}
-                  >
-                    {t('caseStudies.viewProject')}
-                    <span className="case-card__arrow-circle">
-                      <svg viewBox="0 0 24 24" fill="none" width="16" height="16" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <line x1="7" y1="17" x2="17" y2="7" />
-                        <polyline points="7 7 17 7 17 17" />
-                      </svg>
-                    </span>
-                  </Button>
+                {/* Botões mobile — sempre visíveis abaixo da imagem */}
+                <div className="case-card__actions">
+
+                  {/* Texto: tag + título + descrição */}
+                  <div className="case-card__info">
+                    {caseStudy.tag && (
+                      <span className="case-card__tag">{caseStudy.tag}</span>
+                    )}
+                    {caseStudy.title && (
+                      <h3 className="case-card__title">{caseStudy.title}</h3>
+                    )}
+                    {caseStudy.description && (
+                      <p className="case-card__desc">{caseStudy.description}</p>
+                    )}
+                  </div>
+
+                  {/* Botões */}
+                  <div className="case-card__buttons">
+                    <Button
+                      variant="secondary"
+                      size="medium"
+                      className="case-card__watch-btn case-card__watch-btn--mobile"
+                      onClick={(e) => handleWatchPrototype(e, caseStudy.prototypeUrl)}
+                    >
+                      <span className="case-card__play-circle">
+                        <svg viewBox="0 0 24 24" fill="white" width="14" height="14">
+                          <polygon points="6,4 20,12 6,20" />
+                        </svg>
+                      </span>
+                      {t('caseStudies.watchPrototype')}
+                    </Button>
+
+                    <Button
+                      variant="primary"
+                      size="medium"
+                      className="case-card__see-btn case-card__see-btn--mobile"
+                      onClick={(e) => handleSeeProject(e, caseStudy.id)}
+                    >
+                      {t('caseStudies.viewProject')}
+                      <span className="case-card__arrow-circle">
+                        <svg viewBox="0 0 24 24" fill="none" width="16" height="16" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <line x1="7" y1="17" x2="17" y2="7" />
+                          <polyline points="7 7 17 7 17 17" />
+                        </svg>
+                      </span>
+                    </Button>
+                  </div>
 
                 </div>
+
               </div>
             ))}
           </div>

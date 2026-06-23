@@ -1,205 +1,203 @@
-import React, { useRef, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './Carousel.css';
 
 interface CarouselProps {
   images: string[];
   speed?: number;
   friction?: number;
+  autoPlayInterval?: number;
 }
 
-export const Carousel: React.FC<CarouselProps> = ({
-  images,
-  speed = 80,
-  friction = 0.92,
-}) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
+const SPEED    = 0.5;  // px por frame — mais devagar
+const FRICTION = 0.90;
 
-  const stateRef = useRef({
-    x: 0,
-    velocity: 0,
-    lastTime: 0,
-    blockWidth: 0,
-    rafId: 0,
-    phase: 'auto' as 'auto' | 'dragging' | 'inertia' | 'resuming',
-    dragStartX: 0,
-    dragStartTrackX: 0,
-    isHovered: false,
-    ready: false, // bloqueia o RAF até as imagens medirem o blockWidth
+function norm(x: number, bw: number) {
+  if (x < -bw) return x + bw;
+  if (x > 0)   return x - bw;
+  return x;
+}
+
+// ── Hook para cada fileira independente ──────────────────────
+function useRow(
+  ref: React.RefObject<HTMLDivElement>,
+  direction: 1 | -1, // 1 = esquerda, -1 = direita
+  ready: boolean,
+) {
+  const state = useRef({
+    x: 0, bw: 0, measured: false,
+    phase: 'auto' as 'auto' | 'drag' | 'inertia',
+    vel: 0,
+    dragStartX: 0, dragX: 0,
   });
 
-  if (images.length === 0) {
-    return <div className="carousel-empty">Nenhuma imagem disponível</div>;
-  }
+  const apply = useCallback(() => {
+    if (ref.current) ref.current.style.transform = `translateX(${state.current.x}px)`;
+  }, [ref]);
 
-  const tripled = [...images, ...images, ...images];
+  const tick = useCallback(() => {
+    const st = state.current;
 
-  const prefersReducedMotion =
-    typeof window !== 'undefined' &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const effectiveSpeed = prefersReducedMotion ? 0 : speed;
-
-  const applyTransform = useCallback((x: number) => {
-    if (!trackRef.current) return;
-    trackRef.current.style.transform = `translate3d(${x}px, 0, 0)`;
-  }, []);
-
-  // Normaliza: mantém x sempre no bloco do meio (invisível ao usuário)
-  const normalizeX = useCallback((x: number, blockWidth: number): number => {
-    if (blockWidth === 0) return x;
-    // Reset instantâneo quando passa dos limites — sem while para evitar loop preso
-    if (x > -blockWidth) return x - blockWidth;
-    if (x < -2 * blockWidth) return x + blockWidth;
-    return x;
-  }, []);
-
-  const tick = useCallback((timestamp: number) => {
-    const s = stateRef.current;
-
-    // Recalcula blockWidth a cada frame até estabilizar
-    // (garante que imagens já carregaram e o layout foi calculado)
-    if (trackRef.current) {
-      const measured = trackRef.current.scrollWidth / 3;
-      if (measured !== s.blockWidth && measured > 0) {
-        s.blockWidth = measured;
-        if (!s.ready) {
-          s.x = -s.blockWidth;
-          s.ready = true;
-        }
+    if (!st.measured && ref.current) {
+      const bw = ref.current.scrollWidth / 3;
+      if (bw > 0) {
+        st.bw = bw;
+        // fileira direita começa no bloco do meio
+        if (direction === -1) st.x = -bw;
+        st.measured = true;
       }
     }
 
-    if (!s.ready) {
-      s.rafId = requestAnimationFrame(tick);
-      return;
+    if (st.measured) {
+      if (st.phase === 'auto') {
+        st.x -= direction * SPEED;
+      } else if (st.phase === 'inertia') {
+        st.x += st.vel;
+        st.vel *= FRICTION;
+        if (Math.abs(st.vel) < 0.2) { st.vel = 0; st.phase = 'auto'; }
+      }
+      st.x = norm(st.x, st.bw);
+      apply();
     }
+  }, [direction, apply, ref]);
 
-    if (!s.lastTime) s.lastTime = timestamp;
-    const dt = Math.min((timestamp - s.lastTime) / 1000, 0.05);
-    s.lastTime = timestamp;
-
-    switch (s.phase) {
-      case 'auto': {
-        if (!s.isHovered) s.x -= effectiveSpeed * dt;
-        break;
-      }
-      case 'inertia': {
-        s.x += s.velocity;
-        s.velocity *= friction;
-        if (Math.abs(s.velocity) < 0.3) {
-          s.velocity = 0;
-          s.phase = 'resuming';
-          s.lastTime = timestamp;
-        }
-        break;
-      }
-      case 'resuming': {
-        s.phase = 'auto';
-        break;
-      }
-      case 'dragging':
-        break;
-    }
-
-    s.x = normalizeX(s.x, s.blockWidth);
-    applyTransform(s.x);
-
-    s.rafId = requestAnimationFrame(tick);
-  }, [effectiveSpeed, friction, applyTransform, normalizeX]);
-
-  useEffect(() => {
-    stateRef.current.rafId = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(stateRef.current.rafId);
-  }, [tick]);
-
+  // inicia drag nesta fileira
   const beginDrag = useCallback((clientX: number) => {
-    const s = stateRef.current;
-    s.phase = 'dragging';
-    s.velocity = 0;
-    s.dragStartX = clientX;
-    s.dragStartTrackX = s.x;
+    const st = state.current;
+    st.phase = 'drag';
+    st.vel = 0;
+    st.dragStartX = clientX;
+    st.dragX = st.x;
   }, []);
 
   const moveDrag = useCallback((clientX: number) => {
-    const s = stateRef.current;
-    if (s.phase !== 'dragging') return;
-    const delta = clientX - s.dragStartX;
-    const newX = s.dragStartTrackX + delta;
-    s.velocity = newX - s.x;
-    s.x = normalizeX(newX, s.blockWidth);
-    applyTransform(s.x);
-  }, [normalizeX, applyTransform]);
+    const st = state.current;
+    if (st.phase !== 'drag') return;
+    const delta = clientX - st.dragStartX;
+    st.vel = delta - (st.x - st.dragX);
+    st.x = norm(st.dragX + delta, st.bw);
+    apply();
+  }, [apply]);
 
   const endDrag = useCallback(() => {
-    const s = stateRef.current;
-    if (s.phase !== 'dragging') return;
-    if (Math.abs(s.velocity) > 0.5) {
-      s.phase = 'inertia';
-    } else {
-      s.velocity = 0;
-      s.phase = 'auto';
-    }
+    const st = state.current;
+    if (st.phase !== 'drag') return;
+    st.phase = Math.abs(st.vel) > 1 ? 'inertia' : 'auto';
   }, []);
 
-  const handleMouseDown = useCallback((e: React.MouseEvent) => {
-    e.preventDefault();
-    beginDrag(e.clientX);
-    const onMove = (ev: MouseEvent) => moveDrag(ev.clientX);
-    const onUp = () => {
-      endDrag();
-      window.removeEventListener('mousemove', onMove);
-      window.removeEventListener('mouseup', onUp);
+  return { tick, beginDrag, moveDrag, endDrag };
+}
+
+// ── Componente principal ─────────────────────────────────────
+export const Carousel: React.FC<CarouselProps> = ({ images }) => {
+  const [col1, setCol1] = useState<string[]>([]);
+  const [col2, setCol2] = useState<string[]>([]);
+  const [ready, setReady] = useState(false);
+
+  const row1Ref = useRef<HTMLDivElement>(null);
+  const row2Ref = useRef<HTMLDivElement>(null);
+  const rafId   = useRef(0);
+
+  const row1 = useRow(row1Ref,  1, ready); // vai para esquerda
+  const row2 = useRow(row2Ref, -1, ready); // vai para direita
+
+  // Loop RAF compartilhado
+  useEffect(() => {
+    if (!ready) return;
+    const loop = () => {
+      row1.tick();
+      row2.tick();
+      rafId.current = requestAnimationFrame(loop);
     };
-    window.addEventListener('mousemove', onMove);
-    window.addEventListener('mouseup', onUp);
-  }, [beginDrag, moveDrag, endDrag]);
+    rafId.current = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(rafId.current);
+  }, [ready, row1.tick, row2.tick]);
 
-  const handleTouchStart = useCallback((e: React.TouchEvent) => {
-    beginDrag(e.touches[0].clientX);
-  }, [beginDrag]);
+  // Detecta ratio e distribui imagens
+  useEffect(() => {
+    if (images.length === 0) return;
+    let resolved = 0;
+    const landscape: string[] = [];
+    const portrait:  string[] = [];
 
-  const handleTouchMove = useCallback((e: React.TouchEvent) => {
-    moveDrag(e.touches[0].clientX);
-  }, [moveDrag]);
+    images.forEach((src) => {
+      const img = new Image();
+      const done = () => { resolved++; if (resolved === images.length) finalize(); };
+      img.onload  = () => { (img.naturalWidth > img.naturalHeight ? landscape : portrait).push(src); done(); };
+      img.onerror = () => { portrait.push(src); done(); };
+      img.src = src;
+    });
 
-  const handleTouchEnd = useCallback(() => {
-    endDrag();
-  }, [endDrag]);
+    function finalize() {
+      if (landscape.length === 0 || portrait.length === 0) {
+        const half = Math.ceil(images.length / 2);
+        setCol1(images.slice(0, half));
+        setCol2(images.slice(half));
+      } else {
+        setCol1(landscape);
+        setCol2(portrait);
+      }
+      setReady(true);
+    }
+  }, [images]);
 
-  const handleMouseEnter = useCallback(() => {
-    stateRef.current.isHovered = true;
-  }, []);
+  // ── Handlers: cada fileira escuta seu próprio elemento ──────
+  const makeMouseHandlers = (row: ReturnType<typeof useRow>) => ({
+    onMouseDown: (e: React.MouseEvent) => {
+      row.beginDrag(e.clientX);
+      e.preventDefault();
 
-  const handleMouseLeave = useCallback(() => {
-    stateRef.current.isHovered = false;
-    if (stateRef.current.phase === 'dragging') endDrag();
-  }, [endDrag]);
+      const onMove = (ev: MouseEvent) => row.moveDrag(ev.clientX);
+      const onUp   = () => {
+        row.endDrag();
+        window.removeEventListener('mousemove', onMove);
+        window.removeEventListener('mouseup',   onUp);
+      };
+      window.addEventListener('mousemove', onMove);
+      window.addEventListener('mouseup',   onUp);
+    },
+  });
+
+  const makeTouchHandlers = (row: ReturnType<typeof useRow>) => ({
+    onTouchStart: (e: React.TouchEvent) => row.beginDrag(e.touches[0].clientX),
+    onTouchMove:  (e: React.TouchEvent) => row.moveDrag(e.touches[0].clientX),
+    onTouchEnd:   ()                    => row.endDrag(),
+  });
+
+  if (images.length === 0) return <div className="carousel-empty">Nenhuma imagem disponível</div>;
+  if (!ready)              return <div className="carousel-loading" />;
+
+  const rows = [
+    { col: col1, ref: row1Ref, mouse: makeMouseHandlers(row1), touch: makeTouchHandlers(row1) },
+    { col: col2, ref: row2Ref, mouse: makeMouseHandlers(row2), touch: makeTouchHandlers(row2) },
+  ];
 
   return (
-    <div
-      ref={containerRef}
-      className="carousel-container"
-      onMouseDown={handleMouseDown}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
-      aria-label="Carrossel de imagens"
-      role="region"
-    >
-      <div ref={trackRef} className="carousel-track">
-        {tripled.map((image, index) => (
-          <div key={index} className="carousel-item">
-            <img
-              src={image}
-              alt={`Slide ${(index % images.length) + 1}`}
-              className="carousel-image"
-              draggable={false}
-            />
+    <div className="carousel-container" role="region" aria-label="Galeria de designs">
+      {rows.map(({ col, ref, mouse, touch }, idx) => {
+        const tripled = [...col, ...col, ...col];
+        return (
+          <div
+            key={idx}
+            className="carousel-row"
+            {...mouse}
+            {...touch}
+          >
+            <div ref={ref} className="carousel-row-track">
+              {tripled.map((src, i) => (
+                <div key={i} className="carousel-item">
+                  <img
+                    src={src}
+                    alt={`Design ${(i % col.length) + 1}`}
+                    className="carousel-image"
+                    draggable={false}
+                    loading={i < col.length * 2 ? 'eager' : 'lazy'}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-        ))}
-      </div>
+        );
+      })}
     </div>
   );
 };
