@@ -35,6 +35,18 @@ import OTempoCertoImg from '../../../assets/images/OTempoCerto.jpg';
 import SantaCeiaImg from '../../../assets/images/santaCeia.jpg';
 import SantaCeiaJesusTacaImg from '../../../assets/images/SantaCeiaJesusTaca.jpg';
 import SantaCeiaOusadoAmorImg from '../../../assets/images/SantaCeiaOusadoAmor.jpg';
+import ArgentinaImg from '../../../assets/images/argentina.jpg';
+import CR7Img from '../../../assets/images/cr7.jpg';
+import CR7AlNassrImg from '../../../assets/images/cr7-al nassr.jpg';
+import DembeleImg from '../../../assets/images/dembele.jpg';
+import DonDoueImg from '../../../assets/images/don doue.jpg';
+import GauchoImg from '../../../assets/images/gaucho.jpg';
+import ManchesterCityImg from '../../../assets/images/Manchester City.jpg';
+import MbappeDesignImg from '../../../assets/images/mbappeDesign.jpg';
+import MessiImg from '../../../assets/images/Messi.jpg';
+import RaphinhaDesignImg from '../../../assets/images/raphinhaDesign.jpg';
+import RealMadridImg from '../../../assets/images/Real Madrid.jpg';
+import Yamal2Img from '../../../assets/images/Yamal 2.jpg';
 
 interface CaseStudy {
   id: string;
@@ -114,6 +126,10 @@ const socialMediaCarouselImages = [
   JesusMichelBasquiartReferenceImg, KaueVermelhoImg, MaosCultoDeLibertacaoImg,
   MissoesImg, NotblindImg, NovosHorizontesImg, OTempoCertoImg, SantaCeiaImg,
   SantaCeiaJesusTacaImg, SantaCeiaOusadoAmorImg,
+  // Football / Sports
+  ArgentinaImg, CR7Img, CR7AlNassrImg, DembeleImg, DonDoueImg,
+  GauchoImg, ManchesterCityImg, MbappeDesignImg, MessiImg,
+  RaphinhaDesignImg, RealMadridImg, Yamal2Img,
 ];
 
 export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
