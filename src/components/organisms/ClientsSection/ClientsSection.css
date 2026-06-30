@@ -329,7 +329,6 @@
 
 @media (max-width: 768px) {
   /* Mobile: mostra o botão da coluna esquerda, esconde o da direita */
-@media (max-width: 768px) {
   .clients-cta-mobile {
     display: inline-flex;
   }
@@ -344,12 +343,17 @@
       clamp(var(--spacing-md), 4vw, var(--spacing-lg));
   }
 
-  /* Slide: coluna única */
+ /* Slide: coluna única */
   .clients-slide {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
+    grid-template-columns: 1fr !important;
+    gap: 1rem!important; /* era var(--spacing-lg) */
   }
 
+  /* Remove a centralização vertical que criava o espaço variável */
+  .clients-description {
+    align-self: start;
+    font-size: 1.15rem;
+  }
   /* Footer: duas colunas — botão à esquerda alinhado à foto, nav à direita */
   .clients-footer-fixed {
     grid-template-columns: auto 1fr;
@@ -392,10 +396,6 @@
     font-size: clamp(2.8rem, 10vw, 3.5rem);
   }
 
-  .clients-description {
-    font-size: 1.15rem;
-  }
-
   .clients-cta-wrapper {
     height: 72px;
     padding: 0 1rem 0 2rem;
@@ -406,13 +406,19 @@
     height: 52px;
     margin-left: 1rem;
   }
-}
+
 
 @media (max-width: 430px) {
   .clients-title {
     font-size: 2.8rem;
   }
 
+   /* Slide: coluna única */
+  .clients-slide {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important; /* era var(--spacing-lg) */
+  }
+  
   .clients-description {
     font-size: 1rem;
   }

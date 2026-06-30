@@ -5,14 +5,15 @@
 /* Container principal que ocupa 100% da tela do usuário */
  .hero-section {
   width: 100%;
-  height: 100vh; /* Força a ocupar exatamente a tela inteira */
+  height: 100vh;   /* fallback p/ navegadores antigos */
+  height: 100svh;  /* área REALMENTE visível (sem overshoot da barra do navegador) */
   background: #000000;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  /* --- CORREÇÃO DO STICKY --- */
+  /* --- CORREÇÃO DO STICKY (PARALLAX) --- */
   position: -webkit-sticky; /* Suporte para Safari */
   position: sticky;
   top: 0;
@@ -360,28 +361,178 @@
 }
 
 /* ============================================================ */
-/* TABLETS E CELULARES DEITADOS (ATÉ 768PX)                     */
+/* 7. FAIXA INTERMEDIÁRIA: TABLETS / 431px–768px               */
+/* (Esse breakpoint NÃO existia — por isso a fonte ficava 10rem */
+/*  e estourava o "EDUARDO DESIGNER" nessa faixa.)              */
+/* Mantém o parallax: NÃO mexe em sticky / z-index.            */
 /* ============================================================ */
+@media (max-width: 768px) {
+  .hero-section {
+    height: auto !important;
+    min-height: 100svh;
+    align-items: flex-start !important;   /* não centraliza -> botões não somem embaixo */
+    padding: 4rem 0 6rem !important;      /* 6rem embaixo = COLCHÃO p/ a About cobrir sem cortar os botões */
+  }
+
+  .hero-wrapper {
+    height: auto !important;
+    padding: 2rem !important;
+  }
+
+  .hero-grid {
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    gap: 1.75rem !important;
+    width: 100% !important;
+  }
+
+  .hero-brand,
+  .hero-image-container,
+  .hero-content,
+  .hero-cta-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  /* CORREÇÃO PRINCIPAL: fonte que estourava a tela */
+  .brand-title {
+    font-size: clamp(3rem, 11vw, 5rem) !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.04em !important;
+    word-break: break-word !important;
+  }
+
+  .brand-mark {
+    font-size: 1.4rem !important;
+  }
+
+  .hero-image-container {
+    width: 240px !important;
+    height: 240px !important;
+    margin: 0.5rem 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .hero-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+  }
+
+  .hero-content {
+    gap: 0.85rem !important;
+  }
+
+  .hero-headline {
+    font-size: 1.6rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .hero-description {
+    font-size: 1rem !important;
+    max-width: 100% !important;
+  }
+
+  /* Botões lado a lado, ocupando a largura */
+  .hero-cta-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 1rem !important;
+    align-items: center !important;
+    margin-top: 0.5rem !important;
+  }
+
+  /* space-between: texto numa ponta, círculo na outra (sem sobreposição) */
+  .hero-cta-button {
+    flex: 1 1 50% !important;
+    height: 80px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    font-size: 0.9rem !important;
+    padding: 0 0.8rem 0 1.4rem !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-cv-button {
+    flex: 1 1 50% !important;
+    height: 80px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    font-size: 0.9rem !important;
+    padding: 0 1.4rem 0 0.8rem !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-cta-circle,
+  .hero-cv-icon {
+    width: 48px !important;
+    height: 48px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .hero-cv-icon {
+    padding: 12px !important;
+    margin-right: 0.6rem !important;
+    margin-left: 0 !important;
+  }
+
+  .hero-cta-circle {
+    margin-left: 0.6rem !important;
+  }
+
+  .hero-cta-text {
+    margin-right: 0 !important;   /* mata qualquer margem negativa herdada */
+  }
+
+  .hero-cta-icon,
+  .hero-cta-circle svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+}
+
 /* ============================================================ */
-/* MOBILE (ATÉ 430PX) - CORRIGIDO                               */
+/* 8. MOBILE (ATÉ 430PX) - CORRIGIDO                            */
 /* ============================================================ */
 
 @media (max-width: 430px) {
 
+  /* -------------------------------------------------------------- */
+  /* CORREÇÃO DO "BOTÃO MUITO PRA BAIXO":                            */
+  /* - height: auto + min-height: 100svh -> usa a tela VISÍVEL real, */
+  /*   sem o overshoot da barra do navegador (era o 100vh herdado).  */
+  /* - align-items: flex-start -> conteúdo cola no topo em vez de    */
+  /*   centralizar (era o center que empurrava os botões pra baixo). */
+  /* - padding-bottom 5rem -> COLCHÃO p/ a About cobrir sem cortar.   */
+  /* - position: sticky / z-index NÃO são tocados -> parallax intacto.*/
+  /* -------------------------------------------------------------- */
   .hero-section {
     width: 100%;
-    min-height: auto;
-    padding: 4rem 0 2rem;
+    height: auto !important;            /* mata o 100vh/svh rígido */
+    min-height: 100svh;                 /* garante 1 tela p/ o parallax, mas cresce se precisar */
+    align-items: flex-start !important; /* NÃO centraliza na vertical */
+    padding: 3.5rem 0 5rem;             /* respiro embaixo dos botões */
   }
 
   .hero-wrapper {
+    height: auto !important;            /* wrapper do tamanho do conteúdo, não 100% */
     padding: 1rem !important;
   }
 
   .hero-grid {
+    height: auto !important;            /* mata o height: 100% herdado */
     display: flex !important;
     flex-direction: column !important;
-    gap: 1.5rem !important;
+    justify-content: flex-start !important;
+    gap: 1.1rem !important;
     width: 100% !important;
   }
 
@@ -404,9 +555,9 @@
   }
 
     .hero-image-container {
-    width: 200px !important;       /* Define uma largura fixa e menor para a imagem */
-    height: 200px !important;      /* Força a altura a ser igual, matando o excesso vertical */
-    margin: 1rem auto !important;  /* Centraliza com pouca margem em cima e embaixo */
+    width: 180px !important;       /* largura fixa e menor para a imagem */
+    height: 180px !important;      /* força a altura igual, matando o excesso vertical */
+    margin: 0.5rem auto !important;/* centraliza com pouca margem em cima e embaixo */
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -441,18 +592,35 @@
     width: 100% !important;
     gap: 0.5rem !important; 
     align-items: center !important;
-    margin-top: 1rem !important;
+    margin-top: 0.5rem !important;
   }
 
-  /* PROPRIEDADES: AJUSTE DE ESPAÇO INTERNO DOS BOTÕES */
-  .hero-cta-button, 
-  .hero-cv-button {
-    flex: 1 1 50% !important; /* Divide o espaço exatamente ao meio */
-    height: 68px !important;  /* Reduzido de 68px para dar melhor proporção visual */
+  /* -------------------------------------------------------------- */
+  /* CORREÇÃO DO CÍRCULO VERMELHO SOBRE O TEXTO:                     */
+  /* space-between joga texto p/ esquerda e círculo p/ direita,      */
+  /* e o margin-right NEGATIVO foi zerado (era a gambiarra que       */
+  /* empurrava o texto pra debaixo do círculo).                     */
+  /* -------------------------------------------------------------- */
+  .hero-cta-button {
+    flex: 1 1 50% !important;
+    height: 68px !important;
     display: flex !important;
-    justify-content: center !important;
-    font-size: 0.75rem !important; /* Levemente menor para garantir que o texto não quebre */
-    padding: 0 0.5rem !important; 
+    justify-content: space-between !important; /* era center */
+    align-items: center !important;
+    font-size: 0.75rem !important;
+    padding: 0 0.5rem 0 1.1rem !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-cv-button {
+    flex: 1 1 50% !important;
+    height: 68px !important;
+    display: flex !important;
+    justify-content: space-between !important; /* era center */
+    align-items: center !important;
+    font-size: 0.75rem !important;
+    padding: 0 1.1rem 0 0.5rem !important;
     white-space: nowrap !important;
     box-sizing: border-box !important;
   }
@@ -472,19 +640,20 @@
   /* RESET DE MARGENS AGRESSIVAS QUE EMPURRAVAM O TEXTO */
   .hero-cv-icon {
     padding: 8px !important; 
-    margin-right: 0.35rem !important; /* Espaçamento sutil após o ícone */
-    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-left: 0.35rem !important; /* círculo na direita, espaço sutil antes dele */
   }
 
   .hero-cta-circle {
     padding: 0 !important;
     margin-right: 0 !important;
+    margin-left: 0.35rem !important;
   }
 
-  /* GARANTE AS CORES E CORREÇÃO DE MARGENS DOS TEXTOS */
+  /* GARANTE AS CORES E ZERA A MARGEM NEGATIVA QUE SOBREPUNHA O TEXTO */
   .hero-cta-text { 
     color: #000000 !important; 
-    margin-right: -2.4rem !important; 
+    margin-right: 0 !important;   /* era -2.4rem (causava a sobreposição) */
   }
   
   .hero-cv-text { 
@@ -506,5 +675,52 @@
     width: 100% !important;   
     height: 100% !important;
     display: block !important;
+  }
+}
+
+/* ============================================================ */
+/* 9. TELAS DE ALTURA BAIXA (CELULARES "CURTINHOS")            */
+/* Ataca diretamente o caso "height do celular é menor".        */
+/* Encolhe imagem e gaps p/ TUDO caber em 1 tela e o parallax   */
+/* não cobrir os botões antes da hora.                          */
+/* ============================================================ */
+@media (max-height: 700px) and (max-width: 430px) {
+  .hero-section {
+    padding: 2.5rem 0 3.5rem !important;  /* respiro embaixo mantido mesmo em tela baixa */
+  }
+
+  .hero-grid {
+    gap: 0.8rem !important;
+  }
+
+  .hero-image-container {
+    width: 130px !important;
+    height: 130px !important;
+    margin: 0.25rem auto !important;
+  }
+
+  .hero-headline {
+    font-size: 1.15rem !important;
+  }
+
+  .hero-description {
+    font-size: 0.82rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .hero-cta-button,
+  .hero-cv-button {
+    height: 60px !important;
+  }
+}
+
+@media (max-height: 560px) and (max-width: 430px) {
+  /* Aparelhos MUITO baixos: esconde a imagem 3D para sobrar espaço */
+  .hero-image-container {
+    display: none !important;
+  }
+
+  .hero-grid {
+    gap: 0.7rem !important;
   }
 }

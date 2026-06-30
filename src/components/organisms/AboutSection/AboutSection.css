@@ -4,7 +4,8 @@
 
 .about-section {
   width: 100%;
-  min-height: 100vh; /* Mantido conforme solicitado */
+  min-height: 100vh;  /* fallback */
+  min-height: 100svh; /* casa com a altura visível real (parallax sem overshoot) */
   background: #ffffff;
   display: flex;
   flex-direction: column;
@@ -416,7 +417,7 @@
 /* ==========================================================================
    3. MOBILE E TELAS PEQUENAS (Abaixo de 767px) - O seu perfeito original
    ========================================================================== */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .about-section {
     width: 100% !important;
     max-width: 100% !important;

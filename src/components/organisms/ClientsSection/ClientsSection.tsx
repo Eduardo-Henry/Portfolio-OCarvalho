@@ -4,6 +4,7 @@ import './ClientsSection.css';
 import CoWorkerPhoto from '../../../assets/images/GuiPhoto.png';
 import FirstClient from '../../../assets/images/Matheus.png';
 import SecondClient from '../../../assets/images/Mariana.png';
+import ElvisPhoto from '../../../assets/images/ElvisFoto.png';
 
 interface Client {
   id: number;
@@ -13,6 +14,12 @@ interface Client {
 }
 
 const clients: Client[] = [
+  {
+    id: 4,
+    name: 'Elvis Vinícius',
+    location: 'Urupês-SP',
+    image: ElvisPhoto,
+  },
   {
     id: 1,
     name: 'Guilherme Lira',
