@@ -62,27 +62,28 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  align-items: flex-end;
+  align-items: flex-start;
   pointer-events: auto;
-  /* CRÍTICO: nenhum transform, filter, backdrop-filter ou isolation aqui
-     para não quebrar o mix-blend-mode dos filhos */
 }
 
 .navbar-menu--desktop li {
   list-style: none;
+  width: 100%;
 }
 
 /*
- * TODOS os links: cor branca + mix-blend-mode difference.
- * Com difference + white (#fff):
- *   — fundo escuro  → resultado claro  (link aparece claro)
- *   — fundo claro   → resultado escuro (link aparece escuro)
- * Funciona automaticamente em qualquer seção, imagem ou gradiente.
+ * NOVA ABORDAGEM (sem mix-blend-mode): a cor do texto é decidida em
+ * JS via amostragem real da cor de fundo por trás do navbar, e
+ * aplicada aqui via a classe .navbar-menu--on-light. Isso funciona
+ * de forma confiável independente de qualquer z-index, transform,
+ * opacity ou stacking context em qualquer outro lugar do site —
+ * removendo de vez o conflito que existia entre o Footer (que
+ * precisa de z-index para o efeito de reveal) e o navbar.
  */
 .navbar-menu--desktop .nav-link {
   display: block;
+  text-align: left;
   color: #ffffff;
-  mix-blend-mode: difference;
   font-size: 1.125rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -90,18 +91,26 @@
   font-family: var(--font-headline);
   transition:
     opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1),
-    transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    transform 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+    color 0.25s ease;
 }
 
-/* Inativo: menos destaque, mas blend ainda ativo */
+/* Quando o JS detecta fundo claro por trás do navbar, troca a cor
+   do texto para preto — sem depender de blend de camada nenhum */
+.navbar-menu--on-light .nav-link {
+  color: #0a0a0a;
+}
+
+/* Inativo: menos destaque */
 .navbar-menu--desktop .nav-link.inactive {
   opacity: 0.45;
 }
 
-/* Ativo: destaque total + deslocamento lateral */
+/* Ativo: destaque total + leve deslocamento para a direita
+   (coerente com o texto alinhado à esquerda) */
 .navbar-menu--desktop .nav-link.active {
   opacity: 1;
-  transform: translateX(-6px);
+  transform: translateX(6px);
 }
 
 /* Hover: reduz opacidade dos outros */
@@ -114,7 +123,7 @@
 }
 
 .navbar-menu--desktop .nav-link:active {
-  transform: scale(0.93) translateX(-6px);
+  transform: scale(0.93) translateX(6px);
 }
 
 /* ============================================ */
@@ -123,6 +132,7 @@
 
 .navbar-menu__translate-item {
   margin-bottom: 0.4rem;
+  align-self: flex-start;
 }
 
 .navbar-translate--desktop {
@@ -136,14 +146,22 @@
   border-radius: 8px;
   color: #ffffff;
   cursor: pointer;
-  transition: opacity 0.25s ease, border-color 0.25s ease;
-  /* Blend mode também no botão de tradução */
-  mix-blend-mode: difference;
+  transition: opacity 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+/* Mesma lógica de detecção de fundo aplicada ao botão de tradução */
+.navbar-menu--on-light .navbar-translate--desktop {
+  color: #0a0a0a;
+  border-color: rgba(0, 0, 0, 0.3);
 }
 
 .navbar-translate--desktop:hover {
   opacity: 0.7;
   border-color: #ffffff;
+}
+
+.navbar-menu--on-light .navbar-translate--desktop:hover {
+  border-color: #0a0a0a;
 }
 
 .navbar-translate--desktop:active {
@@ -225,7 +243,7 @@
   gap: 2rem;
   list-style: none;
   margin: 0;
-  padding: 2rem;
+  padding: 2rem 2.5rem;
   pointer-events: none;
   z-index: 9998;
   opacity: 0;
@@ -238,8 +256,11 @@
 }
 
 .navbar-menu--mobile .nav-link {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: var(--font-display);
   font-size: 2.2rem;
-  font-weight: 800;
+  font-weight: var(--weight-extrabold);
   letter-spacing: -0.02em;
   color: #ffffff;
   opacity: 0.4;
@@ -247,9 +268,6 @@
   transition:
     transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
     opacity 0.4s ease;
-  /* No mobile o menu tem fundo preto fixo, difference funcionaria
-     mas pode causar estranheza no overlay — mantemos normal aqui */
-  mix-blend-mode: normal;
 }
 
 .navbar-menu--mobile.active li:nth-child(1) .nav-link { transform: translateY(0); transition-delay: 0.05s; }

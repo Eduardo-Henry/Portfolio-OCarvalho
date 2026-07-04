@@ -59,7 +59,7 @@
       },
       "4": {
         "role": "City Councilman · Urupês-SP",
-        "feedback": "I'd like to share my experience with Eduardo, who manages my Instagram profile focused on political content. I'm very happy with the results! Even with a limited budget, the return is fantastic. From design and artwork creation to video editing and content management, everything is done with Edu's great skill and creativity — he always knows how to tailor each person's profile perfectly. He surprises me more every day. I highly recommend his work. Get in touch and start your partnership if you want an active page that generates content and visibility! Recently, the page delivered a remarkable result: even with few followers, it reached over 17,000 views in the professional dashboard in a single month. Reach out now — he's an excellent professional!"
+        "feedback": "I'd like to share my experience with Eduardo, who manages my Instagram profile focused on political content. I'm very happy with the results! Even with a limited budget, the return is fantastic. From design and artwork creation to video editing and content management, everything is done with Edu's great skill and creativity — he always knows how to tailor each person's profile perfectly. He surprises me more every day. I highly recommend his work. Get in touch and start your partnership if you want an active page that generates content and visibility! Recently, the page delivered a remarkable result: a single post reached 10,000 views, and the most recent quarter reached 47,700 views — roughly a 29% increase over the previous quarter. Reach out now — he's an excellent professional!"
       }
     }
   },
@@ -101,6 +101,37 @@
         "title": "User Testing",
         "description": "Validating concepts with real users to gather insights, iterate, and refine the final product."
       }
+    }
+  },
+
+  "caseStudyLabels": {
+    "back": "Back",
+    "seeMoreProjects": "See More Projects",
+    "notFound": "Case study not found.",
+    "types": {
+      "real": "Real Project",
+      "proposal": "Proposal",
+      "fictional": "Fictional Project"
+    },
+    "sections": {
+      "overview": "Overview",
+      "challenge": "The Challenge",
+      "process": "Process",
+      "myRole": "My Role",
+      "csdMatrix": "CSD Matrix",
+      "userFlow": "User Flow",
+      "personas": "Personas",
+      "solution": "The Solution",
+      "finalProject": "Final Project"
+    },
+    "csd": {
+      "certainties": "Certainties",
+      "suppositions": "Suppositions",
+      "doubts": "Doubts"
+    },
+    "persona": {
+      "painPoint": "Pain Point",
+      "goal": "Goal"
     }
   },
 

@@ -73,7 +73,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ id }) => {
         
         <div className="skills-header">
           <h2 className="skills-title">
-            {t('skills.title')}<span className="skills-mark">®</span>
+            {t('skills.title')}
           </h2>
           
           <div className="skills-counter">

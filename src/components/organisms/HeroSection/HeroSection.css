@@ -92,6 +92,18 @@
   align-items: center;
   justify-content: center;
   margin-top: var(--spacing-lg);
+  /* touch-action: none aqui é intencional e restrito só a esta área
+     pequena (a forma em si). É o que permite o pointer capture no
+     touch continuar recebendo o movimento do dedo mesmo quando ele
+     sai para o resto da tela, sem o navegador roubar o gesto como
+     scroll assim que o toque começa sobre a forma. Fora dessa área,
+     o scroll da página continua normal. */
+  touch-action: none;
+  cursor: grab;
+}
+
+.hero-image-container:active {
+  cursor: grabbing;
 }
 
 /* Estilização e efeito de flutuação contínua da imagem 3D */
@@ -100,6 +112,21 @@
   height: 95%;
   filter: drop-shadow(0 24px 64px rgba(255, 59, 48, 0.16));
   animation: float 6s ease-in-out infinite;
+  /* transição suave para quando o ponteiro sai e o offset volta a 0 */
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+/* Enquanto o usuário está com o dedo/mouse sobre a forma, a
+   animação de flutuação precisa ser DESLIGADA por completo
+   (não apenas pausada) — animation-play-state: paused mantém o
+   último valor de transform calculado pela animação, e esse valor
+   continua tendo prioridade sobre o transform inline aplicado pelo
+   React, bloqueando o efeito de seguir o ponteiro. animation: none
+   remove esse bloqueio e libera a propriedade transform. */
+.hero-image--interactive {
+  animation: none;
+  transition: transform 0.15s ease-out;
 }
 
 /* Animação que cria o deslocamento vertical suave do elemento */
@@ -251,8 +278,8 @@
   
   border-radius: 999px ;
   background-color: transparent ;
-  border: 1px solid #ccc ; 
-  color: #ccc ;
+  border: 1px solid rgba(255, 255, 255, 0.4) ; 
+  color: #ffffff ;
   
   font-size: clamp(0.85rem, 2vw, 1rem); 
   font-weight: 700;
@@ -270,7 +297,7 @@
 }
 
 .hero-cv-button:hover .hero-cv-icon {
-  border-color: #000000;
+  border-color: rgba(0, 0, 0, 0.2);
 }
 
 /* Reseta deslocamento no clique */
@@ -284,13 +311,14 @@
   outline-offset: 4px;
 }
 
-/* Círculo cinza externo da seta de download */
+/* Círculo externo da seta de download — mesma cor/opacidade usada
+   no Contact (rgba(255,255,255,0.4)) em vez de #ccc */
 .hero-cv-icon {
   width: 68px ;  
   height: 68px ; 
   
   border-radius: 50% ;
-  border: 1px solid #ccc ; 
+  border: 1px solid rgba(255, 255, 255, 0.4) ; 
   
   padding: 22px ; 
   box-sizing: border-box ; 
@@ -449,9 +477,10 @@
   }
 
   /* space-between: texto numa ponta, círculo na outra (sem sobreposição) */
+  /* height e tamanho de círculo iguais ao ContactSection nesse breakpoint */
   .hero-cta-button {
     flex: 1 1 50% !important;
-    height: 80px !important;
+    height: 68px !important;
     display: flex !important;
     justify-content: space-between !important;
     font-size: 0.9rem !important;
@@ -462,7 +491,7 @@
 
   .hero-cv-button {
     flex: 1 1 50% !important;
-    height: 80px !important;
+    height: 68px !important;
     display: flex !important;
     justify-content: space-between !important;
     font-size: 0.9rem !important;
@@ -473,8 +502,8 @@
 
   .hero-cta-circle,
   .hero-cv-icon {
-    width: 48px !important;
-    height: 48px !important;
+    width: 44px !important;
+    height: 44px !important;
     flex-shrink: 0 !important;
   }
 
@@ -625,11 +654,11 @@
     box-sizing: border-box !important;
   }
 
-  /* REDUÇÃO E PADRONIZAÇÃO DOS CÍRCULOS DOS ÍCONES */
+  /* REDUÇÃO E PADRONIZAÇÃO DOS CÍRCULOS DOS ÍCONES — 40px, igual ao ContactSection nesse breakpoint */
   .hero-cta-circle,
   .hero-cv-icon {
-    width: 32px !important; 
-    height: 32px !important;
+    width: 40px !important; 
+    height: 40px !important;
     flex-shrink: 0 !important;
     display: flex !important;
     align-items: center !important;
@@ -656,8 +685,9 @@
     margin-right: 0 !important;   /* era -2.4rem (causava a sobreposição) */
   }
   
+  /* branco, igual ao ContactSection (antes era cinza #cccccc) */
   .hero-cv-text { 
-    color: #cccccc !important; 
+    color: #ffffff !important; 
     margin: 0 !important; 
   }
 
@@ -675,6 +705,34 @@
     width: 100% !important;   
     height: 100% !important;
     display: block !important;
+  }
+}
+
+/* ============================================================ */
+/* 8.1. FAIXA MAIS ESTREITA (ATÉ 390PX) — mesmos valores usados  */
+/* no ContactSection nesse breakpoint, para manter os botões     */
+/* esteticamente idênticos entre as duas seções.                 */
+/* ============================================================ */
+@media (max-width: 390px) {
+  .hero-cta-text,
+  .hero-cv-text {
+    font-size: 0.72rem !important;
+  }
+
+  .hero-cta-circle,
+  .hero-cv-icon {
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  .hero-cta-icon,
+  .hero-cta-circle svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  .hero-cv-icon {
+    margin-left: 0.3rem !important;
   }
 }
 

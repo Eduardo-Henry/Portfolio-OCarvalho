@@ -16,7 +16,6 @@ export const Home: React.FC = () => {
 
   return (
     <MainLayout>
-      
       {/* 1. PALCO DO PARALLAX SUPERIOR (Hero + About) */}
       <div style={{ position: 'relative', width: '100%', zIndex: 2 }}>
         <HeroSection
@@ -34,12 +33,14 @@ export const Home: React.FC = () => {
       </div>
 
       {/* 2. MEIO DO SITE (Passa por cima do Footer) */}
-      <div style={{ 
-        position: 'relative', 
-        zIndex: 3, 
-        width: '100%', 
-        boxShadow: '0 30px 60px rgba(0, 0, 0, 0.2)' 
-      }}>
+      <div
+        style={{
+          position: 'relative',
+          zIndex: 3,
+          width: '100%',
+          boxShadow: '0 30px 60px rgba(0, 0, 0, 0.2)',
+        }}
+      >
         <CaseStudiesSection id="case-studies" />
         <SkillsSection id="all-skills" />
         <ClientsSection id="clients" />
@@ -48,7 +49,6 @@ export const Home: React.FC = () => {
 
       {/* 3. PALCO DO REVEAL INFERIOR (Footer Fixo) */}
       <FooterSection />
-
     </MainLayout>
   );
 };

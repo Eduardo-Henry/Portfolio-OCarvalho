@@ -36,7 +36,7 @@ export const Splash: React.FC<SplashProps> = ({ isLoading }) => {
         <div className="splash-text-container">
           <h1 className="splash-title">
             EDUARDO<br />
-            HENRY CARVALHO<span className="splash-mark">®</span>
+            HENRY CARVALHO
           </h1>
         </div>
 

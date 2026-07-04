@@ -6,10 +6,11 @@ import './CaseStudiesSection.css';
 import { NavPill, Carousel } from '../../molecules';
 import { Button } from '../../atoms';
 import TIHelpImg from '../../../assets/images/TIHelp.png';
-import SolarPanelImg from '../../../assets/images/SolarPanel.png';
+import Kaloburn from '../../../assets/images/KaloBurn.png';
 import DNJeansImg from '../../../assets/images/DNJeans.png';
 import RealStateImg from '../../../assets/images/RealState.png';
 import YatchImg from '../../../assets/images/Yatch.jpeg';
+import SolarPanelImg from '../../../assets/images/SolarPanel.png';
 
 import HappyEasterVideo from '../../../assets/Videos/HappyEaster.mp4';
 import OtavioVideo from '../../../assets/Videos/Otavio.mp4';
@@ -69,46 +70,61 @@ interface CaseStudiesSectionProps {
   videos?: Video[];
 }
 
+/**
+ * IMPORTANTE: os IDs abaixo precisam bater exatamente com as chaves do
+ * objeto `caseStudies` em src/pages/CaseStudyPage/CaseStudyPage.tsx.
+ * Mapeamento atual:
+ * '1' = TI Help | '2' = KaloBurn | '3' = DN Jeans | '4' = ImovePro
+ * '5' = Yacht Booking | '6' = Solar Panel Monitoring (fictional/template)
+ */
 const defaultCaseStudies: CaseStudy[] = [
   {
     id: '1',
     image: TIHelpImg,
-    tag: 'UX Design · Web',
-    title: 'TIHelp TCC',
-    description: 'Plataforma de suporte técnico que conecta alunos a monitores em tempo real.',
-    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/Gilberto---Pain%C3%A9is-Solares?node-id=10-172&p=f&m=draw&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=70%3A299',
+    tag: 'UX Design · Multiplataforma',
+    title: 'TI Help',
+    description: 'Sistema integrado de suporte técnico (mobile, web e desktop), com triagem assistida por IA. Projeto real de TCC.',
+    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/',
   },
   {
     id: '2',
-    image: SolarPanelImg,
-    tag: 'UX Design · Dashboard',
-    title: 'Painéis Solares',
-    description: 'Dashboard de monitoramento de energia solar com foco em clareza e eficiência.',
-    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/Gilberto---Pain%C3%A9is-Solares?node-id=10-172&p=f&m=draw&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=70%3A299',
+    image: Kaloburn,
+    tag: 'UX/UI Design · Marketplace Fitness',
+    title: 'KaloBurn',
+    description: 'Marketplace fitness de dois lados com IA de personalização, conectando usuários a profissionais de educação física.',
+    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/',
   },
   {
     id: '3',
     image: DNJeansImg,
-    tag: 'UX Design · E-commerce',
+    tag: 'UX Estratégico · Catálogo Digital',
     title: 'DN Jeans',
-    description: 'Redesign da experiência de compra online para uma marca de moda local.',
-    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/Gilberto---Pain%C3%A9is-Solares?node-id=10-172&p=f&m=draw&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=70%3A299',
+    description: 'Catálogo conversacional mobile-first, substituindo checkout tradicional por conversão direta via WhatsApp.',
+    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/',
   },
   {
     id: '4',
     image: RealStateImg,
-    tag: 'UX Design · Mobile',
+    tag: 'UX/UI Design · Marketplace Imobiliário',
     title: 'ImovePro',
-    description: 'App de gestão imobiliária que simplifica o processo de compra e aluguel.',
-    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/Gilberto---Pain%C3%A9is-Solares?node-id=10-172&p=f&m=draw&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=70%3A299',
+    description: 'Marketplace imobiliário multi-perfil com busca por raio geográfico e dashboards dedicados por tipo de usuário.',
+    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/',
   },
   {
     id: '5',
     image: YatchImg,
-    tag: 'UX Design · Luxury',
-    title: 'Yatch Experience',
-    description: 'Plataforma de reservas de iatismo premium com foco em exclusividade.',
-    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/Gilberto---Pain%C3%A9is-Solares?node-id=10-172&p=f&m=draw&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=70%3A299',
+    tag: 'UX/UI Design · Luxury (Ficcional)',
+    title: 'Yacht Booking',
+    description: 'Exploração conceitual de design premium para reserva de experiências marítimas de alto padrão.',
+    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/',
+  },
+  {
+    id: '6',
+    image: SolarPanelImg,
+    tag: 'UX/UI Design · Dashboard (Template)',
+    title: 'Solar Panel Monitoring',
+    description: 'Template de dashboard de monitoramento de energia solar, desenvolvido como produto de design para venda.',
+    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/',
   },
 ];
 
@@ -221,7 +237,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
         <div className="case-studies-header">
           <div className="case-studies-title-wrapper">
             <h2 className="case-studies-title">
-              {dynamicTitle}<span className="case-studies-mark">®</span>
+              {dynamicTitle}
             </h2>
           </div>
           <div className="case-studies-counter">

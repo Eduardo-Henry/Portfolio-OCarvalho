@@ -59,7 +59,7 @@
       },
       "4": {
         "role": "Vereador/Cliente",
-        "feedback": "Venho relatar a minha experiência com o Eduardo, responsável pelo meu perfil no Instagram, cujo conteúdo é voltado para a política. Estou muito feliz com os resultados. O retorno é fantástico! Desde o design, criação de artes e edição de vídeos até à gestão de conteúdos, tudo é feito com a grande competência e criatividade do Edu, que sabe sempre direcionar o perfil pessoal de cada um. Tenho-me surpreendido a cada dia. Indico e recomendo muito o trabalho dele. Entre em contato e faça a sua parceria se quer ter uma página ativa, que gera conteúdo e visibilidade! Recentemente, a página teve um resultado muito expressivo: mesmo com poucos seguidores, alcançou mais de 27 mil visualizações no painel profissional num único mês. "
+        "feedback": "Venho relatar a minha experiência com o Eduardo, responsável pelo meu perfil no Instagram, cujo conteúdo é voltado para a política. Estou muito feliz com os resultados. O retorno é fantástico! Desde o design, criação de artes e edição de vídeos até à gestão de conteúdos, tudo é feito com a grande competência e criatividade do Edu, que sabe sempre direcionar o perfil pessoal de cada um. Tenho-me surpreendido a cada dia. Indico e recomendo muito o trabalho dele. Entre em contato e faça a sua parceria se quer ter uma página ativa, que gera conteúdo e visibilidade! Recentemente, a página teve um resultado muito expressivo: uma única publicação alcançou 10 mil visualizações, e o alcance do trimestre mais recente chegou a 47,7 mil, um crescimento de cerca de 29% frente ao período anterior."
       }
     }
   },
@@ -104,6 +104,37 @@
     }
   },
 
+  "caseStudyLabels": {
+    "back": "Voltar",
+    "seeMoreProjects": "Ver Mais Projetos",
+    "notFound": "Case não encontrado.",
+    "types": {
+      "real": "Projeto Real",
+      "proposal": "Proposta",
+      "fictional": "Projeto Ficcional"
+    },
+    "sections": {
+      "overview": "Overview",
+      "challenge": "The Challenge",
+      "process": "Process",
+      "myRole": "My Role",
+      "csdMatrix": "CSD Matrix",
+      "userFlow": "User Flow",
+      "personas": "Personas",
+      "solution": "The Solution",
+      "finalProject": "Final Project"
+    },
+    "csd": {
+      "certainties": "Certainties",
+      "suppositions": "Suppositions",
+      "doubts": "Doubts"
+    },
+    "persona": {
+      "painPoint": "Pain Point",
+      "goal": "Goal"
+    }
+  },
+
   "contact": {
     "titleLine1": "VAMOS CRIAR",
     "titleLine2": "JUNTOS",
@@ -114,5 +145,4 @@
     "cta": "CONVERSAR",
     "getInTouch": "Entrar em contato"
   }
-
 }

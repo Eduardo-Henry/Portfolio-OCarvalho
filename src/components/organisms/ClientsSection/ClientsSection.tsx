@@ -199,7 +199,7 @@ export const ClientsSection: React.FC = () => {
           <span className="counter-label">{t('clients.networkings')}</span>
         </div>
         <h2 className="clients-title">
-          {t('clients.title')} <span className="clients-mark">®</span>
+          {t('clients.title')} 
         </h2>
       </div>
 
