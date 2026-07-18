@@ -144,5 +144,246 @@
     "downloadCV": "DOWNLOAD CV",
     "cta": "GET IN TOUCH",
     "getInTouch": "Get in touch"
+  },
+
+  "404": { "title": "Page not found", "description":
+   "The page you are looking for does not exist or has been moved.",
+   "cta": "Back to Home"
+  },
+
+  "cookies": {
+    "message": "This website uses cookies to ensure you get the best experience on our website.",
+    "accept": "Accept",
+    "decline": "Decline"
+  },
+
+  "caseStudiesData": {
+    "1": {
+      "title": "TI Help",
+      "overview": "Integrated technical support system (mobile, web, and desktop) built as a capstone project, replacing decentralized WhatsApp/email support with a single flow for opening and tracking tickets, with AI-assisted triage.",
+      "challenge": "IT support was scattered across channels with no traceability or status visibility — users resent the same request through different channels when they got no response, and technicians received tickets with no standardized context.",
+      "process": "In-person discovery with 11 sponsor users (7 Systems Analysis students, 2 from another cohort, 2 from Psychology). In the first version of the flow, users picked their own ticket priority (low/medium/high) — in discussion with professors and the 4-person team, we spotted a structural bias before even testing: users would tend to always mark 'high priority' to get served faster, invalidating triage. We fixed it by removing self-assigned priority, replacing it with problem type selection (hardware/software/network) + free description, leaving priority to triage (AI + technician). This was the only one of the 4 deliverables run with a formal backlog over the 6-month project.",
+      "myRole": "UX/UI Designer and mobile front-end developer on a 4-person team, responsible for user research, information architecture, flows, high-fidelity prototypes, and the mobile implementation in React Native.",
+      "csdMatrix": {
+        "certainties": [
+          "Users didn't know the status of an already-open ticket, causing repeated resubmission across channels",
+          "Letting users self-assign priority would create systematic bias toward 'high priority'",
+          "Technicians needed clear categorization (hardware/software/network) for fast triage"
+        ],
+        "suppositions": [
+          "AI-assisted categorization would reduce manual triage time",
+          "Repositioning notifications and the menu would reduce task execution time in the app"
+        ],
+        "doubts": [
+          "Would the triage AI stay accurate at real volume, outside the controlled test environment?",
+          "Would non-technical users (e.g. Psychology students) adapt to the flow as well as Systems Analysis students in the long run?"
+        ]
+      },
+      "userFlow": "User identifies the problem → selects type (hardware/software/network) and describes it → ticket gets categorized and prioritized by triage → user tracks status in real time. Technician flow (Web/Desktop): if there's no time to open the ticket immediately, it automatically enters as low-priority/waiting, configurable manually or with a later AI suggestion. Admin panel: employee creation, deletion, and updates restricted to admin, including deleting data of former employees — the biggest governance win the team identified.",
+      "personas": [
+        {
+          "name": "Systems Analysis participant",
+          "role": "Technical system user",
+          "pain": "Opened tickets via WhatsApp and email without knowing if anyone was handling the issue, resending the same message across channels.",
+          "goal": "Open and track a ticket on any device, with visible status, without having to chase anyone."
+        },
+        {
+          "name": "Psychology participant",
+          "role": "Non-technical system user",
+          "pain": "Struggled to describe technical problems using specific vocabulary, which delayed service.",
+          "goal": "Report a problem in plain language, without needing to know IT terminology."
+        }
+      ],
+      "solution": "Removed user self-assigned priority → replaced with problem type selection + free description. Repositioned notifications and menu in the mobile version. Technician flow with an automatic waiting/low-priority state for tickets without immediate attention. Employee management and data deletion restricted to admin.",
+      "finalProject": "BEFORE vs. AFTER METRIC (in-person test, 11 participants + faculty panel): time to complete the app's main tasks dropped from just over 5 minutes to 3 minutes 30 seconds — a ~30% reduction — after repositioning the menu/notifications. SUCCESS RATE: 100% maintained in both versions (before and after) — meaning the gain was in EFFICIENCY, not COMPLETION; nobody failed to complete the task before the change, it just took longer. ERROR IDENTIFIED AND FIXED: priority self-assignment bias, resolved during Reflect before formal testing even happened. ACADEMIC EVALUATION: 8.5/10 from the capstone panel. STATED LIMITATION: timing was measured informally, without per-session instrumented stopwatch tracking — directional data reported by the team and panel, not an instrumented usability test with per-task timing."
+    },
+    "2": {
+      "title": "KaloBurn",
+      "overview": "Two-sided fitness marketplace: users log physical data and activity (smartwatch/Mi Band integration or manual entry) and receive AI-personalized, adaptive workouts, with a health score system, rankings, and gamified challenges. On the other side, fitness trainers, nutritionists, and supervised students use AI-powered dashboards to manage clients and optimize earnings. Designed with the explicit principle of never making a health-outcome claim.",
+      "challenge": "Users start fitness routines but abandon them due to lack of personalization and continuous follow-up — generic workouts don't adapt to a person's body type, goals, and actual progress. On the professional side, trainers, nutritionists, and students manage clients, schedules, and finances across disconnected tools (WhatsApp, spreadsheets, separate calendars).",
+      "process": "In-person discovery on both sides of the marketplace. Before the design phase, we established as a design principle that no retention mechanic (ranking, gamification) could imply a health-outcome promise — a decision made during Reflect, not fixed later. I ran a usability audit using Nielsen's 10 heuristics across 14 prototype screens, mapping UI inconsistencies and flow gaps before handoff.",
+      "myRole": "UX/UI Designer responsible for the end-to-end design of both screen ecosystems (user and professional), information architecture, high-fidelity prototyping, and usability audit.",
+      "csdMatrix": {
+        "certainties": [
+          "Professionals manage clients, schedules, and finances across fragmented tools today",
+          "Users abandon fitness routines due to lack of visible progress tracking",
+          "Retention mechanics need an explicit ethical boundary to avoid implying health promises"
+        ],
+        "suppositions": [
+          "AI analyzing real-time physical and activity data produces more adherent workouts than static plans",
+          "Health score and gamified ranking sustain consistency better than solo tracking",
+          "Consolidating clients, schedule, finances, and chat into one dashboard increases professional adoption"
+        ],
+        "doubts": [
+          "Would the 'no health claims' principle hold up to an audit by a health professional, not just a design decision?",
+          "The real retention impact would only be validated with production usage data, not a prototype"
+        ]
+      },
+      "userFlow": "User: onboarding captures body type, weight, goal, and wearable integration → AI generates a personalized, adaptive workout, with the option to follow the automatic plan or build their own journey → point-based food diary (no diet prescription) and workout logging feed the health score → ranking and challenges sustain motivation → user can connect with a nutritionist, trainer, or supervised student whenever they want professional support. Professional: consolidated dashboard with clients, schedule, meal plan, finances, and chat in one panel.",
+      "personas": [
+        {
+          "name": "Fitness beginner",
+          "role": "End customer of the marketplace",
+          "pain": "Starts a fitness routine but silently loses the habit due to lack of personalization and progress feedback.",
+          "goal": "Stay consistent over time through AI-adapted workouts, health score, and community, without relying on willpower alone."
+        },
+        {
+          "name": "Fitness professional",
+          "role": "Service provider on the marketplace",
+          "pain": "Manages a client roster, schedule, and finances across disconnected tools (WhatsApp, spreadsheet, separate calendar).",
+          "goal": "Have all business management — clients, schedule, and finances — in a single dashboard."
+        }
+      ],
+      "solution": "Two complete, parallel ecosystems. User: onboarding with body type/goal, smartwatch/Mi Band integration or manual logging, AI-generated and real-time adaptive workouts, point-based food diary, health score, ranking, gamified challenges, friends community, and direct connection to professionals (nutritionists, personal trainers, supervised students). Professional: dashboard, clients, workouts, meal plans, schedule, finances, chat, reviews, and AI-powered management to optimize earnings — the app monetizes via the marketplace. Visual identity: dark background, neon green, and outline icons.",
+      "finalProject": "NO QUANTIFIED METRIC — unlike TI Help, this project has no before/after data or numeric success rate. A usability audit using Nielsen's 10 heuristics across 14 screens mapped inconsistencies fixed before handoff. A moderated in-person test qualitatively confirmed participants could locate the core functions on both profiles (user and professional), with no formal documented backlog and no task timing. Honest answer if asked in an interview: 'qualitatively validated, no formal before/after metric.'"
+    },
+    "3": {
+      "title": "DN Jeans",
+      "overview": "Mobile-first digital catalog for a denim brand, replacing traditional checkout with direct WhatsApp conversion — already qualified with the color, fabric, and size chosen by the customer.",
+      "challenge": "Customers were already buying informally via WhatsApp after seeing products on Instagram, but with no central catalog — every sale required manually repeating the same questions about availability, color, fabric, and size before closing.",
+      "process": "In-person discovery revealed the problem wasn't a lack of customer interest, but the absence of a single discovery point before direct contact. Core decision: eliminate the traditional cart and checkout, keeping WhatsApp as the brand's real closing channel — instead of forcing an e-commerce pattern the brand wouldn't actually use.",
+      "myRole": "Strategic UX — user research, purchase journey redesign, navigation architecture, and conversion-oriented microcopy.",
+      "csdMatrix": {
+        "certainties": [
+          "Customers were already asking about products seen on Instagram via WhatsApp, with no central catalog",
+          "Every sale required manually repeating the same color, fabric, and size questions"
+        ],
+        "suppositions": [
+          "Pre-qualifying the choice (color, fabric, size) before opening WhatsApp would speed up the purchase decision",
+          "An FAQ positioned before the footer would capture last-minute objections without pulling the customer out of the flow"
+        ],
+        "doubts": [
+          "Will the lack of a multi-product cart become a limiting factor as the catalog grows?"
+        ]
+      },
+      "userFlow": "Home (hero + categories) → paginated product grid → product page with color, fabric, and size selection → 'Buy via WhatsApp' CTA already pre-filled with the customer's choices.",
+      "personas": [
+        {
+          "name": "Instagram customer",
+          "role": "Informal buyer via social media",
+          "pain": "Saw the item on Instagram and had to manually ask everything on WhatsApp — availability, color, fabric, size — before deciding.",
+          "goal": "Go from discovery to purchase decision with as few questions as possible."
+        }
+      ],
+      "solution": "Eliminated the traditional shopping cart, replaced by a pre-configured per-product WhatsApp CTA. Category-paginated grid (Casual/Lycra), color/fabric/size selection right on the product page, an FAQ positioned before the footer, and an incentive banner ('Get 20% off your first purchase') after the grid, once the customer has already shown interest.",
+      "finalProject": "NO QUANTIFIED METRIC — no production conversion data, no numeric success rate, no formal documented backlog. A moderated in-person test qualitatively confirmed participants completed the selection flow up to the purchase CTA without prior guidance. Known, unresolved limitation: if the catalog grows, the lack of a multi-product cart could become a bottleneck — not validated at real volume."
+    },
+    "4": {
+      "title": "ImovePro",
+      "overview": "Multi-profile real estate marketplace (buyer/seller, agent, company) with radius-based geographic search and an interactive map, replacing traditional city/neighborhood filters.",
+      "challenge": "Real estate agents manage leads, schedules, and communication across disconnected tools (WhatsApp, spreadsheets, separate calendars), while buyers rely on shallow location filters that don't reflect their real area of interest.",
+      "process": "In-person discovery with all three marketplace profiles. We decided to treat each profile as a visually distinct workspace (not a single dashboard with permissions) to reduce cognitive load — each one sees only what it needs in its own context.",
+      "myRole": "UX/UI Designer responsible for designing the three dashboards, navigation architecture, lead pipeline, and geolocated search.",
+      "csdMatrix": {
+        "certainties": [
+          "Agents treat fragmented lead management as the biggest pain point, not search itself",
+          "Buyers treat precise geographic discovery as decisive in choosing a platform"
+        ],
+        "suppositions": [
+          "Consolidating leads, schedule, and chat into one dashboard would reduce forgotten follow-ups",
+          "Radius search with an interactive map would increase perceived relevance of results"
+        ],
+        "doubts": [
+          "Would three visually distinct workspaces (different colors/themes per profile) hold up at scale without fragmenting the design system?"
+        ]
+      },
+      "userFlow": "Agent: lead enters the pipeline (New → Contacted → In Negotiation → Closed) → schedule and chat in the same dashboard → alert for follow-ups pending over 24h. Buyer: selects a workspace → searches by radius on the map → filters by type/budget → requests a quote.",
+      "personas": [
+        {
+          "name": "Real estate agent",
+          "role": "Independent professional",
+          "pain": "Switches between WhatsApp, spreadsheet, and a separate calendar to know which leads have gone cold.",
+          "goal": "See the entire lead pipeline in a single dashboard, without cross-referencing multiple tools."
+        },
+        {
+          "name": "Buyer/Seller",
+          "role": "End user looking for a property",
+          "pain": "Traditional neighborhood/city filters don't reflect their real area of interest.",
+          "goal": "Find options genuinely close to where they need to be, via radius map search."
+        }
+      ],
+      "solution": "Three distinct dashboards (Agent, Buyer/Seller, Company) with shared visual identity. Lead pipeline in Kanban and table views, pending follow-up alerts, radius search with an interactive map and custom pins.",
+      "finalProject": "NO QUANTIFIED METRIC — no formal agile process documented (unlike TI Help), no numeric success rate, no production conversion data. A moderated in-person test qualitatively confirmed participants across all three profiles found the system's core functions without prior guidance. Unresolved design system tension: dark background (Agent/Company) and light background (Buyer) share an accent color but not full tokens."
+    },
+    "5": {
+      "title": "Yacht Booking",
+      "overview": "Conceptual app for booking yachts and premium maritime experiences, exploring high-end design for a luxury audience.",
+      "challenge": "Create a digital experience that conveys exclusivity, security, and sophistication for very high-value transactions — where trust is everything.",
+      "process": "Luxury market research, benchmark analysis of premium apps (Porsche, Net-A-Porter, Soho House), defining a visual and interaction language that communicated exclusivity without excess.",
+      "myRole": "Self-directed design exploration project. Responsible for the full conceptualization, research, visual language definition, prototyping, and design system documentation.",
+      "csdMatrix": {
+        "certainties": [
+          "Luxury audiences have very high expectations for visual and interaction quality",
+          "Security and identity verification are non-negotiable for this audience",
+          "Information overload and visual clutter communicate a lack of sophistication"
+        ],
+        "suppositions": [
+          "A minimalist interface communicates better quality than a dense one",
+          "Premium gestures and micro-interactions would differentiate from competitors",
+          "Editorial curation would be more effective than a traditional listing"
+        ],
+        "doubts": [
+          "How far to push simplification without losing information essential to the decision?",
+          "What's the right level of personalization to avoid feeling intrusive?",
+          "Would dark mode be perceived as more premium than light mode for this audience?"
+        ]
+      },
+      "userFlow": "User accesses an editorial of experiences → selects destination/period → views the yacht via an immersive gallery → checks real-time availability → identity verification → secure payment → confirmation with a dedicated concierge.",
+      "personas": [
+        {
+          "name": "Eduardo Ximenes",
+          "age": 48,
+          "role": "High Net Worth Businessman",
+          "pain": "Generic platforms don't convey the trust and exclusivity he expects for this spending category.",
+          "goal": "Book a unique maritime experience with the ease of an Uber but the standard of a 5-star hotel."
+        },
+        {
+          "name": "Catarina Mello",
+          "age": 35,
+          "role": "Fleet Manager",
+          "pain": "Managing bookings, maintenance, and availability of multiple yachts across different, disconnected systems.",
+          "goal": "A centralized platform to manage the entire operation with real-time visibility."
+        }
+      ],
+      "solution": "Editorial interface curating experiences instead of a product list. Immersive video gallery for each yacht. Simplified 4-tap booking process. Smooth, discreet identity verification. Digital concierge available 24/7 via chat.",
+      "finalProject": "Complete conceptual project with a documented design system, 40 prototyped screens, and a case presentation. Deep exploration of premium micro-interactions and high-end visual language as a portfolio exercise."
+    },
+    "6": {
+      "title": "Solar Panel Monitoring",
+      "overview": "Conceptual landing page for solar energy businesses, built as a design product — not from research with real solar energy clients, but as an exercise in translating complex technical data into an accessible value proposition, with a payback calculator and lead generation via WhatsApp/Instagram.",
+      "challenge": "A solar energy business needs to convert visitors into qualified WhatsApp/Instagram contacts, but the market communicates in technical metrics (kWh, generation peak, efficiency) that don't mean much to the average homeowner — who just wants to understand if they'll save money, how long the investment takes to pay off, and whether the service is worth hiring.",
+      "process": "Reference research across existing energy and sustainability sites/apps on the market (benchmark, not original field research), defining a value proposition and information hierarchy that prioritized human language ('You could save X per month') over raw technical units (kWh), including a payback calculator built directly into the page, with direct WhatsApp and Instagram CTAs at strategic points.",
+      "myRole": "Self-directed project, built as a template for sale (Gumroad/UI8/Figma Community). Responsible for the full conceptualization, data visualization system, and end-to-end flow prototyping.",
+      "csdMatrix": {
+        "certainties": [
+          "Technical terms like 'kWh' and 'generation peak' aren't understood by the average homeowner",
+          "Comparisons with the previous period are more readable than isolated absolute values",
+          "Investment payback time is the central question blocking the homeowner's purchase decision"
+        ],
+        "suppositions": [
+          "Translating technical data into savings language (currency/month) would increase comprehension and engagement with the page",
+          "An interactive payback calculator on the page would increase trust and contact conversion rate compared to just stating estimated savings in text"
+        ],
+        "doubts": [
+          "Without a real solar energy client validating the product, would the proposed information hierarchy hold up in a real usability test?",
+          "Would the calculator's accuracy (based on which inputs — average consumption, region, system size?) hold up against a simulation done by a real installer?"
+        ]
+      },
+      "userFlow": "Visitor lands on the page → understands the savings benefit in plain language (not raw kWh) → uses the payback calculator to simulate how long the investment takes to pay off → views the products/services offered by the business → is directed to contact via WhatsApp or Instagram with one tap.",
+      "personas": [
+        {
+          "name": "Homeowner interested in solar energy",
+          "role": "Landing page visitor, potential business customer",
+          "pain": "Doesn't understand solar energy's technical data and doesn't know if the investment is really worth it or how long it takes to pay off.",
+          "goal": "Simulate how much they'll save and how long it takes to recoup the investment, simply, and easily contact the seller/installer."
+        }
+      ],
+      "solution": "Landing page with accessible language instead of raw technical units, a payback calculator showing how long the investment takes to pay off, a clear presentation of the business's products and services, and direct WhatsApp/Instagram CTAs — designed to generate qualified leads for a solar energy business.",
+      "finalProject": "Design product template, built for sale (not implemented with a real solar energy client). No real usage metric — it's an exercise in information hierarchy, a payback calculator, and lead generation, not a case with a validated business outcome."
+    }
   }
+
+
+
+
 }
