@@ -18,10 +18,32 @@ interface Persona {
   goal?: string;
 }
 
+interface UserStory {
+  persona: string;
+  story: string;
+}
+
+interface ProblemDefinition {
+  persona: string;
+  definition: string;
+}
+
 interface CSDMatrix {
   certainties: string[];
   suppositions: string[];
   doubts: string[];
+}
+
+interface SprintStage {
+  stage: string;
+  description: string;
+}
+
+interface CraftNotes {
+  conventions: string;
+  affordances: string;
+  equity: string;
+  testing: string;
 }
 
 interface CaseStudyContent {
@@ -33,6 +55,10 @@ interface CaseStudyContent {
   csdMatrix: CSDMatrix;
   userFlow: string;
   personas: Persona[];
+  userStories: UserStory[];
+  problemDefinitions: ProblemDefinition[];
+  designSprint: SprintStage[];
+  craftNotes: CraftNotes;
   solution: string;
   finalProject: string;
 }
@@ -44,7 +70,8 @@ interface CaseStudyMeta {
 }
 
 // Apenas o que NÃO é texto traduzível fica no código.
-// Todo o conteúdo (títulos, textos, personas, CSD matrix) vem do i18n
+// Todo o conteúdo (títulos, textos, personas, CSD matrix, user stories,
+// problem definitions, design sprint, craft notes) vem do i18n
 // em caseStudiesData.<id> dentro de pt.json / en.json.
 const caseStudiesMeta: { [key: string]: CaseStudyMeta } = {
   '1': {
@@ -166,6 +193,20 @@ export const CaseStudyPage: React.FC = () => {
             <p className="cs-section__text">{content.process}</p>
           </section>
 
+          {/* ================= DESIGN SPRINT ================= */}
+          <section className="cs-section">
+            <span className="cs-section__label">{t('caseStudyLabels.sections.designSprint')}</span>
+            <div className="sprint-track">
+              {content.designSprint.map((step, i) => (
+                <div key={i} className="sprint-step">
+                  <div className="sprint-step__number">{i + 1}</div>
+                  <h3 className="sprint-step__stage">{step.stage}</h3>
+                  <p className="sprint-step__text">{step.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
           <section className="cs-section">
             <span className="cs-section__label">{t('caseStudyLabels.sections.myRole')}</span>
             <p className="cs-section__text">{content.myRole}</p>
@@ -237,6 +278,56 @@ export const CaseStudyPage: React.FC = () => {
                   </div>
                 </div>
               ))}
+            </div>
+          </section>
+
+          {/* ================= USER STORIES ================= */}
+          <section className="cs-section">
+            <span className="cs-section__label">{t('caseStudyLabels.sections.userStories')}</span>
+            <div className="stories-grid">
+              {content.userStories.map((item, i) => (
+                <div key={i} className="story-card">
+                  <span className="story-card__quote-mark" aria-hidden="true">"</span>
+                  <p className="story-card__text">{item.story}</p>
+                  <p className="story-card__persona">{item.persona}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* ============== PROBLEM DEFINITIONS ============== */}
+          <section className="cs-section">
+            <span className="cs-section__label">{t('caseStudyLabels.sections.problemDefinitions')}</span>
+            <div className="stories-grid">
+              {content.problemDefinitions.map((item, i) => (
+                <div key={i} className="story-card story-card--problem">
+                  <p className="story-card__persona story-card__persona--problem">{item.persona}</p>
+                  <p className="story-card__text">{item.definition}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* ================= CRAFT & METHOD ================= */}
+          <section className="cs-section">
+            <span className="cs-section__label">{t('caseStudyLabels.sections.craftNotes')}</span>
+            <div className="craft-grid">
+              <div className="craft-card">
+                <h3 className="craft-card__title">{t('caseStudyLabels.craft.conventions')}</h3>
+                <p className="craft-card__text">{content.craftNotes.conventions}</p>
+              </div>
+              <div className="craft-card">
+                <h3 className="craft-card__title">{t('caseStudyLabels.craft.affordances')}</h3>
+                <p className="craft-card__text">{content.craftNotes.affordances}</p>
+              </div>
+              <div className="craft-card">
+                <h3 className="craft-card__title">{t('caseStudyLabels.craft.equity')}</h3>
+                <p className="craft-card__text">{content.craftNotes.equity}</p>
+              </div>
+              <div className="craft-card">
+                <h3 className="craft-card__title">{t('caseStudyLabels.craft.testing')}</h3>
+                <p className="craft-card__text">{content.craftNotes.testing}</p>
+              </div>
             </div>
           </section>
 
