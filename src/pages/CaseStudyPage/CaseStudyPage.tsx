@@ -77,32 +77,32 @@ const caseStudiesMeta: { [key: string]: CaseStudyMeta } = {
   '1': {
     type: 'real',
     image: TIHelpImg,
-    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/',
+    prototypeUrl: 'https://www.figma.com/proto/fw2bexpovuRBEjPGqDwRW3/PIM-3%C2%B0-SEM?node-id=1158-457&p=f&t=pv64Gtc7MDHmRbCO-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1158%3A457',
   },
   '2': {
     type: 'proposal',
     image: KaloBurnImg,
-    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/',
+    prototypeUrl: 'https://www.figma.com/proto/nfQdsEFYEm9pVEjSjPSdcz',
   },
   '3': {
     type: 'real',
     image: DNJeansImg,
-    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/',
+    prototypeUrl: 'https://www.figma.com/proto/uPJ99JDTyjMPamkJnS9FTu',
   },
   '4': {
     type: 'proposal',
     image: RealStateImg,
-    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/',
+    prototypeUrl: 'https://www.figma.com/proto/pr2HKsIP3kV7GUYN7l2vZy',
   },
   '5': {
     type: 'fictional',
     image: YatchImg,
-    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/',
+    prototypeUrl: 'https://www.figma.com/proto/jrsEdX4WbU27tltU5kwivm',
   },
   '6': {
     type: 'fictional',
     image: SolarPanelImg,
-    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/',
+    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war',
   },
 };
 
