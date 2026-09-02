@@ -43,6 +43,37 @@
   align-content: space-between; 
 }
 
+/* ----------------------------- */
+/* Notebook scaling (non-invasive)
+   Preserve exact desktop (1920px) visuals; apply only below 1536px */
+/* ----------------------------- */
+@media (max-width: 1536px) {
+  .brand-title {
+    font-size: clamp(4rem, 6.2vw, 10rem) !important;
+  }
+  .hero-wrapper {
+    padding: clamp(var(--spacing-md), 6vw, var(--spacing-3xl)) !important;
+  }
+  .hero-image-container {
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 1366px) {
+  .brand-title {
+    font-size: clamp(4.4rem, 4.6vw, 8rem) !important;
+  }
+  .hero-wrapper {
+    padding: clamp(var(--spacing-sm), 1vh, var(--spacing-2xl)) !important;
+  }
+  .hero-image-container { min-width: 200px !important };
+}
+
+@media (max-width: 1024px) {
+  .brand-title { font-size: clamp(3rem, 7.2vw, 10rem) ; }
+  .hero-image-container { max-width: 420px; }
+}
+
 
 /* ============================================================ */
 /* 2. LOGOTIPO / ASSINATURA (CANTO SUPERIOR ESQUERDO)            */

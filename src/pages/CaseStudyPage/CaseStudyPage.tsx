@@ -82,12 +82,12 @@ const caseStudiesMeta: { [key: string]: CaseStudyMeta } = {
   '2': {
     type: 'proposal',
     image: KaloBurnImg,
-    prototypeUrl: 'https://www.figma.com/proto/nfQdsEFYEm9pVEjSjPSdcz',
+    prototypeUrl: 'https://www.figma.com/proto/nfQdsEFYEm9pVEjSjPSdcz/KaloBurn?node-id=23-42&t=Wl3lXOW4CCxwFhNV-0&scaling=min-zoom&content-scaling=fixed&page-id=1%3A3&starting-point-node-id=40%3A70S',
   },
   '3': {
     type: 'real',
     image: DNJeansImg,
-    prototypeUrl: 'https://www.figma.com/proto/uPJ99JDTyjMPamkJnS9FTu',
+    prototypeUrl: 'https://www.figma.com/proto/uPJ99JDTyjMPamkJnS9FTu/DN-Jeans---Dalton?node-id=0-1&p=f&t=XAZDi8fCZ9YUFXKs-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=16%3A146',
   },
   '4': {
     type: 'proposal',

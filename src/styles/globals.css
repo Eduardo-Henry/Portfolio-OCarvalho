@@ -110,3 +110,10 @@ body {
   border-width: 0;
 }
 
+/* Ensure media scale within containers (safe for desktop) */
+img, picture, video, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+

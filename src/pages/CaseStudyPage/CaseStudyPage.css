@@ -81,6 +81,7 @@
 @media (max-width: 1024px) {
   .case-study-topbar { padding: 28px 40px 0; }
 }
+
 @media (max-width: 768px) {
   .case-study-topbar { padding: 24px 20px 0; }
 }

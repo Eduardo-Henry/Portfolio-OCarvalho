@@ -20,6 +20,17 @@
   pointer-events: none;
 }
 
+/* Reduce paddings/offsets on notebook widths without changing desktop */
+@media (max-width: 1536px) {
+  .navbar-container { padding: 1.6rem clamp(1.5rem, 3.5vw, 3rem); }
+  .navbar-menu--desktop { right: clamp(2rem, 3.5vw, 3rem); }
+}
+
+@media (max-width: 1366px) {
+  .navbar-container { padding: 1.2rem clamp(1rem, 3vw, 2rem); }
+  .navbar-menu--desktop { right: clamp(1.2rem, 3vw, 2.2rem); }
+}
+
 /* ============================================ */
 /* BRAND / LOGO                                 */
 /* ============================================ */

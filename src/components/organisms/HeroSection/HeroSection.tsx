@@ -164,8 +164,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         <div className="hero-grid">
           <div className="hero-brand">
             <h1 className="brand-title">
-              EDUARDO<span className="brand-mark">®</span>
-              UX DESIGNER
+              EDUARDO<span className="brand-mark">®</span> 
+              UX <br /> DESIGNER
             </h1>
           </div>
 

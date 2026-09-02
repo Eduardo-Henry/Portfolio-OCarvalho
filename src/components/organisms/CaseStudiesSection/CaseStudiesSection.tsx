@@ -84,7 +84,7 @@ const defaultCaseStudies: CaseStudy[] = [
     tag: 'UX Design · Multiplataforma',
     title: 'TI Help',
     description: 'Sistema integrado de suporte técnico (mobile, web e desktop), com triagem assistida por IA. Projeto real de TCC.',
-    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/',
+    prototypeUrl: 'https://www.figma.com/proto/fw2bexpovuRBEjPGqDwRW3/PIM-3%C2%B0-SEM?node-id=1158-457&p=f&t=pv64Gtc7MDHmRbCO-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1158%3A457',
   },
   {
     id: '2',
@@ -92,7 +92,7 @@ const defaultCaseStudies: CaseStudy[] = [
     tag: 'UX/UI Design · Marketplace Fitness',
     title: 'KaloBurn',
     description: 'Marketplace fitness de dois lados com IA de personalização, conectando usuários a profissionais de educação física.',
-    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/',
+    prototypeUrl: 'https://www.figma.com/proto/nfQdsEFYEm9pVEjSjPSdcz',
   },
   {
     id: '3',
@@ -100,7 +100,7 @@ const defaultCaseStudies: CaseStudy[] = [
     tag: 'UX Estratégico · Catálogo Digital',
     title: 'DN Jeans',
     description: 'Catálogo conversacional mobile-first, substituindo checkout tradicional por conversão direta via WhatsApp.',
-    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/',
+    prototypeUrl: 'https://www.figma.com/proto/uPJ99JDTyjMPamkJnS9FTu',
   },
   {
     id: '4',
@@ -108,7 +108,7 @@ const defaultCaseStudies: CaseStudy[] = [
     tag: 'UX/UI Design · Marketplace Imobiliário',
     title: 'ImovePro',
     description: 'Marketplace imobiliário multi-perfil com busca por raio geográfico e dashboards dedicados por tipo de usuário.',
-    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/',
+    prototypeUrl: 'https://www.figma.com/proto/pr2HKsIP3kV7GUYN7l2vZy',
   },
   {
     id: '5',
@@ -116,7 +116,7 @@ const defaultCaseStudies: CaseStudy[] = [
     tag: 'UX/UI Design · Luxury (Ficcional)',
     title: 'Yacht Booking',
     description: 'Exploração conceitual de design premium para reserva de experiências marítimas de alto padrão.',
-    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/',
+    prototypeUrl: 'https://www.figma.com/proto/jrsEdX4WbU27tltU5kwivm',
   },
   {
     id: '6',
