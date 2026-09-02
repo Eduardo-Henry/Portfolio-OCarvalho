@@ -20,7 +20,7 @@ export const ContactSection: React.FC = () => {
           {/* TOPO DA COLUNA ESQUERDA: TÍTULO PRINCIPAL */}
           <div className="contact-brand">
             <h1 className="contact-title">
-              {t('contact.titleLine1')}<span className="contact-mark">®</span><br />{t('contact.titleLine2')}
+              {t('contact.titleLine1')}<span className="contact-mark"></span><br />{t('contact.titleLine2')}
             </h1>
           </div>
 
