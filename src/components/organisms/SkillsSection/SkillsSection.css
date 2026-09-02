@@ -43,7 +43,7 @@
 .skills-title {
   font-family: var(--font-display), sans-serif;
   /* Fonte fluida: reduz proporcionalmente com a tela (mínimo 3.8rem, máximo 10rem) */
-  font-size: clamp(3.8rem, 10vw, 10rem);
+  font-size: clamp(3.2rem, 9.5vw, 10rem);
   font-weight: 900; /* Agora o peso funciona devido à troca da família de fonte */
   line-height: 0.85;
   letter-spacing: -0.05em; /* Unidade em relativa mantém a proporção perfeita em qualquer tela */

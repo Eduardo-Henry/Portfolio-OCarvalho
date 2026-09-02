@@ -45,7 +45,7 @@
 
 .case-studies-title {
   font-family: var(--font-display), sans-serif;
-  font-size: 10rem;
+  font-size: clamp(3rem, 8.5vw, 10rem);
   font-weight: 900;
   line-height: 0.92;
   letter-spacing: -0.06em;
@@ -223,6 +223,17 @@
   font-weight: 500 !important;
   white-space: nowrap;
   transition: background 0.2s ease !important;
+}
+
+/* Small screens: allow buttons to wrap and reduce card heights */
+@media (max-width: 390px) {
+  .case-studies-title { font-size: clamp(2.2rem, 10vw, 4.2rem); }
+  .case-card__image { height: auto; max-height: 50vh; }
+  .case-card__watch-btn, .case-card__see-btn {
+    white-space: normal !important;
+    font-size: 0.95rem !important;
+    padding: 0.5rem 0.8rem !important;
+  }
 }
 
 .case-card__see-btn:hover {
