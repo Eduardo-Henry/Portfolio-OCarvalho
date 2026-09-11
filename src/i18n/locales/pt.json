@@ -126,7 +126,25 @@
       "problemDefinitions": "Problem Definitions",
       "craftNotes": "Craft & Method",
       "solution": "The Solution",
-      "finalProject": "Final Project"
+      "finalProject": "Final Project",
+      "research": "Research",
+      "interviews": "Entrevistas",
+      "researchSynthesis": "Research Synthesis",
+      "userJourney": "User Journey",
+      "problemStatement": "Problem Statement",
+      "howMightWe": "How Might We",
+      "ideation": "Ideation",
+      "paperSketches": "Paper Sketches",
+      "informationArchitecture": "Information Architecture",
+      "userFlowDetail": "User Flow",
+      "wireframes": "Wireframes",
+      "highFidelityDesign": "High-Fidelity Design",
+      "usabilityTesting": "Usability Testing",
+      "iterations": "Iterations",
+      "results": "Results",
+      "learnings": "Learnings",
+      "nextSteps": "Next Steps",
+      "limitations": "Limitações"
     },
     "csd": {
       "certainties": "Certainties",
@@ -135,13 +153,92 @@
     },
     "persona": {
       "painPoint": "Pain Point",
-      "goal": "Goal"
+      "goal": "Goal",
+      "ageSuffix": "anos"
     },
     "craft": {
       "conventions": "Convenções de UI",
       "affordances": "Affordances",
       "equity": "Equidade & Acessibilidade",
       "testing": "Metodologia de Teste"
+    },
+    "research": {
+      "status": "Status",
+      "method": "Método",
+      "participants": "Participantes",
+      "duration": "Duração",
+      "recruitment": "Recrutamento",
+      "objectives": "Objetivos",
+      "questions": "Perguntas",
+      "findings": "Principais descobertas",
+      "quotes": "Citações",
+      "limitations": "Limitações"
+    },
+    "interviews": {
+      "participantCount": "Quantidade de participantes",
+      "participantProfile": "Perfil dos participantes",
+      "method": "Método",
+      "duration": "Duração",
+      "questions": "Perguntas",
+      "findings": "Achados",
+      "recurringPatterns": "Padrões recorrentes",
+      "representativeQuotes": "Citações representativas"
+    },
+    "researchSynthesis": {
+      "patterns": "Padrões",
+      "painPoints": "Dores",
+      "needs": "Necessidades",
+      "behaviors": "Comportamentos",
+      "insights": "Insights",
+      "opportunities": "Oportunidades"
+    },
+    "userJourney": {
+      "action": "Ação",
+      "thought": "Pensamento",
+      "emotion": "Emoção",
+      "painPoint": "Dor",
+      "opportunity": "Oportunidade"
+    },
+    "problemStatement": {
+      "persona": "Persona",
+      "need": "Necessidade",
+      "because": "Porque",
+      "final": "Versão final"
+    },
+    "ideation": {
+      "methods": "Métodos",
+      "ideas": "Ideias",
+      "rejectedIdeas": "Ideias descartadas",
+      "decisionCriteria": "Critérios de decisão",
+      "selectedDirection": "Direção escolhida"
+    },
+    "informationArchitecture": {
+      "contentStructure": "Estrutura de conteúdo",
+      "categories": "Categorias",
+      "hierarchy": "Hierarquia",
+      "decisions": "Decisões de navegação"
+    },
+    "highFidelityDesign": {
+      "visualDecisions": "Decisões visuais",
+      "components": "Componentes",
+      "designSystem": "Design system"
+    },
+    "usabilityTesting": {
+      "method": "Método",
+      "participants": "Participantes",
+      "tasks": "Tarefas",
+      "successCriteria": "Critérios de sucesso",
+      "findings": "Achados",
+      "issues": "Problemas",
+      "severity": "Severidade",
+      "iterations": "Iterações",
+      "limitations": "Limitações"
+    },
+    "iterations": {
+      "before": "Antes",
+      "problem": "Problema",
+      "decision": "Decisão",
+      "after": "Depois"
     }
   },
 
@@ -239,7 +336,230 @@
         "testing": "Teste moderado presencial com roteiro de tarefas e observação direta, comparando tempo de execução antes/depois da mudança de IA, sem me apoiar apenas em opinião subjetiva do usuário."
       },
       "solution": "Remoção da autoatribuição de prioridade pelo usuário → seleção de tipo de problema + descrição livre. Reposicionamento de notificações e menu na versão mobile. Fluxo do técnico com estado automático de espera/prioridade baixa para chamados sem atendimento imediato. Restrição de gestão de funcionários e exclusão de dados ao admin.",
-      "finalProject": "MÉTRICA ANTES vs. DEPOIS (teste presencial, 11 participantes + professores da banca): tempo para executar as tarefas principais do app caiu de pouco mais de 5 minutos para 3 minutos e 30 segundos — redução de ~30% — após o reposicionamento de menu/notificações. TAXA DE SUCESSO: 100% mantida em ambas as versões (antes e depois) — ou seja, o ganho foi de EFICIÊNCIA, não de CONCLUSÃO; ninguém deixava de completar a tarefa antes da mudança, apenas demorava mais. ERRO IDENTIFICADO E CORRIGIDO: viés de autoatribuição de prioridade, resolvido no Reflect antes mesmo do teste formal. AVALIAÇÃO ACADÊMICA: nota 8,5/10 na banca do TCC. LIMITAÇÃO DECLARADA: medição de tempo feita de forma informal, sem cronometragem instrumentada por sessão — dado direcional relatado pela equipe e pela banca, não teste de usabilidade instrumentado com stopwatch por tarefa."
+      "finalProject": "MÉTRICA ANTES vs. DEPOIS (teste presencial, 11 participantes + professores da banca): tempo para executar as tarefas principais do app caiu de pouco mais de 5 minutos para 3 minutos e 30 segundos — redução de ~30% — após o reposicionamento de menu/notificações. TAXA DE SUCESSO: 100% mantida em ambas as versões (antes e depois) — ou seja, o ganho foi de EFICIÊNCIA, não de CONCLUSÃO; ninguém deixava de completar a tarefa antes da mudança, apenas demorava mais. ERRO IDENTIFICADO E CORRIGIDO: viés de autoatribuição de prioridade, resolvido no Reflect antes mesmo do teste formal. AVALIAÇÃO ACADÊMICA: nota 8,5/10 na banca do TCC. LIMITAÇÃO DECLARADA: medição de tempo feita de forma informal, sem cronometragem instrumentada por sessão — dado direcional relatado pela equipe e pela banca, não teste de usabilidade instrumentado com stopwatch por tarefa.",
+      "research": {
+        "status": "Concluído",
+        "method": "Entrevistas presenciais, observação de tarefas e revisão do fluxo de suporte",
+        "participants": "11 sponsor users",
+        "duration": "6 meses de projeto",
+        "recruitment": "[PREENCHER: canal de recrutamento]",
+        "objectives": [
+          "[PREENCHER: objetivo 1 de pesquisa]",
+          "[PREENCHER: objetivo 2 de pesquisa]",
+          "[PREENCHER: principal pergunta de pesquisa]"
+        ],
+        "questions": [
+          "[PREENCHER: pergunta de entrevista 1]",
+          "[PREENCHER: pergunta de entrevista 2]",
+          "[PREENCHER: pergunta de entrevista 3]"
+        ],
+        "findings": [
+          "[PREENCHER: principal descoberta]",
+          "[PREENCHER: padrão observado]",
+          "[PREENCHER: insight relevante]"
+        ],
+        "quotes": [
+          "[PREENCHER: citação representativa]"
+        ],
+        "limitations": [
+          "[PREENCHER: limitação da amostra]",
+          "[PREENCHER: limitação do método]"
+        ]
+      },
+      "interviews": {
+        "participantCount": "11 participantes",
+        "participantProfile": "7 alunos de ADS, 2 de outra turma, 2 de Psicologia",
+        "method": "Entrevistas semiestruturadas e observação presencial",
+        "duration": "[PREENCHER: duração média]",
+        "questions": [
+          "[PREENCHER: pergunta 1]",
+          "[PREENCHER: pergunta 2]",
+          "[PREENCHER: pergunta 3]"
+        ],
+        "findings": [
+          "[PREENCHER: achado principal]",
+          "[PREENCHER: dor recorrente]"
+        ],
+        "recurringPatterns": [
+          "[PREENCHER: padrão recorrente 1]",
+          "[PREENCHER: padrão recorrente 2]"
+        ],
+        "representativeQuotes": [
+          "[PREENCHER: citação representativa]"
+        ]
+      },
+      "researchSynthesis": {
+        "patterns": [
+          "[PREENCHER: padrão 1]"
+        ],
+        "painPoints": [
+          "[PREENCHER: dor 1]"
+        ],
+        "needs": [
+          "[PREENCHER: necessidade 1]"
+        ],
+        "behaviors": [
+          "[PREENCHER: comportamento 1]"
+        ],
+        "insights": [
+          "[PREENCHER: insight 1]"
+        ],
+        "opportunities": [
+          "[PREENCHER: oportunidade 1]"
+        ]
+      },
+      "userJourney": [
+        {
+          "stage": "Diagnóstico",
+          "userAction": "[PREENCHER: ação do usuário]",
+          "thought": "[PREENCHER: pensamento do usuário]",
+          "emotion": "[PREENCHER: emoção do usuário]",
+          "painPoint": "[PREENCHER: dor principal]",
+          "opportunity": "[PREENCHER: oportunidade]"
+        }
+      ],
+      "problemStatement": {
+        "persona": "[PREENCHER: persona]",
+        "need": "[PREENCHER: necessidade]",
+        "because": "[PREENCHER: contexto ou motivação]",
+        "finalStatement": "[PREENCHER: Problem Statement final]"
+      },
+      "howMightWe": [
+        "How might we [PREENCHER]?"
+      ],
+      "ideation": {
+        "methods": [
+          "[PREENCHER: método de ideação]"
+        ],
+        "ideas": [
+          "[PREENCHER: ideia principal]"
+        ],
+        "rejectedIdeas": [
+          "[PREENCHER: ideia descartada]"
+        ],
+        "decisionCriteria": [
+          "[PREENCHER: critério 1]"
+        ],
+        "selectedDirection": "[PREENCHER: direção escolhida]"
+      },
+      "paperSketches": {
+        "images": [],
+        "caption": "[PREENCHER: legenda dos sketchs]",
+        "description": "[PREENCHER: descrição do processo de esboço]",
+        "keyDecisions": [
+          "[PREENCHER: decisão principal do sketch]"
+        ]
+      },
+      "informationArchitecture": {
+        "contentStructure": [
+          "[PREENCHER: estrutura de conteúdo]"
+        ],
+        "categories": [
+          "[PREENCHER: categoria 1]"
+        ],
+        "hierarchy": [
+          "[PREENCHER: hierarquia principal]"
+        ],
+        "decisions": [
+          "[PREENCHER: decisão de navegação]"
+        ],
+        "image": ""
+      },
+      "userFlowDetail": {
+        "description": "[PREENCHER: descrição do user flow]",
+        "image": ""
+      },
+      "wireframes": {
+        "images": [],
+        "decisions": [
+          "[PREENCHER: decisão do wireframe]"
+        ]
+      },
+      "highFidelityDesign": {
+        "screenshots": [],
+        "prototype": "",
+        "visualDecisions": [
+          "[PREENCHER: decisão visual 1]"
+        ],
+        "components": [
+          "[PREENCHER: componente principal]"
+        ],
+        "designSystem": [
+          "[PREENCHER: token ou padrão de sistema]"
+        ]
+      },
+      "usabilityTesting": {
+        "method": "[PREENCHER: método de teste]",
+        "participants": "[PREENCHER: número de participantes]",
+        "tasks": [
+          "[PREENCHER: tarefa 1]"
+        ],
+        "successCriteria": [
+          "[PREENCHER: critério de sucesso]"
+        ],
+        "findings": [
+          "[PREENCHER: principal achado]"
+        ],
+        "issues": [
+          "[PREENCHER: problema identificado]"
+        ],
+        "severity": [
+          "[PREENCHER: severidade]"
+        ],
+        "iterations": [
+          "[PREENCHER: iteração aplicada]"
+        ],
+        "limitations": [
+          "[PREENCHER: limitação do teste]"
+        ]
+      },
+      "iterations": [
+        {
+          "before": "[PREENCHER: antes]",
+          "problem": "[PREENCHER: problema]",
+          "decision": "[PREENCHER: decisão]",
+          "after": "[PREENCHER: depois]"
+        }
+      ],
+      "results": [
+        {
+          "type": "Qualitative",
+          "label": "[PREENCHER: resultado observado]"
+        }
+      ],
+      "learnings": [
+        "[PREENCHER: aprendizado específico do projeto]"
+      ],
+      "nextSteps": [
+        "[PREENCHER: próximo passo]"
+      ],
+      "limitations": [
+        "[PREENCHER: limitação do projeto]"
+      ],
+      "checklist": [
+        "[ ] Entrevistas realizadas",
+        "[ ] Dados sintetizados",
+        "[ ] Affinity Map",
+        "[ ] Insights",
+        "[ ] Persona revisada",
+        "[ ] User Journey",
+        "[ ] Problem Statement",
+        "[ ] HMW",
+        "[ ] Ideação",
+        "[ ] Fotos dos sketches",
+        "[ ] Information Architecture",
+        "[ ] User Flow",
+        "[ ] Wireframes",
+        "[ ] High-Fidelity",
+        "[ ] Usability Test",
+        "[ ] Iterações",
+        "[ ] Resultados",
+        "[ ] Learnings",
+        "[ ] Next Steps",
+        "[ ] Limitações",
+        "[ ] Versão PT revisada",
+        "[ ] Versão EN revisada"
+      ]
     },
     "2": {
       "title": "KaloBurn",

@@ -40,7 +40,11 @@ const clients: Client[] = [
   },
 ];
 
-export const ClientsSection: React.FC = () => {
+interface ClientsSectionProps {
+  id?: string;
+}
+
+export const ClientsSection: React.FC<ClientsSectionProps> = ({ id }) => {
   const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isSectionVisible, setIsSectionVisible] = useState(false);
@@ -191,7 +195,7 @@ export const ClientsSection: React.FC = () => {
   };
 
   return (
-    <section className="clients-section" id="clients" ref={sectionRef}>
+    <section className="clients-section" id={id || 'clients'} ref={sectionRef}>
       {/* HEADER */}
       <div className="clients-header-zone">
         <div className="clients-counter">

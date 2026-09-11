@@ -4,7 +4,11 @@ import { MdDownload } from 'react-icons/md';
 import './ContactSection.css';
 import Image3D from '../../../assets/images/Image3D.png';
 
-export const ContactSection: React.FC = () => {
+interface ContactSectionProps {
+  id?: string;
+}
+
+export const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
   const { t } = useTranslation();
 
   const handleContactClick = () => {
@@ -13,7 +17,7 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section className="contact-section" id="contact">
+    <section className="contact-section" id={id || 'contact'}>
       <div className="contact-wrapper">
         <div className="contact-grid">
           

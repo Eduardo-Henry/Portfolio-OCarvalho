@@ -43,8 +43,8 @@ export const Home: React.FC = () => {
       >
         <CaseStudiesSection id="case-studies" />
         <SkillsSection id="all-skills" />
-        <ClientsSection id="clients" />
-        <ContactSection id="contact" />
+        <ClientsSection />
+        <ContactSection />
       </div>
 
       {/* 3. PALCO DO REVEAL INFERIOR (Footer Fixo) */}

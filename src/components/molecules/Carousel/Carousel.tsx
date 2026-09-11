@@ -19,9 +19,8 @@ function norm(x: number, bw: number) {
 
 // ── Hook para cada fileira independente ──────────────────────
 function useRow(
-  ref: React.RefObject<HTMLDivElement>,
+  ref: React.RefObject<HTMLDivElement | null>,
   direction: 1 | -1, // 1 = esquerda, -1 = direita
-  ready: boolean,
 ) {
   const state = useRef({
     x: 0, bw: 0, measured: false,
@@ -97,8 +96,8 @@ export const Carousel: React.FC<CarouselProps> = ({ images }) => {
   const row2Ref = useRef<HTMLDivElement>(null);
   const rafId   = useRef(0);
 
-  const row1 = useRow(row1Ref,  1, ready); // vai para esquerda
-  const row2 = useRow(row2Ref, -1, ready); // vai para direita
+  const row1 = useRow(row1Ref, 1); // vai para esquerda
+  const row2 = useRow(row2Ref, -1); // vai para direita
 
   // Loop RAF compartilhado
   useEffect(() => {
