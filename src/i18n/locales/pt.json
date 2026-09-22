@@ -269,7 +269,7 @@
     "1": {
       "title": "TI Help",
       "overview": "Sistema integrado de suporte técnico (mobile, web e desktop) desenvolvido como TCC, substituindo o atendimento descentralizado via WhatsApp e e-mail por um fluxo único de abertura e acompanhamento de chamados, com triagem assistida por IA.",
-      "challenge": "O suporte de TI era feito de forma pulverizada, sem rastreabilidade nem visibilidade de status — usuários reenviavam a mesma solicitação em canais diferentes por falta de resposta, e técnicos recebiam chamados sem contexto padronizado.",
+      "challenge": "O usuário queria progresso. Recebia informação.",
       "process": "Discovery presencial com 11 sponsor users (7 alunos de ADS, 2 de outra turma de ADS, 2 de Psicologia). Na primeira versão do fluxo, o próprio usuário escolhia o nível de prioridade do chamado (baixa/média/alta) — em discussão com professores e a equipe de 4 integrantes, identificamos um viés estrutural antes mesmo de testar: usuários tenderiam a marcar sempre \"alta prioridade\" para serem atendidos mais rápido, invalidando a triagem. Corrigimos removendo a autoatribuição, substituindo por seleção de tipo de problema (hardware/software/redes) + descrição livre, deixando a prioridade a cargo da triagem (IA + técnico). Esta foi a única entrega das 4 conduzida com backlog formal ao longo dos 6 meses de projeto.",
       "designSprint": [
         { "stage": "Brainstorm", "description": "Levantamento de dores em sessão com professores e equipe de 4 integrantes, mapeando falhas do atendimento via WhatsApp/e-mail antes de qualquer wireframe." },
@@ -563,132 +563,123 @@
     },
     "2": {
       "title": "KaloBurn",
-      "overview": "Marketplace fitness de dois lados: usuários registram dados físicos e atividade (integração com smartwatch/Mi Band ou manual) e recebem treinos personalizados e adaptativos por IA, com sistema de health score, ranking e desafios gamificados. Do outro lado, profissionais de educação física, nutricionistas e estudantes supervisionados usam dashboards com IA para gerenciar alunos e otimizar ganhos. Desenhado com o princípio explícito de nunca fazer alegação de resultado de saúde.",
-      "challenge": "Usuários iniciam rotinas fitness mas abandonam por falta de personalização e acompanhamento contínuo — treinos genéricos não se adaptam ao biotipo, objetivo e evolução real da pessoa. Do lado profissional, educadores físicos, nutricionistas e estudantes gerenciam alunos, agenda e financeiro em ferramentas desconectadas (WhatsApp, planilha, agenda separada).",
-      "process": "Discovery presencial nos dois lados do marketplace. Antes da fase de desenho, estabelecemos como princípio de design que nenhuma mecânica de retenção (ranking, gamificação) poderia sugerir promessa de resultado de saúde — decisão tomada no Reflect, não corrigida depois. Conduzi auditoria de usabilidade com as 10 heurísticas de Nielsen em 14 telas do protótipo, mapeando inconsistências de UI e gaps de fluxo antes do handoff.",
+      "overview": "Kalo Burn é uma experiência conceitual de fitness mobile focada em transformar métricas de treino difíceis de interpretar em decisões simples sobre treino, gasto energético e progresso.",
+      "challenge": "Os usuários recebem muita informação, mas muitas vezes não entendem o que é importante nem qual ação devem tomar. O produto precisava tornar treino, energia e progresso legíveis sem virar uma ferramenta de prescrição de dieta.",
+      "process": "O trabalho foi organizado em torno de três perguntas centrais: 'Como estou?', 'O que faço?' e 'Estou evoluindo?'. Ele combinou pesquisa de UX, auditoria competitiva e síntese de design para definir uma hierarquia mais clara antes de propor recomendações orientadas a decisão.",
       "designSprint": [
-        { "stage": "Brainstorm", "description": "Discovery com os dois lados do marketplace (usuário final e profissional) para mapear mecânicas de retenção sem cair em promessa de saúde." },
-        { "stage": "Define", "description": "Estabelecimento do princípio ético 'sem alegação de resultado de saúde' como restrição de design antes da concepção de qualquer tela." },
-        { "stage": "Design", "description": "Concepção end-to-end dos dois ecossistemas (usuário e profissional), com identidade visual de fundo escuro e verde neon." },
-        { "stage": "Test", "description": "Auditoria de usabilidade com as 10 heurísticas de Nielsen em 14 telas do protótipo, seguida de teste presencial moderado qualitativo." },
-        { "stage": "Launch", "description": "Handoff do protótipo com inconsistências de UI corrigidas antes da entrega final, documentado como proposta de produto." }
+        { "stage": "Diagnóstico", "description": "Mapeou o problema da interpretação confusa de métricas e a lacuna entre dado e decisão." },
+        { "stage": "Definição", "description": "Definiu as três perguntas centrais que orientaram o produto: como o usuário está, o que fazer em seguida e se está evoluindo." },
+        { "stage": "Design", "description": "Traduzir as descobertas em uma experiência mobile com hierarquia clara, recomendações e contexto de progresso." },
+        { "stage": "Validação", "description": "Revisou como a recomendação poderia aparecer junto à métrica que a justificava, aumentando clareza." },
+        { "stage": "Iteração", "description": "Refinou a estrutura para conectar score, explicação e próxima ação no mesmo bloco." }
       ],
-      "myRole": "UX/UI Designer responsável pela concepção end-to-end dos dois ecossistemas de tela (usuário e profissional), arquitetura de informação, prototipagem de alta fidelidade e auditoria de usabilidade.",
+      "myRole": "UX/UI Designer",
       "csdMatrix": {
         "certainties": [
-          "Profissionais gerenciam alunos, agenda e financeiro em ferramentas fragmentadas hoje",
-          "Usuários abandonam rotinas fitness por falta de registro de evolução visível",
-          "Mecânicas de retenção precisam de limite ético explícito para não sugerir promessa de saúde"
+          "Usuários são confrontados com muitas métricas, mas raramente entendem o que realmente importa",
+          "Decisões de treino ficam mais claras quando explicação e próxima ação são mostradas juntas",
+          "Produtos de fitness devem apoiar interpretação, não prescrever dietas"
         ],
         "suppositions": [
-          "IA analisando dados físicos e de atividade em tempo real gera treinos mais aderentes do que planos estáticos",
-          "Health score e ranking gamificado sustentam consistência melhor que acompanhamento solo",
-          "Consolidar alunos, agenda, financeiro e chat em um único painel aumenta a adoção pelo profissional"
+          "Um dashboard simplificado reduziria o esforço cognitivo para decidir o treino",
+          "Recomendações contextualizadas ajudariam o usuário a entender melhor seu estado atual",
+          "Evolução ao longo do tempo deve ser visualizada sem exigir leitura pesada de gráficos"
         ],
         "doubts": [
-          "O princípio de \"sem alegação de saúde\" resistiria a uma auditoria feita por profissional de saúde, e não só a uma decisão de design?",
-          "O impacto real de retenção só seria validável com dado de uso em produção, não em protótipo"
+          "Como é um produto conceitual, a validação real com usuários de fitness ainda seria essencial",
+          "O equilíbrio entre orientação e autonomia precisaria ser testado com comportamento real"
         ]
       },
-      "userFlow": "Usuário: onboarding captura biotipo, peso, objetivo e integração com wearable → IA gera treino personalizado e adaptativo, com opção de seguir o plano automático ou montar jornada própria → diário alimentar por pontos (sem prescrição de dieta) e registro de treino alimentam o health score → ranking e desafios sustentam motivação → usuário pode conectar com nutricionista, personal ou estudante supervisionado quando quiser suporte profissional. Profissional: dashboard consolidado com alunos, agenda, plano alimentar, financeiro e chat em um único painel.",
+      "userFlow": "Descobrir → Definir objetivo → Registrar → Informar treino/contexto → Entender → Visualizar estado atual → Ajustar → Identificar próxima etapa → Retornar → Acompanhar evolução.",
       "personas": [
         {
-          "name": "Usuário iniciante fitness",
-          "role": "Cliente final do marketplace",
-          "pain": "Começa uma rotina fitness mas perde o hábito silenciosamente por falta de personalização e feedback de progresso.",
-          "goal": "Manter consistência ao longo do tempo através de treino adaptado por IA, health score e comunidade, sem depender só de força de vontade."
-        },
-        {
-          "name": "Profissional de educação física",
-          "role": "Prestador de serviço no marketplace",
-          "pain": "Gerencia carteira de alunos, agenda e financeiro em ferramentas desconectadas (WhatsApp, planilha, agenda separada).",
-          "goal": "Ter toda a gestão do negócio — alunos, agenda e financeiro — em um único painel."
+          "name": "Usuário iniciante em fitness",
+          "role": "Usuário mobile de fitness",
+          "pain": "Recebe muita informação numérica, mas não entende qual indicador importa nem o que fazer em seguida.",
+          "goal": "Entender seu estado atual, compreender a razão da recomendação e decidir de forma clara o próximo passo."
         }
       ],
       "userStories": [
         {
-          "persona": "Usuário iniciante fitness",
-          "story": "Como usuário iniciante em fitness, eu quero receber treinos que se adaptam à minha evolução real para que eu mantenha consistência sem depender só de força de vontade."
-        },
-        {
-          "persona": "Profissional de educação física",
-          "story": "Como profissional de educação física, eu quero gerenciar alunos, agenda e financeiro em um único painel para que eu não perca tempo alternando entre WhatsApp, planilha e agenda separada."
+          "persona": "Usuário iniciante em fitness",
+          "story": "Como usuário mobile de fitness, eu quero entender meu estado atual de forma simples para que eu consiga decidir o próximo passo sem interpretar métricas complexas."
         }
       ],
       "problemDefinitions": [
         {
-          "persona": "Usuário iniciante fitness",
-          "definition": "É uma pessoa que abandona rotinas fitness silenciosamente e precisa de acompanhamento adaptativo por IA porque isso sustenta consistência sem exigir disciplina extrema."
-        },
-        {
-          "persona": "Profissional de educação física",
-          "definition": "É um prestador de serviço sobrecarregado por ferramentas fragmentadas que precisa de um painel único porque isso reduz retrabalho e aumenta o tempo dedicado ao aluno."
+          "persona": "Usuário iniciante em fitness",
+          "definition": "Precisa de uma hierarquia mais clara de informação de treino porque o produto atualmente sobrecarrega com dados sem explicar o que importa e qual ação seguir."
         }
       ],
       "craftNotes": {
-        "conventions": "Ranking e gamificação seguem padrões já consolidados em apps fitness (barras de progresso, badges, streaks) para que o usuário não precise reaprender a mecânica — só o conteúdo por trás dela é novo.",
-        "affordances": "Cards de treino usam sombra e borda de destaque para indicar interatividade; o CTA principal de 'iniciar treino' mantém sempre a mesma posição e cor em toda a jornada do usuário, criando previsibilidade.",
-        "equity": "Design pensado para não excluir quem está começando do zero: o health score usa progresso relativo ao próprio histórico do usuário, não comparação direta com outros, evitando desmotivação de iniciantes frente a usuários avançados.",
-        "testing": "Auditoria heurística de Nielsen (10 heurísticas, 14 telas) como camada de avaliação especializada antes do teste com usuário, prática comum em times de produto maduros para reduzir ciclos de retrabalho."
+        "conventions": "A experiência mantém estrutura compacta, com alto contraste e baixo ruído visual para permitir leitura rápida e ação segura.",
+        "affordances": "Score, explicação e CTA ficam no mesmo bloco para que o usuário veja a métrica, seu significado e a próxima ação ao mesmo tempo.",
+        "equity": "A experiência evita prescrição de dieta e mantém o foco em decisão de treino, gasto energético e interpretação de progresso.",
+        "testing": "A principal percepção de validação foi que o usuário compreendia melhor uma recomendação quando ela aparecia imediatamente após a métrica que a justificava."
       },
-      "solution": "Dois ecossistemas completos e paralelos. Usuário: onboarding com biotipo/objetivo, integração com smartwatch/Mi Band ou registro manual, treino gerado e adaptado por IA em tempo real, diário alimentar por sistema de pontos, health score, ranking, desafios gamificados, comunidade de amigos, e conexão direta com profissionais (nutricionistas, personal trainers, estudantes supervisionados). Profissional: dashboard, alunos, treino, plano alimentar, agenda, financeiro, chat, avaliações, gestão via IA para otimizar ganhos — app monetiza via marketplace. Identidade visual de fundo escuro, verde neon e ícones outline.",
-      "finalProject": "SEM MÉTRICA QUANTIFICADA — diferente do TI Help, este projeto não tem dado de antes/depois nem taxa de sucesso numérica. Auditoria de usabilidade com as 10 heurísticas de Nielsen em 14 telas mapeou inconsistências corrigidas antes do handoff. Teste presencial moderado confirmou qualitativamente que participantes localizaram as funções principais em ambos os perfis (usuário e profissional), sem backlog formal documentado e sem cronometragem de tarefa. Resposta honesta se questionado em entrevista: \"validado qualitativamente, sem métrica formal de antes/depois.\""
+      "solution": "O conceito organiza treino e informação de gasto energético em uma experiência mais direta, ajudando o usuário a entender seu estado atual e identificar o próximo passo. Inclui um dashboard para 'Como estou?', uma área de recomendações para 'O que faço?' e uma visão de progresso para 'Estou evoluindo?', mantendo o conteúdo claro, contextual e orientado à ação sem transformar o produto em prescrição nutricional.",
+      "finalProject": "Este é um case conceitual de produto. A principal percepção é que o entendimento cresce quando dado, explicação e ação vivem no mesmo bloco de decisão. A validação real com usuários de fitness seria o próximo passo importante.",
+      "conclusion": "Comportamento de treino → interpretação de métricas → tomada de decisão → retenção. O projeto demonstra como um produto fitness pode transformar métricas complexas em decisões mais claras e criar uma experiência mais compreensível em torno do progresso. Feedback motiva o engajamento. Personalização precisa ser dinâmica e não estática. Monetização deve melhorar a experiência em vez de criar fricção desnecessária. Feedback claro consegue conectar comportamento do usuário, interpretação e motivação. O próximo passo é validar a experiência com usuários reais, refinar o feedback gerado por IA e continuar explorando como sistemas de design influenciam comportamento e sustentam motivação."
     },
     "3": {
       "title": "DN Jeans",
-      "overview": "Catálogo digital mobile-first para uma marca de jeans, substituindo checkout tradicional por conversão direta via WhatsApp — já qualificada com cor, tecido e tamanho escolhidos pelo cliente.",
-      "challenge": "Clientes já compravam informalmente por WhatsApp após ver produtos no Instagram, mas sem catálogo central — cada venda exigia perguntas manuais repetidas de disponibilidade, cor, tecido e tamanho antes de fechar.",
-      "process": "Discovery presencial revelou que o problema não era falta de interesse do cliente, e sim ausência de um ponto único de descoberta antes do contato direto. Decisão central: eliminar carrinho e checkout tradicional, mantendo o WhatsApp como canal de fechamento real da marca — em vez de forçar um padrão de e-commerce que a marca não usaria.",
+      "overview": "DN Jeans é uma experiência de descoberta de produto pensada para ajudar o cliente a navegar pelo catálogo, comparar opções e avançar com menos fricção até a decisão de compra.",
+      "challenge": "O desafio era tornar a descoberta de produtos mais clara e menos frustrante, ajudando o usuário a encontrar o item certo e decidir mais rápido sem forçar um fluxo tradicional de e-commerce que não refletia o comportamento real da marca.",
+      "process": "Este projeto foi originalmente um esforço de design visual e de produto, não um processo formal completo de UX research. A estrutura abaixo é uma reconstrução retrospectiva de UX usada para esclarecer como a jornada poderia ser fortalecida sem fingir que o projeto original havia concluído pesquisa formal ou wireframing completo.",
       "designSprint": [
-        { "stage": "Brainstorm", "description": "Discovery presencial revelando que o problema era falta de ponto único de descoberta, não falta de interesse do cliente." },
-        { "stage": "Define", "description": "Decisão central de eliminar carrinho tradicional e manter WhatsApp como canal real de fechamento da marca." },
-        { "stage": "Design", "description": "Redesenho da jornada de compra com grid paginado, seleção de cor/tecido/tamanho e CTA de WhatsApp pré-configurado." },
-        { "stage": "Test", "description": "Teste presencial moderado confirmando que participantes completavam o fluxo até o CTA sem orientação prévia." },
-        { "stage": "Launch", "description": "Entrega do catálogo com FAQ e banner de incentivo posicionados estrategicamente após validação qualitativa." }
+        { "stage": "Descoberta", "description": "Mapeou como o cliente navegava, comparava e selecionava itens antes da compra." },
+        { "stage": "Definição", "description": "Definiu a oportunidade central: reduzir a fricção entre descoberta do produto e compra." },
+        { "stage": "Design", "description": "Estruturou o catálogo por categorias, filtros, detalhes do produto e caminho claro para a ação de compra." },
+        { "stage": "Validação", "description": "Revisou se o caminho de compra poderia ficar mais claro e se a decisão de compra poderia ser apoiada antes da etapa final." },
+        { "stage": "Iteração", "description": "Refinou a jornada para que navegação, comparação e informação do produto avançassem com mais fluidez para a decisão." }
       ],
-      "myRole": "UX Estratégico — pesquisa com usuários, redesenho da jornada de compra, arquitetura de navegação e definição de microcopy orientado a conversão.",
+      "myRole": "UX strategy e design visual de produto",
       "csdMatrix": {
         "certainties": [
-          "Clientes já perguntavam por WhatsApp sobre produtos vistos no Instagram, sem catálogo central",
-          "Cada venda exigia repetir manualmente as mesmas perguntas de cor, tecido e tamanho"
+          "Clientes precisam de um caminho mais claro do início da busca até a compra",
+          "Comparação de produtos fica mais fácil quando filtros e informações aparecem juntos",
+          "O comportamento real da marca dependia de contato direto e conversão por WhatsApp"
         ],
         "suppositions": [
-          "Pré-qualificar a escolha (cor, tecido, tamanho) antes de abrir o WhatsApp aceleraria a decisão de compra",
-          "Um FAQ posicionado antes do rodapé capturaria objeções de última hora sem tirar o cliente do fluxo"
+          "Uma grid mais limpa poderia reduzir a fricção durante a navegação",
+          "Mais informação explícita do produto ajudaria a decisão mais rápida",
+          "Um caminho de conversão por WhatsApp se alinhava melhor ao comportamento da venda real do que um carrinho completo"
         ],
         "doubts": [
-          "A ausência de carrinho multi-produto se tornará um limitador conforme o catálogo crescer?"
+          "O projeto original não tinha uma pesquisa formal completa nem wireframing completo",
+          "Um catálogo maior poderia exigir arquitetura de compra diferente no futuro"
         ]
       },
-      "userFlow": "Home (hero + categorias) → grid de produtos paginado → página de produto com seleção de cor, tecido e tamanho → CTA \"Comprar Pelo WhatsApp\" já contextualizado com as escolhas do cliente.",
+      "userFlow": "Descoberta → Navegar → Filtrar → Comparar → Inspecionar produto → Avaliar informações → Decidir → Comprar.",
       "personas": [
         {
           "name": "Cliente de Instagram",
-          "role": "Comprador informal via redes sociais",
-          "pain": "Via a peça no Instagram e precisava perguntar tudo manualmente no WhatsApp — disponibilidade, cor, tecido, tamanho — antes de decidir.",
-          "goal": "Chegar da descoberta à decisão de compra com o mínimo de perguntas possível."
+          "role": "Navegador do catálogo",
+          "pain": "Precisa repetir as mesmas perguntas e avaliar a adequação do produto sem um caminho claro e centralizado até a compra.",
+          "goal": "Navegar pela coleção, comparar opções e decidir com mais rapidez com a informação disponível."
         }
       ],
       "userStories": [
         {
           "persona": "Cliente de Instagram",
-          "story": "Como cliente de Instagram, eu quero escolher cor, tecido e tamanho antes de falar com a marca para que eu chegue ao WhatsApp já pronto pra fechar a compra."
+          "story": "Como cliente navegando no catálogo, eu quero filtrar e comparar produtos com clareza para que eu possa decidir mais rápido sem repetir esclarecimentos."
         }
       ],
       "problemDefinitions": [
         {
           "persona": "Cliente de Instagram",
-          "definition": "É um comprador informal que precisa de um catálogo centralizado com pré-qualificação de escolha porque isso elimina a fricção de repetir informações a cada nova conversa."
+          "definition": "Precisa de um fluxo de descoberta mais claro porque a falta de navegação e comparação estruturada cria fricção antes da compra."
         }
       ],
       "craftNotes": {
-        "conventions": "Grid de produtos segue o padrão já conhecido de e-commerce (imagem, preço, categoria) para que o cliente não precise aprender uma navegação nova, mesmo o checkout sendo não convencional.",
-        "affordances": "Botão 'Comprar Pelo WhatsApp' usa o verde característico do app para reforçar reconhecimento imediato do destino do clique, e permanece fixo/visível durante a rolagem da página de produto.",
-        "equity": "Fluxo pensado para o cliente que compra por WhatsApp informalmente, incluindo perfis menos familiarizados com e-commerce tradicional — por isso a decisão de não forçar cadastro ou carrinho antes da compra.",
-        "testing": "Teste moderado presencial observando se o cliente completava a seleção de cor/tecido/tamanho sem hesitação antes de acionar o CTA, validando a pré-qualificação como redutora de fricção."
+        "conventions": "A base visual mantém o ritmo familiar de e-commerce: categorias, imagens, preço e detalhes do produto orientados à decisão.",
+        "affordances": "Filtros, atributos do produto e CTAs de ação permanecem visíveis e fáceis de avaliar para reduzir hesitação durante a navegação.",
+        "equity": "O fluxo respeita o comportamento real de conversão da marca, mantendo a etapa de fechamento no WhatsApp em vez de forçar um modelo de checkout tradicional.",
+        "testing": "Não existem dados formais de usabilidade para o projeto original, então a proposta é tratada como melhoria de UX sugerida, não como resultado validado."
       },
-      "solution": "Eliminação do carrinho de compras tradicional, substituído por CTA de WhatsApp por produto já configurado. Grid paginado por categoria (Casual/Lycra), seleção de cor/tecido/tamanho na própria página do produto, FAQ posicionado antes do rodapé e banner de incentivo (\"Ganhe 20% na primeira compra\") após o grid, no momento em que o cliente já demonstrou interesse.",
-      "finalProject": "SEM MÉTRICA QUANTIFICADA — sem dado de conversão em produção, sem taxa de sucesso numérica, sem backlog formal documentado. Teste presencial moderado confirmou qualitativamente que participantes completaram o fluxo de seleção até o CTA de compra sem orientação prévia. Limite conhecido e não resolvido: se o catálogo crescer, a ausência de carrinho multi-produto pode se tornar limitador — não validado com volume real."
+      "solution": "A direção proposta fortalece a descoberta de produto ao deixar filtros, comparação e informações do produto mais claras, ao mesmo tempo em que alinha o caminho de compra com o comportamento real de conversão da marca pelo WhatsApp. O objetivo não é reinventar o modelo de negócio, mas reduzir a fricção entre navegar e decidir.",
+      "finalProject": "Este projeto foi originalmente um esforço de design visual e de produto, não um processo formal completo de UX research e wireframing. A direção de design é, portanto, mais forte como esclarecimento estratégico de UX do que como afirmação de validação concluída. O próximo passo seria pesquisa real, testes de usabilidade e revisão mais formal de arquitetura de informação.",
+      "conclusion": "Descoberta → filtros → comparação → informação do produto → decisão de compra. O projeto demonstra como uma experiência de e-commerce pode reduzir a fricção ao melhorar a descoberta do produto e ajudar o usuário a passar com mais clareza da navegação para a compra. O foco central de UX é descoberta do produto, filtragem, comparação, informação do produto e tomada de decisão. A base visual é forte, mas o próximo passo importante seria fortalecer o processo de UX por meio de pesquisa, validação e testes de usabilidade."
     },
     "4": {
       "title": "ImovePro",
@@ -893,6 +884,68 @@
       },
       "solution": "Landing page com linguagem acessível em vez de unidade técnica bruta, calculadora de payback que mostra em quanto tempo o investimento se paga, apresentação clara dos produtos e serviços do negócio, e CTAs diretos para contato via WhatsApp ou Instagram — desenhada para gerar leads qualificados para um negócio de energia solar.",
       "finalProject": "Template de produto de design, desenvolvido para venda (não implementado com cliente real de energia solar). Sem métrica de uso real — é um exercício de hierarquia de informação, calculadora de payback e geração de leads, não um case com resultado de negócio validado."
+    },
+    "7": {
+      "title": "Social Media Design & Content Strategy",
+      "overview": "Este foi um projeto real de design social media e estratégia de conteúdo focado em entender quais tipos de conteúdo geram atenção e engajamento e como eles devem ser distribuídos em diferentes formatos.",
+      "challenge": "O desafio era criar conteúdo visualmente eficaz ao mesmo tempo em que se entendia a relação entre tema, formato, dia, horário, legenda, distribuição e resposta da audiência.",
+      "process": "Contexto → Diagnóstico → Estratégia → Sistema Visual → Conteúdo → Validação → Iteração. O trabalho combinou análise de performance do conteúdo existente com o empacotamento estratégico das ideias em feed, stories e reels.",
+      "designSprint": [
+        { "stage": "Contexto", "description": "Revisou a base atual de conteúdo e observou quais formatos e temas já estavam ganhando atenção." },
+        { "stage": "Diagnóstico", "description": "Mapeou padrões de performance por dia, horário, formato e legenda para identificar os principais alavancas estratégicas." },
+        { "stage": "Estratégia", "description": "Construiu um sistema de conteúdo mais consistente com base na resposta da audiência, repetição e reaproveitamento de peças em diferentes canais." },
+        { "stage": "Sistema visual", "description": "Definiu uma linguagem visual que pudesse sustentar diferentes peças sem perder reconhecimento." },
+        { "stage": "Conteúdo", "description": "Organizou tema, formato e distribuição em um modelo repetível de produção." },
+        { "stage": "Validação", "description": "Verificou quais ativos performavam melhor e como poderiam ser reaproveitados em stories ou feed." },
+        { "stage": "Iteração", "description": "Ajustou a estratégia a partir do comportamento real e melhorou oportunidades de reutilização." }
+      ],
+      "myRole": "Design e estratégia de conteúdo para operação real de redes sociais",
+      "csdMatrix": {
+        "certainties": [
+          "O desempenho varia conforme dia e horário",
+          "Formato, legenda e tema influenciam a performance",
+          "Problemas municipais nem sempre muito percebidos podem gerar interesse quando comunicados com clareza"
+        ],
+        "suppositions": [
+          "Reels e posts de feed podem ser reutilizados estrategicamente em Stories",
+          "Um sistema visual mais forte cria mais consistência entre os conteúdos",
+          "A mesma mensagem pode ser adaptada para múltiplos formatos sem perder a essência"
+        ],
+        "doubts": [
+          "Os principais drivers de performance são específicos de contexto e devem ser revisados ao longo do tempo",
+          "Nem todos os temas recorrentes têm o mesmo desempenho em todos os públicos e janelas de publicação"
+        ]
+      },
+      "userFlow": "Tema → Formato de conteúdo → Publicação → Resposta da audiência → Reuso / redistribuição.",
+      "personas": [
+        {
+          "name": "Audiência local",
+          "role": "Seguidor de redes sociais",
+          "pain": "Recebe muitos posts repetitivos e responde melhor a conteúdos que são claros, oportunos e relevantes.",
+          "goal": "Enxergar informações úteis, visualmente claras e relevantes para o momento."
+        }
+      ],
+      "userStories": [
+        {
+          "persona": "Audiência local",
+          "story": "Como membro da audiência local, eu quero consumir conteúdo relevante para o meu contexto e fácil de entender para que eu possa interagir e compartilhar quando fizer sentido."
+        }
+      ],
+      "problemDefinitions": [
+        {
+          "persona": "Audiência local",
+          "definition": "Precisa de um sistema de comunicação mais estratégico e consistente porque a relação entre tema, timing e formato afeta diretamente se o conteúdo ganha atenção e engajamento."
+        }
+      ],
+      "craftNotes": {
+        "conventions": "O sistema de conteúdo se baseia em padrões já reconhecíveis nas redes sociais: hierarquia visual curta, gancho claro, reaproveitamento em diferentes lugares e estrutura forte de legenda.",
+        "affordances": "As peças foram desenhadas para funcionar em feed, reels e stories sem perder a mensagem ou o reconhecimento.",
+        "equity": "A estratégia priorizou clareza de comunicação em vez de métricas vazias, transformando o conteúdo em um sistema repetível e não apenas uma sequência de posts isolados.",
+        "testing": "Os dados de performance citados para este caso são +29% e 10 mil visualizações, conforme registro do projeto. Nenhuma métrica adicional foi acrescentada."
+      },
+      "solution": "O projeto transformou observações de performance em uma estratégia de conteúdo e sistema de comunicação visual mais consistente. Ele organizou a operação de conteúdo em torno de tema, formato, timing, legenda, distribuição e resposta da audiência, permitindo a reutilização estratégica das peças em múltiplos pontos de contato. O esforço de design não ficou restrito à estética; ele apoiou um sistema disciplinado de comunicação.",
+      "finalProject": "Este foi um trabalho real e não um exercício ficcional de UX. O desempenho documentado é +29% e 10K views. O projeto demonstra a transição de simplesmente produzir posts para desenhar uma estratégia de conteúdo repetível baseada em observação, experimentação e iteração.",
+      "conclusion": "Experiência real + dados + estratégia. O projeto demonstra que design de redes sociais não é só qualidade visual. A comunicação eficaz depende de entender a relação entre tema, formato, timing, legenda, distribuição e resposta da audiência. A maior percepção estratégica veio de conectar performance de conteúdo com a forma como a peça é empacotada e distribuída. O ciclo foi: Problema → Observação → Hipótese → Experimento → Resultado → Aprendizado → Iteração. O projeto saiu da produção de posts isolados e passou a desenhar uma estratégia de conteúdo repetível, apoiada em performance e iteração."
     }
   }
 }

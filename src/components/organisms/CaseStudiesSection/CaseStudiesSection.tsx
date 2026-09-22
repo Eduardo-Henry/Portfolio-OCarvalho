@@ -103,6 +103,14 @@ const defaultCaseStudies: CaseStudy[] = [
     prototypeUrl: 'https://www.figma.com/proto/uPJ99JDTyjMPamkJnS9FTu',
   },
   {
+    id: '7',
+    image: Kaloburn,
+    tag: 'Social Media Design · Content Strategy',
+    title: 'Social Media Design & Content Strategy',
+    description: 'Estratégia de conteúdo e design para aumentar alcance, reutilização e consistência de comunicação em redes sociais.',
+    prototypeUrl: 'https://www.instagram.com/',
+  },
+  {
     id: '4',
     image: RealStateImg,
     tag: 'UX/UI Design · Marketplace Imobiliário',
