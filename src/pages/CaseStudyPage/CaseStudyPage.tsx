@@ -10,19 +10,6 @@ import RealStateImg from '@/assets/images/RealState.png';
 import YatchImg from '@/assets/images/Yatch.jpeg';
 import SolarPanelImg from '@/assets/images/SolarPanel.png';
 
-interface Persona {
-  name: string;
-  age?: number;
-  role?: string;
-  pain?: string;
-  goal?: string;
-}
-
-interface SprintStage {
-  stage: string;
-  description: string;
-}
-
 interface CaseStudyContent {
   title: string;
   overview?: string;
@@ -32,11 +19,12 @@ interface CaseStudyContent {
   userFlow?: string;
   solution?: string;
   finalProject?: string;
-  designSprint?: SprintStage[];
+  conclusion?: string;
+  designSprint?: Array<{ stage: string; description: string }>;
   csdMatrix?: Record<string, unknown>;
-  personas?: Persona[];
-  userStories?: Record<string, unknown>[];
-  problemDefinitions?: Record<string, unknown>[];
+  informationArchitecture?: Record<string, unknown>;
+  usabilityTesting?: Record<string, unknown>;
+  results?: Array<Record<string, unknown>>;
   craftNotes?: Record<string, unknown>;
   [key: string]: unknown;
 }
@@ -93,17 +81,20 @@ const asText = (value: unknown): string | undefined =>
 
 const asStringArray = (value: unknown): string[] =>
   Array.isArray(value)
-    ? value.filter((item): item is string => typeof item === 'string')
+    ? value.filter(
+        (item): item is string =>
+          typeof item === 'string' &&
+          item.trim().length > 0 &&
+          !item.includes('[PREENCHER]'),
+      )
     : [];
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === 'object' && value !== null && !Array.isArray(value);
 
-const hasData = (value: unknown): boolean => {
-  if (typeof value === 'string') return value.trim().length > 0;
-  if (Array.isArray(value)) return value.length > 0;
-  if (isRecord(value)) return Object.keys(value).length > 0;
-  return value !== undefined && value !== null;
+const cleanText = (value: unknown): string | undefined => {
+  const text = asText(value);
+  return text && !text.includes('[PREENCHER]') ? text : undefined;
 };
 
 const formatKey = (key: string): string =>
@@ -112,7 +103,7 @@ const formatKey = (key: string): string =>
     .replace(/^./, (letter) => letter.toUpperCase());
 
 const getHeroSummary = (value: unknown): string => {
-  const text = asText(value) ?? '';
+  const text = cleanText(value) ?? '';
   const firstSentence = text.split(/[.!?](?:\s|$)/)[0];
 
   return firstSentence.length > 180
@@ -123,7 +114,7 @@ const getHeroSummary = (value: unknown): string => {
 export const CaseStudyPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const meta = id ? caseStudiesMeta[id] : undefined;
 
@@ -137,15 +128,37 @@ export const CaseStudyPage: React.FC = () => {
     window.scrollTo(0, 0);
   }, [id]);
 
-  const labels = (key: string, fallback = formatKey(key)) =>
-    t(`caseStudyLabels.sections.${key}`, {
-      defaultValue: fallback,
-    });
-
   const typeLabels = {
     real: t('caseStudyLabels.types.real'),
     proposal: t('caseStudyLabels.types.proposal'),
     fictional: t('caseStudyLabels.types.fictional'),
+  };
+
+  const isPortuguese = i18n.language.startsWith('pt');
+  const copy = {
+    overview: isPortuguese ? 'VISÃO GERAL DO PROJETO' : 'PROJECT OVERVIEW',
+    challenge: isPortuguese ? 'O DESAFIO EM UMA FRASE.' : 'THE CHALLENGE IN ONE LINE.',
+    research: isPortuguese ? 'PESQUISA & ANÁLISE' : 'RESEARCH & ANALYSIS',
+    define: isPortuguese ? 'OPORTUNIDADE DE DESIGN' : 'DESIGN OPPORTUNITY',
+    process: isPortuguese ? 'PESQUISA / DEFINE / WIREFRAMES / UI / TESTE' : 'RESEARCH / DEFINE / WIREFRAMES / UI / TEST',
+    journey: isPortuguese ? 'DA META À PRÓXIMA AÇÃO.' : 'FROM GOAL TO NEXT ACTION.',
+    architecture: isPortuguese ? 'COMO A EXPERIÊNCIA SE ORGANIZA.' : 'HOW THE EXPERIENCE IS ORGANIZED.',
+    wireframes: isPortuguese ? 'ESTRUTURA ANTES DO ACABAMENTO.' : 'STRUCTURE BEFORE THE FINISH.',
+    validation: isPortuguese ? 'INSIGHTS DO PROJETO' : 'PROJECT INSIGHTS',
+    results: isPortuguese ? 'O QUE MUDOU COM O DESIGN.' : 'WHAT THE DESIGN CHANGED.',
+    conceptual: isPortuguese ? 'Conceitual / validação futura' : 'Conceptual / future validation',
+    outcome: isPortuguese ? 'Resultado documentado' : 'Documented outcome',
+    focus: isPortuguese ? 'Foco' : 'Focus',
+  };
+
+  const findSectionItems = (value: unknown): Array<{ label: string; text: string }> => {
+    if (!isRecord(value)) return [];
+    return Object.entries(value).flatMap(([key, item]) => {
+      const label = formatKey(key);
+      if (Array.isArray(item)) return asStringArray(item).map((text) => ({ label, text }));
+      const text = cleanText(item);
+      return text ? [{ label, text }] : [];
+    });
   };
 
   if (
@@ -177,70 +190,56 @@ export const CaseStudyPage: React.FC = () => {
     );
   }
 
-  const processCards =
-    content.designSprint && content.designSprint.length > 0
-      ? content.designSprint.slice(0, 6)
-      : [
-          { stage: 'Pesquisa', description: asText(content.process) ?? 'Pesquisa' },
-          { stage: 'Definição', description: 'Definição da oportunidade' },
-          { stage: 'Fluxos', description: 'Arquitetura e jornada' },
-          { stage: 'Wireframes', description: 'Estrutura visual' },
-          { stage: 'UI', description: 'Design de alta fidelidade' },
-          { stage: 'Teste', description: 'Validação e iteração' },
-        ];
+  const processCards = (content.designSprint ?? [])
+    .filter((step) => cleanText(step.stage) && cleanText(step.description))
+    .slice(0, 6);
 
-  const journeySteps = ((content.userFlow ?? '').split('→') || []).map((item) =>
-    item.trim().replace(/\s+/g, ' '),
-  );
+  const journeySteps = (cleanText(content.userFlow)?.split('→') ?? [])
+    .map((item) => item.trim().replace(/\s+/g, ' '))
+    .filter(Boolean);
 
   const reviewCards = [
     {
       title: 'Certainty',
-      body: asStringArray(content.csdMatrix?.certainties)[0] ?? 'Entendimento principal',
+      body: asStringArray(content.csdMatrix?.certainties)[0],
       tone: 'light',
     },
     {
       title: 'Assumption',
-      body: asStringArray(content.csdMatrix?.suppositions)[0] ?? 'Oportunidade estratégica',
+      body: asStringArray(content.csdMatrix?.suppositions)[0],
       tone: 'red',
     },
     {
       title: 'Doubt',
-      body: asStringArray(content.csdMatrix?.doubts)[0] ?? 'Próximo passo de validação',
+      body: asStringArray(content.csdMatrix?.doubts)[0],
       tone: 'light',
     },
   ];
 
-  const resultStats = [
-    {
-      value: '-31%',
-      text: 'tempo para encontrar a próxima ação',
-    },
-    {
-      value: '4/5',
-      text: 'participantes compreenderam o score',
-    },
-    {
-      value: '+22%',
-      text: 'intenção de retorno ao produto',
-    },
-    {
-      value: '1',
-      text: 'dashboard central para decisão',
-    },
-  ];
-
   const metadataCards = [
-    { label: 'Projeto', value: content.title },
-    { label: 'Papel', value: asText(content.myRole) ?? 'UX/UI Designer' },
-    { label: 'Plataforma', value: 'Mobile' },
-    { label: 'Foco', value: 'Fitness + retenção' },
+    { label: isPortuguese ? 'Projeto' : 'Project', value: content.title },
+    { label: isPortuguese ? 'Papel' : 'Role', value: cleanText(content.myRole) ?? 'UX/UI Designer' },
+    { label: isPortuguese ? 'Tipo' : 'Type', value: typeLabels[meta.type] },
+    { label: copy.focus, value: cleanText(content.process)?.split('.')[0] ?? typeLabels[meta.type] },
   ];
 
-  const cardQuote =
-    asText((content.craftNotes as Record<string, unknown> | undefined)?.testing) ||
-    asText(content.finalProject) ||
-    'O usuário compreende melhor a ação quando a recomendação aparece junto à métrica que a justifica.';
+  const architectureItems = findSectionItems(content.informationArchitecture);
+  const architectureCards = architectureItems.length
+    ? architectureItems.slice(0, 6)
+    : journeySteps.slice(0, 3).map((text, index) => ({
+        label: `${isPortuguese ? 'Etapa' : 'Stage'} ${index + 1}`,
+        text,
+      }));
+  const validationItems = [
+    ...findSectionItems(content.usabilityTesting),
+    ...findSectionItems(content.craftNotes).filter((item) => item.label === 'Testing'),
+  ].slice(0, 4);
+  const resultItems = (content.results ?? [])
+    .flatMap((result) => findSectionItems(result))
+    .slice(0, 4);
+  if (!resultItems.length && cleanText(content.finalProject)) {
+    resultItems.push({ label: copy.outcome, text: cleanText(content.finalProject) as string });
+  }
 
   return (
     <MainLayout>
@@ -258,11 +257,13 @@ export const CaseStudyPage: React.FC = () => {
           <p className="case-study-hero__summary">{getHeroSummary(content.overview)}</p>
 
           <div className="case-study-tags">
-            <span className="case-study-tag">UX Research</span>
-            <span className="case-study-tag">UI Design</span>
-            <span className="case-study-tag">Mobile</span>
-            <span className="case-study-tag">Fitness</span>
-            <span className="case-study-tag">Prototyping</span>
+            <span className="case-study-tag">{typeLabels[meta.type]}</span>
+            <span className="case-study-tag">UX/UI</span>
+            {cleanText(content.myRole)?.split(' ').slice(0, 3).join(' ') && (
+              <span className="case-study-tag">
+                {cleanText(content.myRole)?.split(' ').slice(0, 3).join(' ')}
+              </span>
+            )}
           </div>
 
           <figure className="case-study-hero__visual">
@@ -272,13 +273,13 @@ export const CaseStudyPage: React.FC = () => {
 
         <main className="case-study-content">
           <section className="case-study-section case-study-section--light">
-            <div className="case-study-index">01 Overview</div>
+            <div className="case-study-index">01 · {isPortuguese ? 'Overview' : 'Overview'}</div>
 
             <div className="case-study-module">
-              <h2 className="case-study-headline">VISÃO GERAL DO PROJETO</h2>
+              <h2 className="case-study-headline">{copy.overview}</h2>
 
               <p className="case-study-copy">
-                {asText(content.overview)}
+                {cleanText(content.overview)}
               </p>
 
               <div className="case-study-meta-grid">
@@ -297,16 +298,12 @@ export const CaseStudyPage: React.FC = () => {
 
             <div className="case-study-module case-study-module--dark">
               <h2 className="case-study-headline case-study-headline--dark">
-                {asText(content.challenge)?.toUpperCase() || 'O USUÁRIO QUERIA PROGRESSO. RECEBIA INFORMAÇÃO.'}
+                {getHeroSummary(content.challenge).toUpperCase()}
               </h2>
 
               <p className="case-study-copy case-study-copy--dark">
-                {asText(content.challenge) || 'A interpretação das métricas era confusa, portanto a ação seguinte não surgia com clareza.'}
+                {cleanText(content.challenge)}
               </p>
-
-              <div className="case-study-quote-box">
-                “{cardQuote.slice(0, 120)}{cardQuote.length > 120 ? '…' : ''}”
-              </div>
             </div>
           </section>
 
@@ -314,21 +311,17 @@ export const CaseStudyPage: React.FC = () => {
             <div className="case-study-index">03 · Pesquisa &amp; análise</div>
 
             <div className="case-study-module">
-              <h2 className="case-study-headline">COMPETITIVE AUDIT</h2>
+              <h2 className="case-study-headline">{copy.research}</h2>
 
               <p className="case-study-copy">
-                {asText(content.process) || 'Análise comparativa de produtos de fitness para identificar padrões de clareza, decisão e retenção.'}
+                {cleanText(content.process)}
               </p>
 
               <div className="case-study-mini-grid">
-                {(content.designSprint?.length ? content.designSprint.slice(0, 3) : [
-                  { stage: 'Strava', description: 'Foco em dados e relação com o treino.' },
-                  { stage: 'Hevy', description: 'Estrutura forte de progresso e histórico.' },
-                  { stage: 'MyFitnessPal', description: 'Alta densidade de informação e maior esforço cognitivo.' },
-                ]).map((item) => (
-                  <div className="case-study-card" key={item.stage}>
-                    <strong>{item.stage}</strong>
-                    <span>{item.description}</span>
+                {(asStringArray(content.csdMatrix?.certainties).slice(0, 3)).map((item, index) => (
+                  <div className="case-study-card" key={`${item}-${index}`}>
+                    <strong>{isPortuguese ? 'Observação' : 'Observation'}</strong>
+                    <span>{item}</span>
                   </div>
                 ))}
               </div>
@@ -339,10 +332,10 @@ export const CaseStudyPage: React.FC = () => {
             <div className="case-study-index">04 · Define</div>
 
             <div className="case-study-module">
-              <h2 className="case-study-headline">OPORTUNIDADE DE DESIGN</h2>
+              <h2 className="case-study-headline">{copy.define}</h2>
 
               <div className="case-study-split-grid">
-                {reviewCards.map((item) => (
+                {reviewCards.filter((item) => item.body).map((item) => (
                   <div
                     className={`case-study-card case-study-card--${item.tone}`}
                     key={item.title}
@@ -356,11 +349,13 @@ export const CaseStudyPage: React.FC = () => {
           </section>
 
           <section className="case-study-section case-study-section--dark case-study-section--process">
-            <div className="case-study-index case-study-index--dark">05 · Processo</div>
+            <div className="case-study-index case-study-index--dark">
+              05 · {isPortuguese ? 'Processo' : 'Process'}
+            </div>
 
             <div className="case-study-module case-study-module--dark">
               <h2 className="case-study-headline case-study-headline--dark case-study-headline--big">
-                PESQUISA / DEFINE / WIREFRAMES / UI / TESTE
+                {copy.process}
               </h2>
 
               <div className="case-study-step-grid">
@@ -379,10 +374,10 @@ export const CaseStudyPage: React.FC = () => {
             <div className="case-study-index">06 · User Journey</div>
 
             <div className="case-study-module">
-              <h2 className="case-study-headline">DA META À PRÓXIMA AÇÃO.</h2>
+              <h2 className="case-study-headline">{copy.journey}</h2>
 
               <div className="case-study-journey-grid">
-                {(journeySteps.length ? journeySteps : ['Descobrir', 'Registrar', 'Entender', 'Ajustar', 'Voltar']).slice(0, 5).map((step, index) => (
+                {journeySteps.slice(0, 5).map((step, index) => (
                   <div className="case-study-journey-item" key={`${step}-${index}`}>
                     <span>{step}</span>
                   </div>
@@ -392,24 +387,18 @@ export const CaseStudyPage: React.FC = () => {
           </section>
 
           <section className="case-study-section case-study-section--light">
-            <div className="case-study-index">07 · Arquitetura</div>
+            <div className="case-study-index">07 · {isPortuguese ? 'Arquitetura' : 'Architecture'}</div>
 
             <div className="case-study-module">
-              <h2 className="case-study-headline">O PRODUTO GIRA EM TORNO DE TRÊS PERGUNTAS.</h2>
+              <h2 className="case-study-headline">{copy.architecture}</h2>
 
               <div className="case-study-triple-grid">
-                <div className="case-study-triple-card">
-                  <strong>Como estou?</strong>
-                  <span>Dashboard com score, progresso e indicadores essenciais.</span>
-                </div>
-                <div className="case-study-triple-card">
-                  <strong>O que faço?</strong>
-                  <span>Treino e recomendações organizadas por objetivo do usuário.</span>
-                </div>
-                <div className="case-study-triple-card">
-                  <strong>Estou evoluindo?</strong>
-                  <span>Histórico e tendências sem exigir leitura pesada de gráficos.</span>
-                </div>
+                {architectureCards.map((item, index) => (
+                  <div className="case-study-triple-card" key={`${item.label}-${index}`}>
+                    <strong>{item.label}</strong>
+                    <span>{item.text}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </section>
@@ -418,11 +407,12 @@ export const CaseStudyPage: React.FC = () => {
             <div className="case-study-index">08 · Wireframing</div>
 
             <div className="case-study-module">
-              <h2 className="case-study-headline">ESTRUTURA ANTES DO ACABAMENTO.</h2>
+              <h2 className="case-study-headline">{copy.wireframes}</h2>
 
               <div className="case-study-wireframe-grid">
                 {[1, 2, 3, 4].map((item) => (
                   <div className="case-study-wireframe" key={item}>
+                    <span>{copy.conceptual}</span>
                     <div className="wireframe-line long" />
                     <div className="wireframe-line short" />
                     <div className="wireframe-line medium" />
@@ -433,65 +423,72 @@ export const CaseStudyPage: React.FC = () => {
           </section>
 
           <section className="case-study-section case-study-section--dark">
-            <div className="case-study-index case-study-index--dark">09 · Validação</div>
+            <div className="case-study-index case-study-index--dark">
+              09 · {isPortuguese ? 'Validação' : 'Validation'}
+            </div>
 
             <div className="case-study-module case-study-module--dark">
-              <h2 className="case-study-headline case-study-headline--dark">INSIGHTS DO PROJETO</h2>
+              <h2 className="case-study-headline case-study-headline--dark">{copy.validation}</h2>
 
               <div className="case-study-validation-grid">
-                <div className="case-study-validation-card">
-                  <strong>Tarefas</strong>
-                  <ul>
-                    <li>Encontrar o progresso semanal</li>
-                    <li>Iniciar um treino</li>
-                    <li>Interpretar o score</li>
-                    <li>Localizar histórico</li>
-                  </ul>
-                </div>
-
-                <div className="case-study-validation-card">
-                  <strong>Insight principal</strong>
-                  <p>{asText(content.craftNotes?.testing) || 'Participantes entendiam melhor uma recomendação quando ela aparecia imediatamente após a métrica que a justificava.'}</p>
-                </div>
+                {validationItems.map((item, index) => (
+                  <div className="case-study-validation-card" key={`${item.label}-${index}`}>
+                    <strong>{item.label}</strong>
+                    <p>{item.text}</p>
+                  </div>
+                ))}
               </div>
 
-              <div className="case-study-before-after">
-                <div className="case-study-before-after-card case-study-before-after-card--before">
-                  <span>ANTES</span>
-                  <p>Score separado das explicações.</p>
+              {cleanText(content.solution) && (
+                <div className="case-study-before-after">
+                  <div className="case-study-before-after-card case-study-before-after-card--before">
+                    <span>{isPortuguese ? 'DIREÇÃO' : 'DIRECTION'}</span>
+                    <p>{cleanText(content.solution)}</p>
+                  </div>
+                  <div className="case-study-before-after-card case-study-before-after-card--after">
+                    <span>{isPortuguese ? 'STATUS' : 'STATUS'}</span>
+                    <p>{cleanText(content.conclusion) ?? copy.conceptual}</p>
+                  </div>
                 </div>
-
-                <div className="case-study-before-after-card case-study-before-after-card--after">
-                  <span>DEPOIS</span>
-                  <p>Score + contexto + próxima ação no mesmo bloco.</p>
-                </div>
-              </div>
+              )}
             </div>
           </section>
 
           <section className="case-study-section case-study-section--light">
-            <div className="case-study-index">10 · Resultado</div>
+            <div className="case-study-index">10 · {isPortuguese ? 'Resultado' : 'Result'}</div>
 
             <div className="case-study-module">
-              <h2 className="case-study-headline">MENOS INTERPRETAÇÃO. MAIS AÇÃO.</h2>
+              <h2 className="case-study-headline">{copy.results}</h2>
 
               <div className="case-study-result-grid">
-                {resultStats.map((item) => (
-                  <div className="case-study-result-card" key={item.value}>
-                    <strong>{item.value}</strong>
+                {resultItems.map((item, index) => (
+                  <div className="case-study-result-card" key={`${item.label}-${index}`}>
+                    <strong>{item.label}</strong>
                     <span>{item.text}</span>
                   </div>
                 ))}
               </div>
 
               <p className="case-study-footnote">
-                {asText(content.finalProject) || 'Conclusão do projeto baseada no desenho e na estratégia de decisão.'}
+                {cleanText(content.conclusion) ?? cleanText(content.finalProject)}
               </p>
             </div>
           </section>
         </main>
 
         <footer className="case-study-footer">
+          <div className="case-study-conclusion">
+            <span className="case-study-conclusion__label">
+              {isPortuguese ? 'Conclusão' : 'Conclusion'}
+            </span>
+            <h2 className="case-study-conclusion__title">
+              {cleanText(content.conclusion)?.split('.')[0] ?? content.title}
+            </h2>
+            <p className="case-study-conclusion__copy">
+              {cleanText(content.conclusion) ?? cleanText(content.finalProject)}
+            </p>
+          </div>
+
           <button onClick={() => navigate('/')} className="btn-back-projects">
             {t('caseStudyLabels.seeMoreProjects')}
             <span className="btn-back-projects__circle" aria-hidden="true">↗</span>
