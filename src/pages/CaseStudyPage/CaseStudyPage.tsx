@@ -125,7 +125,91 @@ export const CaseStudyPage: React.FC = () => {
     : undefined;
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+
+    const page = document.querySelector<HTMLElement>('.case-study-page');
+    if (!page) return;
+
+    const revealSelectors = [
+      '.case-study-section', '.case-study-hero__summary', '.case-study-tags',
+      '.case-study-hero__visual', '.case-study-meta-card', '.case-study-card',
+      '.case-study-step', '.case-study-journey-item', '.case-study-triple-card',
+      '.case-study-wireframe', '.case-study-validation-card',
+      '.case-study-before-after-card', '.case-study-result-card', '.case-study-conclusion',
+    ].join(',');
+
+    const revealItems = Array.from(page.querySelectorAll<HTMLElement>(revealSelectors));
+    revealItems.forEach((element, index) => {
+      element.classList.add('ux-reveal');
+      element.style.setProperty('--reveal-delay', `${Math.min(index % 6, 5) * 55}ms`);
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    revealItems.forEach((element) => observer.observe(element));
+
+    let frame = 0;
+    const updateScrollMotion = () => {
+      frame = 0;
+      const maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+      const progress = Math.min(window.scrollY / maxScroll, 1);
+      page.style.setProperty('--scroll-progress', `${progress * 100}%`);
+
+      const hero = page.querySelector<HTMLElement>('.case-study-hero');
+      if (hero) {
+        const heroProgress = Math.max(
+          0,
+          Math.min(1, -hero.getBoundingClientRect().top / Math.max(hero.offsetHeight, 1)),
+        );
+        page.style.setProperty('--hero-shift', `${heroProgress * 72}px`);
+        page.style.setProperty('--hero-scale', `${1 - heroProgress * 0.035}`);
+      }
+    };
+
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(updateScrollMotion);
+    };
+
+    const interactiveItems = Array.from(
+      page.querySelectorAll<HTMLElement>('.back-button, .btn-back-projects, .case-study-tag'),
+    );
+
+    const pointerMove = (event: PointerEvent) => {
+      const target = event.currentTarget as HTMLElement;
+      const rect = target.getBoundingClientRect();
+      target.style.setProperty('--mx', `${((event.clientX - rect.left) / rect.width - 0.5) * 8}px`);
+      target.style.setProperty('--my', `${((event.clientY - rect.top) / rect.height - 0.5) * 8}px`);
+    };
+
+    const pointerLeave = (event: PointerEvent) => {
+      const target = event.currentTarget as HTMLElement;
+      target.style.setProperty('--mx', '0px');
+      target.style.setProperty('--my', '0px');
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    updateScrollMotion();
+    interactiveItems.forEach((item) => {
+      item.addEventListener('pointermove', pointerMove);
+      item.addEventListener('pointerleave', pointerLeave);
+    });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', onScroll);
+      if (frame) cancelAnimationFrame(frame);
+      interactiveItems.forEach((item) => {
+        item.removeEventListener('pointermove', pointerMove);
+        item.removeEventListener('pointerleave', pointerLeave);
+      });
+    };
   }, [id]);
 
   const typeLabels = {
@@ -244,6 +328,7 @@ export const CaseStudyPage: React.FC = () => {
   return (
     <MainLayout>
       <div className="case-study-page">
+        <div className="case-study-scroll-progress" aria-hidden="true"><span /></div>
         <div className="case-study-topbar">
           <button onClick={() => navigate(-1)} className="back-button">
             <span className="back-button__circle" aria-hidden="true">↩</span>

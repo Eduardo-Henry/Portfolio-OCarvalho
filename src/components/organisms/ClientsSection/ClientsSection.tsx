@@ -49,6 +49,7 @@ export const ClientsSection: React.FC<ClientsSectionProps> = ({ id }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isSectionVisible, setIsSectionVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const featuredImageRef = useRef<HTMLImageElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const outerRef = useRef<HTMLDivElement>(null);
 
@@ -178,6 +179,33 @@ export const ClientsSection: React.FC<ClientsSectionProps> = ({ id }) => {
     startAutoPlay();
   };
 
+  useEffect(() => {
+    let frame = 0;
+
+    const handleScroll = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const section = sectionRef.current;
+        const image = featuredImageRef.current;
+        if (!section || !image) return;
+
+        const rect = section.getBoundingClientRect();
+        const viewport = window.innerHeight || 1;
+        const progress = Math.max(-1, Math.min(1, (viewport * 0.5 - (rect.top + rect.height * 0.28)) / Math.max(rect.height, 1)));
+
+        image.style.setProperty('--client-parallax', `${progress * 18}px`);
+        section.style.setProperty('--clients-progress', `${Math.max(0, Math.min(1, 1 - rect.top / viewport))}`);
+      });
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const renderAnimatedText = (text: string) => {
     const words = text.split(' ');
     return words.map((word, index) => {
@@ -224,12 +252,12 @@ export const ClientsSection: React.FC<ClientsSectionProps> = ({ id }) => {
             const role = t(`clients.items.${client.id}.role`);
             const feedback = t(`clients.items.${client.id}.feedback`);
             return (
-              <div className="clients-slide" key={client.id}>
+              <div className={`clients-slide ${i === currentIndex ? "clients-slide--active" : ""}`} key={client.id}>
                 {/* FOTO + META */}
                 <div className="clients-profile-zone">
                   <div className="clients-featured">
                     <div className="client-featured-image">
-                      <img src={client.image} alt={client.name} draggable={false} />
+                      <img ref={i === currentIndex ? featuredImageRef : undefined} src={client.image} alt={client.name} draggable={false} />
                     </div>
                     <div className="client-meta-container">
                       <h3 className="client-featured-info">

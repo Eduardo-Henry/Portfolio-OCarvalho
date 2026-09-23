@@ -171,6 +171,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
   const [count, setCount] = useState<number>(0);
   const sectionRef = useRef<HTMLDivElement>(null);
   const targetCount = 52;
+  const revealObserverRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
     const currentSection = sectionRef.current;
@@ -205,6 +206,59 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
       if (currentSection) observer.unobserve(currentSection);
     };
   }, []);
+
+  useEffect(() => {
+    const root = sectionRef.current;
+    if (!root) return;
+
+    const elements = root.querySelectorAll<HTMLElement>(
+      '.scroll-reveal, .case-studies-header, .case-studies-filter, .case-studies-carousel-wrapper'
+    );
+
+    revealObserverRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserverRef.current?.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+    );
+
+    elements.forEach((element, index) => {
+      element.style.setProperty('--reveal-delay', `${Math.min(index * 70, 420)}ms`);
+      revealObserverRef.current?.observe(element);
+    });
+
+    return () => revealObserverRef.current?.disconnect();
+  }, [selectedCategory]);
+
+  useEffect(() => {
+    const root = sectionRef.current;
+    if (!root) return;
+
+    let frame = 0;
+    const handleScroll = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        root.querySelectorAll<HTMLElement>('.case-card__image').forEach((image) => {
+          const rect = image.getBoundingClientRect();
+          const viewport = window.innerHeight || 1;
+          const offset = ((rect.top + rect.height / 2) - viewport / 2) / viewport;
+          image.style.setProperty('--card-parallax', `${Math.max(-10, Math.min(10, offset * -8))}px`);
+        });
+      });
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [selectedCategory]);
 
   const categories = [
     { id: 'all', label: t('caseStudies.categories.uxDesign') },
@@ -258,7 +312,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
         </div>
 
         {selectedCategory === 'mobile' ? (
-          <div className="case-studies-carousel-wrapper">
+          <div className="case-studies-carousel-wrapper scroll-reveal">
             <Carousel images={socialMediaCarouselImages} />
           </div>
         ) : selectedCategory === 'web' ? (
