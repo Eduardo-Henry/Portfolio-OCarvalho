@@ -9,6 +9,10 @@ import DNJeansImg from '@/assets/images/DNJeans.png';
 import RealStateImg from '@/assets/images/RealState.png';
 import YatchImg from '@/assets/images/Yatch.jpeg';
 import SolarPanelImg from '@/assets/images/SolarPanel.png';
+import LinkedInIcon from '@/assets/icons/iconLinkedin.svg?react';
+import InstagramIcon from '@/assets/icons/iconInstagram.svg?react';
+import BehanceIcon from '@/assets/icons/iconBehance.svg?react';
+import GitHubIcon from '@/assets/icons/iconGithub.svg?react';
 
 interface CaseStudyContent {
   title: string;
@@ -111,6 +115,64 @@ const getHeroSummary = (value: unknown): string => {
     : firstSentence;
 };
 
+const PortfolioFooter: React.FC = () => {
+  const { t } = useTranslation();
+  const currentYear = new Date().getFullYear();
+
+  const socialLinks = [
+    { id: 'linkedin', icon: LinkedInIcon, url: 'https://www.linkedin.com/in/eduardohenrycarvalho/?locale=pt', title: 'LinkedIn' },
+    { id: 'instagram', icon: InstagramIcon, url: 'https://www.instagram.com/ocarvalho.dzn/', title: 'Instagram' },
+    { id: 'behance', icon: BehanceIcon, url: 'https://www.behance.net/eduardohenry1', title: 'Behance' },
+    { id: 'github', icon: GitHubIcon, url: 'https://github.com', title: 'GitHub' },
+  ];
+
+  return (
+    <footer className="portfolio-footer">
+      <div className="portfolio-footer__container">
+        <div className="portfolio-footer__content">
+          <div className="portfolio-footer__column portfolio-footer__brand">
+            <h3>EDUARDO</h3>
+            <p>{t('footer.description')}</p>
+          </div>
+          <div className="portfolio-footer__column">
+            <h4>{t('footer.nav.title')}</h4>
+            <nav>
+              <a href="/#home">{t('footer.nav.home')}</a>
+              <a href="/#about">{t('footer.nav.about')}</a>
+              <a href="/#skills">{t('footer.nav.skills')}</a>
+              <a href="/#works">{t('footer.nav.works')}</a>
+            </nav>
+          </div>
+          <div className="portfolio-footer__column">
+            <h4>{t('footer.social')}</h4>
+            <div className="portfolio-footer__social">
+              {socialLinks.map((link) => {
+                const Icon = link.icon;
+                return (
+                  <a key={link.id} href={link.url} target="_blank" rel="noopener noreferrer" aria-label={link.title} title={link.title}>
+                    <Icon className="portfolio-footer__social-icon" />
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+          <div className="portfolio-footer__column">
+            <h4>{t('footer.contact')}</h4>
+            <a className="portfolio-footer__email" href="mailto:du.h.c.oliveira17@gmail.com">du.h.c.oliveira17@gmail.com</a>
+          </div>
+        </div>
+        <div className="portfolio-footer__bottom">
+          <p>{t('footer.copyright', { year: currentYear })}</p>
+          <div>
+            <a href="#">{t('footer.privacyPolicy')}</a>
+            <a href="#">{t('footer.termsOfService')}</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
 export const CaseStudyPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -130,28 +192,29 @@ export const CaseStudyPage: React.FC = () => {
     const page = document.querySelector<HTMLElement>('.case-study-page');
     if (!page) return;
 
-    const revealSelectors = [
-      '.case-study-section', '.case-study-hero__summary', '.case-study-tags',
-      '.case-study-hero__visual', '.case-study-meta-card', '.case-study-card',
-      '.case-study-step', '.case-study-journey-item', '.case-study-triple-card',
-      '.case-study-wireframe', '.case-study-validation-card',
-      '.case-study-before-after-card', '.case-study-result-card', '.case-study-conclusion',
-    ].join(',');
+    const sections = Array.from(
+      page.querySelectorAll<HTMLElement>('.case-study-content > .case-study-section'),
+    );
 
-    const revealItems = Array.from(page.querySelectorAll<HTMLElement>(revealSelectors));
-    revealItems.forEach((element, index) => {
+    // Reveal only every other section. Do not attach reveal to individual children,
+    // the hero or the footer, so the page keeps the editorial rhythm of the reference.
+    const revealItems = sections.filter((_, index) => index % 2 === 0);
+    revealItems.forEach((element) => {
       element.classList.add('ux-reveal');
-      element.style.setProperty('--reveal-delay', `${Math.min(index % 6, 5) * 55}ms`);
+      element.style.setProperty('--reveal-delay', '0ms');
     });
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' },
+    );
 
     revealItems.forEach((element) => observer.observe(element));
 
@@ -226,13 +289,26 @@ export const CaseStudyPage: React.FC = () => {
     define: isPortuguese ? 'OPORTUNIDADE DE DESIGN' : 'DESIGN OPPORTUNITY',
     process: isPortuguese ? 'PESQUISA / DEFINE / WIREFRAMES / UI / TESTE' : 'RESEARCH / DEFINE / WIREFRAMES / UI / TEST',
     journey: isPortuguese ? 'DA META À PRÓXIMA AÇÃO.' : 'FROM GOAL TO NEXT ACTION.',
-    architecture: isPortuguese ? 'COMO A EXPERIÊNCIA SE ORGANIZA.' : 'HOW THE EXPERIENCE IS ORGANIZED.',
+    architecture: isPortuguese ? 'O PRODUTO GIRA EM TORNO DE TRÊS PERGUNTAS.' : 'THE PRODUCT REVOLVES AROUND THREE QUESTIONS.',
     wireframes: isPortuguese ? 'ESTRUTURA ANTES DO ACABAMENTO.' : 'STRUCTURE BEFORE THE FINISH.',
     validation: isPortuguese ? 'INSIGHTS DO PROJETO' : 'PROJECT INSIGHTS',
-    results: isPortuguese ? 'O QUE MUDOU COM O DESIGN.' : 'WHAT THE DESIGN CHANGED.',
+    results: isPortuguese ? 'MENOS INTERPRETAÇÃO. MAIS AÇÃO.' : 'LESS INTERPRETATION. MORE ACTION.',
     conceptual: isPortuguese ? 'Conceitual / validação futura' : 'Conceptual / future validation',
     outcome: isPortuguese ? 'Resultado documentado' : 'Documented outcome',
     focus: isPortuguese ? 'Foco' : 'Focus',
+  };
+
+  const sectionLabels = {
+    overview: isPortuguese ? 'Visão Geral' : 'Overview',
+    challenge: isPortuguese ? 'Desafio' : 'Challenge',
+    research: isPortuguese ? 'Pesquisa & Análise' : 'Research & Analysis',
+    define: isPortuguese ? 'Definição' : 'Define',
+    process: isPortuguese ? 'Processo' : 'Process',
+    journey: isPortuguese ? 'Jornada do Usuário' : 'User Journey',
+    architecture: isPortuguese ? 'Arquitetura' : 'Architecture',
+    wireframes: isPortuguese ? 'Wireframes' : 'Wireframing',
+    validation: isPortuguese ? 'Validação' : 'Validation',
+    result: isPortuguese ? 'Resultado' : 'Result',
   };
 
   const findSectionItems = (value: unknown): Array<{ label: string; text: string }> => {
@@ -308,22 +384,62 @@ export const CaseStudyPage: React.FC = () => {
   ];
 
   const architectureItems = findSectionItems(content.informationArchitecture);
+  const quotedProcessQuestions = (cleanText(content.process)?.match(/'([^']+)'/g) ?? [])
+    .map((value) => value.replace(/^'|'$/g, '').trim())
+    .filter(Boolean)
+    .slice(0, 3);
   const architectureCards = architectureItems.length
     ? architectureItems.slice(0, 6)
-    : journeySteps.slice(0, 3).map((text, index) => ({
-        label: `${isPortuguese ? 'Etapa' : 'Stage'} ${index + 1}`,
-        text,
-      }));
-  const validationItems = [
+    : quotedProcessQuestions.length === 3
+      ? quotedProcessQuestions.map((text) => ({ label: text, text: isPortuguese ? 'Pergunta central do produto.' : 'Core product question.' }))
+      : journeySteps.slice(0, 3).map((text, index) => ({
+          label: `${isPortuguese ? 'Etapa' : 'Stage'} ${index + 1}`,
+          text,
+        }));
+
+  const allValidationItems = [
     ...findSectionItems(content.usabilityTesting),
-    ...findSectionItems(content.craftNotes).filter((item) => item.label === 'Testing'),
-  ].slice(0, 4);
+    ...findSectionItems(content.craftNotes),
+  ];
+  const validationItems = allValidationItems
+    .filter((item) => /testing|insight|validation|validação/i.test(item.label) || /recomenda|métrica|metric|recommend/i.test(item.text))
+    .slice(0, 2);
+  const fallbackValidationItems = allValidationItems.slice(0, 2);
+  const validationCards = validationItems.length === 2 ? validationItems : fallbackValidationItems;
+
   const resultItems = (content.results ?? [])
     .flatMap((result) => findSectionItems(result))
     .slice(0, 4);
   if (!resultItems.length && cleanText(content.finalProject)) {
     resultItems.push({ label: copy.outcome, text: cleanText(content.finalProject) as string });
   }
+  if (resultItems.length < 4 && cleanText(content.conclusion)) {
+    const conclusionParts = (cleanText(content.conclusion) as string)
+      .split(/(?<=[.!?])\s+/)
+      .map((text) => text.trim())
+      .filter(Boolean);
+    conclusionParts.slice(0, 4 - resultItems.length).forEach((text, index) => {
+      resultItems.push({
+        label: isPortuguese ? `Resultado ${resultItems.length + 1}` : `Result ${resultItems.length + 1}`,
+        text,
+      });
+    });
+  }
+
+  const challengeQuote = id === '2'
+    ? (isPortuguese
+      ? '“Eu vejo os números, mas não sei o que realmente importa hoje.”'
+      : '“I see the numbers, but I do not know what really matters today.”')
+    : undefined;
+
+  const getChallengeHeadline = (value: unknown): string => {
+    const text = cleanText(value) ?? '';
+    const firstSentence = text.split(/[.!?](?:\s|$)/)[0].trim();
+    if (firstSentence.length <= 92) return firstSentence;
+    const cut = firstSentence.slice(0, 92);
+    const lastSpace = cut.lastIndexOf(' ');
+    return `${cut.slice(0, lastSpace > 50 ? lastSpace : 92).trim()}…`;
+  };
 
   return (
     <MainLayout>
@@ -358,7 +474,7 @@ export const CaseStudyPage: React.FC = () => {
 
         <main className="case-study-content">
           <section className="case-study-section case-study-section--light">
-            <div className="case-study-index">01 · {isPortuguese ? 'Overview' : 'Overview'}</div>
+            <div className="case-study-index">01 · {sectionLabels.overview}</div>
 
             <div className="case-study-module">
               <h2 className="case-study-headline">{copy.overview}</h2>
@@ -378,22 +494,28 @@ export const CaseStudyPage: React.FC = () => {
             </div>
           </section>
 
-          <section className="case-study-section case-study-section--dark">
-            <div className="case-study-index case-study-index--dark">02 · Challenge</div>
+          <section className="case-study-section case-study-section--dark case-study-section--centered">
+            <div className="case-study-index case-study-index--dark">02 · {sectionLabels.challenge}</div>
 
-            <div className="case-study-module case-study-module--dark">
-              <h2 className="case-study-headline case-study-headline--dark">
-                {getHeroSummary(content.challenge).toUpperCase()}
+            <div className="case-study-module case-study-module--dark case-study-module--centered">
+              <h2 className="case-study-headline case-study-headline--dark case-study-headline--centered">
+                {getChallengeHeadline(content.challenge).toUpperCase()}
               </h2>
 
-              <p className="case-study-copy case-study-copy--dark">
+              <p className="case-study-copy case-study-copy--dark case-study-copy--centered">
                 {cleanText(content.challenge)}
               </p>
+
+              {challengeQuote && (
+                <blockquote className="case-study-quote-box">
+                  {challengeQuote}
+                </blockquote>
+              )}
             </div>
           </section>
 
           <section className="case-study-section case-study-section--light">
-            <div className="case-study-index">03 · Pesquisa &amp; análise</div>
+            <div className="case-study-index">03 · {sectionLabels.research}</div>
 
             <div className="case-study-module">
               <h2 className="case-study-headline">{copy.research}</h2>
@@ -414,7 +536,7 @@ export const CaseStudyPage: React.FC = () => {
           </section>
 
           <section className="case-study-section case-study-section--light">
-            <div className="case-study-index">04 · Define</div>
+            <div className="case-study-index">04 · {sectionLabels.define}</div>
 
             <div className="case-study-module">
               <h2 className="case-study-headline">{copy.define}</h2>
@@ -435,7 +557,7 @@ export const CaseStudyPage: React.FC = () => {
 
           <section className="case-study-section case-study-section--dark case-study-section--process">
             <div className="case-study-index case-study-index--dark">
-              05 · {isPortuguese ? 'Processo' : 'Process'}
+              05 · {sectionLabels.process}
             </div>
 
             <div className="case-study-module case-study-module--dark">
@@ -456,7 +578,7 @@ export const CaseStudyPage: React.FC = () => {
           </section>
 
           <section className="case-study-section case-study-section--light">
-            <div className="case-study-index">06 · User Journey</div>
+            <div className="case-study-index">06 · {sectionLabels.journey}</div>
 
             <div className="case-study-module">
               <h2 className="case-study-headline">{copy.journey}</h2>
@@ -472,7 +594,7 @@ export const CaseStudyPage: React.FC = () => {
           </section>
 
           <section className="case-study-section case-study-section--light">
-            <div className="case-study-index">07 · {isPortuguese ? 'Arquitetura' : 'Architecture'}</div>
+            <div className="case-study-index">07 · {sectionLabels.architecture}</div>
 
             <div className="case-study-module">
               <h2 className="case-study-headline">{copy.architecture}</h2>
@@ -489,7 +611,7 @@ export const CaseStudyPage: React.FC = () => {
           </section>
 
           <section className="case-study-section case-study-section--light">
-            <div className="case-study-index">08 · Wireframing</div>
+            <div className="case-study-index">08 · {sectionLabels.wireframes}</div>
 
             <div className="case-study-module">
               <h2 className="case-study-headline">{copy.wireframes}</h2>
@@ -509,14 +631,14 @@ export const CaseStudyPage: React.FC = () => {
 
           <section className="case-study-section case-study-section--dark">
             <div className="case-study-index case-study-index--dark">
-              09 · {isPortuguese ? 'Validação' : 'Validation'}
+              09 · {sectionLabels.validation}
             </div>
 
             <div className="case-study-module case-study-module--dark">
               <h2 className="case-study-headline case-study-headline--dark">{copy.validation}</h2>
 
               <div className="case-study-validation-grid">
-                {validationItems.map((item, index) => (
+                {validationCards.map((item, index) => (
                   <div className="case-study-validation-card" key={`${item.label}-${index}`}>
                     <strong>{item.label}</strong>
                     <p>{item.text}</p>
@@ -539,8 +661,8 @@ export const CaseStudyPage: React.FC = () => {
             </div>
           </section>
 
-          <section className="case-study-section case-study-section--light">
-            <div className="case-study-index">10 · {isPortuguese ? 'Resultado' : 'Result'}</div>
+          <section className="case-study-section case-study-section--light case-study-section--result">
+            <div className="case-study-index">10 · {sectionLabels.result}</div>
 
             <div className="case-study-module">
               <h2 className="case-study-headline">{copy.results}</h2>
@@ -579,6 +701,8 @@ export const CaseStudyPage: React.FC = () => {
             <span className="btn-back-projects__circle" aria-hidden="true">↗</span>
           </button>
         </footer>
+
+        <PortfolioFooter />
       </div>
     </MainLayout>
   );

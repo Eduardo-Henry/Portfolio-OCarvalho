@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { MdDownload } from 'react-icons/md';
 import './ContactSection.css';
 import Image3D from '../../../assets/images/Image3D.png';
+import { usePointerParallax } from '../../../hooks/usePointerParallax';
 
 interface ContactSectionProps {
   id?: string;
@@ -10,6 +11,12 @@ interface ContactSectionProps {
 
 export const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
   const { t } = useTranslation();
+  const contactSectionRef = useRef<HTMLElement>(null);
+  const { offset, isInteracting, pointerHandlers } = usePointerParallax({
+    boundsRef: contactSectionRef,
+    maxX: 28,
+    maxY: 18,
+  });
 
   const handleContactClick = () => {
     const email = 'du.h.c.oliveira17@gmail.com';
@@ -17,7 +24,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
   };
 
   return (
-    <section className="contact-section" id={id || 'contact'}>
+    <section className="contact-section" id={id || 'contact'} ref={contactSectionRef}>
       <div className="contact-wrapper">
         <div className="contact-grid">
           
@@ -29,8 +36,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
           </div>
 
           {/* CENTRO DA COLUNA ESQUERDA: APENAS A IMAGEM 3D */}
-          <div className="contact-image-container">
-            <img src={Image3D} alt={t('contact.imageAlt')} loading="lazy" className="contact-image" />
+          <div className="contact-image-container" {...pointerHandlers}>
+            <img
+              src={Image3D}
+              alt={t('contact.imageAlt')}
+              loading="lazy"
+              className={`contact-image ${isInteracting ? 'contact-image--interactive' : ''}`}
+              style={isInteracting ? { transform: `translate3d(${offset.x}px, ${offset.y}px, 0)` } : undefined}
+            />
           </div>
 
           {/* BASE DA COLUNA ESQUERDA: TEXTOS DESCRITIVOS */}

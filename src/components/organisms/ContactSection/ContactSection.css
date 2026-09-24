@@ -69,6 +69,33 @@
   height: 100%;
   object-fit: contain;
   animation: contactFloat 6s ease-in-out infinite;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.contact-image-container {
+  touch-action: none;
+  cursor: grab;
+}
+
+.contact-image-container:active {
+  cursor: grabbing;
+}
+
+.contact-image--interactive {
+  animation: none;
+  transition: transform 0.15s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-image,
+  .contact-image--interactive,
+  .contact-button,
+  .contact-cv-button {
+    animation: none;
+    transition: none;
+    transform: none !important;
+  }
 }
 
 @keyframes contactFloat {

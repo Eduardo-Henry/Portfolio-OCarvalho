@@ -83,15 +83,18 @@ const defaultCaseStudies: CaseStudy[] = [
     image: TIHelpImg,
     tag: 'UX Design · Multiplataforma',
     title: 'TI Help',
-    description: 'Sistema integrado de suporte técnico (mobile, web e desktop), com triagem assistida por IA. Projeto real de TCC.',
-    prototypeUrl: 'https://www.figma.com/proto/fw2bexpovuRBEjPGqDwRW3/PIM-3%C2%B0-SEM?node-id=1158-457&p=f&t=pv64Gtc7MDHmRbCO-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1158%3A457',
+    description:
+      'Sistema integrado de suporte técnico (mobile, web e desktop), com triagem assistida por IA. Projeto real de TCC.',
+    prototypeUrl:
+      'https://www.figma.com/proto/fw2bexpovuRBEjPGqDwRW3/PIM-3%C2%B0-SEM?node-id=1158-457&p=f&t=pv64Gtc7MDHmRbCO-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1158%3A457',
   },
   {
     id: '2',
     image: Kaloburn,
     tag: 'UX/UI Design · Marketplace Fitness',
     title: 'KaloBurn',
-    description: 'Marketplace fitness de dois lados com IA de personalização, conectando usuários a profissionais de educação física.',
+    description:
+      'Marketplace fitness de dois lados com IA de personalização, conectando usuários a profissionais de educação física.',
     prototypeUrl: 'https://www.figma.com/proto/nfQdsEFYEm9pVEjSjPSdcz',
   },
   {
@@ -99,7 +102,8 @@ const defaultCaseStudies: CaseStudy[] = [
     image: DNJeansImg,
     tag: 'UX Estratégico · Catálogo Digital',
     title: 'DN Jeans',
-    description: 'Catálogo conversacional mobile-first, substituindo checkout tradicional por conversão direta via WhatsApp.',
+    description:
+      'Catálogo conversacional mobile-first, substituindo checkout tradicional por conversão direta via WhatsApp.',
     prototypeUrl: 'https://www.figma.com/proto/uPJ99JDTyjMPamkJnS9FTu',
   },
   {
@@ -107,7 +111,8 @@ const defaultCaseStudies: CaseStudy[] = [
     image: Kaloburn,
     tag: 'Social Media Design · Content Strategy',
     title: 'Social Media Design & Content Strategy',
-    description: 'Estratégia de conteúdo e design para aumentar alcance, reutilização e consistência de comunicação em redes sociais.',
+    description:
+      'Estratégia de conteúdo e design para aumentar alcance, reutilização e consistência de comunicação em redes sociais.',
     prototypeUrl: 'https://www.instagram.com/',
   },
   {
@@ -115,7 +120,8 @@ const defaultCaseStudies: CaseStudy[] = [
     image: RealStateImg,
     tag: 'UX/UI Design · Marketplace Imobiliário',
     title: 'ImovePro',
-    description: 'Marketplace imobiliário multi-perfil com busca por raio geográfico e dashboards dedicados por tipo de usuário.',
+    description:
+      'Marketplace imobiliário multi-perfil com busca por raio geográfico e dashboards dedicados por tipo de usuário.',
     prototypeUrl: 'https://www.figma.com/proto/pr2HKsIP3kV7GUYN7l2vZy',
   },
   {
@@ -123,7 +129,8 @@ const defaultCaseStudies: CaseStudy[] = [
     image: YatchImg,
     tag: 'UX/UI Design · Luxury (Ficcional)',
     title: 'Yacht Booking',
-    description: 'Exploração conceitual de design premium para reserva de experiências marítimas de alto padrão.',
+    description:
+      'Exploração conceitual de design premium para reserva de experiências marítimas de alto padrão.',
     prototypeUrl: 'https://www.figma.com/proto/jrsEdX4WbU27tltU5kwivm',
   },
   {
@@ -131,7 +138,8 @@ const defaultCaseStudies: CaseStudy[] = [
     image: SolarPanelImg,
     tag: 'UX/UI Design · Dashboard (Template)',
     title: 'Solar Panel Monitoring',
-    description: 'Template de dashboard de monitoramento de energia solar, desenvolvido como produto de design para venda.',
+    description:
+      'Template de dashboard de monitoramento de energia solar, desenvolvido como produto de design para venda.',
     prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/',
   },
 ];
@@ -145,15 +153,38 @@ const defaultVideos: Video[] = [
 ];
 
 const socialMediaCarouselImages = [
-  CeiaDoFortalecimentoImg, ColiseuImg, CordeiroCoroaImg, CultoDaFmlImg,
-  CultoDeJovensImg, CultoDeLibertacaoImg, EleDeixouAs99Img, JesusEstaNoDesertroImg,
-  JesusMichelBasquiartReferenceImg, KaueVermelhoImg, MaosCultoDeLibertacaoImg,
-  MissoesImg, NotblindImg, NovosHorizontesImg, OTempoCertoImg, SantaCeiaImg,
-  SantaCeiaJesusTacaImg, SantaCeiaOusadoAmorImg,
+  CeiaDoFortalecimentoImg,
+  ColiseuImg,
+  CordeiroCoroaImg,
+  CultoDaFmlImg,
+  CultoDeJovensImg,
+  CultoDeLibertacaoImg,
+  EleDeixouAs99Img,
+  JesusEstaNoDesertroImg,
+  JesusMichelBasquiartReferenceImg,
+  KaueVermelhoImg,
+  MaosCultoDeLibertacaoImg,
+  MissoesImg,
+  NotblindImg,
+  NovosHorizontesImg,
+  OTempoCertoImg,
+  SantaCeiaImg,
+  SantaCeiaJesusTacaImg,
+  SantaCeiaOusadoAmorImg,
+
   // Football / Sports
-  ArgentinaImg, CR7Img, CR7AlNassrImg, DembeleImg, DonDoueImg,
-  GauchoImg, ManchesterCityImg, MbappeDesignImg, MessiImg,
-  RaphinhaDesignImg, RealMadridImg, Yamal2Img,
+  ArgentinaImg,
+  CR7Img,
+  CR7AlNassrImg,
+  DembeleImg,
+  DonDoueImg,
+  GauchoImg,
+  ManchesterCityImg,
+  MbappeDesignImg,
+  MessiImg,
+  RaphinhaDesignImg,
+  RealMadridImg,
+  Yamal2Img,
 ];
 
 export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
@@ -163,15 +194,29 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
 }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [mutedVideos, setMutedVideos] = useState<{ [key: string]: boolean }>(
-    defaultVideos.reduce((acc, video) => ({ ...acc, [video.id]: true }), {})
+
+  const [mutedVideos, setMutedVideos] = useState<{
+    [key: string]: boolean;
+  }>(
+    defaultVideos.reduce(
+      (acc, video) => ({
+        ...acc,
+        [video.id]: true,
+      }),
+      {}
+    )
   );
 
   const [count, setCount] = useState<number>(0);
+
   const sectionRef = useRef<HTMLDivElement>(null);
+
   const targetCount = 52;
-  const revealObserverRef = useRef<IntersectionObserver | null>(null);
+
+  const revealObserverRef =
+    useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
     const currentSection = sectionRef.current;
@@ -179,97 +224,187 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries;
+
         if (entry.isIntersecting) {
           const duration = 1500;
           const startTime = performance.now();
 
           const animate = (currentTime: number) => {
             const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const easeOutQuad = (t: number) => t * (2 - t);
-            const currentCount = Math.floor(easeOutQuad(progress) * targetCount);
+
+            const progress = Math.min(
+              elapsed / duration,
+              1
+            );
+
+            const easeOutQuad = (t: number) =>
+              t * (2 - t);
+
+            const currentCount = Math.floor(
+              easeOutQuad(progress) * targetCount
+            );
+
             setCount(currentCount);
+
             if (progress < 1) {
               requestAnimationFrame(animate);
             }
           };
 
           requestAnimationFrame(animate);
-          if (currentSection) observer.unobserve(currentSection);
+
+          if (currentSection) {
+            observer.unobserve(currentSection);
+          }
         }
       },
-      { threshold: 0.15 }
+      {
+        threshold: 0.15,
+      }
     );
 
-    if (currentSection) observer.observe(currentSection);
+    if (currentSection) {
+      observer.observe(currentSection);
+    }
+
     return () => {
-      if (currentSection) observer.unobserve(currentSection);
+      if (currentSection) {
+        observer.unobserve(currentSection);
+      }
     };
   }, []);
 
   useEffect(() => {
     const root = sectionRef.current;
+
     if (!root) return;
 
     const elements = root.querySelectorAll<HTMLElement>(
       '.scroll-reveal, .case-studies-header, .case-studies-filter, .case-studies-carousel-wrapper'
     );
 
-    revealObserverRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            revealObserverRef.current?.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
-    );
+    revealObserverRef.current =
+      new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add(
+                'is-visible'
+              );
+
+              revealObserverRef.current?.unobserve(
+                entry.target
+              );
+            }
+          });
+        },
+        {
+          threshold: 0.12,
+          rootMargin: '0px 0px -8% 0px',
+        }
+      );
 
     elements.forEach((element, index) => {
-      element.style.setProperty('--reveal-delay', `${Math.min(index * 70, 420)}ms`);
-      revealObserverRef.current?.observe(element);
+      element.style.setProperty(
+        '--reveal-delay',
+        `${Math.min(index * 70, 420)}ms`
+      );
+
+      revealObserverRef.current?.observe(
+        element
+      );
     });
 
-    return () => revealObserverRef.current?.disconnect();
+    return () =>
+      revealObserverRef.current?.disconnect();
   }, [selectedCategory]);
 
   useEffect(() => {
     const root = sectionRef.current;
+
     if (!root) return;
 
     let frame = 0;
+
     const handleScroll = () => {
       cancelAnimationFrame(frame);
+
       frame = requestAnimationFrame(() => {
-        root.querySelectorAll<HTMLElement>('.case-card__image').forEach((image) => {
-          const rect = image.getBoundingClientRect();
-          const viewport = window.innerHeight || 1;
-          const offset = ((rect.top + rect.height / 2) - viewport / 2) / viewport;
-          image.style.setProperty('--card-parallax', `${Math.max(-10, Math.min(10, offset * -8))}px`);
-        });
+        root
+          .querySelectorAll<HTMLElement>(
+            '.case-card__image'
+          )
+          .forEach((image) => {
+            const rect =
+              image.getBoundingClientRect();
+
+            const viewport =
+              window.innerHeight || 1;
+
+            const offset =
+              (rect.top +
+                rect.height / 2 -
+                viewport / 2) /
+              viewport;
+
+            image.style.setProperty(
+              '--card-parallax',
+              `${Math.max(
+                -10,
+                Math.min(10, offset * -8)
+              )}px`
+            );
+          });
       });
     };
 
     handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    window.addEventListener(
+      'scroll',
+      handleScroll,
+      {
+        passive: true,
+      }
+    );
+
     return () => {
       cancelAnimationFrame(frame);
-      window.removeEventListener('scroll', handleScroll);
+
+      window.removeEventListener(
+        'scroll',
+        handleScroll
+      );
     };
   }, [selectedCategory]);
 
   const categories = [
-    { id: 'all', label: t('caseStudies.categories.uxDesign') },
-    { id: 'web', label: t('caseStudies.categories.videoEdit') },
-    { id: 'mobile', label: t('caseStudies.categories.socialMedia') },
+    {
+      id: 'all',
+      label: t(
+        'caseStudies.categories.uxDesign'
+      ),
+    },
+    {
+      id: 'web',
+      label: t(
+        'caseStudies.categories.videoEdit'
+      ),
+    },
+    {
+      id: 'mobile',
+      label: t(
+        'caseStudies.categories.socialMedia'
+      ),
+    },
   ];
 
   // Título sempre fixo
   const dynamicTitle = 'Portfolio';
 
-  const handleCategoryChange = (categoryId: string) => {
+  const handleCategoryChange = (
+    categoryId: string
+  ) => {
     setSelectedCategory(categoryId);
   };
 
@@ -280,193 +415,351 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
     }));
   };
 
-  const handleWatchPrototype = (e: React.MouseEvent, prototypeUrl?: string) => {
+  const handleWatchPrototype = (
+    e: React.MouseEvent,
+    prototypeUrl?: string
+  ) => {
     e.stopPropagation();
+
     if (prototypeUrl) {
-      window.open(prototypeUrl, '_blank');
+      window.open(
+        prototypeUrl,
+        '_blank'
+      );
     }
   };
 
-  const handleSeeProject = (e: React.MouseEvent, id: string) => {
+  const handleSeeProject = (
+    e: React.MouseEvent,
+    id: string
+  ) => {
     e.stopPropagation();
-    navigate(`/case-studies/${id}`);
+
+    navigate(
+      `/case-studies/${id}`
+    );
   };
 
   return (
-    <section className="case-studies-section" id={id} ref={sectionRef}>
+    <section
+      className="case-studies-section"
+      id={id}
+      ref={sectionRef}
+    >
       <div className="case-studies-container">
 
         <div className="case-studies-header">
+
+          {/* CONTADOR ACIMA DO H1 */}
+          <div className="case-studies-counter">
+            {t(
+              'caseStudies.projectsCount',
+              { count }
+            )}
+          </div>
+
+          {/* H1 */}
           <div className="case-studies-title-wrapper">
             <h2 className="case-studies-title">
               {dynamicTitle}
             </h2>
           </div>
-          <div className="case-studies-counter">
-            {t('caseStudies.projectsCount', { count })}
-          </div>
+
         </div>
 
         <div className="case-studies-filter">
-          <NavPill items={categories} onSelect={handleCategoryChange} />
+          <NavPill
+            items={categories}
+            onSelect={handleCategoryChange}
+          />
         </div>
 
         {selectedCategory === 'mobile' ? (
           <div className="case-studies-carousel-wrapper scroll-reveal">
-            <Carousel images={socialMediaCarouselImages} />
+            <Carousel
+              images={
+                socialMediaCarouselImages
+              }
+            />
           </div>
         ) : selectedCategory === 'web' ? (
           <div className="case-studies-grid">
+
             {videos.map((video) => {
-              const isMuted = mutedVideos[video.id] ?? true;
+              const isMuted =
+                mutedVideos[video.id] ??
+                true;
+
               return (
                 <div
                   key={video.id}
                   className="case-study-card video-card scroll-reveal"
                   id={`video-${video.id}`}
-                  style={{ position: 'relative' }}
+                  style={{
+                    position: 'relative',
+                  }}
                 >
                   <video
                     autoPlay
                     muted={isMuted}
                     loop
                     playsInline
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                    }}
                   >
-                    <source src={video.src} type="video/mp4" />
-                    {t('caseStudies.videoNotSupported')}
+                    <source
+                      src={video.src}
+                      type="video/mp4"
+                    />
+
+                    {t(
+                      'caseStudies.videoNotSupported'
+                    )}
                   </video>
 
                   <button
-                    onClick={() => toggleMute(video.id)}
+                    onClick={() =>
+                      toggleMute(
+                        video.id
+                      )
+                    }
                     className="video-audio-toggle-btn"
                     style={{
-                      position: 'absolute',
+                      position:
+                        'absolute',
                       bottom: '15px',
                       right: '15px',
                       zIndex: 10,
-                      background: 'rgba(0, 0, 0, 0.7)',
+                      background:
+                        'rgba(0, 0, 0, 0.7)',
                       color: '#fff',
                       border: 'none',
-                      borderRadius: '50px',
-                      padding: '8px 14px',
+                      borderRadius:
+                        '50px',
+                      padding:
+                        '8px 14px',
                       cursor: 'pointer',
                       fontSize: '12px',
                       fontWeight: 'bold',
                       display: 'flex',
-                      alignItems: 'center',
+                      alignItems:
+                        'center',
                       gap: '6px',
-                      backdropFilter: 'blur(4px)',
-                      transition: 'background 0.2s ease',
+                      backdropFilter:
+                        'blur(4px)',
+                      transition:
+                        'background 0.2s ease',
                     }}
                   >
-                    {isMuted ? t('caseStudies.unmute') : t('caseStudies.mute')}
+                    {isMuted
+                      ? t(
+                          'caseStudies.unmute'
+                        )
+                      : t(
+                          'caseStudies.mute'
+                        )}
                   </button>
                 </div>
               );
             })}
+
           </div>
         ) : (
           <div className="case-studies-grid">
-            {caseStudies.map((caseStudy) => (
-              <div
-                key={caseStudy.id}
-                className="case-study-card scroll-reveal"
-                id={`project-${caseStudy.id}`}
-              >
-                {/* Imagem com overlay de hover (desktop) */}
+
+            {caseStudies.map(
+              (caseStudy) => (
                 <div
-                  className="case-card__image"
-                  style={{
-                    backgroundImage: `url(${caseStudy.image})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                  }}
+                  key={caseStudy.id}
+                  className="case-study-card scroll-reveal"
+                  id={`project-${caseStudy.id}`}
                 >
-                  <div className="case-card__overlay">
-                    <Button
-                      variant="secondary"
-                      size="medium"
-                      className="case-card__watch-btn"
-                      onClick={(e) => handleWatchPrototype(e, caseStudy.prototypeUrl)}
-                    >
-                      <span className="case-card__play-circle">
-                        <svg viewBox="0 0 24 24" fill="white" width="14" height="14">
-                          <polygon points="6,4 20,12 6,20" />
-                        </svg>
-                      </span>
-                      {t('caseStudies.watchPrototype')}
-                    </Button>
 
-                    <Button
-                      variant="primary"
-                      size="medium"
-                      className="case-card__see-btn"
-                      onClick={(e) => handleSeeProject(e, caseStudy.id)}
-                    >
-                      {t('caseStudies.viewProject')}
-                      <span className="case-card__arrow-circle">
-                        <svg viewBox="0 0 24 24" fill="none" width="16" height="16" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                          <line x1="7" y1="17" x2="17" y2="7" />
-                          <polyline points="7 7 17 7 17 17" />
-                        </svg>
-                      </span>
-                    </Button>
+                  {/* Imagem com overlay de hover (desktop) */}
+                  <div
+                    className="case-card__image"
+                    style={{
+                      backgroundImage: `url(${caseStudy.image})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition:
+                        'center',
+                    }}
+                  >
+                    <div className="case-card__overlay">
+
+                      <Button
+                        variant="secondary"
+                        size="medium"
+                        className="case-card__watch-btn"
+                        onClick={(e) =>
+                          handleWatchPrototype(
+                            e,
+                            caseStudy.prototypeUrl
+                          )
+                        }
+                      >
+                        <span className="case-card__play-circle">
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="white"
+                            width="14"
+                            height="14"
+                          >
+                            <polygon points="6,4 20,12 6,20" />
+                          </svg>
+                        </span>
+
+                        {t(
+                          'caseStudies.watchPrototype'
+                        )}
+                      </Button>
+
+                      <Button
+                        variant="primary"
+                        size="medium"
+                        className="case-card__see-btn"
+                        onClick={(e) =>
+                          handleSeeProject(
+                            e,
+                            caseStudy.id
+                          )
+                        }
+                      >
+                        {t(
+                          'caseStudies.viewProject'
+                        )}
+
+                        <span className="case-card__arrow-circle">
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            width="16"
+                            height="16"
+                            stroke="white"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <line
+                              x1="7"
+                              y1="17"
+                              x2="17"
+                              y2="7"
+                            />
+
+                            <polyline points="7 7 17 7 17 17" />
+                          </svg>
+                        </span>
+                      </Button>
+
+                    </div>
                   </div>
+
+                  {/* Botões mobile — sempre visíveis abaixo da imagem */}
+                  <div className="case-card__actions">
+
+                    {/* Texto: tag + título + descrição */}
+                    <div className="case-card__info">
+
+                      {caseStudy.tag && (
+                        <span className="case-card__tag">
+                          {caseStudy.tag}
+                        </span>
+                      )}
+
+                      {caseStudy.title && (
+                        <h3 className="case-card__title">
+                          {caseStudy.title}
+                        </h3>
+                      )}
+
+                      {caseStudy.description && (
+                        <p className="case-card__desc">
+                          {caseStudy.description}
+                        </p>
+                      )}
+
+                    </div>
+
+                    {/* Botões */}
+                    <div className="case-card__buttons">
+
+                      <Button
+                        variant="secondary"
+                        size="medium"
+                        className="case-card__watch-btn case-card__watch-btn--mobile"
+                        onClick={(e) =>
+                          handleWatchPrototype(
+                            e,
+                            caseStudy.prototypeUrl
+                          )
+                        }
+                      >
+                        <span className="case-card__play-circle">
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="white"
+                            width="14"
+                            height="14"
+                          >
+                            <polygon points="6,4 20,12 6,20" />
+                          </svg>
+                        </span>
+
+                        {t(
+                          'caseStudies.watchPrototype'
+                        )}
+                      </Button>
+
+                      <Button
+                        variant="primary"
+                        size="medium"
+                        className="case-card__see-btn case-card__see-btn--mobile"
+                        onClick={(e) =>
+                          handleSeeProject(
+                            e,
+                            caseStudy.id
+                          )
+                        }
+                      >
+                        {t(
+                          'caseStudies.viewProject'
+                        )}
+
+                        <span className="case-card__arrow-circle">
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            width="16"
+                            height="16"
+                            stroke="white"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <line
+                              x1="7"
+                              y1="17"
+                              x2="17"
+                              y2="7"
+                            />
+
+                            <polyline points="7 7 17 7 17 17" />
+                          </svg>
+                        </span>
+                      </Button>
+
+                    </div>
+
+                  </div>
+
                 </div>
+              )
+            )}
 
-                {/* Botões mobile — sempre visíveis abaixo da imagem */}
-                <div className="case-card__actions">
-
-                  {/* Texto: tag + título + descrição */}
-                  <div className="case-card__info">
-                    {caseStudy.tag && (
-                      <span className="case-card__tag">{caseStudy.tag}</span>
-                    )}
-                    {caseStudy.title && (
-                      <h3 className="case-card__title">{caseStudy.title}</h3>
-                    )}
-                    {caseStudy.description && (
-                      <p className="case-card__desc">{caseStudy.description}</p>
-                    )}
-                  </div>
-
-                  {/* Botões */}
-                  <div className="case-card__buttons">
-                    <Button
-                      variant="secondary"
-                      size="medium"
-                      className="case-card__watch-btn case-card__watch-btn--mobile"
-                      onClick={(e) => handleWatchPrototype(e, caseStudy.prototypeUrl)}
-                    >
-                      <span className="case-card__play-circle">
-                        <svg viewBox="0 0 24 24" fill="white" width="14" height="14">
-                          <polygon points="6,4 20,12 6,20" />
-                        </svg>
-                      </span>
-                      {t('caseStudies.watchPrototype')}
-                    </Button>
-
-                    <Button
-                      variant="primary"
-                      size="medium"
-                      className="case-card__see-btn case-card__see-btn--mobile"
-                      onClick={(e) => handleSeeProject(e, caseStudy.id)}
-                    >
-                      {t('caseStudies.viewProject')}
-                      <span className="case-card__arrow-circle">
-                        <svg viewBox="0 0 24 24" fill="none" width="16" height="16" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                          <line x1="7" y1="17" x2="17" y2="7" />
-                          <polyline points="7 7 17 7 17 17" />
-                        </svg>
-                      </span>
-                    </Button>
-                  </div>
-
-                </div>
-
-              </div>
-            ))}
           </div>
         )}
 

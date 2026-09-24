@@ -20,8 +20,11 @@ const skills: Skill[] = [
 
 export const SkillsSection: React.FC<SkillsSectionProps> = ({ id }) => {
   const { t } = useTranslation();
+
   const [count, setCount] = useState<number>(0);
+
   const sectionRef = useRef<HTMLDivElement>(null);
+
   const targetCount = 354;
 
   useEffect(() => {
@@ -30,17 +33,30 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ id }) => {
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries;
+
         if (entry.isIntersecting) {
           let start = 0;
+
           const duration = 1500;
+
           const startTime = performance.now();
 
           const animate = (currentTime: number) => {
             const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
 
-            const easeOutQuad = (t: number) => t * (2 - t);
-            const currentCount = Math.floor(start + easeOutQuad(progress) * (targetCount - start));
+            const progress = Math.min(
+              elapsed / duration,
+              1
+            );
+
+            const easeOutQuad = (t: number) =>
+              t * (2 - t);
+
+            const currentCount = Math.floor(
+              start +
+                easeOutQuad(progress) *
+                  (targetCount - start)
+            );
 
             setCount(currentCount);
 
@@ -50,7 +66,10 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ id }) => {
           };
 
           requestAnimationFrame(animate);
-          if (currentSection) observer.unobserve(currentSection);
+
+          if (currentSection) {
+            observer.unobserve(currentSection);
+          }
         }
       },
       {
@@ -63,42 +82,80 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ id }) => {
     }
 
     return () => {
-      if (currentSection) observer.unobserve(currentSection);
+      if (currentSection) {
+        observer.unobserve(currentSection);
+      }
     };
   }, []);
 
   return (
-    <section className="skills-section" id={id} ref={sectionRef}>
+    <section
+      className="skills-section"
+      id={id}
+      ref={sectionRef}
+    >
       <div className="skills-container">
-        
+
+        {/* ====================================== */}
+        {/* HEADER                                 */}
+        {/* ====================================== */}
+
         <div className="skills-header">
+
+          {/* CONTADOR ACIMA DO H1 */}
+          <div className="skills-counter">
+            +{count}
+            <br />
+            {t('skills.counterLine1')}
+            <br />
+            {t('skills.counterLine2')}
+          </div>
+
+          {/* H1 */}
           <h2 className="skills-title">
             {t('skills.title')}
           </h2>
-          
-          <div className="skills-counter">
-            +{count}<br />{t('skills.counterLine1')}<br />{t('skills.counterLine2')}
-          </div>
+
         </div>
 
+        {/* ====================================== */}
+        {/* SKILLS                                 */}
+        {/* ====================================== */}
+
         <div className="skills-grid">
+
           {skills.map((skill, index) => (
-            <div 
-              key={skill.id} 
+            <div
+              key={skill.id}
               className="skill-item"
-              style={{ '--stack-index': index } as React.CSSProperties}
+              style={
+                {
+                  '--stack-index': index,
+                } as React.CSSProperties
+              }
             >
-              <div className="skill-number">{skill.number}</div>
+              <div className="skill-number">
+                {skill.number}
+              </div>
+
               <div className="skill-content">
+
                 <h3 className="skill-title-item">
-                  {t(`skills.items.${skill.id}.title`)}
+                  {t(
+                    `skills.items.${skill.id}.title`
+                  )}
                 </h3>
+
                 <p className="skill-description">
-                  {t(`skills.items.${skill.id}.description`)}
+                  {t(
+                    `skills.items.${skill.id}.description`
+                  )}
                 </p>
+
               </div>
             </div>
           ))}
+
         </div>
 
       </div>

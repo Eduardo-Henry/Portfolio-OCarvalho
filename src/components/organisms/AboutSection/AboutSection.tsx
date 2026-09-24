@@ -50,9 +50,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
   const resolvedDescription = description ?? t('about.description');
   const resolvedCtaText = ctaText ?? t('about.cta');
 
-  const handleContactClick = () => {
-    const contactSection = document.getElementById('contact');
-    contactSection?.scrollIntoView({ behavior: 'smooth' });
+  const handleProjectsClick = () => {
+    const caseStudiesSection = document.getElementById('case-studies');
+    caseStudiesSection?.scrollIntoView({ behavior: 'smooth' });
   };
 
   // Dispara a animação de escrita assim que a secção aparece 20% no ecrã
@@ -96,7 +96,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             <Button
               variant="primary"
               size="large"
-              onClick={handleContactClick}
+              onClick={handleProjectsClick}
               className="about-button"
               aria-label={resolvedCtaText}
             >
