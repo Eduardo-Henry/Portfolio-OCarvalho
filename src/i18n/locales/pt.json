@@ -269,7 +269,7 @@
     "1": {
       "title": "TI Help",
       "overview": "Sistema integrado de suporte técnico (mobile, web e desktop) desenvolvido como TCC, substituindo o atendimento descentralizado via WhatsApp e e-mail por um fluxo único de abertura e acompanhamento de chamados, com triagem assistida por IA.",
-      "challenge": "O usuário queria progresso. Recebia informação.",
+      "challenge": "O suporte técnico acontecia por canais dispersos, sem um lugar único para abrir chamados, acompanhar o andamento ou fornecer contexto suficiente para a triagem.",
       "process": "Discovery presencial com 11 sponsor users (7 alunos de ADS, 2 de outra turma de ADS, 2 de Psicologia). Na primeira versão do fluxo, o próprio usuário escolhia o nível de prioridade do chamado (baixa/média/alta) — em discussão com professores e a equipe de 4 integrantes, identificamos um viés estrutural antes mesmo de testar: usuários tenderiam a marcar sempre \"alta prioridade\" para serem atendidos mais rápido, invalidando a triagem. Corrigimos removendo a autoatribuição, substituindo por seleção de tipo de problema (hardware/software/redes) + descrição livre, deixando a prioridade a cargo da triagem (IA + técnico). Esta foi a única entrega das 4 conduzida com backlog formal ao longo dos 6 meses de projeto.",
       "designSprint": [
         { "stage": "Brainstorm", "description": "Levantamento de dores em sessão com professores e equipe de 4 integrantes, mapeando falhas do atendimento via WhatsApp/e-mail antes de qualquer wireframe." },
@@ -333,342 +333,571 @@
         "conventions": "Segui o padrão de navegação mobile já internalizado pelo usuário (tab bar inferior, ícone de sino para notificações, badge numérica de pendências) para reduzir a curva de aprendizado em um público misto de técnicos e não-técnicos.",
         "affordances": "Botões de abertura de chamado usam elevação e cor de destaque para sinalizar clicabilidade; o status do chamado é comunicado por cor + ícone + texto simultaneamente, nunca só por cor, evitando ambiguidade para quem não associa cor a estado imediatamente.",
         "equity": "O fluxo foi desenhado considerando usuários não-técnicos (alunos de Psicologia) desde a primeira versão — a remoção da autoatribuição de prioridade nasceu justamente da preocupação de não penalizar quem não sabe 'jogar o jogo' do suporte técnico.",
-        "testing": "Teste moderado presencial com roteiro de tarefas e observação direta, comparando tempo de execução antes/depois da mudança de IA, sem me apoiar apenas em opinião subjetiva do usuário."
+        "testing": "A equipe relatou observação presencial de tarefas e uma comparação informal de tempo antes e depois do reposicionamento do menu e das notificações. A cronometragem não foi instrumentada por sessão."
       },
       "solution": "Remoção da autoatribuição de prioridade pelo usuário → seleção de tipo de problema + descrição livre. Reposicionamento de notificações e menu na versão mobile. Fluxo do técnico com estado automático de espera/prioridade baixa para chamados sem atendimento imediato. Restrição de gestão de funcionários e exclusão de dados ao admin.",
       "finalProject": "MÉTRICA ANTES vs. DEPOIS (teste presencial, 11 participantes + professores da banca): tempo para executar as tarefas principais do app caiu de pouco mais de 5 minutos para 3 minutos e 30 segundos — redução de ~30% — após o reposicionamento de menu/notificações. TAXA DE SUCESSO: 100% mantida em ambas as versões (antes e depois) — ou seja, o ganho foi de EFICIÊNCIA, não de CONCLUSÃO; ninguém deixava de completar a tarefa antes da mudança, apenas demorava mais. ERRO IDENTIFICADO E CORRIGIDO: viés de autoatribuição de prioridade, resolvido no Reflect antes mesmo do teste formal. AVALIAÇÃO ACADÊMICA: nota 8,5/10 na banca do TCC. LIMITAÇÃO DECLARADA: medição de tempo feita de forma informal, sem cronometragem instrumentada por sessão — dado direcional relatado pela equipe e pela banca, não teste de usabilidade instrumentado com stopwatch por tarefa.",
       "research": {
-        "status": "Concluído",
-        "method": "Entrevistas presenciais, observação de tarefas e revisão do fluxo de suporte",
-        "participants": "11 sponsor users",
-        "duration": "6 meses de projeto",
-        "recruitment": "[PREENCHER: canal de recrutamento]",
+        "status": "Pesquisa qualitativa documentada no projeto acadêmico",
+        "method": "Entrevistas presenciais, observação de tarefas e revisão do fluxo de suporte por WhatsApp e e-mail",
+        "participants": "11 participantes do contexto acadêmico: 7 alunos de ADS, 2 de outra turma e 2 de Psicologia",
+        "duration": "Projeto desenvolvido ao longo de 6 meses; duração individual das entrevistas não documentada",
+        "recruitment": "Canal formal de recrutamento não documentado.",
         "objectives": [
-          "[PREENCHER: objetivo 1 de pesquisa]",
-          "[PREENCHER: objetivo 2 de pesquisa]",
-          "[PREENCHER: principal pergunta de pesquisa]"
-        ],
-        "questions": [
-          "[PREENCHER: pergunta de entrevista 1]",
-          "[PREENCHER: pergunta de entrevista 2]",
-          "[PREENCHER: pergunta de entrevista 3]"
+          "Compreender como os pedidos de suporte eram abertos e acompanhados nos canais existentes.",
+          "Identificar quais informações ajudariam usuários e equipe técnica durante a triagem.",
+          "Avaliar a clareza do fluxo de abertura e acompanhamento de chamados."
         ],
         "findings": [
-          "[PREENCHER: principal descoberta]",
-          "[PREENCHER: padrão observado]",
-          "[PREENCHER: insight relevante]"
-        ],
-        "quotes": [
-          "[PREENCHER: citação representativa]"
+          "A falta de visibilidade do status levava ao reenvio de solicitações por canais diferentes.",
+          "Usuários com menor familiaridade técnica precisavam conseguir descrever o problema em linguagem simples.",
+          "A autoatribuição de prioridade poderia incentivar a escolha recorrente de prioridade alta; a equipe identificou esse risco na revisão do fluxo."
         ],
         "limitations": [
-          "[PREENCHER: limitação da amostra]",
-          "[PREENCHER: limitação do método]"
+          "A amostra pertence ao contexto acadêmico do projeto e não representa todos os ambientes de suporte.",
+          "As durações individuais e transcrições das entrevistas não estão documentadas; não há citações literais disponíveis."
         ]
       },
       "interviews": {
         "participantCount": "11 participantes",
         "participantProfile": "7 alunos de ADS, 2 de outra turma, 2 de Psicologia",
-        "method": "Entrevistas semiestruturadas e observação presencial",
-        "duration": "[PREENCHER: duração média]",
-        "questions": [
-          "[PREENCHER: pergunta 1]",
-          "[PREENCHER: pergunta 2]",
-          "[PREENCHER: pergunta 3]"
-        ],
+        "method": "Entrevistas presenciais e observação do fluxo de suporte; o roteiro integral não está documentado.",
         "findings": [
-          "[PREENCHER: achado principal]",
-          "[PREENCHER: dor recorrente]"
+          "Os pedidos podiam se perder entre WhatsApp e e-mail, sem confirmação clara de acompanhamento.",
+          "A descrição livre, combinada à seleção do tipo de problema, reduz a dependência de vocabulário técnico."
         ],
         "recurringPatterns": [
-          "[PREENCHER: padrão recorrente 1]",
-          "[PREENCHER: padrão recorrente 2]"
-        ],
-        "representativeQuotes": [
-          "[PREENCHER: citação representativa]"
+          "Necessidade de consultar manualmente o suporte para descobrir o andamento de um chamado.",
+          "Diferenças de familiaridade técnica entre os participantes."
         ]
       },
       "researchSynthesis": {
         "patterns": [
-          "[PREENCHER: padrão 1]"
+          "Solicitações circulavam por mais de um canal e podiam ser reenviadas."
         ],
         "painPoints": [
-          "[PREENCHER: dor 1]"
+          "Falta de rastreabilidade e de status visível."
         ],
         "needs": [
-          "[PREENCHER: necessidade 1]"
+          "Abrir um chamado com contexto suficiente e acompanhar sua situação sem cobrar a equipe manualmente."
         ],
         "behaviors": [
-          "[PREENCHER: comportamento 1]"
+          "Usuários recorriam a WhatsApp e e-mail e podiam repetir a solicitação quando não recebiam retorno."
         ],
         "insights": [
-          "[PREENCHER: insight 1]"
+          "Um fluxo centralizado precisa tornar o status visível e aceitar descrições em linguagem simples."
         ],
         "opportunities": [
-          "[PREENCHER: oportunidade 1]"
+          "Combinar tipo de problema, descrição livre, triagem e acompanhamento em um fluxo multiplataforma."
         ]
       },
       "userJourney": [
         {
-          "stage": "Diagnóstico",
-          "userAction": "[PREENCHER: ação do usuário]",
-          "thought": "[PREENCHER: pensamento do usuário]",
-          "emotion": "[PREENCHER: emoção do usuário]",
-          "painPoint": "[PREENCHER: dor principal]",
-          "opportunity": "[PREENCHER: oportunidade]"
+          "stage": "Identificar o problema",
+          "userAction": "Percebe uma falha e procura um canal de suporte.",
+          "thought": "Onde devo pedir ajuda?",
+          "painPoint": "Solicitações ficam distribuídas entre canais.",
+          "opportunity": "Oferecer um ponto de entrada único."
+        },
+        {
+          "stage": "Abrir chamado",
+          "userAction": "Seleciona o tipo de problema e descreve o que aconteceu.",
+          "thought": "Consigo explicar sem saber o termo técnico?",
+          "painPoint": "Vocabulário técnico pode dificultar o relato.",
+          "opportunity": "Permitir descrição livre e categorizar o chamado na triagem."
+        },
+        {
+          "stage": "Acompanhar",
+          "userAction": "Consulta o status do chamado.",
+          "thought": "Alguém está tratando disso?",
+          "painPoint": "Sem status visível, o usuário pode reenviar a solicitação.",
+          "opportunity": "Exibir estados claros e atualizados."
         }
       ],
       "problemStatement": {
-        "persona": "[PREENCHER: persona]",
-        "need": "[PREENCHER: necessidade]",
-        "because": "[PREENCHER: contexto ou motivação]",
-        "finalStatement": "[PREENCHER: Problem Statement final]"
+        "persona": "Pessoa que solicita suporte, com ou sem familiaridade técnica.",
+        "need": "Registrar o problema em linguagem simples e acompanhar o andamento em um só lugar.",
+        "because": "O atendimento distribuído entre canais não oferece rastreabilidade nem confirmação clara de responsabilidade.",
+        "finalStatement": "Como pessoa que precisa de suporte técnico, preciso abrir um chamado com minhas próprias palavras e acompanhar seu status para não repetir a solicitação nem depender de contato manual."
       },
       "howMightWe": [
-        "How might we [PREENCHER]?"
+        "Como podemos centralizar a abertura e o acompanhamento dos chamados sem exigir que a pessoa conheça termos de TI?",
+        "Como podemos apoiar a triagem sem permitir que a prioridade seja distorcida pela autoatribuição?"
       ],
       "ideation": {
         "methods": [
-          "[PREENCHER: método de ideação]"
+          "Revisão do fluxo com professores e equipe do projeto a partir dos problemas identificados."
         ],
         "ideas": [
-          "[PREENCHER: ideia principal]"
-        ],
-        "rejectedIdeas": [
-          "[PREENCHER: ideia descartada]"
+          "Substituir a escolha de prioridade por tipo de problema e descrição livre, deixando a priorização para a triagem."
         ],
         "decisionCriteria": [
-          "[PREENCHER: critério 1]"
+          "Evitar incentivos para marcar todos os chamados como urgentes.",
+          "Permitir que pessoas não técnicas descrevam o problema."
         ],
-        "selectedDirection": "[PREENCHER: direção escolhida]"
-      },
-      "paperSketches": {
-        "images": [],
-        "caption": "[PREENCHER: legenda dos sketchs]",
-        "description": "[PREENCHER: descrição do processo de esboço]",
-        "keyDecisions": [
-          "[PREENCHER: decisão principal do sketch]"
-        ]
+        "selectedDirection": "Fluxo multiplataforma com categorização inicial, descrição livre, triagem e acompanhamento de status."
       },
       "informationArchitecture": {
         "contentStructure": [
-          "[PREENCHER: estrutura de conteúdo]"
+          "Solicitante: abertura do chamado → detalhes → envio → acompanhamento.",
+          "Técnico: fila de chamados → triagem → atendimento → atualização de status.",
+          "Administrador: gestão de funcionários e dados."
         ],
         "categories": [
-          "[PREENCHER: categoria 1]"
+          "Hardware",
+          "Software",
+          "Redes"
         ],
         "hierarchy": [
-          "[PREENCHER: hierarquia principal]"
+          "Ação principal: abrir chamado.",
+          "Informação de suporte: tipo, descrição e status."
         ],
         "decisions": [
-          "[PREENCHER: decisão de navegação]"
-        ],
-        "image": ""
+          "Separar as áreas de solicitante, técnico e administrador conforme suas tarefas.",
+          "Restringir gestão de funcionários e exclusão de dados ao perfil administrador."
+        ]
       },
       "userFlowDetail": {
-        "description": "[PREENCHER: descrição do user flow]",
-        "image": ""
+        "description": "Solicitante descreve o problema e seleciona sua categoria; a triagem define prioridade; o status fica disponível para acompanhamento. Técnicos e administradores acessam fluxos próprios na web e no desktop."
       },
       "wireframes": {
-        "images": [],
+        "status": "Board de telas mobile fornecido; o material não identifica explicitamente se as telas são wireframes ou UI de alta fidelidade.",
+        "description": "A prancha reúne 14 telas identificadas: splash, onboarding, login/cadastro, home, seleção de tipo, detalhes, lista e detalhe de chamado, conversa, base de conhecimento, notificações, perfil, tela do técnico e dashboard admin.",
+        "images": [
+          "/case-studies/tihelp-wireframes.png"
+        ],
+        "imageDetails": [
+          {
+            "title": "TI Help — board de telas mobile",
+            "description": "Prancha enviada com 14 telas do fluxo de solicitante, suporte, técnico e administração.",
+            "decision": "Uma tela de detalhes mostra seleção de prioridade; o relato do case informa que a autoatribuição foi removida. Tratar essa tela como possível versão anterior e confirmar a versão antes de apresentá-la como final."
+          }
+        ],
         "decisions": [
-          "[PREENCHER: decisão do wireframe]"
+          "Manter a abertura do chamado centrada no problema, sem um campo de prioridade definido pelo solicitante.",
+          "Exibir o status do chamado para reduzir consultas e reenvios por canais paralelos.",
+          "Separar as ferramentas de operação técnica das tarefas do solicitante.",
+          "Confirmar a versão da tela com seletor de prioridade, que diverge da decisão registrada de remover a autoatribuição."
         ]
       },
       "highFidelityDesign": {
-        "screenshots": [],
-        "prototype": "",
         "visualDecisions": [
-          "[PREENCHER: decisão visual 1]"
+          "Usar padrões de navegação conhecidos e indicar status por cor, ícone e texto em conjunto."
         ],
         "components": [
-          "[PREENCHER: componente principal]"
+          "Abertura de chamado, categorias de problema, notificações e estados de acompanhamento."
         ],
         "designSystem": [
-          "[PREENCHER: token ou padrão de sistema]"
+          "Padrões de navegação adaptados às versões mobile, web e desktop."
         ]
       },
       "usabilityTesting": {
-        "method": "[PREENCHER: método de teste]",
-        "participants": "[PREENCHER: número de participantes]",
+        "status": "Observação presencial documentada; a equipe não descreve uma avaliação instrumentada de usabilidade.",
+        "method": "Observação de tarefas e comparação informal do tempo antes/depois do reposicionamento do menu e notificações.",
+        "participants": "11 sponsor users; professores participaram das discussões e da avaliação acadêmica.",
         "tasks": [
-          "[PREENCHER: tarefa 1]"
-        ],
-        "successCriteria": [
-          "[PREENCHER: critério de sucesso]"
+          "Executar as principais tarefas do aplicativo."
         ],
         "findings": [
-          "[PREENCHER: principal achado]"
-        ],
-        "issues": [
-          "[PREENCHER: problema identificado]"
-        ],
-        "severity": [
-          "[PREENCHER: severidade]"
-        ],
-        "iterations": [
-          "[PREENCHER: iteração aplicada]"
+          "A equipe reportou que as tarefas principais passaram de pouco mais de 5 minutos para cerca de 3 minutos e 30 segundos após o reposicionamento do menu e das notificações; medida direcional e não instrumentada.",
+          "A taxa de conclusão foi relatada como 100% antes e depois; o ganho descrito foi de tempo, não de conclusão."
         ],
         "limitations": [
-          "[PREENCHER: limitação do teste]"
+          "Não há cronometragem instrumentada por sessão nem resultados desagregados por tarefa."
         ]
       },
       "iterations": [
         {
-          "before": "[PREENCHER: antes]",
-          "problem": "[PREENCHER: problema]",
-          "decision": "[PREENCHER: decisão]",
-          "after": "[PREENCHER: depois]"
+          "before": "O solicitante selecionava prioridade baixa, média ou alta.",
+          "problem": "A escolha poderia ser enviesada para prioridade alta.",
+          "decision": "Remover a autoatribuição de prioridade e solicitar tipo de problema e descrição.",
+          "after": "A prioridade fica a cargo da triagem, com contexto para análise."
+        },
+        {
+          "before": "Menu e notificações ocupavam posições menos eficientes para as tarefas observadas.",
+          "problem": "A equipe relatou mais tempo para concluir as principais tarefas.",
+          "decision": "Reposicionar o menu e as notificações na versão mobile.",
+          "after": "A comparação informal reportada indicou menor tempo de execução; a medida não foi instrumentada."
         }
       ],
       "results": [
         {
-          "type": "Qualitative",
-          "label": "[PREENCHER: resultado observado]"
+          "type": "Implementação",
+          "label": "Versão mobile implementada em React Native como parte do TCC."
+        },
+        {
+          "type": "Avaliação acadêmica",
+          "label": "Nota 8,5/10 na banca do projeto."
+        },
+        {
+          "type": "Observação direcional",
+          "label": "Tempo reportado: pouco mais de 5 min antes e cerca de 3 min 30 s depois do reposicionamento; cronometragem informal."
         }
       ],
       "learnings": [
-        "[PREENCHER: aprendizado específico do projeto]"
+        "Visibilidade de status é parte do serviço de suporte, não apenas um detalhe de interface.",
+        "A triagem deve reduzir vieses e permitir que pessoas sem vocabulário técnico descrevam problemas."
       ],
       "nextSteps": [
-        "[PREENCHER: próximo passo]"
+        "Instrumentar testes por tarefa e documentar roteiro, tempos e amostra.",
+        "Avaliar a precisão da triagem assistida por IA em cenários e volumes distintos."
       ],
       "limitations": [
-        "[PREENCHER: limitação do projeto]"
-      ],
-      "checklist": [
-        "[ ] Entrevistas realizadas",
-        "[ ] Dados sintetizados",
-        "[ ] Affinity Map",
-        "[ ] Insights",
-        "[ ] Persona revisada",
-        "[ ] User Journey",
-        "[ ] Problem Statement",
-        "[ ] HMW",
-        "[ ] Ideação",
-        "[ ] Fotos dos sketches",
-        "[ ] Information Architecture",
-        "[ ] User Flow",
-        "[ ] Wireframes",
-        "[ ] High-Fidelity",
-        "[ ] Usability Test",
-        "[ ] Iterações",
-        "[ ] Resultados",
-        "[ ] Learnings",
-        "[ ] Next Steps",
-        "[ ] Limitações",
-        "[ ] Versão PT revisada",
-        "[ ] Versão EN revisada"
+        "Projeto acadêmico em contexto delimitado; os resultados não demonstram desempenho em produção.",
+        "Os tempos relatados são direcionais e não foram medidos com instrumento por sessão."
       ]
     },
     "2": {
       "title": "KaloBurn",
-      "overview": "Kalo Burn é uma experiência conceitual de fitness mobile focada em transformar métricas de treino difíceis de interpretar em decisões simples sobre treino, gasto energético e progresso.",
-      "challenge": "Os usuários recebem muita informação, mas muitas vezes não entendem o que é importante nem qual ação devem tomar. O produto precisava tornar treino, energia e progresso legíveis sem virar uma ferramenta de prescrição de dieta.",
-      "process": "O trabalho foi organizado em torno de três perguntas centrais: 'Como estou?', 'O que faço?' e 'Estou evoluindo?'. Ele combinou pesquisa de UX, auditoria competitiva e síntese de design para definir uma hierarquia mais clara antes de propor recomendações orientadas a decisão.",
+      "overview": "Conceito mobile de fitness que conecta praticantes a treinos, profissionais, planos e acompanhamento de progresso. A narrativa deste case combina a interface existente com uma entrevista exploratória documentada; as oportunidades são hipóteses, não resultados de pesquisa populacional.",
+      "challenge": "O participante entrevistado planeja treinos A/B/C com antecedência, mas precisa adaptar a sessão quando sente fadiga ou dor, encontra equipamentos ocupados ou tem pouco tempo. O desafio de design é apoiar essa flexibilidade sem perder a leitura de evolução por carga e repetições.",
+      "process": "Foi realizada uma entrevista exploratória com um praticante experiente de academia/CrossFit. O relato foi sintetizado em comportamentos, dores e oportunidades; em seguida, a estrutura mobile representada no board foi relacionada ao fluxo de treino, descoberta de profissionais e acompanhamento. A entrevista é evidência qualitativa de uma pessoa, não uma validação ampla do produto.",
       "designSprint": [
-        { "stage": "Diagnóstico", "description": "Mapeou o problema da interpretação confusa de métricas e a lacuna entre dado e decisão." },
-        { "stage": "Definição", "description": "Definiu as três perguntas centrais que orientaram o produto: como o usuário está, o que fazer em seguida e se está evoluindo." },
-        { "stage": "Design", "description": "Traduzir as descobertas em uma experiência mobile com hierarquia clara, recomendações e contexto de progresso." },
-        { "stage": "Validação", "description": "Revisou como a recomendação poderia aparecer junto à métrica que a justificava, aumentando clareza." },
-        { "stage": "Iteração", "description": "Refinou a estrutura para conectar score, explicação e próxima ação no mesmo bloco." }
+        { "stage": "Pesquisa", "description": "Entrevista exploratória com um praticante experiente; planejamento A/B/C, adaptações durante o treino e critérios pessoais de evolução." },
+        { "stage": "Síntese", "description": "Separação entre evidência relatada por uma pessoa e hipóteses a validar com outros perfis." },
+        { "stage": "Definição", "description": "Oportunidade: manter o plano útil quando equipamento, condição física ou tempo exigirem uma adaptação." },
+        { "stage": "Arquitetura", "description": "Relacionamento entre descoberta, profissionais, planos, treino ativo, agenda, mensagens e progresso conforme a interface apresentada." },
+        { "stage": "Design", "description": "Exploração de uma experiência mobile para visualizar o treino, registrar atividade e acompanhar evolução." },
+        { "stage": "Validação", "description": "Conceitual. O fluxo ainda precisa ser testado com praticantes; não há teste formal documentado." }
       ],
-      "myRole": "UX/UI Designer",
+      "myRole": "UX/UI Designer; entrevista exploratória, síntese e estruturação do case.",
       "csdMatrix": {
         "certainties": [
-          "Usuários são confrontados com muitas métricas, mas raramente entendem o que realmente importa",
-          "Decisões de treino ficam mais claras quando explicação e próxima ação são mostradas juntas",
-          "Produtos de fitness devem apoiar interpretação, não prescrever dietas"
+          "Na entrevista exploratória, o participante relatou planejar treinos A/B/C aproximadamente a cada dois meses e adaptar o plano conforme o contexto do dia.",
+          "O participante acompanha evolução principalmente por carga e repetições.",
+          "Equipamentos indisponíveis podem levar o participante a trocar exercícios ou deixar parte do treino de lado."
         ],
         "suppositions": [
-          "Um dashboard simplificado reduziria o esforço cognitivo para decidir o treino",
-          "Recomendações contextualizadas ajudariam o usuário a entender melhor seu estado atual",
-          "Evolução ao longo do tempo deve ser visualizada sem exigir leitura pesada de gráficos"
+          "Alternativas de exercício relacionadas ao equipamento disponível podem ajudar a manter a sessão em andamento.",
+          "Vincular carga e repetições ao histórico pode tornar a progressão mais legível.",
+          "Pontos e desafios opcionais podem apoiar a motivação de quem demonstra interesse em competição saudável."
         ],
         "doubts": [
-          "Como é um produto conceitual, a validação real com usuários de fitness ainda seria essencial",
-          "O equilíbrio entre orientação e autonomia precisaria ser testado com comportamento real"
+          "Como adaptar exercícios com segurança sem recomendar mudanças incompatíveis com limitações físicas?",
+          "Quais indicadores são úteis para praticantes com rotinas e objetivos diferentes?",
+          "A gamificação seria motivadora sem pressionar quem prefere treinar sem competição?"
         ]
       },
-      "userFlow": "Descobrir → Definir objetivo → Registrar → Informar treino/contexto → Entender → Visualizar estado atual → Ajustar → Identificar próxima etapa → Retornar → Acompanhar evolução.",
+      "userFlow": "Planejar treino A/B/C → chegar à academia → verificar equipamentos → adaptar ou seguir o exercício → registrar carga e repetições → comparar com sessões anteriores → ajustar o próximo treino.",
       "personas": [
         {
-          "name": "Usuário iniciante em fitness",
-          "role": "Usuário mobile de fitness",
-          "pain": "Recebe muita informação numérica, mas não entende qual indicador importa nem o que fazer em seguida.",
-          "goal": "Entender seu estado atual, compreender a razão da recomendação e decidir de forma clara o próximo passo."
+          "name": "Praticante experiente e adaptativo",
+          "role": "Arquétipo comportamental derivado da única entrevista exploratória documentada; não representa uma população.",
+          "pain": "Precisa reorganizar uma sessão de 1 a 1,5 hora quando a academia está cheia, o equipamento não está disponível ou o corpo pede uma adaptação.",
+          "goal": "Manter um plano flexível e perceber evolução usando carga e repetições, sem depender de uma rotina rígida."
         }
       ],
       "userStories": [
         {
-          "persona": "Usuário iniciante em fitness",
-          "story": "Como usuário mobile de fitness, eu quero entender meu estado atual de forma simples para que eu consiga decidir o próximo passo sem interpretar métricas complexas."
+          "persona": "Praticante experiente e adaptativo",
+          "story": "Como praticante, quero consultar uma alternativa quando o equipamento planejado não estiver livre para adaptar a sessão sem perder o contexto do treino."
+        },
+        {
+          "persona": "Praticante experiente e adaptativo",
+          "story": "Como praticante, quero comparar carga e repetições entre sessões para decidir quando faz sentido progredir."
         }
       ],
       "problemDefinitions": [
         {
-          "persona": "Usuário iniciante em fitness",
-          "definition": "Precisa de uma hierarquia mais clara de informação de treino porque o produto atualmente sobrecarrega com dados sem explicar o que importa e qual ação seguir."
+          "persona": "Praticante experiente e adaptativo",
+          "definition": "Precisa ajustar o plano diante de fadiga, dor, equipamento ocupado ou tempo limitado porque seguir a sessão exatamente como foi planejada nem sempre é possível."
         }
       ],
       "craftNotes": {
-        "conventions": "A experiência mantém estrutura compacta, com alto contraste e baixo ruído visual para permitir leitura rápida e ação segura.",
-        "affordances": "Score, explicação e CTA ficam no mesmo bloco para que o usuário veja a métrica, seu significado e a próxima ação ao mesmo tempo.",
-        "equity": "A experiência evita prescrição de dieta e mantém o foco em decisão de treino, gasto energético e interpretação de progresso.",
-        "testing": "A principal percepção de validação foi que o usuário compreendia melhor uma recomendação quando ela aparecia imediatamente após a métrica que a justificava."
+        "conventions": "O board apresenta navegação mobile para início, exploração, treinos, mensagens e perfil, além de telas de detalhe e progresso.",
+        "affordances": "Na exploração, alternativas de exercício e o motivo de cada sugestão devem aparecer junto ao equipamento indisponível; esta é uma hipótese de interface a validar.",
+        "equity": "Adaptações devem respeitar dor e limitações percebidas, evitando tratar uma sugestão automática como orientação médica ou prescrição profissional.",
+        "testing": "Há uma entrevista exploratória documentada com uma pessoa. Nenhum teste de usabilidade formal foi realizado ou documentado."
       },
-      "solution": "O conceito organiza treino e informação de gasto energético em uma experiência mais direta, ajudando o usuário a entender seu estado atual e identificar o próximo passo. Inclui um dashboard para 'Como estou?', uma área de recomendações para 'O que faço?' e uma visão de progresso para 'Estou evoluindo?', mantendo o conteúdo claro, contextual e orientado à ação sem transformar o produto em prescrição nutricional.",
-      "finalProject": "Este é um case conceitual de produto. A principal percepção é que o entendimento cresce quando dado, explicação e ação vivem no mesmo bloco de decisão. A validação real com usuários de fitness seria o próximo passo importante.",
-      "conclusion": "Comportamento de treino → interpretação de métricas → tomada de decisão → retenção. O projeto demonstra como um produto fitness pode transformar métricas complexas em decisões mais claras e criar uma experiência mais compreensível em torno do progresso. Feedback motiva o engajamento. Personalização precisa ser dinâmica e não estática. Monetização deve melhorar a experiência em vez de criar fricção desnecessária. Feedback claro consegue conectar comportamento do usuário, interpretação e motivação. O próximo passo é validar a experiência com usuários reais, refinar o feedback gerado por IA e continuar explorando como sistemas de design influenciam comportamento e sustentam motivação."
+      "solution": "A direção de design preserva as áreas de descoberta, profissionais, treinos, agenda, mensagens e progresso representadas no board. Como oportunidade futura, propõe relacionar o treino planejado a alternativas quando o equipamento estiver ocupado e registrar carga e repetições para comparação. Essas adaptações ainda são hipóteses, não funcionalidades validadas.",
+      "finalProject": "Resultado de design conceitual apoiado por uma entrevista exploratória. Não há teste formal de usabilidade nem métricas de impacto documentadas. O board mostra uma experiência mobile para descoberta, treino, agenda, mensagens e progresso.",
+      "conclusion": "O relato de uma pessoa sugere que um plano de treino precisa admitir adaptações: disponibilidade de equipamento, fadiga, dor e tempo influenciam a sessão. A interface pode apoiar decisões mantendo o praticante no controle. Ampliar a pesquisa e testar o fluxo de adaptação são próximos passos, não resultados já alcançados.",
+      "research": {
+        "status": "Entrevista exploratória documentada; evidência qualitativa de uma única pessoa.",
+        "method": "Entrevista exploratória com praticante experiente de academia/CrossFit.",
+        "participants": "1 praticante experiente; nenhuma outra entrevista está documentada.",
+        "duration": "Não documentada.",
+        "objectives": [
+          "Compreender como o participante planeja e adapta o treino.",
+          "Identificar como acompanha a própria evolução.",
+          "Entender as fontes de orientação e os obstáculos durante a sessão."
+        ],
+        "findings": [
+          "O participante planeja treinos A/B/C aproximadamente a cada dois meses, mas adapta a sessão a fadiga, dor, equipamento e contexto.",
+          "A indisponibilidade de máquinas pode levar à procura de outro equipamento, troca de exercício ou abandono de parte do treino.",
+          "A janela disponível para treinar é de aproximadamente 1 a 1,5 hora."
+        ],
+        "limitations": [
+          "A pesquisa documentada contém uma única entrevista exploratória e não permite afirmações sobre a maioria dos praticantes.",
+          "Não há teste formal de usabilidade ou validação quantitativa documentada."
+        ]
+      },
+      "interviews": {
+        "participantCount": "1 participante",
+        "participantProfile": "Praticante experiente de academia/CrossFit; sem dados demográficos registrados.",
+        "method": "Entrevista exploratória.",
+        "findings": [
+          "Planeja treinos em estrutura A/B/C e revisa o planejamento aproximadamente a cada dois meses.",
+          "Adapta exercícios quando sente fadiga ou dor, quando o equipamento não está disponível ou conforme o contexto do dia.",
+          "Usa carga e repetições para avaliar progressão; relatou que superar a meta de 12 repetições em 3 ou 4 repetições pode indicar que é hora de aumentar a carga.",
+          "Busca orientação com profissionais da academia, internet, TikTok, vídeos e ferramentas de IA, incluindo planos com links demonstrativos.",
+          "Demonstrou interesse em competição saudável e pontos, repetições ou desafios; relatou usar TeamRats."
+        ],
+        "limitations": [
+          "Relatos descrevem apenas a experiência desta pessoa; não são padrões populacionais."
+        ]
+      },
+      "researchSynthesis": {
+        "behaviors": [
+          "Planeja uma divisão A/B/C com antecedência, mas ajusta o treino na hora.",
+          "Consulta fontes variadas para orientação, inclusive profissionais, vídeos e ferramentas de IA.",
+          "Compara carga e repetições para decidir se progride."
+        ],
+        "painPoints": [
+          "Academia cheia e equipamento ocupado interrompem o plano.",
+          "A procura por outra máquina consome uma janela de treino limitada.",
+          "Algumas adaptações levam à troca ou à interrupção de exercícios."
+        ],
+        "needs": [
+          "Preservar a intenção do treino quando o plano original não é executável.",
+          "Registrar métricas concretas e comparar sessões.",
+          "Receber orientação sem perder autonomia para adaptar o treino."
+        ],
+        "insights": [
+          "O planejamento é importante, mas precisa ser flexível diante do contexto do dia.",
+          "Equipamentos indisponíveis quebram o fluxo planejado.",
+          "Carga e repetições são indicadores concretos usados pelo participante para avaliar evolução.",
+          "A busca por orientação acontece em múltiplas fontes.",
+          "O interesse relatado em competição saudável abre uma hipótese para gamificação opcional."
+        ],
+        "opportunities": [
+          "Explorar alternativas de exercício relacionadas ao equipamento disponível, com ressalvas de segurança.",
+          "Exibir histórico de carga e repetições junto à meta da sessão.",
+          "Testar pontos e desafios opcionais sem transformar competição em requisito."
+        ]
+      },
+      "userJourney": [
+        {
+          "stage": "Planejar",
+          "userAction": "Organiza treinos A/B/C com antecedência aproximada de dois meses.",
+          "painPoint": "O plano não prevê todas as condições que podem ocorrer no dia.",
+          "opportunity": "Manter a estrutura do treino consultável e fácil de ajustar."
+        },
+        {
+          "stage": "Chegar à academia",
+          "userAction": "Começa a sessão dentro de uma janela limitada de aproximadamente 1 a 1,5 hora.",
+          "painPoint": "O tempo disponível limita quanto pode esperar ou reorganizar.",
+          "opportunity": "Priorizar a próxima ação sem adicionar etapas desnecessárias."
+        },
+        {
+          "stage": "Procurar equipamento",
+          "userAction": "Verifica se a máquina ou equipamento planejado está livre.",
+          "painPoint": "A academia cheia interrompe a sequência."
+        },
+        {
+          "stage": "Adaptar e executar",
+          "userAction": "Considera fadiga, dor, limitações percebidas e disponibilidade; pode substituir ou deixar um exercício.",
+          "painPoint": "A substituição exige decisão no momento e pode quebrar o fluxo.",
+          "opportunity": "Explorar alternativas contextualizadas e deixar explícito que são sugestões a validar."
+        },
+        {
+          "stage": "Registrar e avaliar",
+          "userAction": "Compara carga e repetições com a meta; usa repetições acima do alvo como sinal para considerar progressão.",
+          "painPoint": "Sem histórico acessível, a comparação entre sessões fica dependente da memória.",
+          "opportunity": "Associar o registro da sessão à evolução de carga e repetições."
+        }
+      ],
+      "problemStatement": {
+        "persona": "Praticante experiente e adaptativo, arquétipo derivado de uma entrevista exploratória.",
+        "need": "Adaptar a sessão e acompanhar carga e repetições sem perder a intenção do treino.",
+        "because": "Equipamentos ocupados, fadiga, dor e uma janela de treino limitada podem tornar o plano original inviável.",
+        "finalStatement": "Como praticante que adapta o treino conforme o contexto, preciso encontrar opções seguras e acompanhar minha progressão para continuar a sessão sem depender de um plano rígido."
+      },
+      "howMightWe": [
+        "Como podemos ajudar o praticante a adaptar o treino quando um equipamento não estiver disponível?",
+        "Como podemos tornar a evolução mais visível por meio de carga e repetições?",
+        "Como podemos combinar orientação e flexibilidade sem tornar o treino rígido?",
+        "Como pontos e desafios poderiam apoiar competição saudável sem pressionar quem não deseja competir?"
+      ],
+      "ideation": {
+        "methods": [
+          "Síntese temática da entrevista exploratória; os temas refletem apenas o relato de uma pessoa."
+        ],
+        "ideas": [
+          "Apresentar o exercício planejado junto de uma alternativa contextual quando o equipamento não estiver disponível.",
+          "Exibir a meta de repetições e o histórico de carga para apoiar a decisão de progressão.",
+          "Explorar desafios e pontos como camada opcional."
+        ],
+        "decisionCriteria": [
+          "Preservar a autonomia do praticante.",
+          "Não apresentar sugestões como orientação médica ou substituição de avaliação profissional.",
+          "Manter a adaptação rápida dentro do tempo limitado da sessão."
+        ],
+        "selectedDirection": "Exploração de uma experiência mobile que conecta plano, execução e progresso, com adaptação contextual como hipótese para validação."
+      },
+      "informationArchitecture": {
+        "contentStructure": [
+          "Navegação principal: Início, Explorar, Treinos, Mensagens e Perfil, conforme o board apresentado.",
+          "Treino: visão geral → exercício → execução e registro.",
+          "Descoberta: profissionais → perfil → planos.",
+          "Acompanhamento: agenda, mensagens e progresso."
+        ],
+        "categories": [
+          "Treinos",
+          "Profissionais",
+          "Planos",
+          "Agenda",
+          "Mensagens",
+          "Progresso"
+        ],
+        "hierarchy": [
+          "Ação contextual da sessão e informações do exercício.",
+          "Metas e registros de carga/repetições.",
+          "Histórico de progresso e opções de orientação."
+        ],
+        "decisions": [
+          "Manter navegação principal persistente entre as áreas representadas.",
+          "Separar descoberta de profissionais da execução e do acompanhamento do treino.",
+          "Tratar substituições de exercício como oportunidade conceitual ainda não validada."
+        ]
+      },
+      "userFlowDetail": {
+        "description": "Fluxo observado: planejar A/B/C → chegar à academia → verificar equipamento → adaptar conforme contexto → executar → comparar carga e repetições. Fluxo proposto no produto: abrir o treino, consultar a sessão e registrar o progresso; alternativas contextuais precisam ser desenhadas e testadas."
+      },
+      "wireframes": {
+        "status": "Board de telas mobile fornecido para este projeto; o fluxo de adaptação de exercícios permanece uma hipótese.",
+        "description": "O board reúne início, exploração de profissionais, perfil, planos, detalhe e execução do treino, treinos salvos, agenda, mensagens, progresso e perfil.",
+        "images": [
+          "/case-studies/kaloburn-wireframes.png"
+        ],
+        "imageDetails": [
+          {
+            "title": "Wireframes — navegação e ciclo de treino",
+            "description": "Board mobile com descoberta, perfil profissional, planos, execução de treino, agenda, mensagens e progresso.",
+            "decision": "Relacionar as telas existentes ao ciclo de treino; adaptação automática a equipamentos indisponíveis não está representada e permanece como hipótese."
+          }
+        ],
+        "decisions": [
+          "Exibir o contexto do exercício durante sua execução.",
+          "Manter agenda e acompanhamento acessíveis sem confundi-los com evidência de validação.",
+          "Investigar como propor uma alternativa segura quando o equipamento estiver ocupado."
+        ]
+      },
+      "highFidelityDesign": {
+        "visualDecisions": [
+          "O board apresenta uma interface mobile compacta com navegação inferior e hierarquia por telas.",
+          "A tela de progresso separa indicadores resumidos de uma visualização histórica."
+        ],
+        "components": [
+          "Cards de profissionais e planos, lista de treinos, agenda, mensagens e resumo de progresso."
+        ],
+        "designSystem": [
+          "Padrões visuais apresentados no board; documentação de tokens não fornecida."
+        ]
+      },
+      "usabilityTesting": {
+        "status": "Não testado formalmente.",
+        "method": "A entrevista foi exploratória e não foi um teste de usabilidade.",
+        "participants": "Nenhum participante de teste documentado.",
+        "tasks": [
+          "Validar como praticantes localizam uma alternativa quando o equipamento planejado está ocupado.",
+          "Validar como registram e interpretam carga e repetições entre sessões."
+        ],
+        "successCriteria": [
+          "Critérios a definir antes de qualquer teste; não há resultados medidos."
+        ],
+        "limitations": [
+          "Uma única entrevista exploratória não representa perfis diversos de praticantes.",
+          "Não há teste formal, resultado quantitativo nem validação de segurança das substituições."
+        ]
+      },
+      "iterations": [
+        {
+          "before": "Hipótese inicial: oferecer orientação sem contextualizar a adaptação do plano.",
+          "problem": "O relato mostrou que fadiga, dor e equipamento ocupado mudam a sessão.",
+          "decision": "Explorar alternativas de exercício e contexto de carga/repetições como apoio, não como prescrição.",
+          "after": "Direção conceitual para testar; não há iteração de produto validada documentada."
+        }
+      ],
+      "results": [
+        {
+          "type": "Pesquisa",
+          "label": "Uma entrevista exploratória documentada com praticante experiente."
+        },
+        {
+          "type": "Design",
+          "label": "Board mobile que apresenta descoberta, treinos, agenda, mensagens e progresso."
+        },
+        {
+          "type": "Validação",
+          "label": "Conceito não testado formalmente; sem métricas de uso, satisfação ou impacto."
+        }
+      ],
+      "learnings": [
+        "O planejamento do treino pode coexistir com adaptação durante a sessão.",
+        "Carga e repetições são referências concretas relatadas para avaliar progressão.",
+        "Orientação é buscada em fontes diversas; o produto precisa contextualizá-la e preservar autonomia."
+      ],
+      "nextSteps": [
+        "Entrevistar praticantes com diferentes rotinas, objetivos e níveis de experiência.",
+        "Prototipar alternativas para equipamento indisponível e avaliar critérios de segurança com profissionais qualificados.",
+        "Testar o registro de carga/repetições e a interpretação do histórico.",
+        "Explorar pontos e desafios opcionais com pessoas interessadas em gamificação."
+      ],
+      "limitations": [
+        "A pesquisa documentada se limita a uma entrevista exploratória.",
+        "Não há teste formal de usabilidade nem resultados quantitativos do conceito.",
+        "As oportunidades de adaptação e gamificação ainda não estão validadas nem devem ser interpretadas como recomendações profissionais."
+      ]
     },
     "3": {
       "title": "DN Jeans",
       "overview": "DN Jeans é uma experiência de descoberta de produto pensada para ajudar o cliente a navegar pelo catálogo, comparar opções e avançar com menos fricção até a decisão de compra.",
-      "challenge": "O desafio era tornar a descoberta de produtos mais clara e menos frustrante, ajudando o usuário a encontrar o item certo e decidir mais rápido sem forçar um fluxo tradicional de e-commerce que não refletia o comportamento real da marca.",
-      "process": "Este projeto foi originalmente um esforço de design visual e de produto, não um processo formal completo de UX research. A estrutura abaixo é uma reconstrução retrospectiva de UX usada para esclarecer como a jornada poderia ser fortalecida sem fingir que o projeto original havia concluído pesquisa formal ou wireframing completo.",
+      "challenge": "O desafio é conduzir a descoberta por categorias, filtros e detalhes de produto até uma decisão clara, respeitando o contexto de conversão direta via WhatsApp documentado para a marca.",
+      "process": "UX reconstruction retrospectiva baseada no material de produto e nos boards de telas disponíveis. Não há entrevistas ou testes formais documentados. A jornada proposta organiza descoberta, comparação e decisão sem apresentar hipóteses de design como pesquisa com clientes.",
       "designSprint": [
-        { "stage": "Descoberta", "description": "Mapeou como o cliente navegava, comparava e selecionava itens antes da compra." },
-        { "stage": "Definição", "description": "Definiu a oportunidade central: reduzir a fricção entre descoberta do produto e compra." },
-        { "stage": "Design", "description": "Estruturou o catálogo por categorias, filtros, detalhes do produto e caminho claro para a ação de compra." },
-        { "stage": "Validação", "description": "Revisou se o caminho de compra poderia ficar mais claro e se a decisão de compra poderia ser apoiada antes da etapa final." },
-        { "stage": "Iteração", "description": "Refinou a jornada para que navegação, comparação e informação do produto avançassem com mais fluidez para a decisão." }
+        { "stage": "Contexto", "description": "Revisão retrospectiva do catálogo, das telas disponíveis e do comportamento de conversão via WhatsApp registrado no projeto." },
+        { "stage": "Definição", "description": "Hipótese de design: reduzir o esforço entre encontrar uma peça e reunir informações suficientes para decidir." },
+        { "stage": "Estrutura", "description": "Organização proposta em home, categoria/listagem, detalhe do produto e decisão de compra." },
+        { "stage": "Design", "description": "Boards fornecidos apresentam explorações desktop e mobile, incluindo carrinho e checkout." },
+        { "stage": "Validação", "description": "Não há teste formal documentado. A escolha entre checkout e contato direto precisa ser confirmada com a marca." }
       ],
-      "myRole": "UX strategy e design visual de produto",
+      "myRole": "UX reconstruction, estrutura de conteúdo e design visual de produto.",
       "csdMatrix": {
         "certainties": [
-          "Clientes precisam de um caminho mais claro do início da busca até a compra",
-          "Comparação de produtos fica mais fácil quando filtros e informações aparecem juntos",
-          "O comportamento real da marca dependia de contato direto e conversão por WhatsApp"
+          "O material apresentado inclui home, listagem/categoria, detalhe de produto e explorações de carrinho e checkout.",
+          "O projeto registra conversão direta via WhatsApp como comportamento da marca.",
+          "Não há pesquisa formal de usuários ou teste de usabilidade documentado."
         ],
         "suppositions": [
-          "Uma grid mais limpa poderia reduzir a fricção durante a navegação",
-          "Mais informação explícita do produto ajudaria a decisão mais rápida",
-          "Um caminho de conversão por WhatsApp se alinhava melhor ao comportamento da venda real do que um carrinho completo"
+          "Filtros e atributos visíveis podem facilitar a comparação entre peças.",
+          "Detalhes de tamanho, cor e disponibilidade podem reduzir dúvidas antes do contato.",
+          "Um CTA de WhatsApp pode ser mais coerente com a conversão direta registrada do que exigir checkout."
         ],
         "doubts": [
-          "O projeto original não tinha uma pesquisa formal completa nem wireframing completo",
-          "Um catálogo maior poderia exigir arquitetura de compra diferente no futuro"
+          "A preferência da marca por contato via WhatsApp ainda precisa ser confirmada diante das telas de carrinho e checkout do board.",
+          "Não há evidência documentada sobre quais filtros ou informações os clientes priorizam."
         ]
       },
-      "userFlow": "Descoberta → Navegar → Filtrar → Comparar → Inspecionar produto → Avaliar informações → Decidir → Comprar.",
+      "userFlow": "Home → categoria/listagem → filtrar e comparar → detalhe do produto → decidir → contato/conversão. Carrinho e checkout aparecem em boards como exploração e não são apresentados como fluxo validado.",
       "personas": [
         {
-          "name": "Cliente de Instagram",
-          "role": "Navegador do catálogo",
-          "pain": "Precisa repetir as mesmas perguntas e avaliar a adequação do produto sem um caminho claro e centralizado até a compra.",
-          "goal": "Navegar pela coleção, comparar opções e decidir com mais rapidez com a informação disponível."
+          "name": "Pessoa explorando o catálogo",
+          "role": "Persona conceitual / hipótese de design; não derivada de entrevistas documentadas.",
+          "pain": "Pode precisar alternar entre listagem, detalhes do produto e contato para esclarecer informações.",
+          "goal": "Encontrar uma peça, conferir atributos relevantes e escolher como prosseguir."
         }
       ],
       "userStories": [
         {
-          "persona": "Cliente de Instagram",
-          "story": "Como cliente navegando no catálogo, eu quero filtrar e comparar produtos com clareza para que eu possa decidir mais rápido sem repetir esclarecimentos."
+          "persona": "Pessoa explorando o catálogo",
+          "story": "Como visitante, quero filtrar e comparar peças para encontrar opções compatíveis com o que procuro."
         }
       ],
       "problemDefinitions": [
         {
-          "persona": "Cliente de Instagram",
-          "definition": "Precisa de um fluxo de descoberta mais claro porque a falta de navegação e comparação estruturada cria fricção antes da compra."
+          "persona": "Hipótese de persona",
+          "definition": "Uma pessoa que navega pelo catálogo pode precisar de categorias, atributos e um próximo passo claro para avançar da descoberta à decisão."
         }
       ],
       "craftNotes": {
@@ -677,49 +906,219 @@
         "equity": "O fluxo respeita o comportamento real de conversão da marca, mantendo a etapa de fechamento no WhatsApp em vez de forçar um modelo de checkout tradicional.",
         "testing": "Não existem dados formais de usabilidade para o projeto original, então a proposta é tratada como melhoria de UX sugerida, não como resultado validado."
       },
-      "solution": "A direção proposta fortalece a descoberta de produto ao deixar filtros, comparação e informações do produto mais claras, ao mesmo tempo em que alinha o caminho de compra com o comportamento real de conversão da marca pelo WhatsApp. O objetivo não é reinventar o modelo de negócio, mas reduzir a fricção entre navegar e decidir.",
-      "finalProject": "Este projeto foi originalmente um esforço de design visual e de produto, não um processo formal completo de UX research e wireframing. A direção de design é, portanto, mais forte como esclarecimento estratégico de UX do que como afirmação de validação concluída. O próximo passo seria pesquisa real, testes de usabilidade e revisão mais formal de arquitetura de informação.",
-      "conclusion": "Descoberta → filtros → comparação → informação do produto → decisão de compra. O projeto demonstra como uma experiência de e-commerce pode reduzir a fricção ao melhorar a descoberta do produto e ajudar o usuário a passar com mais clareza da navegação para a compra. O foco central de UX é descoberta do produto, filtragem, comparação, informação do produto e tomada de decisão. A base visual é forte, mas o próximo passo importante seria fortalecer o processo de UX por meio de pesquisa, validação e testes de usabilidade."
+      "solution": "A proposta organiza a descoberta em home, categorias/listagem, comparação e detalhe da peça. O contato direto via WhatsApp permanece como caminho de conversão registrado no projeto; carrinho e checkout são apresentados como alternativas exploradas nos boards, não como decisão validada.",
+      "finalProject": "Case de design de produto com reconstrução de UX e boards desktop/mobile. Não há pesquisa com clientes ou teste formal documentado; não são atribuídos resultados de conversão ao design.",
+      "conclusion": "Descoberta → categoria → comparação → detalhe → decisão. O fluxo e os boards oferecem uma base para estruturar o catálogo. A relação entre checkout e atendimento via WhatsApp precisa ser alinhada ao comportamento comercial da marca e validada antes de ser tratada como solução final.",
+      "research": {
+        "status": "UX reconstruction / hipótese de design; pesquisa de campo não documentada.",
+        "method": "Revisão retrospectiva do escopo, dos boards de telas e do contexto de conversão já registrado no projeto.",
+        "participants": "Nenhuma entrevista com clientes documentada.",
+        "limitations": [
+          "Não há protocolo, entrevistas, observações de clientes ou teste de usabilidade disponíveis."
+        ]
+      },
+      "researchSynthesis": {
+        "behaviors": [
+          "O material do projeto registra contato direto via WhatsApp como comportamento de conversão da marca."
+        ],
+        "painPoints": [
+          "Hipótese: navegar entre produtos sem atributos consistentes pode dificultar comparação."
+        ],
+        "needs": [
+          "Hipótese: reunir categoria, atributos, preço e próximo passo na jornada de produto."
+        ],
+        "insights": [
+          "Os boards apresentam tanto um fluxo com carrinho/checkout quanto a conversão direta via WhatsApp registrada no projeto; a escolha final não está validada."
+        ],
+        "opportunities": [
+          "Confirmar com a marca se o fechamento acontece por WhatsApp, checkout ou por ambos.",
+          "Validar quais atributos e filtros ajudam na decisão de compra."
+        ]
+      },
+      "userJourney": [
+        {
+          "stage": "Descoberta",
+          "userAction": "Entra na home e explora categorias.",
+          "painPoint": "Hipótese: excesso de opções pode dificultar a primeira escolha.",
+          "opportunity": "Destacar categorias e coleções com rótulos claros."
+        },
+        {
+          "stage": "Listagem",
+          "userAction": "Navega pelos produtos e aplica filtros.",
+          "painPoint": "A relevância dos filtros não foi pesquisada.",
+          "opportunity": "Validar filtros de modelagem, tamanho, cor e preço."
+        },
+        {
+          "stage": "Comparação",
+          "userAction": "Compara imagens, atributos e preço.",
+          "opportunity": "Manter informações essenciais consistentes entre cards."
+        },
+        {
+          "stage": "Detalhe e decisão",
+          "userAction": "Abre o produto e escolhe como prosseguir.",
+          "painPoint": "O destino entre checkout e contato direto não está definido por evidência de pesquisa.",
+          "opportunity": "Alinhar o CTA ao processo comercial real da marca."
+        }
+      ],
+      "problemStatement": {
+        "persona": "Pessoa explorando um catálogo digital; persona conceitual.",
+        "need": "Encontrar e avaliar peças e entender o próximo passo de compra.",
+        "because": "Uma jornada dividida entre listagens, detalhes e canais de contato pode deixar dúvidas sem resposta.",
+        "finalStatement": "Como visitante do catálogo, preciso encontrar peças, comparar seus atributos e saber como concluir a compra para avançar com clareza da descoberta à decisão."
+      },
+      "howMightWe": [
+        "Como podemos organizar categorias e filtros para facilitar a descoberta sem presumir preferências não pesquisadas?",
+        "Como podemos apresentar atributos do produto de forma consistente para apoiar comparação?",
+        "Como podemos conectar o detalhe do produto ao canal de conversão que a marca realmente utiliza?"
+      ],
+      "informationArchitecture": {
+        "contentStructure": [
+          "Home → categorias/coleções → listagem de produtos → detalhe do produto.",
+          "Decisão → contato via WhatsApp conforme o contexto comercial registrado; carrinho/checkout são alternativas mostradas nos boards."
+        ],
+        "categories": [
+          "Home",
+          "Categorias e listagens",
+          "Detalhe do produto",
+          "Carrinho/checkout (exploração)",
+          "Contato e conversão"
+        ],
+        "hierarchy": [
+          "Descoberta e categoria.",
+          "Imagem, nome, preço e atributos do produto.",
+          "Ação de compra ou contato."
+        ],
+        "decisions": [
+          "Distinguir a navegação pelo catálogo da etapa de conversão.",
+          "Não assumir que carrinho/checkout substituem o contato via WhatsApp sem confirmação."
+        ]
+      },
+      "userFlowDetail": {
+        "description": "Fluxo proposto: home → categoria/listagem → filtro → produto → comparação/decisão → CTA de conversão. O board também explora carrinho e checkout; a rota final deve ser definida com a marca."
+      },
+      "wireframes": {
+        "status": "Boards de exploração fornecidos; não há teste formal de usabilidade documentado.",
+        "description": "Os boards cobrem home desktop, categoria/listagem, produto, carrinho, checkout e versões mobile de home, categoria e produto.",
+        "images": [
+          "/case-studies/jeans-wireframes-desktop.png",
+          "/case-studies/jeans-wireframes-mobile.png"
+        ],
+        "imageDetails": [
+          {
+            "title": "Wireframes — catálogo e checkout desktop",
+            "description": "Board com home, categoria/listagem, produto, carrinho e checkout desktop, apresentado com a marca Orbean Jeans.",
+            "decision": "Explora filtros, atributos, comparação e dois passos de checkout; o fechamento por WhatsApp registrado no case ainda precisa ser alinhado."
+          },
+          {
+            "title": "Wireframes — catálogo mobile",
+            "description": "Board mobile com home, categoria, listagem e detalhe de produto.",
+            "decision": "Preservar a descoberta e a leitura de atributos em telas menores e manter o próximo passo de compra explícito."
+          }
+        ],
+        "decisions": [
+          "Separar a listagem do detalhe do produto.",
+          "Apresentar carrinho/checkout como exploração visível nos boards, sem alegar que foi validada.",
+          "Confirmar a conversão por WhatsApp antes de escolher o fluxo final."
+        ]
+      },
+      "highFidelityDesign": {
+        "visualDecisions": [
+          "Os boards apresentam uma identidade de catálogo de jeans com navegação desktop e mobile."
+        ],
+        "components": [
+          "Navegação, filtros, cards de produto, seletor de atributos, galeria, carrinho e campos de checkout."
+        ],
+        "designSystem": [
+          "Não há documentação de tokens ou sistema de design incluída no material disponível."
+        ]
+      },
+      "usabilityTesting": {
+        "status": "Não testado formalmente.",
+        "method": "Nenhum método de teste com clientes está documentado.",
+        "participants": "Nenhum participante de teste documentado.",
+        "tasks": [
+          "Validar a descoberta por categoria e filtros.",
+          "Validar a comparação de peças e a compreensão do próximo passo entre checkout e WhatsApp."
+        ],
+        "limitations": [
+          "Fluxos e oportunidades são reconstrução/hipótese de design, sem resultados de teste ou métricas."
+        ]
+      },
+      "results": [
+        {
+          "type": "Design",
+          "label": "Boards desktop e mobile com exploração de home, categorias, produto, carrinho e checkout."
+        },
+        {
+          "type": "Estratégia",
+          "label": "Jornada de catálogo estruturada com conversão via WhatsApp preservada como contexto existente."
+        },
+        {
+          "type": "Validação",
+          "label": "Não há métricas de conversão ou testes de usabilidade documentados."
+        }
+      ],
+      "learnings": [
+        "A descoberta de produto depende da relação entre categoria, atributos, comparação e decisão.",
+        "O fluxo de interface precisa corresponder ao processo comercial real, em vez de impor um checkout genérico."
+      ],
+      "nextSteps": [
+        "Confirmar com a marca a relação entre checkout e conversão via WhatsApp.",
+        "Validar rótulos, filtros e atributos prioritários com clientes.",
+        "Testar o fluxo em desktop e mobile antes de atribuir resultados ao design."
+      ],
+      "limitations": [
+        "Não há entrevistas, pesquisa quantitativa ou teste formal documentados.",
+        "A persona e as necessidades descritas são hipóteses de design.",
+        "Os boards desktop/mobile exibem a marca Orbean Jeans enquanto o case existente se chama DN Jeans; confirmar o vínculo/nome antes de publicar como um único projeto."
+      ]
     },
     "4": {
       "title": "ImovePro",
       "overview": "Marketplace imobiliário multi-perfil (comprador/vendedor, consultor, empresa) com busca por raio geográfico e mapa interativo, substituindo o filtro tradicional por cidade/bairro.",
       "challenge": "Consultores imobiliários gerenciam leads, agenda e comunicação em ferramentas desconectadas (WhatsApp, planilha, agenda separada), enquanto compradores dependem de filtros de localização rasos que não refletem sua real área de interesse.",
-      "process": "Discovery presencial com os três perfis do marketplace. Decidimos tratar cada perfil como workspace visualmente distinto (não um painel único com permissões) para reduzir sobrecarga cognitiva — cada um vê apenas o que precisa no seu contexto.",
+      "process": "As notas existentes do projeto descrevem discovery presencial e walkthrough moderado com os três perfis, mas protocolos, transcrições e quantidade de participantes não estão disponíveis no repositório. A proposta organiza busca por mapa e espaços de trabalho por perfil; os resultados devem ser lidos como qualitativos e limitados.",
       "designSprint": [
-        { "stage": "Brainstorm", "description": "Discovery com os três perfis do marketplace, identificando gestão de leads fragmentada como dor maior que a busca em si." },
-        { "stage": "Define", "description": "Decisão de tratar cada perfil como workspace visualmente distinto em vez de um painel único com permissões." },
-        { "stage": "Design", "description": "Concepção dos três dashboards, pipeline de leads em Kanban/tabela e busca geolocalizada por raio." },
-        { "stage": "Test", "description": "Teste presencial moderado com os três perfis, confirmando que localizavam funções centrais sem orientação prévia." },
-        { "stage": "Launch", "description": "Entrega como proposta de produto, com tensão de design system entre fundo escuro e claro documentada como próximo passo." }
+        { "stage": "Pesquisa exploratória", "description": "Notas do case descrevem discovery presencial com perfis de comprador/vendedor, consultor e empresa; não há contagem ou protocolo disponíveis." },
+        { "stage": "Definição", "description": "Estruturar necessidades distintas de busca imobiliária e gestão de leads sem misturar tarefas de cada perfil." },
+        { "stage": "Design", "description": "Proposta de dashboards por perfil, pipeline de leads em Kanban/tabela e busca por raio em mapa." },
+        { "stage": "Walkthrough", "description": "As notas descrevem walkthrough moderado qualitativo das funções centrais; não há dados instrumentados ou detalhes da amostra." },
+        { "stage": "Próximos passos", "description": "Consolidar tokens visuais entre os temas claros e escuros e testar os fluxos com uma amostra documentada." }
       ],
       "myRole": "UX/UI Designer responsável pela concepção dos três dashboards, arquitetura de navegação, pipeline de leads e busca geolocalizada.",
       "csdMatrix": {
         "certainties": [
-          "Consultores tratam gestão de leads fragmentada como o maior ponto de dor, não a busca em si",
-          "Compradores tratam descoberta geográfica precisa como decisivo na escolha da plataforma"
+          "As notas do projeto apontam gestão de leads fragmentada como uma preocupação dos perfis profissionais.",
+          "O escopo inclui busca geográfica por raio e mapa para comprador/inquilino."
         ],
         "suppositions": [
           "Consolidar leads, agenda e chat em um único painel reduziria follow-ups esquecidos",
           "Busca por raio com mapa interativo aumentaria a relevância percebida dos resultados"
         ],
         "doubts": [
-          "Três workspaces visuais distintos (cores/temas diferentes por perfil) resistem à escala sem fragmentar o design system?"
+          "Workspaces visualmente distintos por perfil podem crescer sem fragmentar o design system?",
+          "As observações qualitativas se repetiriam com uma amostra maior e documentada?"
         ]
       },
       "userFlow": "Consultor: lead entra no pipeline (Novo → Contatado → Em Negociação → Fechado) → agenda e conversa no mesmo painel → alerta de follow-ups pendentes há mais de 24h. Comprador: seleciona workspace → busca por raio no mapa → filtra por tipo/orçamento → solicita cotação.",
       "personas": [
         {
           "name": "Consultor imobiliário",
-          "role": "Profissional autônomo",
+          "role": "Persona conceitual baseada no perfil de produto; não representa participante identificado.",
           "pain": "Alterna entre WhatsApp, planilha e agenda separada para saber quais leads já esfriaram.",
           "goal": "Ver todo o pipeline de leads em um único painel, sem cruzar múltiplas ferramentas."
         },
         {
-          "name": "Comprador/Vendedor",
-          "role": "Usuário final buscando imóvel",
+          "name": "Comprador ou inquilino",
+          "role": "Persona conceitual baseada no perfil de produto; sem dados demográficos ou entrevista individual atribuída.",
           "pain": "Filtros tradicionais por bairro/cidade não refletem a real área de interesse.",
           "goal": "Encontrar opções realmente próximas de onde precisa estar, via mapa por raio."
+        },
+        {
+          "name": "Empresa imobiliária",
+          "role": "Perfil conceitual previsto no produto; não representa participante identificado.",
+          "pain": "Precisa acompanhar operações sem misturar as tarefas de profissionais e clientes.",
+          "goal": "Acessar uma visão de gestão coerente com o contexto da empresa."
         }
       ],
       "userStories": [
@@ -728,7 +1127,7 @@
           "story": "Como consultor imobiliário, eu quero ver todo o meu pipeline de leads em um só painel para que eu não perca follow-ups por estarem espalhados em ferramentas diferentes."
         },
         {
-          "persona": "Comprador/Vendedor",
+          "persona": "Comprador ou inquilino",
           "story": "Como comprador, eu quero buscar imóveis por raio geográfico real para que eu veja apenas opções que fazem sentido pra minha rotina."
         }
       ],
@@ -738,7 +1137,7 @@
           "definition": "É um profissional autônomo que perde follow-ups em ferramentas fragmentadas e precisa de um pipeline único porque isso reduz risco comercial e economiza tempo operacional."
         },
         {
-          "persona": "Comprador/Vendedor",
+          "persona": "Comprador ou inquilino",
           "definition": "É um usuário final frustrado com filtros rasos de localização que precisa de busca geográfica precisa porque isso aumenta a relevância percebida dos resultados e acelera a decisão."
         }
       ],
@@ -746,29 +1145,193 @@
         "conventions": "Pipeline de leads segue o padrão Kanban já familiar a qualquer usuário de ferramenta de gestão (Trello, Notion), reduzindo a necessidade de treinamento para o consultor.",
         "affordances": "Pins no mapa mudam de cor/tamanho conforme o tipo de imóvel, e o raio de busca é arrastável diretamente no mapa, tornando a manipulação do filtro tátil e imediata em vez de depender de campos numéricos.",
         "equity": "Cada perfil (consultor, comprador, empresa) vê apenas a informação relevante ao seu contexto, reduzindo sobrecarga cognitiva especialmente para usuários menos familiarizados com dashboards densos.",
-        "testing": "Teste presencial moderado com os três perfis simultaneamente, verificando se cada um localizava sua função principal sem cruzar informação de outro perfil por engano."
+        "testing": "As notas do projeto descrevem um walkthrough presencial moderado com os três perfis; não há roteiro, contagem de participantes ou registro detalhado de achados no repositório."
       },
       "solution": "Três dashboards distintos (Consultor, Comprador/Vendedor, Empresa) com identidade visual compartilhada. Pipeline de leads em Kanban e tabela, alerta de follow-ups pendentes, busca por raio com mapa interativo e pins customizados.",
-      "finalProject": "SEM MÉTRICA QUANTIFICADA — sem processo ágil formal documentado (diferente do TI Help), sem taxa de sucesso numérica, sem dado de conversão em produção. Teste presencial moderado confirmou qualitativamente que participantes dos três perfis localizaram as funções centrais do sistema sem orientação prévia. Tensão não resolvida de design system: fundo escuro (Consultor/Empresa) e fundo claro (Comprador) compartilham cor de destaque, mas não tokens completos."
+      "finalProject": "Proposta de marketplace com busca por raio, mapa interativo e áreas distintas para comprador/inquilino, profissional e empresa. As notas descrevem walkthrough qualitativo, sem métricas, amostra detalhada ou resultados de produção. A consistência entre temas claros e escuros permanece como ponto de evolução.",
+      "research": {
+        "status": "Discovery exploratório mencionado nas notas do case; documentação primária não disponível no repositório.",
+        "method": "As notas descrevem conversas presenciais e walkthrough moderado com os três perfis do produto.",
+        "participants": "Perfis mencionados: comprador/vendedor, consultor e empresa. Quantidade e características dos participantes não documentadas.",
+        "limitations": [
+          "Não há roteiro, transcrição, critérios de sucesso ou contagem da amostra disponíveis."
+        ]
+      },
+      "researchSynthesis": {
+        "behaviors": [
+          "O escopo prevê busca imobiliária por mapa e raio.",
+          "O fluxo profissional reúne pipeline, agenda e comunicação."
+        ],
+        "painPoints": [
+          "As notas do projeto mencionam ferramentas fragmentadas para gestão de leads.",
+          "Filtros de cidade/bairro podem não expressar uma área de interesse definida por distância."
+        ],
+        "needs": [
+          "Explorar imóveis em uma área geográfica configurável.",
+          "Acompanhar leads e próximos contatos em um fluxo de trabalho."
+        ],
+        "insights": [
+          "Compradores e profissionais têm tarefas diferentes e podem precisar de espaços de trabalho próprios."
+        ],
+        "opportunities": [
+          "Validar filtros geográficos, raio e interação com o mapa.",
+          "Avaliar o pipeline e alertas com profissionais sem presumir ganhos operacionais."
+        ]
+      },
+      "userJourney": [
+        {
+          "stage": "Busca imobiliária",
+          "userAction": "Seleciona critérios e explora imóveis no mapa.",
+          "painPoint": "Filtros tradicionais por cidade ou bairro podem não representar a área desejada.",
+          "opportunity": "Explorar busca por raio e filtros por tipo e orçamento."
+        },
+        {
+          "stage": "Avaliação do imóvel",
+          "userAction": "Abre um anúncio e consulta localização e informações.",
+          "opportunity": "Manter mapa, características e ação de contato relacionados."
+        },
+        {
+          "stage": "Gestão profissional",
+          "userAction": "Organiza leads, agenda e follow-ups em um pipeline.",
+          "painPoint": "Notas do projeto apontam uso de ferramentas desconectadas.",
+          "opportunity": "Testar uma visão consolidada de leads e próximos passos."
+        }
+      ],
+      "problemStatement": {
+        "persona": "Comprador/inquilino e profissional imobiliário como perfis conceituais do marketplace.",
+        "need": "Explorar imóveis por localização relevante e, no contexto profissional, acompanhar leads e follow-ups.",
+        "because": "O escopo do projeto descreve filtros geográficos tradicionais e gestão de contatos em ferramentas separadas.",
+        "finalStatement": "Como participante de um marketplace imobiliário, preciso de um fluxo adequado à minha tarefa — descobrir imóveis por localização ou organizar leads — para avançar sem alternar entre áreas que não correspondem ao meu papel."
+      },
+      "howMightWe": [
+        "Como podemos ajudar compradores e inquilinos a buscar imóveis por uma área geográfica que faça sentido para sua rotina?",
+        "Como podemos reunir leads e próximos contatos para profissionais sem sobrecarregar a experiência de busca?",
+        "Como podemos manter identidades visuais por perfil dentro de um sistema consistente?"
+      ],
+      "informationArchitecture": {
+        "contentStructure": [
+          "Comprador/inquilino: busca → filtros → mapa/resultados → detalhe do imóvel → contato/favoritos.",
+          "Profissional: dashboard → pipeline de leads → agenda e comunicação.",
+          "Empresa: área de gestão prevista no escopo do produto."
+        ],
+        "categories": [
+          "Busca e filtros",
+          "Mapa e resultados",
+          "Detalhe do imóvel",
+          "Favoritos",
+          "Pipeline e agenda",
+          "Dashboard por perfil"
+        ],
+        "hierarchy": [
+          "Busca e contexto geográfico.",
+          "Resultados e informações do imóvel.",
+          "Ações específicas do perfil ativo."
+        ],
+        "decisions": [
+          "Separar busca do comprador das ferramentas operacionais do profissional.",
+          "Tratar áreas por perfil como arquitetura conceitual até validação adicional."
+        ]
+      },
+      "userFlowDetail": {
+        "description": "Comprador/inquilino: busca → define raio e filtros → explora mapa e resultados → consulta imóvel → contato ou favorito. Profissional: acessa o dashboard → atualiza lead no pipeline → consulta agenda e próximo follow-up."
+      },
+      "wireframes": {
+        "status": "Board de telas do ImovePro fornecido; não há documentação de validação quantitativa.",
+        "description": "O board apresenta home, listagem, detalhe do imóvel, favoritos/comparação, cadastro, dashboard, mapa e telas mobile.",
+        "images": [
+          "/case-studies/imovepro-wireframes.png"
+        ],
+        "imageDetails": [
+          {
+            "title": "Wireframes — marketplace e áreas por perfil",
+            "description": "Board com busca e filtros, resultados, mapa, detalhe de imóvel, favoritos/comparação, cadastro, dashboard e fluxos mobile.",
+            "decision": "Diferenciar a descoberta do comprador das tarefas de gestão sem afirmar que perfis ou fluxos foram validados em escala."
+          }
+        ],
+        "decisions": [
+          "Manter mapa e filtros próximos dos resultados geográficos.",
+          "Separar favoritos e comparação do fluxo de gestão profissional.",
+          "Usar áreas por perfil como hipótese de arquitetura."
+        ]
+      },
+      "highFidelityDesign": {
+        "visualDecisions": [
+          "O board explora interface desktop e mobile, com mapa, listagem e dashboards por perfil.",
+          "As notas do projeto registram uma tensão entre temas claros e escuros ainda sem tokens completos."
+        ],
+        "components": [
+          "Busca, filtros, pins de mapa, cards de imóvel, favoritos, comparação e pipeline."
+        ],
+        "designSystem": [
+          "A identidade compartilhada precisa ser reconciliada com os temas por perfil; a documentação completa de tokens permanece pendente."
+        ]
+      },
+      "usabilityTesting": {
+        "status": "As notas do projeto mencionam walkthrough presencial moderado; evidência limitada e sem protocolo disponível.",
+        "method": "Walkthrough qualitativo reportado nas notas do case.",
+        "participants": "Os três perfis são mencionados; quantidade não documentada.",
+        "findings": [
+          "As notas afirmam que funções centrais foram localizadas sem orientação prévia; não há dados por tarefa ou registro primário no repositório."
+        ],
+        "limitations": [
+          "Não há amostra detalhada, taxa de sucesso, tempos de tarefa, roteiro ou dados de produção."
+        ]
+      },
+      "iterations": [
+        {
+          "before": "Hipótese de um dashboard único com permissões.",
+          "problem": "As tarefas de comprador, profissional e empresa são distintas.",
+          "decision": "Explorar áreas de trabalho separadas por perfil.",
+          "after": "Proposta com dashboards específicos; consistência entre temas segue como ponto pendente."
+        }
+      ],
+      "results": [
+        {
+          "type": "Design",
+          "label": "Proposta visual de busca imobiliária por raio e áreas de trabalho por perfil."
+        },
+        {
+          "type": "Evidência qualitativa",
+          "label": "Notas do projeto relatam walkthrough moderado; protocolo e amostra não estão disponíveis."
+        },
+        {
+          "type": "Métricas",
+          "label": "Não há taxa de sucesso, conversão ou resultados quantitativos documentados."
+        }
+      ],
+      "learnings": [
+        "Busca imobiliária e gestão profissional são tarefas distintas que pedem hierarquias próprias.",
+        "A variação de temas por perfil precisa compartilhar tokens e componentes para preservar consistência."
+      ],
+      "nextSteps": [
+        "Documentar método, participantes, tarefas e achados do discovery e walkthrough.",
+        "Validar busca por raio, filtros, mapa e pipeline com representantes dos perfis.",
+        "Consolidar tokens visuais entre dashboards claros e escuros."
+      ],
+      "limitations": [
+        "As notas disponíveis não incluem protocolos, transcrições, número de participantes ou métricas.",
+        "Personas e jornadas são conceituais e não representam indivíduos entrevistados.",
+        "Não há dados de conversão ou uso em produção."
+      ]
     },
     "5": {
       "title": "Yacht Booking",
-      "overview": "Aplicativo conceitual para reserva de iates e experiências marítimas premium, explorando design de alto padrão para público luxury.",
-      "challenge": "Criar uma experiência digital que transmita exclusividade, segurança e sofisticação para transações de altíssimo valor — onde a confiança é tudo.",
-      "process": "Pesquisa de mercado luxury, análise de benchmarks de apps premium (Porsche, Net-A-Porter, Soho House), definição de linguagem visual e interacional que comunicasse exclusividade sem excesso.",
+      "overview": "Luxury booking experience / projeto conceitual de portfólio para descoberta e reserva de experiências náuticas. As jornadas e perfis são hipóteses de design, não evidência de pesquisa com clientes.",
+      "challenge": "Explorar como descoberta, comparação, disponibilidade e reserva poderiam transmitir clareza e confiança em uma experiência premium sem tratar essas escolhas como necessidades já validadas.",
+      "process": "Projeto autoral baseado em benchmark secundário de referências premium citadas no material (Porsche, Net-A-Porter e Soho House). O trabalho explorou linguagem visual e interação; não houve pesquisa de campo nem teste com usuários reais.",
       "designSprint": [
-        { "stage": "Brainstorm", "description": "Pesquisa de mercado luxury e benchmark de apps premium (Porsche, Net-A-Porter, Soho House) para mapear linguagem visual de exclusividade." },
-        { "stage": "Define", "description": "Definição do princípio de design 'exclusividade sem excesso', priorizando curadoria editorial sobre listagem tradicional." },
-        { "stage": "Design", "description": "Prototipagem de 40 telas com galeria imersiva, verificação de identidade discreta e reserva simplificada em 4 toques." },
-        { "stage": "Test", "description": "Validação interna de linguagem visual e fluxo contra os benchmarks de referência, sem teste com usuário real (projeto autoral)." },
-        { "stage": "Launch", "description": "Documentação completa do design system e apresentação de case como exercício de portfólio." }
+        { "stage": "Referências", "description": "Benchmark secundário de referências premium citadas no projeto; não equivale a pesquisa com usuários." },
+        { "stage": "Hipótese", "description": "Explorar curadoria editorial e uma hierarquia contida como direção visual de luxo." },
+        { "stage": "Fluxo proposto", "description": "Descoberta → destino e período → detalhe da experiência → disponibilidade → verificação → pagamento → confirmação/concierge." },
+        { "stage": "Design", "description": "O material do projeto registra 40 telas prototipadas, incluindo galeria, verificação de identidade e uma reserva proposta em quatro etapas." },
+        { "stage": "Validação conceitual", "description": "Revisão interna contra referências visuais; não houve teste de usabilidade com usuários reais." }
       ],
       "myRole": "Projeto autoral de exploração de design. Responsável por toda a conceituação, pesquisa, definição de linguagem visual, prototipagem e documentação do design system.",
       "csdMatrix": {
         "certainties": [
-          "Público luxury tem altíssima expectativa de qualidade visual e interacional",
-          "Segurança e verificação de identidade são inegociáveis para esse público",
-          "Excesso de informação e poluição visual comunicam falta de sofisticação"
+          "Premissa do projeto: a experiência deve explorar uma linguagem visual premium.",
+          "Requisito conceitual: apresentar disponibilidade e etapas da reserva com clareza.",
+          "Não há pesquisa com usuários documentada; as necessidades do público são hipóteses."
         ],
         "suppositions": [
           "Interface minimalista comunica melhor qualidade que interface densa",
@@ -781,171 +1344,601 @@
           "Dark mode seria percebido como mais premium que light mode para esse público?"
         ]
       },
-      "userFlow": "Usuário acessa editorial de experiências → Seleciona destino/período → Visualiza iate com galeria imersiva → Verifica disponibilidade em tempo real → Verificação de identidade → Pagamento seguro → Confirmação com concierge dedicado.",
+      "userFlow": "Fluxo proposto: editorial de experiências → destino/período → galeria e detalhes do iate → disponibilidade → verificação de identidade → pagamento → confirmação e concierge.",
       "personas": [
         {
-          "name": "Eduardo Ximenes",
-          "age": 48,
-          "role": "Empresário High Net Worth",
-          "pain": "Plataformas genéricas não transmitem a confiança e exclusividade que ele espera para essa categoria de gasto.",
-          "goal": "Reservar uma experiência marítima única com praticidade de um Uber mas nível de um hotel 5 estrelas."
+          "name": "Pessoa explorando uma experiência náutica premium",
+          "role": "Persona conceitual; sem nome, idade ou pesquisa de usuário atribuídos.",
+          "pain": "Hipótese: pode precisar avaliar detalhes, disponibilidade e condições antes de reservar.",
+          "goal": "Explorar uma experiência, entender o que está incluído e concluir uma reserva com clareza."
         },
         {
-          "name": "Catarina Mello",
-          "age": 35,
-          "role": "Gestora de Frota Náutica",
-          "pain": "Controle de reservas, manutenção e disponibilidade de múltiplos iates em sistemas diferentes e desconectados.",
-          "goal": "Uma plataforma centralizada onde gerencie toda a operação com visibilidade em tempo real."
+          "name": "Pessoa responsável pela disponibilidade da frota",
+          "role": "Persona operacional conceitual; hipótese de produto.",
+          "pain": "Hipótese: disponibilidade, reservas e manutenção podem exigir coordenação.",
+          "goal": "Consultar e atualizar informações operacionais em um espaço centralizado."
         }
       ],
       "userStories": [
         {
-          "persona": "Eduardo Ximenes",
-          "story": "Como empresário de alto patrimônio, eu quero reservar uma experiência marítima com poucos toques e alta confiança para que eu sinta que o serviço está à altura do valor que estou pagando."
+          "persona": "Pessoa explorando uma experiência premium",
+          "story": "Como visitante, quero comparar detalhes e disponibilidade para decidir se a experiência atende ao que procuro."
         },
         {
-          "persona": "Catarina Mello",
-          "story": "Como gestora de frota, eu quero visibilidade centralizada de reservas e manutenção para que eu não corra risco operacional por informação dispersa."
+          "persona": "Pessoa responsável pela disponibilidade da frota",
+          "story": "Como pessoa responsável pela operação, quero consultar reservas e disponibilidade em um só lugar para coordenar as próximas etapas."
         }
       ],
       "problemDefinitions": [
         {
-          "persona": "Eduardo Ximenes",
-          "definition": "É um empresário de altíssimo patrimônio que precisa de uma experiência de reserva minimalista e segura porque exclusividade percebida é decisiva nessa categoria de gasto."
+          "persona": "Pessoa visitante; persona conceitual.",
+          "definition": "Pode precisar de informações consistentes sobre experiência, disponibilidade e reserva; essa necessidade ainda deve ser validada."
         },
         {
-          "persona": "Catarina Mello",
-          "definition": "É uma gestora de frota que lida com sistemas desconectados e precisa de uma plataforma centralizada porque isso reduz risco operacional e ganha visibilidade em tempo real."
+          "persona": "Perfil operacional; persona conceitual.",
+          "definition": "Pode precisar coordenar reservas e disponibilidade em um fluxo operacional, hipótese ainda não pesquisada."
         }
       ],
       "craftNotes": {
         "conventions": "Segui convenções de apps de luxo já validadas no mercado (tipografia serifada em títulos, espaçamento generoso, paleta reduzida) para comunicar sofisticação sem precisar reinventar padrões visuais.",
         "affordances": "Elementos de reserva usam microinterações sutis (fade, escala leve) em vez de feedback abrupto, comunicando 'premium' através do próprio comportamento da interface, não só da estética estática.",
         "equity": "Mesmo em um produto de nicho luxury, a verificação de identidade foi desenhada para ser fluida e não intimidadora, evitando fricção desnecessária para usuários menos habituados a processos de KYC digital.",
-        "testing": "Como projeto autoral sem cliente real, a validação foi feita por comparação estruturada com benchmarks de mercado (Porsche, Net-A-Porter, Soho House) em vez de teste de usabilidade tradicional — limite que assumo abertamente em entrevista."
+        "testing": "A revisão interna comparou a direção visual com benchmarks citados no projeto. Não houve validação com usuários reais; trata-se de validação conceitual."
       },
-      "solution": "Interface editorial com curadoria de experiências em vez de lista de produtos. Galeria imersiva de cada iate com vídeo. Processo de reserva simplificado em 4 toques. Verificação de identidade fluida e discreta. Concierge digital disponível 24h via chat.",
-      "finalProject": "Projeto conceitual completo com design system documentado, 40 telas prototipadas e apresentação de case. Exploração aprofundada de micro-interações premium e linguagem visual de alto padrão como exercício de portfólio."
+      "solution": "Exploração conceitual de descoberta editorial, galeria de iates, disponibilidade, verificação de identidade e reserva proposta em quatro etapas, com confirmação/concierge. Esses elementos descrevem o protótipo e não comprovam implementação ou aceitação por usuários.",
+      "finalProject": "Projeto de portfólio ficcional/conceitual. O material registra 40 telas prototipadas e documentação visual; não há pesquisa de campo, teste com usuários ou métricas de negócio.",
+      "research": {
+        "status": "Projeto conceitual; pesquisa com usuários não realizada/documentada.",
+        "method": "Benchmark secundário de referências premium citadas no projeto.",
+        "participants": "Nenhum participante de pesquisa documentado.",
+        "limitations": [
+          "Referências de mercado não substituem entrevistas ou validação com clientes potenciais."
+        ]
+      },
+      "researchSynthesis": {
+        "behaviors": [
+          "Fluxos abaixo são propostos para o conceito e não observados em usuários."
+        ],
+        "needs": [
+          "Hipótese: visitantes precisam entender experiência, disponibilidade, condições e preço antes de reservar."
+        ],
+        "insights": [
+          "A direção visual premium é uma escolha de design do projeto, não uma preferência comprovada do público."
+        ],
+        "opportunities": [
+          "Validar quais informações influenciam comparação e reserva.",
+          "Testar confiança, verificação de identidade e necessidade de concierge."
+        ]
+      },
+      "userJourney": [
+        {
+          "stage": "Descoberta",
+          "userAction": "Explora experiências náuticas em uma seleção editorial proposta.",
+          "opportunity": "Testar se a curadoria ajuda a encontrar experiências relevantes."
+        },
+        {
+          "stage": "Comparação",
+          "userAction": "Consulta destino, período, detalhes e imagens do iate.",
+          "painPoint": "Hipótese: condições e disponibilidade pouco claras podem dificultar a decisão.",
+          "opportunity": "Validar quais detalhes precisam aparecer antes da reserva."
+        },
+        {
+          "stage": "Reserva proposta",
+          "userAction": "Confere disponibilidade, passa por verificação e conclui pagamento.",
+          "opportunity": "Testar cada etapa, mensagens de confiança e alternativas de assistência."
+        },
+        {
+          "stage": "Confirmação",
+          "userAction": "Recebe confirmação e acesso ao concierge conceitual.",
+          "opportunity": "Definir quais informações pós-reserva são realmente necessárias."
+        }
+      ],
+      "problemStatement": {
+        "persona": "Pessoa explorando uma experiência náutica premium; persona conceitual.",
+        "need": "Avaliar a experiência e entender as etapas da reserva.",
+        "because": "Em um serviço de alto valor, detalhes, disponibilidade e condições precisam estar claros para uma decisão informada; essa premissa requer validação.",
+        "finalStatement": "Como visitante de uma experiência náutica conceitual, preciso comparar detalhes e compreender as etapas da reserva para decidir com segurança se devo prosseguir."
+      },
+      "howMightWe": [
+        "Como podemos apresentar experiências e seus detalhes sem sobrecarregar a descoberta?",
+        "Como podemos tornar disponibilidade, condições e etapas de reserva claras antes do pagamento?",
+        "Como poderíamos oferecer assistência sem interromper uma reserva autônoma?"
+      ],
+      "informationArchitecture": {
+        "contentStructure": [
+          "Editorial/descoberta → destino e período → listagem/seleção → detalhe do iate.",
+          "Detalhe → disponibilidade → verificação → pagamento → confirmação/concierge."
+        ],
+        "categories": [
+          "Experiências",
+          "Destino e período",
+          "Detalhe do iate",
+          "Disponibilidade",
+          "Reserva e pagamento",
+          "Confirmação e assistência"
+        ],
+        "hierarchy": [
+          "Experiência e localização.",
+          "Detalhes, condições e disponibilidade.",
+          "Próxima etapa da reserva."
+        ],
+        "decisions": [
+          "Tratar a curadoria editorial como hipótese visual do projeto.",
+          "Manter as condições e disponibilidade próximas à ação de reserva."
+        ]
+      },
+      "userFlowDetail": {
+        "description": "Fluxo proposto, não testado: explorar editorial → selecionar destino/período → comparar detalhes → consultar disponibilidade → verificar identidade → pagar → receber confirmação e assistência."
+      },
+      "wireframes": {
+        "status": "Fluxo conceitual; board de wireframes não foi fornecido neste repositório.",
+        "description": "A estrutura descrita organiza descoberta, detalhe da experiência, disponibilidade, reserva, pagamento e confirmação.",
+        "decisions": [
+          "Separar descoberta editorial de detalhes necessários à decisão.",
+          "Explicitar etapas e condições antes do pagamento.",
+          "Não apresentar verificação ou concierge como serviço implementado."
+        ]
+      },
+      "highFidelityDesign": {
+        "visualDecisions": [
+          "O projeto explora linguagem visual premium e microinterações discretas."
+        ],
+        "components": [
+          "Galeria, seleção de destino/período, disponibilidade, verificação e resumo da reserva como elementos propostos."
+        ],
+        "designSystem": [
+          "O material descreve documentação de design system; não há resultados de validação visual com usuários."
+        ]
+      },
+      "usabilityTesting": {
+        "status": "Validação conceitual; não testado com usuários reais.",
+        "method": "Revisão interna de referências e coerência do fluxo, não teste de usabilidade.",
+        "participants": "Nenhum participante de teste documentado.",
+        "tasks": [
+          "Testar descoberta, comparação, consulta de disponibilidade e compreensão do fluxo de reserva."
+        ],
+        "limitations": [
+          "Não há evidência de teste com clientes, validação de pagamento ou dados de operação."
+        ]
+      },
+      "results": [
+        {
+          "type": "Design conceitual",
+          "label": "Material do projeto registra 40 telas prototipadas e documentação de design system."
+        },
+        {
+          "type": "Validação",
+          "label": "Sem testes com usuários ou métricas de negócio documentados."
+        }
+      ],
+      "learnings": [
+        "A direção premium precisa ser sustentada por clareza de condições e não apenas por estética.",
+        "Verificação, disponibilidade e concierge são hipóteses de serviço que exigem validação operacional."
+      ],
+      "nextSteps": [
+        "Entrevistar pessoas interessadas em experiências náuticas e responsáveis pela operação.",
+        "Testar descoberta, comparação e compreensão das condições da reserva.",
+        "Validar a viabilidade de disponibilidade, verificação, pagamento e concierge com parceiros."
+      ],
+      "limitations": [
+        "Projeto ficcional/conceitual sem cliente e sem pesquisa com usuários.",
+        "Personas e jornadas são hipóteses comportamentais sem dados demográficos.",
+        "Não há teste de usabilidade, métricas de conversão ou operação real documentados."
+      ]
     },
     "6": {
       "title": "Solar Panel Monitoring",
-      "overview": "Landing page conceitual para negócios de energia solar, desenvolvida como produto de design — não a partir de pesquisa com clientes reais de energia solar, e sim como exercício de tradução de dado técnico complexo em proposta de valor acessível, com calculadora de payback e geração de leads via WhatsApp/Instagram.",
-      "challenge": "Um negócio de energia solar precisa converter visitantes em contatos qualificados via WhatsApp/Instagram, mas o mercado comunica em métricas técnicas (kWh, pico de geração, eficiência) que não fazem sentido pro proprietário residencial médio — que só quer entender se vai economizar, em quanto tempo o investimento se paga, e se vale a pena contratar o serviço.",
-      "process": "Pesquisa de referência em sites e apps de energia e sustentabilidade existentes no mercado (benchmark, não pesquisa de campo própria), definição de uma proposta de valor e hierarquia de informação que priorizasse linguagem humana (\"Você pode economizar X por mês\") sobre unidade técnica bruta (kWh), incluindo uma calculadora de retorno de investimento (payback) diretamente na página, com CTAs diretos para WhatsApp e Instagram em pontos estratégicos.",
+      "overview": "Dashboard concept / template para acompanhar produção e consumo de energia solar, visualizar status do sistema, alertas e histórico. Não há pesquisa com clientes ou operadores de energia documentada; a arquitetura abaixo é uma hipótese de design.",
+      "challenge": "Explorar como organizar produção, consumo, estado do sistema e histórico para que a pessoa entenda a situação atual sem confundir dados ilustrativos com medições reais.",
+      "process": "Template autoral e conceitual. A estrutura foi formulada como hipótese de arquitetura para um dashboard de monitoramento; não é resultado de entrevistas, teste ou implantação com uma empresa de energia solar.",
       "designSprint": [
-        { "stage": "Brainstorm", "description": "Benchmark de sites e apps de energia/sustentabilidade existentes, mapeando como o mercado comunica dado técnico hoje." },
-        { "stage": "Define", "description": "Definição da proposta de valor centrada em linguagem de economia (R$/mês) em vez de unidade técnica bruta (kWh)." },
-        { "stage": "Design", "description": "Prototipagem da landing page com calculadora de payback embutida e CTAs diretos para WhatsApp/Instagram." },
-        { "stage": "Test", "description": "Validação interna da hierarquia de informação contra os benchmarks levantados, sem teste com cliente real de energia solar." },
-        { "stage": "Launch", "description": "Finalização como template de produto de design para venda em Gumroad/UI8/Figma Community." }
+        { "stage": "Contexto", "description": "Template de monitoramento conceitual, sem cliente ou telemetria real documentados." },
+        { "stage": "Hipótese", "description": "Agrupar produção, consumo, status, alertas e histórico pode apoiar a leitura da operação." },
+        { "stage": "Arquitetura", "description": "Proposta de dashboard geral com detalhamento de energia, eventos e períodos." },
+        { "stage": "Design", "description": "Organização conceitual de indicadores, visualizações temporais e alertas." },
+        { "stage": "Validação", "description": "Não testado com usuários ou dados reais; critérios de leitura e alertas precisam ser validados." }
       ],
-      "myRole": "Projeto autoral, criado como template para venda (Gumroad/UI8/Figma Community). Responsável pela conceituação completa, definição de sistema de visualização de dados e prototipagem do fluxo end-to-end.",
+      "myRole": "Projeto autoral de design de dashboard/template conceitual.",
       "csdMatrix": {
         "certainties": [
-          "Termos técnicos como \"kWh\" e \"pico de geração\" não são compreendidos pelo usuário residencial médio",
-          "Comparativos com período anterior são mais legíveis que valores absolutos isolados",
-          "O tempo de retorno do investimento (payback) é a dúvida central que trava a decisão de compra do proprietário residencial"
+          "O escopo deste case é um dashboard/template conceitual de monitoramento.",
+          "Nenhuma pesquisa com operadores, usuários residenciais ou dados de instalação está documentada.",
+          "Os valores apresentados no conceito não representam produção ou consumo medidos."
         ],
         "suppositions": [
-          "Tradução de dado técnico em linguagem de economia (R$/mês) aumentaria a compreensão e o engajamento com a página",
-          "Uma calculadora de payback interativa na própria página aumentaria a confiança e a taxa de conversão em contato, comparado a apenas comunicar economia estimada em texto"
+          "Resumo por período pode facilitar comparação de produção e consumo.",
+          "Alertas priorizados por estado e impacto podem ajudar a identificar eventos que exigem atenção.",
+          "Explicações em linguagem simples podem complementar unidades técnicas."
         ],
         "doubts": [
-          "Sem cliente real de energia solar validando o produto, a hierarquia de informação proposta resistiria a um teste de usabilidade real?",
-          "A precisão da calculadora (baseada em quais inputs — consumo médio, região, tamanho do sistema?) resistiria a comparação com uma simulação feita por um instalador real?"
+          "Quais leituras e unidades são relevantes para cada perfil de operador?",
+          "Como distinguir falha de comunicação, baixa produção e alerta de manutenção?",
+          "Quais fontes, intervalos e regras devem alimentar os dados e alertas?"
         ]
       },
-      "userFlow": "Visitante chega na landing page → entende em linguagem simples o benefício de economia (não kWh bruto) → usa a calculadora de payback para simular em quanto tempo o investimento se paga → visualiza produtos/serviços oferecidos pelo dono do negócio → é direcionado a entrar em contato via WhatsApp ou Instagram com um toque.",
+      "userFlow": "Fluxo proposto: abrir dashboard → revisar produção e consumo do período → verificar status e alertas → comparar histórico → abrir detalhe do evento ou sistema → decidir o próximo acompanhamento.",
       "personas": [
         {
-          "name": "Proprietário residencial interessado em energia solar",
-          "role": "Visitante da landing page, potencial cliente do negócio",
-          "pain": "Não entende os dados técnicos de energia solar e não sabe se o investimento realmente vale a pena nem em quanto tempo se paga.",
-          "goal": "Simular quanto vai economizar e em quanto tempo recupera o investimento, de forma simples, e entrar em contato fácil com quem vende/instala o sistema."
+          "name": "Pessoa acompanhando um sistema solar",
+          "role": "Persona conceitual; perfil comportamental hipotético, sem demografia ou pesquisa atribuída.",
+          "pain": "Hipótese: pode precisar interpretar diferentes indicadores e identificar quando um evento exige atenção.",
+          "goal": "Consultar produção, consumo, estado do sistema e histórico em uma visão compreensível."
         }
       ],
       "userStories": [
         {
-          "persona": "Proprietário residencial",
-          "story": "Como proprietário residencial, eu quero simular em linguagem simples quanto vou economizar para que eu decida contratar o serviço sem precisar entender kWh."
+          "persona": "Pessoa acompanhando um sistema solar",
+          "story": "Como operador ou responsável pelo sistema, quero comparar produção e consumo por período para entender mudanças sem interpretar valores isolados."
+        },
+        {
+          "persona": "Pessoa acompanhando um sistema solar",
+          "story": "Como responsável pelo monitoramento, quero revisar alertas e status para identificar quais eventos precisam de acompanhamento."
         }
       ],
       "problemDefinitions": [
         {
-          "persona": "Proprietário residencial",
-          "definition": "É um visitante leigo em energia solar que precisa de uma calculadora de payback em linguagem acessível porque isso reduz a incerteza que trava sua decisão de compra."
+          "persona": "Pessoa responsável por acompanhar um sistema; perfil conceitual.",
+          "definition": "Pode precisar de uma visão consolidada de produção, consumo, status e eventos para interpretar o sistema; essa necessidade deve ser validada com operadores reais."
         }
       ],
       "craftNotes": {
-        "conventions": "A calculadora segue o padrão já familiar de simuladores financeiros (input numérico + resultado destacado em tempo real), reduzindo a curva de aprendizado para quem já usou simuladores de financiamento ou empréstimo.",
-        "affordances": "Slider de consumo médio usa feedback visual imediato (o valor de economia atualiza em tempo real conforme o usuário arrasta), reforçando a relação causa-efeito sem precisar de instrução.",
-        "equity": "Linguagem da página evita jargão técnico deliberadamente para não excluir o proprietário residencial leigo, que é o público real de decisão de compra — não o instalador técnico.",
-        "testing": "Sem cliente real validando, a testagem foi limitada a revisão de hierarquia de informação e clareza de linguagem contra os benchmarks — limitação que assumo abertamente: falta validação com usuário real de energia solar."
+        "conventions": "O dashboard é estruturado em torno de resumo, tendências, estado do sistema e alertas como proposta de hierarquia.",
+        "affordances": "Estados e alertas devem combinar rótulo textual e sinal visual; níveis e regras ainda dependem de validação operacional.",
+        "equity": "Explicações devem acompanhar unidades técnicas sem ocultar a origem, período ou significado dos dados.",
+        "testing": "Nenhum teste com operador ou usuário final foi documentado; os dados do template são conceituais."
       },
-      "solution": "Landing page com linguagem acessível em vez de unidade técnica bruta, calculadora de payback que mostra em quanto tempo o investimento se paga, apresentação clara dos produtos e serviços do negócio, e CTAs diretos para contato via WhatsApp ou Instagram — desenhada para gerar leads qualificados para um negócio de energia solar.",
-      "finalProject": "Template de produto de design, desenvolvido para venda (não implementado com cliente real de energia solar). Sem métrica de uso real — é um exercício de hierarquia de informação, calculadora de payback e geração de leads, não um case com resultado de negócio validado."
+      "solution": "Dashboard conceitual para reunir produção, consumo, status do sistema, alertas e histórico. Visualizações, regras de alerta e valores são hipóteses de template, não uma integração implementada com dados reais.",
+      "finalProject": "Template de dashboard conceitual, sem implantação com cliente, pesquisa com operadores, telemetria ou métricas de uso documentadas.",
+      "research": {
+        "status": "Pesquisa com usuários não realizada/documentada.",
+        "method": "Conceituação de arquitetura de dashboard; não há benchmark de campo ou entrevista documentados neste case.",
+        "participants": "Nenhum participante documentado.",
+        "limitations": [
+          "Não há dados reais de sistema, entrevistas ou testes disponíveis."
+        ]
+      },
+      "researchSynthesis": {
+        "behaviors": [
+          "Fluxo de monitoramento abaixo é uma hipótese de produto, não comportamento observado."
+        ],
+        "painPoints": [
+          "Hipótese: indicadores isolados podem dificultar a leitura de tendências e eventos."
+        ],
+        "needs": [
+          "Hipótese: consultar produção, consumo, estado, alertas e histórico em contexto."
+        ],
+        "insights": [
+          "O produto precisa distinguir claramente dados reais, período selecionado e informações ilustrativas."
+        ],
+        "opportunities": [
+          "Validar a hierarquia com operadores e pessoas responsáveis por instalações.",
+          "Definir unidades, intervalos, origem dos dados e severidade de alertas com especialistas."
+        ]
+      },
+      "userJourney": [
+        {
+          "stage": "Visão geral",
+          "userAction": "Abre o dashboard e seleciona um sistema/período.",
+          "opportunity": "Mostrar contexto, atualização e origem dos dados."
+        },
+        {
+          "stage": "Monitorar",
+          "userAction": "Consulta produção e consumo ao longo do período.",
+          "painPoint": "Hipótese: números sem contexto podem ser difíceis de interpretar.",
+          "opportunity": "Comparar séries temporais com rótulos e unidades claras."
+        },
+        {
+          "stage": "Verificar status",
+          "userAction": "Revê estado do sistema e alertas.",
+          "painPoint": "Regras e níveis de severidade ainda não foram definidos com operadores.",
+          "opportunity": "Validar critérios, prioridade e ações sugeridas."
+        },
+        {
+          "stage": "Investigar",
+          "userAction": "Abre histórico ou detalhes de um evento.",
+          "opportunity": "Relacionar o evento ao período e ao sistema afetado."
+        }
+      ],
+      "problemStatement": {
+        "persona": "Pessoa que acompanha um sistema solar; persona conceitual.",
+        "need": "Interpretar produção, consumo, status e eventos em uma visão contextualizada.",
+        "because": "Indicadores e alertas sem período, origem ou explicação podem dificultar o acompanhamento.",
+        "finalStatement": "Como responsável por acompanhar um sistema solar, preciso relacionar produção, consumo, status e histórico para entender o que aconteceu e decidir o que verificar em seguida."
+      },
+      "howMightWe": [
+        "Como podemos mostrar produção e consumo por período sem perder a origem e a unidade de cada dado?",
+        "Como podemos diferenciar alertas que exigem atenção de informações de rotina?",
+        "Como podemos ligar um estado do sistema ao histórico e à próxima ação de acompanhamento?"
+      ],
+      "informationArchitecture": {
+        "contentStructure": [
+          "Dashboard → resumo de produção/consumo → visualização histórica.",
+          "Sistema → status e alertas → detalhe do evento → histórico."
+        ],
+        "categories": [
+          "Visão geral",
+          "Produção",
+          "Consumo",
+          "Status do sistema",
+          "Alertas",
+          "Histórico"
+        ],
+        "hierarchy": [
+          "Sistema selecionado e período dos dados.",
+          "Resumo de produção, consumo e estado.",
+          "Tendências, alertas e detalhes."
+        ],
+        "decisions": [
+          "Manter o contexto de período e sistema visível nas visualizações.",
+          "Separar o resumo dos eventos que exigem investigação.",
+          "Não exibir números ilustrativos como telemetria real."
+        ]
+      },
+      "userFlowDetail": {
+        "description": "Fluxo proposto: selecionar sistema e período → revisar produção/consumo → verificar status e alertas → comparar histórico → abrir detalhe do evento → registrar ou encaminhar acompanhamento."
+      },
+      "wireframes": {
+        "status": "Arquitetura conceitual descrita; board de wireframes específico não está disponível no repositório.",
+        "description": "A proposta prevê uma visão geral do sistema, detalhes de produção/consumo, alertas e histórico por período.",
+        "decisions": [
+          "Indicar unidade, período e origem em cada indicador.",
+          "Agrupar alertas por estado e explicar a ação sugerida.",
+          "Usar dados ilustrativos identificados como demonstração."
+        ]
+      },
+      "highFidelityDesign": {
+        "visualDecisions": [
+          "Priorizar legibilidade dos dados e comparação temporal em vez de decoração visual."
+        ],
+        "components": [
+          "Cards de resumo, gráfico histórico, seletor de período, estado do sistema e lista de alertas como proposta."
+        ],
+        "designSystem": [
+          "Estados, cores e componentes precisam de critérios acessíveis e validação com operadores."
+        ]
+      },
+      "usabilityTesting": {
+        "status": "Não testado formalmente.",
+        "method": "Nenhuma sessão com operador ou usuário final documentada.",
+        "participants": "Nenhum participante documentado.",
+        "tasks": [
+          "Validar a leitura de produção/consumo por período.",
+          "Validar a interpretação de status, alertas e histórico."
+        ],
+        "limitations": [
+          "Sem integração com dados reais, não é possível avaliar precisão de alertas ou entendimento operacional."
+        ]
+      },
+      "results": [
+        {
+          "type": "Design conceitual",
+          "label": "Arquitetura de template organizada em visão geral, energia, status, alertas e histórico."
+        },
+        {
+          "type": "Validação",
+          "label": "Sem pesquisa, testes ou métricas de uso documentados."
+        }
+      ],
+      "learnings": [
+        "Visualização de energia precisa apresentar unidade, período e origem para evitar interpretação fora de contexto.",
+        "Alertas dependem de regras operacionais e precisam ser definidos com especialistas."
+      ],
+      "nextSteps": [
+        "Entrevistar operadores e responsáveis por instalações solares.",
+        "Validar indicadores, unidades, intervalos e critérios de alerta com especialistas.",
+        "Prototipar cenários com dados claramente identificados como reais ou ilustrativos.",
+        "Testar a leitura de tendências e o fluxo de investigação de eventos."
+      ],
+      "limitations": [
+        "Template conceitual sem pesquisa de campo, integração ou telemetria real.",
+        "Personas, jornada, visualizações e alertas são hipóteses de design.",
+        "Não há métricas de produção, economia, conversão ou uso documentadas."
+      ]
     },
     "7": {
       "title": "Social Media Design & Content Strategy",
-      "overview": "Este foi um projeto real de design social media e estratégia de conteúdo focado em entender quais tipos de conteúdo geram atenção e engajamento e como eles devem ser distribuídos em diferentes formatos.",
-      "challenge": "O desafio era criar conteúdo visualmente eficaz ao mesmo tempo em que se entendia a relação entre tema, formato, dia, horário, legenda, distribuição e resposta da audiência.",
-      "process": "Contexto → Diagnóstico → Estratégia → Sistema Visual → Conteúdo → Validação → Iteração. O trabalho combinou análise de performance do conteúdo existente com o empacotamento estratégico das ideias em feed, stories e reels.",
+      "overview": "Projeto real de design e gestão de conteúdo para o perfil político de um cliente no Instagram. Em depoimento, o cliente relata 10 mil visualizações em uma publicação e alcance de 47,7 mil no trimestre mais recente, cerca de 29% acima do trimestre anterior. O período de calendário e os dados analíticos independentes não estão disponíveis neste case; os números não comprovam causalidade.",
+      "challenge": "Organizar a produção e a apresentação de conteúdo em diferentes formatos, considerando observações registradas sobre tema, formato, publicação e resposta da audiência sem extrapolar os dados disponíveis.",
+      "process": "O material do projeto descreve observação de conteúdo, definição de estratégia, criação de sistema visual, produção e iteração. Os registros disponíveis não detalham período de análise, método de comparação ou experimento controlado.",
       "designSprint": [
-        { "stage": "Contexto", "description": "Revisou a base atual de conteúdo e observou quais formatos e temas já estavam ganhando atenção." },
-        { "stage": "Diagnóstico", "description": "Mapeou padrões de performance por dia, horário, formato e legenda para identificar os principais alavancas estratégicas." },
-        { "stage": "Estratégia", "description": "Construiu um sistema de conteúdo mais consistente com base na resposta da audiência, repetição e reaproveitamento de peças em diferentes canais." },
-        { "stage": "Sistema visual", "description": "Definiu uma linguagem visual que pudesse sustentar diferentes peças sem perder reconhecimento." },
-        { "stage": "Conteúdo", "description": "Organizou tema, formato e distribuição em um modelo repetível de produção." },
-        { "stage": "Validação", "description": "Verificou quais ativos performavam melhor e como poderiam ser reaproveitados em stories ou feed." },
-        { "stage": "Iteração", "description": "Ajustou a estratégia a partir do comportamento real e melhorou oportunidades de reutilização." }
+        { "stage": "Contexto", "description": "O case registra trabalho real de conteúdo e design para redes sociais; conta, plataforma e período não estão especificados." },
+        { "stage": "Observação", "description": "O material menciona análise de desempenho por tema, formato, dia e horário, sem documentar amostra ou método." },
+        { "stage": "Estratégia", "description": "Organização proposta de conteúdo, distribuição e possibilidades de reutilização entre formatos." },
+        { "stage": "Sistema visual", "description": "Criação de linguagem visual para as peças incluídas no projeto." },
+        { "stage": "Conteúdo", "description": "Produção e adaptação de peças para feed, stories e reels, conforme descrito no registro." },
+        { "stage": "Revisão", "description": "O material cita observação de desempenho; não há protocolo de teste ou comparação controlada documentados." },
+        { "stage": "Iteração", "description": "O case relata iteração, sem detalhar datas, alterações específicas ou atribuição de resultados." }
       ],
       "myRole": "Design e estratégia de conteúdo para operação real de redes sociais",
       "csdMatrix": {
         "certainties": [
-          "O desempenho varia conforme dia e horário",
-          "Formato, legenda e tema influenciam a performance",
-          "Problemas municipais nem sempre muito percebidos podem gerar interesse quando comunicados com clareza"
+          "O projeto é descrito como trabalho real de design e estratégia de conteúdo.",
+          "O depoimento do cliente relata 10 mil visualizações em uma publicação e alcance trimestral de 47,7 mil, cerca de 29% acima do trimestre anterior.",
+          "O material descreve peças para feed, stories e reels."
         ],
         "suppositions": [
-          "Reels e posts de feed podem ser reutilizados estrategicamente em Stories",
-          "Um sistema visual mais forte cria mais consistência entre os conteúdos",
-          "A mesma mensagem pode ser adaptada para múltiplos formatos sem perder a essência"
+          "Adaptar uma ideia a mais de um formato pode ampliar as oportunidades de distribuição.",
+          "Um sistema visual consistente pode facilitar o reconhecimento entre peças.",
+          "A observação de métricas pode apoiar decisões editoriais quando período e contexto são conhecidos."
         ],
         "doubts": [
-          "Os principais drivers de performance são específicos de contexto e devem ser revisados ao longo do tempo",
-          "Nem todos os temas recorrentes têm o mesmo desempenho em todos os públicos e janelas de publicação"
+          "Quais foram as datas exatas dos trimestres comparados e os critérios de atribuição?",
+          "Os registros analíticos da conta confirmam os números mencionados no depoimento?",
+          "Quais fatores externos, além do trabalho de conteúdo, podem ter influenciado o alcance?"
         ]
       },
-      "userFlow": "Tema → Formato de conteúdo → Publicação → Resposta da audiência → Reuso / redistribuição.",
+      "userFlow": "Fluxo de trabalho editorial proposto: tema → formato e peça → publicação → observação da resposta disponível → decisão de adaptar ou redistribuir.",
       "personas": [
         {
-          "name": "Audiência local",
-          "role": "Seguidor de redes sociais",
-          "pain": "Recebe muitos posts repetitivos e responde melhor a conteúdos que são claros, oportunos e relevantes.",
-          "goal": "Enxergar informações úteis, visualmente claras e relevantes para o momento."
+          "name": "Audiência das publicações",
+          "role": "Perfil conceitual; não representa participante entrevistado nem segmento validado por pesquisa.",
+          "pain": "Hipótese: conteúdo pouco claro ou sem relevância contextual pode não captar atenção.",
+          "goal": "Encontrar publicações compreensíveis e relevantes no contexto em que são exibidas."
         }
       ],
       "userStories": [
         {
-          "persona": "Audiência local",
-          "story": "Como membro da audiência local, eu quero consumir conteúdo relevante para o meu contexto e fácil de entender para que eu possa interagir e compartilhar quando fizer sentido."
+          "persona": "Audiência das publicações (perfil conceitual)",
+          "story": "Como pessoa que encontra uma publicação, quero compreender sua mensagem para decidir se é relevante para mim."
         }
       ],
       "problemDefinitions": [
         {
-          "persona": "Audiência local",
-          "definition": "Precisa de um sistema de comunicação mais estratégico e consistente porque a relação entre tema, timing e formato afeta diretamente se o conteúdo ganha atenção e engajamento."
+          "persona": "Audiência das publicações; perfil conceitual.",
+          "definition": "Pode se beneficiar de conteúdo claro e contextualizado; essa necessidade não foi validada por entrevistas ou pesquisa documentadas."
         }
       ],
       "craftNotes": {
-        "conventions": "O sistema de conteúdo se baseia em padrões já reconhecíveis nas redes sociais: hierarquia visual curta, gancho claro, reaproveitamento em diferentes lugares e estrutura forte de legenda.",
-        "affordances": "As peças foram desenhadas para funcionar em feed, reels e stories sem perder a mensagem ou o reconhecimento.",
-        "equity": "A estratégia priorizou clareza de comunicação em vez de métricas vazias, transformando o conteúdo em um sistema repetível e não apenas uma sequência de posts isolados.",
-        "testing": "Os dados de performance citados para este caso são +29% e 10 mil visualizações, conforme registro do projeto. Nenhuma métrica adicional foi acrescentada."
+        "conventions": "O material descreve formatos de feed, reels e stories e uma estratégia de organização e adaptação de conteúdo.",
+        "affordances": "A adaptação entre formatos é uma intenção de design descrita no case; não há avaliação de compreensão documentada.",
+        "equity": "A clareza da mensagem é tratada como objetivo editorial, sem alegação de resultado de acessibilidade validado.",
+        "testing": "Não há teste formal com audiência documentado. O depoimento do cliente relata 10 mil visualizações em uma publicação e crescimento aproximado de 29% no alcance trimestral, sem informar as datas exatas."
       },
-      "solution": "O projeto transformou observações de performance em uma estratégia de conteúdo e sistema de comunicação visual mais consistente. Ele organizou a operação de conteúdo em torno de tema, formato, timing, legenda, distribuição e resposta da audiência, permitindo a reutilização estratégica das peças em múltiplos pontos de contato. O esforço de design não ficou restrito à estética; ele apoiou um sistema disciplinado de comunicação.",
-      "finalProject": "Este foi um trabalho real e não um exercício ficcional de UX. O desempenho documentado é +29% e 10K views. O projeto demonstra a transição de simplesmente produzir posts para desenhar uma estratégia de conteúdo repetível baseada em observação, experimentação e iteração.",
-      "conclusion": "Experiência real + dados + estratégia. O projeto demonstra que design de redes sociais não é só qualidade visual. A comunicação eficaz depende de entender a relação entre tema, formato, timing, legenda, distribuição e resposta da audiência. A maior percepção estratégica veio de conectar performance de conteúdo com a forma como a peça é empacotada e distribuída. O ciclo foi: Problema → Observação → Hipótese → Experimento → Resultado → Aprendizado → Iteração. O projeto saiu da produção de posts isolados e passou a desenhar uma estratégia de conteúdo repetível, apoiada em performance e iteração."
+      "solution": "O trabalho reuniu estratégia editorial, criação de peças e gestão de conteúdo para o perfil político de um cliente no Instagram. O depoimento do cliente relata 10 mil visualizações em uma publicação e alcance de 47,7 mil no trimestre mais recente, cerca de 29% acima do trimestre anterior; não há dados independentes para atribuir essa variação a uma intervenção específica.",
+      "finalProject": "Projeto real de conteúdo e design para o Instagram de um cliente. Segundo depoimento do próprio cliente, uma publicação alcançou 10 mil visualizações e o alcance do trimestre mais recente foi de 47,7 mil, cerca de 29% acima do período anterior. As datas exatas e os dados analíticos de suporte não estão disponíveis neste case.",
+      "research": {
+        "status": "O case descreve observação de desempenho de conteúdo; não documenta pesquisa formal com usuários ou audiência.",
+        "method": "O registro menciona análise de tema, formato, dia e horário, mas não informa ferramentas, período, amostra ou método de comparação.",
+        "participants": "Nenhum participante de entrevista ou teste documentado.",
+        "limitations": [
+          "Não há protocolo de pesquisa, período de análise, conta/plataforma ou linha de base especificados."
+        ]
+      },
+      "researchSynthesis": {
+        "behaviors": [
+          "O projeto relata observação de resposta a conteúdos; dados detalhados por publicação não estão disponíveis neste case."
+        ],
+        "painPoints": [
+          "Hipótese editorial: mensagens sem clareza ou contexto podem ter menos relevância para quem as encontra."
+        ],
+        "needs": [
+          "Hipótese: organizar conteúdo para que a mensagem seja compreensível em diferentes formatos."
+        ],
+        "insights": [
+          "O depoimento do cliente associa o trabalho a 10 mil visualizações em uma publicação e a crescimento aproximado de 29% no alcance trimestral; não há base para afirmar causalidade."
+        ],
+        "opportunities": [
+          "Registrar datas, fontes e definições do alcance trimestral e das visualizações da publicação.",
+          "Comparar peças e formatos com critérios consistentes antes de atribuir mudanças à estratégia."
+        ]
+      },
+      "userJourney": [
+        {
+          "stage": "Planejamento",
+          "userAction": "A equipe define o tema e o formato da publicação.",
+          "opportunity": "Documentar objetivo editorial e audiência pretendida sem tratar hipóteses como pesquisa."
+        },
+        {
+          "stage": "Publicação",
+          "userAction": "A peça é publicada em um formato social.",
+          "opportunity": "Adaptar a mensagem ao formato e preservar sua compreensão."
+        },
+        {
+          "stage": "Resposta",
+          "userAction": "A equipe consulta os indicadores disponíveis.",
+          "painPoint":           "O depoimento contextualiza os números como Instagram, uma publicação e comparação trimestral, mas não inclui datas exatas nem exportação analítica.",
+          "opportunity": "Padronizar o registro para permitir comparações contextualizadas."
+        },
+        {
+          "stage": "Iteração",
+          "userAction": "A equipe decide se adapta ou redistribui uma peça.",
+          "opportunity": "Registrar a hipótese e a mudança para avaliar o resultado em contexto."
+        }
+      ],
+      "problemStatement": {
+        "persona": "Equipe responsável por conteúdo; perfil de trabalho, não participante de pesquisa.",
+        "need": "Organizar produção, formatos e observação de desempenho em um processo consistente.",
+        "because": "Sem contexto e critérios definidos, números de redes sociais podem ser interpretados ou atribuídos incorretamente.",
+        "finalStatement": "Como equipe de conteúdo, precisamos organizar peças e registrar seus resultados com contexto para tomar decisões editoriais sem atribuir causalidade além das evidências."
+      },
+      "howMightWe": [
+        "Como podemos adaptar uma mensagem a diferentes formatos mantendo sua clareza?",
+        "Como podemos registrar desempenho com período, plataforma e linha de base?",
+        "Como podemos transformar observações em hipóteses verificáveis para a próxima iteração?"
+      ],
+      "informationArchitecture": {
+        "contentStructure": [
+          "Objetivo editorial → tema/mensagem → peça e formato → publicação → registro de resposta → decisão de iteração."
+        ],
+        "categories": [
+          "Temas e mensagens",
+          "Peças e formatos",
+          "Publicação e distribuição",
+          "Indicadores registrados",
+          "Aprendizados e próximas hipóteses"
+        ],
+        "hierarchy": [
+          "Objetivo e mensagem principal.",
+          "Formato, peça e contexto de publicação.",
+          "Indicadores com período e fonte; interpretação e decisão."
+        ],
+        "decisions": [
+          "Tratar a jornada como processo editorial, não como fluxo de aplicativo.",
+          "Manter números vinculados à fonte e ao contexto quando esses dados estiverem disponíveis."
+        ]
+      },
+      "userFlowDetail": {
+        "description": "Processo editorial descrito: definir objetivo e mensagem → escolher formato → produzir/adaptar peça → publicar → registrar indicadores disponíveis com contexto → formular a próxima hipótese."
+      },
+      "wireframes": {
+        "status": "Não aplicável: este case é de estratégia e design de conteúdo, não de interface de produto. As peças visuais existentes são criativos sociais.",
+        "description": "O conteúdo do projeto contempla materiais para redes sociais; não há wireframes de aplicativo ou dashboard neste case.",
+        "decisions": [
+          "Apresentar criativos como peças de conteúdo, não como wireframes.",
+          "Não inferir resultados de usabilidade a partir de métricas sociais."
+        ]
+      },
+      "highFidelityDesign": {
+        "visualDecisions": [
+          "O case descreve desenvolvimento de linguagem visual para os conteúdos."
+        ],
+        "components": [
+          "Peças e adaptações para feed, stories e reels, conforme descrito no material do projeto."
+        ],
+        "designSystem": [
+          "A consistência visual é objetivo do trabalho; não há medição de reconhecimento de marca documentada."
+        ]
+      },
+      "usabilityTesting": {
+        "status": "Não aplicável como teste de usabilidade de produto; não há teste formal com audiência documentado.",
+        "method": "O material menciona observação de desempenho, sem protocolo, amostra ou comparação controlada.",
+        "participants": "Nenhum participante de pesquisa ou teste documentado.",
+        "tasks": [
+          "Em trabalho futuro, avaliar compreensão da mensagem e registrar respostas por formato e período."
+        ],
+        "limitations": [
+          "Visualizações e variação percentual não substituem teste de compreensão nem comprovam impacto causal."
+        ]
+      },
+      "results": [
+        {
+          "type": "Registro do projeto",
+          "label": "Segundo depoimento do cliente, alcance de 47,7 mil no trimestre mais recente, cerca de 29% acima do trimestre anterior; datas exatas não informadas."
+        },
+        {
+          "type": "Registro do projeto",
+          "label": "Segundo depoimento do cliente, uma publicação no Instagram alcançou 10 mil visualizações."
+        },
+        {
+          "type": "Limitação",
+          "label": "Os números vêm de depoimento do cliente; não há dados analíticos independentes para atribuir a variação a uma intervenção específica."
+        }
+      ],
+      "learnings": [
+        "Métricas de conteúdo precisam de definição, período, plataforma e linha de base para sustentar comparações.",
+        "Design para redes sociais combina clareza editorial, adequação ao formato e distribuição; cada hipótese precisa de avaliação contextual."
+      ],
+      "nextSteps": [
+        "Documentar as fontes, definições e períodos associados aos números registrados.",
+        "Comparar formatos e temas com uma linha de base consistente.",
+        "Avaliar compreensão da mensagem com pessoas da audiência, sem confundir esse teste com visualizações."
+      ],
+      "limitations": [
+        "Os números de desempenho são relatados em depoimento do cliente; não há dados analíticos independentes neste case.",
+        "As datas exatas dos trimestres comparados e da publicação com 10 mil visualizações não estão especificadas.",
+        "Não há entrevistas, teste formal com audiência ou evidência de causalidade documentados."
+      ],
+      "conclusion": "Projeto real de design e gestão de conteúdo para Instagram. O depoimento do cliente relata 10 mil visualizações em uma publicação e alcance trimestral de 47,7 mil, cerca de 29% acima do trimestre anterior. Esses números são apresentados com a fonte e o contexto disponíveis, sem atribuir causalidade ao trabalho de design."
     }
   }
 }

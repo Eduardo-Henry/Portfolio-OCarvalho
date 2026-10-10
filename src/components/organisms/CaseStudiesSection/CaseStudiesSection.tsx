@@ -108,7 +108,7 @@ const defaultCaseStudies: CaseStudy[] = [
   },
   {
     id: '7',
-    image: Kaloburn,
+    image: CeiaDoFortalecimentoImg,
     tag: 'Social Media Design · Content Strategy',
     title: 'Social Media Design & Content Strategy',
     description:
@@ -139,7 +139,7 @@ const defaultCaseStudies: CaseStudy[] = [
     tag: 'UX/UI Design · Dashboard (Template)',
     title: 'Solar Panel Monitoring',
     description:
-      'Template de dashboard de monitoramento de energia solar, desenvolvido como produto de design para venda.',
+      'Conceito de dashboard para acompanhar produção, consumo, estado do sistema, alertas e histórico de energia solar.',
     prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/',
   },
 ];
