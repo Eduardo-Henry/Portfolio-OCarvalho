@@ -8,6 +8,8 @@ import { MainLayout } from '../../components/templates';
 
 import './CaseStudyPage.css';
 
+import { IoArrowBack } from 'react-icons/io5';
+
 import TIHelpImg from '@/assets/images/TIHelp.png';
 
 import KaloBurnImg from '@/assets/images/KaloBurn.png';
@@ -20,7 +22,9 @@ import YatchImg from '@/assets/images/Yatch.jpeg';
 
 import SolarPanelImg from '@/assets/images/SolarPanel.png';
 
-import CeiaDoFortalecimentoImg from '@/assets/images/CeiaDoFortalecimento.jpg';
+import ElvisCoverImg from '../../assets/images/ElvisCover.png';
+
+import ElvisGridInstagramImg from '../../assets/images/ElvisGridInstagram.png';
 
 import LinkedInIcon from '@/assets/icons/iconLinkedin.svg?react';
 
@@ -29,8 +33,6 @@ import InstagramIcon from '@/assets/icons/iconInstagram.svg?react';
 import BehanceIcon from '@/assets/icons/iconBehance.svg?react';
 
 import GitHubIcon from '@/assets/icons/iconGithub.svg?react';
-
-
 
 interface CaseStudyContent {
 
@@ -63,30 +65,46 @@ interface CaseStudyContent {
   results?: Array<Record<string, unknown>>;
 
   craftNotes?: Record<string, unknown>;
+
   personas?: unknown[];
+
   userStories?: unknown[];
+
   problemDefinitions?: unknown[];
+
   research?: Record<string, unknown>;
+
   interviews?: Record<string, unknown>;
+
   researchSynthesis?: Record<string, unknown>;
+
   userJourney?: unknown[];
+
   problemStatement?: Record<string, unknown>;
+
   howMightWe?: unknown[];
+
   ideation?: Record<string, unknown>;
+
   paperSketches?: Record<string, unknown>;
+
   userFlowDetail?: Record<string, unknown>;
+
   wireframes?: Record<string, unknown>;
+
   highFidelityDesign?: Record<string, unknown>;
+
   iterations?: unknown[];
+
   learnings?: unknown[];
+
   nextSteps?: unknown[];
+
   limitations?: unknown[];
 
   [key: string]: unknown;
 
 }
-
-
 
 interface CaseStudyMeta {
 
@@ -97,8 +115,6 @@ interface CaseStudyMeta {
   prototypeUrl: string;
 
 }
-
-
 
 const caseStudiesMeta: Record<string, CaseStudyMeta> = {
 
@@ -168,25 +184,21 @@ const caseStudiesMeta: Record<string, CaseStudyMeta> = {
 
   },
 
-  '7': {
+ '7': {
 
-    type: 'real',
+  type: 'real',
 
-    image: CeiaDoFortalecimentoImg,
+  image: ElvisCoverImg,
 
-    prototypeUrl: 'https://www.instagram.com/',
+  prototypeUrl: 'https://www.instagram.com/vereador.elvis/?hl=pt-br',
 
-  },
+},
 
 };
-
-
 
 const asText = (value: unknown): string | undefined =>
 
   typeof value === 'string' && value.trim() ? value : undefined;
-
-
 
 const asStringArray = (value: unknown): string[] =>
 
@@ -206,13 +218,9 @@ const asStringArray = (value: unknown): string[] =>
 
     : [];
 
-
-
 const isRecord = (value: unknown): value is Record<string, unknown> =>
 
   typeof value === 'object' && value !== null && !Array.isArray(value);
-
-
 
 const cleanText = (value: unknown): string | undefined => {
 
@@ -222,8 +230,6 @@ const cleanText = (value: unknown): string | undefined => {
 
 };
 
-
-
 const formatKey = (key: string): string =>
 
   key
@@ -232,39 +238,51 @@ const formatKey = (key: string): string =>
 
     .replace(/^./, (letter) => letter.toUpperCase());
 
-
-
 const getHeroSummary = (value: unknown): string => {
+
   return cleanText(value) ?? '';
+
 };
 
 const getMediaDetails = (
+
   images: unknown,
+
   imageDetails: unknown,
+
   fallbackTitle: string,
+
 ) => {
+
   const sources = asStringArray(images);
+
   const details = Array.isArray(imageDetails) ? imageDetails.filter(isRecord) : [];
 
   return sources.map((src, index) => {
-    const detail = details[index];
-    return {
-      src,
-      title: cleanText(detail?.title) ?? `${fallbackTitle} ${index + 1}`,
-      description: cleanText(detail?.description),
-      decision: cleanText(detail?.decision),
-    };
-  });
-};
 
+    const detail = details[index];
+
+    return {
+
+      src,
+
+      title: cleanText(detail?.title) ?? `${fallbackTitle} ${index + 1}`,
+
+      description: cleanText(detail?.description),
+
+      decision: cleanText(detail?.decision),
+
+    };
+
+  });
+
+};
 
 const PortfolioFooter: React.FC = () => {
 
   const { t } = useTranslation();
 
   const currentYear = new Date().getFullYear();
-
-
 
   const socialLinks = [
 
@@ -277,8 +295,6 @@ const PortfolioFooter: React.FC = () => {
     { id: 'github', icon: GitHubIcon, url: 'https://github.com', title: 'GitHub' },
 
   ];
-
-
 
   return (
 
@@ -372,8 +388,6 @@ const PortfolioFooter: React.FC = () => {
 
 };
 
-
-
 export const CaseStudyPage: React.FC = () => {
 
   const { id } = useParams<{ id: string }>();
@@ -382,11 +396,7 @@ export const CaseStudyPage: React.FC = () => {
 
   const { t, i18n } = useTranslation();
 
-
-
   const meta = id ? caseStudiesMeta[id] : undefined;
-
-
 
   const content = id
 
@@ -398,27 +408,19 @@ export const CaseStudyPage: React.FC = () => {
 
     : undefined;
 
-
-
   useEffect(() => {
 
     window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
 
-
-
     const page = document.querySelector<HTMLElement>('.case-study-page');
 
     if (!page) return;
-
-
 
     const sections = Array.from(
 
       page.querySelectorAll<HTMLElement>('.case-study-content > .case-study-section'),
 
     );
-
-
 
     // Reveal only every other section. Do not attach reveal to individual children,
 
@@ -433,8 +435,6 @@ export const CaseStudyPage: React.FC = () => {
       element.style.setProperty('--reveal-delay', '0ms');
 
     });
-
-
 
     const observer = new IntersectionObserver(
 
@@ -458,11 +458,7 @@ export const CaseStudyPage: React.FC = () => {
 
     );
 
-
-
     revealItems.forEach((element) => observer.observe(element));
-
-
 
     let frame = 0;
 
@@ -475,8 +471,6 @@ export const CaseStudyPage: React.FC = () => {
       const progress = Math.min(window.scrollY / maxScroll, 1);
 
       page.style.setProperty('--scroll-progress', `${progress * 100}%`);
-
-
 
       const hero = page.querySelector<HTMLElement>('.case-study-hero');
 
@@ -498,23 +492,17 @@ export const CaseStudyPage: React.FC = () => {
 
     };
 
-
-
     const onScroll = () => {
 
       if (!frame) frame = requestAnimationFrame(updateScrollMotion);
 
     };
 
-
-
     const interactiveItems = Array.from(
 
       page.querySelectorAll<HTMLElement>('.back-button, .btn-back-projects, .case-study-tag'),
 
     );
-
-
 
     const pointerMove = (event: PointerEvent) => {
 
@@ -528,8 +516,6 @@ export const CaseStudyPage: React.FC = () => {
 
     };
 
-
-
     const pointerLeave = (event: PointerEvent) => {
 
       const target = event.currentTarget as HTMLElement;
@@ -539,8 +525,6 @@ export const CaseStudyPage: React.FC = () => {
       target.style.setProperty('--my', '0px');
 
     };
-
-
 
     window.addEventListener('scroll', onScroll, { passive: true });
 
@@ -553,8 +537,6 @@ export const CaseStudyPage: React.FC = () => {
       item.addEventListener('pointerleave', pointerLeave);
 
     });
-
-
 
     return () => {
 
@@ -576,8 +558,6 @@ export const CaseStudyPage: React.FC = () => {
 
   }, [id]);
 
-
-
   const typeLabels = {
 
     real: t('caseStudyLabels.types.real'),
@@ -587,8 +567,6 @@ export const CaseStudyPage: React.FC = () => {
     fictional: t('caseStudyLabels.types.fictional'),
 
   };
-
-
 
   const isPortuguese = i18n.language.startsWith('pt');
 
@@ -622,8 +600,6 @@ export const CaseStudyPage: React.FC = () => {
 
   };
 
-
-
   const sectionLabels = {
 
     overview: isPortuguese ? 'Visão Geral' : 'Overview',
@@ -645,15 +621,18 @@ export const CaseStudyPage: React.FC = () => {
     validation: isPortuguese ? 'Validação' : 'Validation',
 
     result: isPortuguese ? 'Resultado' : 'Result',
+
     highFidelityDesign: isPortuguese ? 'Alta fidelidade' : 'High-Fidelity Design',
+
     iterations: isPortuguese ? 'Iterações' : 'Iterations',
+
     learnings: isPortuguese ? 'Aprendizados' : 'Learnings',
+
     nextSteps: isPortuguese ? 'Próximos passos' : 'Next Steps',
+
     limitations: isPortuguese ? 'Limitações' : 'Limitations',
 
   };
-
-
 
   const findSectionItems = (value: unknown): Array<{ label: string; text: string }> => {
 
@@ -672,8 +651,6 @@ export const CaseStudyPage: React.FC = () => {
     });
 
   };
-
-
 
   if (
 
@@ -695,33 +672,29 @@ export const CaseStudyPage: React.FC = () => {
 
           <p>{t('caseStudyLabels.notFound')}</p>
 
+<button
 
+  onClick={() => navigate('/')}
 
-          <button
+  className="back-button"
 
-            onClick={() => navigate('/')}
+>
 
-            className="back-button"
+  <span
 
-          >
+    className="back-button__circle"
 
-            <span
+    aria-hidden="true"
 
-              className="back-button__circle"
+  >
 
-              aria-hidden="true"
+    <IoArrowBack />
 
-            >
+  </span>
 
-              ↩
+  {t('caseStudyLabels.back')}
 
-            </span>
-
-
-
-            {t('caseStudyLabels.back')}
-
-          </button>
+</button>
 
         </div>
 
@@ -731,7 +704,275 @@ export const CaseStudyPage: React.FC = () => {
 
   }
 
+  if (id === '7') {
 
+    const elvisGallery = [
+
+      ElvisGridInstagramImg,
+
+    ];
+
+    return (
+
+      <MainLayout>
+
+        <div className="case-study-page elvis-case-study">
+
+          <div className="case-study-topbar">
+
+            <button onClick={() => navigate(-1)} className="back-button">
+
+              <span className="back-button__circle" aria-hidden="true">↩</span>
+
+              {t('caseStudyLabels.back')}
+
+            </button>
+
+          </div>
+
+          <section className="elvis-section elvis-hero">
+
+            <div className="elvis-hero__content">
+
+              <div className="elvis-section-index">01 · PROJETO</div>
+
+              <h1 className="elvis-title">
+
+                SOCIAL MEDIA
+
+                <br />
+
+                DESIGN
+
+              </h1>
+
+              <p className="elvis-copy">
+
+                Projeto real de design e produção de conteúdo para o perfil político de Elvis no Instagram.
+
+              </p>
+
+              <div className="elvis-tags">
+
+                <span>PROJETO REAL</span>
+
+                <span>DESIGN GRÁFICO</span>
+
+                <span>COMUNICAÇÃO POLÍTICA</span>
+
+              </div>
+
+            </div>
+
+            <div className="elvis-phone__profile">
+
+              <img src={ElvisCoverImg} alt="Perfil do Elvis no Instagram" />
+
+              <div className="elvis-phone__post elvis-phone__post--large">
+
+                <img src={ElvisGridInstagramImg} alt="Peça de campanha social" />
+
+              </div>
+
+            </div>
+
+          </section>
+
+          <section className="elvis-section elvis-challenge">
+
+            <div className="elvis-section-index elvis-section-index--light">02 · DESAFIO</div>
+
+            <h2 className="elvis-challenge__title">
+
+              ORGANIZAR A
+
+              <br />
+
+              PRODUÇÃO E A
+
+              <br />
+
+              APRESENTAÇÃO DE
+
+              <br />
+
+              CONTEÚDO EM
+
+              <br />
+
+              DIFERENTES FORMATOS.
+
+            </h2>
+
+            <p className="elvis-challenge__text">
+
+              Transformar as ações, projetos e informações do mandato em conteúdos claros, atrativos e relevantes para o público do Instagram, considerando diferentes formatos como feed, stories e reels.
+
+            </p>
+
+          </section>
+
+         <section className="elvis-section elvis-overview">
+          <div className="elvis-overview__left">
+            <div className="elvis-section-index">03 · VISÃO GERAL</div>
+            <h2 className="elvis-overview__headline">
+              DESIGN VISUAL
+              <br />
+              ESTRATÉGICO E CONTEÚDO 
+              <br />
+              DIGITAL PARA
+              <br />
+              COMUNICAÇÃO
+              <br />
+              POLÍTICA.
+            </h2>
+          </div>
+
+          <div className="elvis-overview__right">
+            <div className="elvis-info-card">
+              <span>PROJETO</span>
+              <strong>Social Media Design</strong>
+            </div>
+            <div className="elvis-info-card">
+              <span>CLIENTE</span>
+              <strong>Elvis — Vereador</strong>
+            </div>
+            <div className="elvis-info-card">
+              <span>PLATAFORMA</span>
+              <strong>Instagram</strong>
+            </div>
+            <div className="elvis-info-card">
+              <span>PAPEL</span>
+              <strong>Design e produção de conteúdo</strong>
+            </div>
+            <div className="elvis-info-card">
+              <span>TIPO</span>
+              <strong>Projeto real</strong>
+            </div>
+          </div>
+        </section>
+
+          <section className="elvis-section elvis-gallery">
+
+            <div className="elvis-section-index elvis-section-index--light">04 · PEÇAS DESENVOLVIDAS</div>
+
+            <h2 className="elvis-gallery__title">
+
+              PEÇAS
+
+              <br />
+
+              DESENVOLVIDAS
+
+            </h2>
+
+            <div className="elvis-gallery__grid">
+
+              {elvisGallery.map((src, index) => (
+
+                <img key={`${src}-${index}`} src={src} alt={`Peça social ${index + 1}`} />
+
+              ))}
+
+            </div>
+
+          </section>
+
+          <section className="elvis-section elvis-results">
+
+            <div className="elvis-section-index">05 · RESULTADOS OBSERVADOS</div>
+
+            <h2 className="elvis-results__title">
+
+              RESULTADOS
+
+              <br />
+
+              OBSERVADOS
+
+            </h2>
+
+            <div className="elvis-results__grid">
+
+              <div className="elvis-results__card">
+
+                <span className="elvis-results__value">10 mil</span>
+
+                <span className="elvis-results__label">visualizações</span>
+
+                <small>em uma publicação.</small>
+
+              </div>
+
+              <div className="elvis-results__card">
+
+                <span className="elvis-results__value">47,7 mil</span>
+
+                <span className="elvis-results__label">de alcance trimestral</span>
+
+                <small>cerca de 29% acima do trimestre anterior.</small>
+
+              </div>
+
+            </div>
+
+            <p className="elvis-results__footnote">
+
+              Dados relatados pelo cliente; período e métricas independentes não são públicos. Não comprovam causalidade.
+
+            </p>
+
+          </section>
+
+          <section className="elvis-section elvis-process">
+
+            <div className="elvis-section-index elvis-section-index--light">06 · PROCESSO</div>
+
+            <h2 className="elvis-process__title">PROCESSO</h2>
+
+            <div className="elvis-process__grid">
+
+              <div className="elvis-process__card">
+
+                <span className="elvis-process__number">01</span>
+
+                <strong>DIREÇÃO VISUAL</strong>
+
+                <p>Definição de cores, tipografia, estilo visual e consistência para as peças.</p>
+
+              </div>
+
+              <div className="elvis-process__card">
+
+                <span className="elvis-process__number">02</span>
+
+                <strong>PRODUÇÃO E ADAPTAÇÃO</strong>
+
+                <p>Criação de artes e adaptação de conteúdos para feed, stories e reels.</p>
+
+              </div>
+
+              <div className="elvis-process__card">
+
+                <span className="elvis-process__number">03</span>
+
+                <strong>ACOMPANHAMENTO DE DESEMPENHO</strong>
+
+                <p>Análise dos resultados disponíveis e ajustes de conteúdo ao longo do projeto.</p>
+
+              </div>
+
+            </div>
+
+          </section>
+
+        </div>
+
+      </MainLayout>
+
+    );
+
+  }
 
   const processCards = (content.designSprint ?? [])
 
@@ -739,15 +980,11 @@ export const CaseStudyPage: React.FC = () => {
 
     .slice(0, 6);
 
-
-
   const journeySteps = (cleanText(content.userFlow)?.split('→') ?? [])
 
     .map((item) => item.trim().replace(/\s+/g, ' '))
 
     .filter(Boolean);
-
-
 
   const reviewCards = [
 
@@ -783,8 +1020,6 @@ export const CaseStudyPage: React.FC = () => {
 
   ];
 
-
-
   const metadataCards = [
 
     { label: isPortuguese ? 'Projeto' : 'Project', value: content.title },
@@ -796,8 +1031,6 @@ export const CaseStudyPage: React.FC = () => {
     { label: copy.focus, value: cleanText(content.process)?.split('.')[0] ?? typeLabels[meta.type] },
 
   ];
-
-
 
   const architectureItems = findSectionItems(content.informationArchitecture);
 
@@ -825,8 +1058,6 @@ export const CaseStudyPage: React.FC = () => {
 
         }));
 
-
-
   const allValidationItems = [
 
     ...findSectionItems(content.usabilityTesting),
@@ -836,28 +1067,46 @@ export const CaseStudyPage: React.FC = () => {
   ];
 
   const testingDetails = isRecord(content.usabilityTesting) ? content.usabilityTesting : undefined;
+
   const testingStatus = cleanText(testingDetails?.status);
+
   const testingMethod = cleanText(testingDetails?.method);
+
   const validationCards = [
+
     testingStatus && {
+
       label: isPortuguese ? 'Status' : 'Status',
+
       text: testingStatus,
+
       tone: 'light',
+
     },
+
     testingMethod && {
+
       label: isPortuguese ? 'Método' : 'Method',
+
       text: testingMethod,
+
       tone: 'red',
+
     },
+
     ...asStringArray(testingDetails?.findings).slice(0, 1).map((text) => ({
+
       label: isPortuguese ? 'Achado' : 'Finding',
+
       text,
+
       tone: 'light',
+
     })),
+
     ...(!testingDetails ? allValidationItems.slice(0, 2) : []),
+
   ].filter((item): item is { label: string; text: string; tone: string } => Boolean(item));
-
-
 
   const resultItems = (content.results ?? [])
 
@@ -872,43 +1121,74 @@ export const CaseStudyPage: React.FC = () => {
   }
 
   const personas = Array.isArray(content.personas) ? content.personas.filter(isRecord) : [];
+
   const userStories = Array.isArray(content.userStories) ? content.userStories.filter(isRecord) : [];
+
   const problemDefinitions = Array.isArray(content.problemDefinitions) ? content.problemDefinitions.filter(isRecord) : [];
+
   const researchSynthesis = isRecord(content.researchSynthesis) ? content.researchSynthesis : undefined;
+
   const researchInterviews = isRecord(content.interviews) ? content.interviews : undefined;
+
   const researchOverview = isRecord(content.research) ? content.research : undefined;
+
   const userJourney = Array.isArray(content.userJourney) ? content.userJourney.filter(isRecord) : [];
+
   const howMightWe = asStringArray(content.howMightWe);
+
   const ideation = isRecord(content.ideation) ? content.ideation : undefined;
+
   const informationArchitecture = isRecord(content.informationArchitecture) ? content.informationArchitecture : undefined;
+
   const userFlowDetail = isRecord(content.userFlowDetail) ? content.userFlowDetail : undefined;
+
   const wireframes = isRecord(content.wireframes) ? content.wireframes : undefined;
+
   const highFidelityDesign = isRecord(content.highFidelityDesign) ? content.highFidelityDesign : undefined;
+
   const renderList = (value: unknown): string[] => asStringArray(value);
+
   const wireframeImages = getMediaDetails(
+
     wireframes?.images,
+
     wireframes?.imageDetails,
+
     isPortuguese ? 'Wireframe' : 'Wireframe',
+
   );
+
   const wireframeDecisions = renderList(wireframes?.decisions);
+
   const hasWireframeContent = Boolean(
+
     wireframeImages.length ||
+
       wireframeDecisions.length ||
+
       cleanText(wireframes?.description) ||
+
       cleanText(wireframes?.status),
+
   );
+
   const iterations = Array.isArray(content.iterations) ? content.iterations.filter(isRecord) : [];
+
   const learnings = asStringArray(content.learnings);
+
   const nextSteps = asStringArray(content.nextSteps);
+
   const limitations = asStringArray(content.limitations);
+
   const renderMedia = (value: unknown): string[] => asStringArray(value);
 
   const getChallengeHeadline = (value: unknown): string => {
+
     const text = cleanText(value) ?? '';
-    return text.split(/[.!?](?:\s|$)/)[0].trim() || text;
+
+    return text.split(/[.!?]\s/)[0].trim() || text;
+
   };
-
-
 
   return (
 
@@ -930,17 +1210,11 @@ export const CaseStudyPage: React.FC = () => {
 
         </div>
 
-
-
         <header className="case-study-hero">
 
           <h1 className="case-study-title">{content.title}</h1>
 
-
-
           <p className="case-study-hero__summary">{getHeroSummary(content.overview)}</p>
-
-
 
           <div className="case-study-tags">
 
@@ -960,8 +1234,6 @@ export const CaseStudyPage: React.FC = () => {
 
           </div>
 
-
-
           <figure className="case-study-hero__visual">
 
             <img src={meta.image} alt={content.title} />
@@ -970,29 +1242,21 @@ export const CaseStudyPage: React.FC = () => {
 
         </header>
 
-
-
         <main className="case-study-content">
 
           <section className="case-study-section case-study-section--light">
 
             <div className="case-study-index">01 · {sectionLabels.overview}</div>
 
-
-
             <div className="case-study-module">
 
               <h2 className="case-study-headline">{copy.overview}</h2>
-
-
 
               <p className="case-study-copy">
 
                 {cleanText(content.overview)}
 
               </p>
-
-
 
               <div className="case-study-meta-grid">
 
@@ -1014,13 +1278,9 @@ export const CaseStudyPage: React.FC = () => {
 
           </section>
 
-
-
           <section className="case-study-section case-study-section--dark case-study-section--centered">
 
             <div className="case-study-index case-study-index--dark">02 · {sectionLabels.challenge}</div>
-
-
 
             <div className="case-study-module case-study-module--dark case-study-module--centered">
 
@@ -1030,41 +1290,29 @@ export const CaseStudyPage: React.FC = () => {
 
               </h2>
 
-
-
               <p className="case-study-copy case-study-copy--dark case-study-copy--centered">
 
                 {cleanText(content.challenge)}
 
               </p>
 
-
-
             </div>
 
           </section>
-
-
 
           <section className="case-study-section case-study-section--light">
 
             <div className="case-study-index">03 · {sectionLabels.research}</div>
 
-
-
             <div className="case-study-module">
 
               <h2 className="case-study-headline">{copy.research}</h2>
-
-
 
               <p className="case-study-copy">
 
                 {cleanText(content.process)}
 
               </p>
-
-
 
               <div className="case-study-mini-grid">
 
@@ -1086,88 +1334,137 @@ export const CaseStudyPage: React.FC = () => {
 
           </section>
 
-
-
           {(personas.length || userStories.length || problemDefinitions.length || researchSynthesis || researchInterviews || researchOverview) && (
+
             <section className="case-study-section case-study-section--light case-study-section--research-detail">
+
               <div className="case-study-index">04 · {isPortuguese ? 'PESQUISA EM PROFUNDIDADE' : 'RESEARCH DEEP DIVE'}</div>
+
               <div className="case-study-module">
+
                 <h2 className="case-study-headline">{isPortuguese ? 'O QUE A PESQUISA REVELOU' : 'WHAT THE RESEARCH REVEALED'}</h2>
 
                 {researchOverview && (
+
                   <div className="case-study-research-summary">
+
                     {Object.entries(researchOverview).filter(([key]) => !['objectives','questions','findings','quotes','limitations'].includes(key)).map(([key,value]) => {
+
                       const text = cleanText(value);
+
                       return text ? <div className="case-study-research-fact" key={key}><strong>{formatKey(key)}</strong><span>{text}</span></div> : null;
+
                     })}
+
                   </div>
+
                 )}
 
                 {researchInterviews && (
+
                   <div className="case-study-detail-block">
+
                     <h3>{isPortuguese ? 'Entrevistas' : 'Interviews'}</h3>
+
                     <div className="case-study-detail-grid">
+
                       {Object.entries(researchInterviews).filter(([key]) => !['questions','findings','recurringPatterns','representativeQuotes'].includes(key)).map(([key,value]) => {
+
                         const text = cleanText(value);
+
                         return text ? <div className="case-study-detail-card" key={key}><strong>{formatKey(key)}</strong><span>{text}</span></div> : null;
+
                       })}
+
                     </div>
+
                     {['questions','findings','recurringPatterns','representativeQuotes'].map(key => {
+
                       const items = renderList(researchInterviews[key]);
+
                       return items.length ? <div className="case-study-list-block" key={key}><h4>{formatKey(key)}</h4><ul>{items.map((item,index)=><li key={`${key}-${index}`}>{item}</li>)}</ul></div> : null;
+
                     })}
+
                   </div>
+
                 )}
 
                 {researchSynthesis && (
+
                   <div className="case-study-detail-block">
+
                     <h3>{isPortuguese ? 'Síntese dos dados' : 'Research synthesis'}</h3>
+
                     <div className="case-study-synthesis-grid">
+
                       {Object.entries(researchSynthesis).map(([key,value]) => {
+
                         const items = renderList(value);
+
                         return items.length ? <div className="case-study-synthesis-card" key={key}><strong>{formatKey(key)}</strong><ul>{items.map((item,index)=><li key={`${key}-${index}`}>{item}</li>)}</ul></div> : null;
+
                       })}
+
                     </div>
+
                   </div>
+
                 )}
 
                 {personas.length > 0 && (
+
                   <div className="case-study-detail-block">
+
                     <h3>{isPortuguese ? 'Persona' : 'Persona'}</h3>
+
                     <div className="case-study-persona-grid">
+
                       {personas.map((persona,index) => (
+
                         <article className="case-study-persona" key={String(persona.name ?? index)}>
+
                           <div className="case-study-persona__header"><strong>{String(persona.name ?? `Persona ${index+1}`)}</strong>{cleanText(persona.role) && <span>{cleanText(persona.role)}</span>}</div>
+
                           {cleanText(persona.pain) && <div><b>{t('caseStudyLabels.persona.painPoint')}</b><p>{cleanText(persona.pain)}</p></div>}
+
                           {cleanText(persona.goal) && <div><b>{t('caseStudyLabels.persona.goal')}</b><p>{cleanText(persona.goal)}</p></div>}
+
                         </article>
+
                       ))}
+
                     </div>
+
                   </div>
+
                 )}
 
                 {userStories.length > 0 && (
+
                   <div className="case-study-detail-block"><h3>{isPortuguese ? 'User Stories' : 'User Stories'}</h3><div className="case-study-list-cards">{userStories.map((item,index)=><div className="case-study-list-card" key={index}><strong>{cleanText(item.persona) ?? 'User'}</strong><p>{cleanText(item.story)}</p></div>)}</div></div>
+
                 )}
 
                 {problemDefinitions.length > 0 && (
+
                   <div className="case-study-detail-block"><h3>{isPortuguese ? 'Definição do problema' : 'Problem definition'}</h3><div className="case-study-list-cards">{problemDefinitions.map((item,index)=><div className="case-study-list-card" key={index}><strong>{cleanText(item.persona) ?? 'Persona'}</strong><p>{cleanText(item.definition)}</p></div>)}</div></div>
+
                 )}
+
               </div>
+
             </section>
+
           )}
 
           <section className="case-study-section case-study-section--light">
 
             <div className="case-study-index">05 · {sectionLabels.define}</div>
 
-
-
             <div className="case-study-module">
 
               <h2 className="case-study-headline">{copy.define}</h2>
-
-
 
               <div className="case-study-split-grid">
 
@@ -1195,8 +1492,6 @@ export const CaseStudyPage: React.FC = () => {
 
           </section>
 
-
-
           <section className="case-study-section case-study-section--dark case-study-section--process">
 
             <div className="case-study-index case-study-index--dark">
@@ -1205,8 +1500,6 @@ export const CaseStudyPage: React.FC = () => {
 
             </div>
 
-
-
             <div className="case-study-module case-study-module--dark">
 
               <h2 className="case-study-headline case-study-headline--dark case-study-headline--big">
@@ -1214,8 +1507,6 @@ export const CaseStudyPage: React.FC = () => {
                 {copy.process}
 
               </h2>
-
-
 
               <div className="case-study-step-grid">
 
@@ -1239,19 +1530,13 @@ export const CaseStudyPage: React.FC = () => {
 
           </section>
 
-
-
           <section className="case-study-section case-study-section--light">
 
             <div className="case-study-index">07 · {sectionLabels.journey}</div>
 
-
-
             <div className="case-study-module">
 
               <h2 className="case-study-headline">{copy.journey}</h2>
-
-
 
               <div className="case-study-journey-grid">
 
@@ -1271,19 +1556,13 @@ export const CaseStudyPage: React.FC = () => {
 
           </section>
 
-
-
           <section className="case-study-section case-study-section--light">
 
             <div className="case-study-index">08 · {sectionLabels.architecture}</div>
 
-
-
             <div className="case-study-module">
 
               <h2 className="case-study-headline">{copy.architecture}</h2>
-
-
 
               <div className="case-study-triple-grid">
 
@@ -1305,56 +1584,100 @@ export const CaseStudyPage: React.FC = () => {
 
           </section>
 
-
-
           {(userJourney.length || howMightWe.length || ideation || informationArchitecture || userFlowDetail) && (
+
             <section className="case-study-section case-study-section--light case-study-section--method-detail">
+
               <div className="case-study-index">08A · {isPortuguese ? 'DEFINIÇÃO & ESTRUTURA' : 'DEFINE & STRUCTURE'}</div>
+
               <div className="case-study-module">
+
                 <h2 className="case-study-headline">{isPortuguese ? 'DA PESQUISA À ESTRUTURA' : 'FROM RESEARCH TO STRUCTURE'}</h2>
+
                 {userJourney.length > 0 && <div className="case-study-detail-block"><h3>{sectionLabels.journey}</h3><div className="case-study-journey-detail-grid">{userJourney.map((step,index)=><article key={index}><strong>{cleanText(step.stage) ?? `Stage ${index+1}`}</strong>{['userAction','thought','emotion','painPoint','opportunity'].map(key=>cleanText(step[key]) ? <p key={key}><b>{formatKey(key)}:</b> {cleanText(step[key])}</p> : null)}</article>)}</div></div>}
+
                 {howMightWe.length > 0 && <div className="case-study-detail-block"><h3>How Might We</h3><div className="case-study-hmw">{howMightWe.map((item,index)=><p key={index}>{item}</p>)}</div></div>}
+
                 {ideation && <div className="case-study-detail-block"><h3>{isPortuguese ? 'Ideação' : 'Ideation'}</h3><div className="case-study-synthesis-grid">{Object.entries(ideation).map(([key,value])=>{const items=renderList(value); const text=cleanText(value); return items.length ? <div className="case-study-synthesis-card" key={key}><strong>{formatKey(key)}</strong><ul>{items.map((item,index)=><li key={index}>{item}</li>)}</ul></div> : text ? <div className="case-study-synthesis-card" key={key}><strong>{formatKey(key)}</strong><p>{text}</p></div> : null;})}</div></div>}
+
                 {informationArchitecture && <div className="case-study-detail-block"><h3>{sectionLabels.architecture}</h3>{cleanText(informationArchitecture.image) && <figure className="case-study-media-single"><img src={cleanText(informationArchitecture.image)} alt={`${content.title} information architecture`} /></figure>}<div className="case-study-synthesis-grid">{Object.entries(informationArchitecture).filter(([key])=>key!=='image').map(([key,value])=>{const items=renderList(value); const text=cleanText(value); return items.length ? <div className="case-study-synthesis-card" key={key}><strong>{formatKey(key)}</strong><ul>{items.map((item,index)=><li key={index}>{item}</li>)}</ul></div> : text ? <div className="case-study-synthesis-card" key={key}><strong>{formatKey(key)}</strong><p>{text}</p></div> : null;})}</div></div>}
+
                 {content.problemStatement && <div className="case-study-detail-block"><h3>Problem Statement</h3><div className="case-study-synthesis-grid">{Object.entries(content.problemStatement).filter(([key])=>key!=='finalStatement').map(([key,value])=>{const text=cleanText(value); return text ? <div className="case-study-synthesis-card" key={key}><strong>{formatKey(key)}</strong><p>{text}</p></div> : null;})}</div>{cleanText(content.problemStatement.finalStatement) && <div className="case-study-hmw"><p>{cleanText(content.problemStatement.finalStatement)}</p></div>}</div>}
+
                 {content.paperSketches && <div className="case-study-detail-block"><h3>Paper Sketches</h3>{cleanText(content.paperSketches.description) && <p className="case-study-copy">{cleanText(content.paperSketches.description)}</p>}{renderMedia(content.paperSketches.images).length>0 && <div className="case-study-media-grid">{renderMedia(content.paperSketches.images).map((src,index)=><figure key={src+index}><img src={src} alt={`${content.title} paper sketch ${index+1}`} /></figure>)}</div>}{renderList(content.paperSketches.keyDecisions).length>0 && <ul className="case-study-detail-list">{renderList(content.paperSketches.keyDecisions).map((item,index)=><li key={index}>{item}</li>)}</ul>}</div>}
+
                 {userFlowDetail && cleanText(userFlowDetail.description) && <div className="case-study-detail-block"><h3>{sectionLabels.journey}</h3><p className="case-study-copy">{cleanText(userFlowDetail.description)}</p></div>}
+
               </div>
+
             </section>
+
           )}
 
           {hasWireframeContent && (
+
             <section className="case-study-section case-study-section--light">
+
               <div className="case-study-index">09 · {sectionLabels.wireframes}</div>
+
               <div className="case-study-module">
+
                 <h2 className="case-study-headline">{copy.wireframes}</h2>
+
                 {cleanText(wireframes?.status) && (
+
                   <p className="case-study-copy">{cleanText(wireframes?.status)}</p>
+
                 )}
+
                 {cleanText(wireframes?.description) && (
+
                   <p className="case-study-copy">{cleanText(wireframes?.description)}</p>
+
                 )}
+
                 {wireframeImages.length > 0 && (
+
                   <div className="case-study-media-grid">
+
                     {wireframeImages.map((image) => (
+
                       <figure key={image.src}>
+
                         <img src={image.src} alt={image.title} />
+
                         <figcaption>
+
                           <strong>{image.title}</strong>
+
                           {image.description && <span>{image.description}</span>}
+
                           {image.decision && <span><b>{isPortuguese ? 'Decisão' : 'Decision'}:</b> {image.decision}</span>}
+
                         </figcaption>
+
                       </figure>
+
                     ))}
+
                   </div>
+
                 )}
+
                 {wireframeDecisions.length > 0 && (
+
                   <ul className="case-study-detail-list">
+
                     {wireframeDecisions.map((decision) => <li key={decision}>{decision}</li>)}
+
                   </ul>
+
                 )}
+
               </div>
+
             </section>
+
           )}
 
           {validationCards.length > 0 && <section className="case-study-section case-study-section--dark">
@@ -1365,13 +1688,9 @@ export const CaseStudyPage: React.FC = () => {
 
             </div>
 
-
-
             <div className="case-study-module case-study-module--dark">
 
               <h2 className="case-study-headline case-study-headline--dark">{copy.validation}</h2>
-
-
 
               <div className="case-study-validation-grid">
 
@@ -1388,8 +1707,6 @@ export const CaseStudyPage: React.FC = () => {
                 ))}
 
               </div>
-
-
 
               {cleanText(content.solution) && (
 
@@ -1419,20 +1736,15 @@ export const CaseStudyPage: React.FC = () => {
 
           </section>}
 
-
-
           {(resultItems.length > 0 || cleanText(content.conclusion) || cleanText(content.finalProject)) && (
+
           <section className="case-study-section case-study-section--light case-study-section--result">
 
             <div className="case-study-index">11 · {sectionLabels.result}</div>
 
-
-
             <div className="case-study-module">
 
               <h2 className="case-study-headline">{copy.results}</h2>
-
-
 
               <div className="case-study-result-grid">
 
@@ -1450,8 +1762,6 @@ export const CaseStudyPage: React.FC = () => {
 
               </div>
 
-
-
               <p className="case-study-footnote">
 
                 {cleanText(content.conclusion) ?? cleanText(content.finalProject)}
@@ -1461,25 +1771,36 @@ export const CaseStudyPage: React.FC = () => {
             </div>
 
           </section>
+
           )}
 
           {(highFidelityDesign || iterations.length || learnings.length || nextSteps.length || limitations.length) && (
+
             <section className="case-study-section case-study-section--light case-study-section--detail-end">
+
               <div className="case-study-index">11A · {isPortuguese ? 'DETALHES DO DESIGN' : 'DESIGN DETAILS'}</div>
+
               <div className="case-study-module">
+
                 <h2 className="case-study-headline">{isPortuguese ? 'DO WIREFRAME À ITERAÇÃO' : 'FROM WIREFRAME TO ITERATION'}</h2>
+
                 {highFidelityDesign && <div className="case-study-detail-block"><h3>{sectionLabels.highFidelityDesign ?? 'High-Fidelity Design'}</h3>{renderMedia(highFidelityDesign.screenshots).length>0 && <div className="case-study-media-grid">{renderMedia(highFidelityDesign.screenshots).map((src,index)=><figure key={src+index}><img src={src} alt={`${content.title} high-fidelity screen ${index+1}`} /></figure>)}</div>}<div className="case-study-synthesis-grid">{Object.entries(highFidelityDesign).filter(([key])=>!['screenshots','prototype'].includes(key)).map(([key,value])=>{const items=renderList(value); const text=cleanText(value); return items.length ? <div className="case-study-synthesis-card" key={key}><strong>{formatKey(key)}</strong><ul>{items.map((item,index)=><li key={index}>{item}</li>)}</ul></div> : text ? <div className="case-study-synthesis-card" key={key}><strong>{formatKey(key)}</strong><p>{text}</p></div> : null;})}</div></div>}
+
                 {iterations.length>0 && <div className="case-study-detail-block"><h3>{sectionLabels.iterations ?? 'Iterations'}</h3><div className="case-study-iteration-grid">{iterations.map((item,index)=><article key={index}>{['before','problem','decision','after'].map(key=>cleanText(item[key]) ? <div key={key}><b>{formatKey(key)}</b><p>{cleanText(item[key])}</p></div> : null)}</article>)}</div></div>}
+
                 {learnings.length>0 && <div className="case-study-detail-block"><h3>{sectionLabels.learnings ?? 'Learnings'}</h3><ul className="case-study-detail-list">{learnings.map((item,index)=><li key={index}>{item}</li>)}</ul></div>}
+
                 {nextSteps.length>0 && <div className="case-study-detail-block"><h3>{sectionLabels.nextSteps ?? 'Next Steps'}</h3><ul className="case-study-detail-list">{nextSteps.map((item,index)=><li key={index}>{item}</li>)}</ul></div>}
+
                 {limitations.length>0 && <div className="case-study-detail-block"><h3>{sectionLabels.limitations ?? 'Limitations'}</h3><ul className="case-study-detail-list">{limitations.map((item,index)=><li key={index}>{item}</li>)}</ul></div>}
+
               </div>
+
             </section>
+
           )}
 
         </main>
-
-
 
         <footer className="case-study-footer">
 
@@ -1505,8 +1826,6 @@ export const CaseStudyPage: React.FC = () => {
 
           </div>
 
-
-
           <button onClick={() => navigate('/')} className="btn-back-projects">
 
             {t('caseStudyLabels.seeMoreProjects')}
@@ -1516,8 +1835,6 @@ export const CaseStudyPage: React.FC = () => {
           </button>
 
         </footer>
-
-
 
         <PortfolioFooter />
 

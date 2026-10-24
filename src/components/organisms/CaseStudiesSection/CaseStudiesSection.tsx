@@ -5,12 +5,10 @@ import './CaseStudiesSection.css';
 
 import { NavPill, Carousel } from '../../molecules';
 import { Button } from '../../atoms';
-import TIHelpImg from '../../../assets/images/TIHelp.png';
 import Kaloburn from '../../../assets/images/KaloBurn.png';
 import DNJeansImg from '../../../assets/images/DNJeans.png';
-import RealStateImg from '../../../assets/images/RealState.png';
-import YatchImg from '../../../assets/images/Yatch.jpeg';
 import SolarPanelImg from '../../../assets/images/SolarPanel.png';
+import ElvisCoverImg from '../../../assets/images/ElvisCover.png';
 
 import HappyEasterVideo from '../../../assets/Videos/HappyEaster.mp4';
 import OtavioVideo from '../../../assets/Videos/Otavio.mp4';
@@ -79,22 +77,21 @@ interface CaseStudiesSectionProps {
  */
 const defaultCaseStudies: CaseStudy[] = [
   {
-    id: '1',
-    image: TIHelpImg,
-    tag: 'UX Design · Multiplataforma',
-    title: 'TI Help',
+    id: '6',
+    image: SolarPanelImg,
+    tag: 'UX/UI Design · Dashboard',
+    title: 'Solar',
     description:
-      'Sistema integrado de suporte técnico (mobile, web e desktop), com triagem assistida por IA. Projeto real de TCC.',
-    prototypeUrl:
-      'https://www.figma.com/proto/fw2bexpovuRBEjPGqDwRW3/PIM-3%C2%B0-SEM?node-id=1158-457&p=f&t=pv64Gtc7MDHmRbCO-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1158%3A457',
+      'Dashboard conceitual para acompanhar produção, consumo, status do sistema e histórico de energia solar.',
+    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/',
   },
   {
     id: '2',
     image: Kaloburn,
-    tag: 'UX/UI Design · Marketplace Fitness',
-    title: 'KaloBurn',
+    tag: 'UX/UI Design · Fitness',
+    title: 'Calo Burny',
     description:
-      'Marketplace fitness de dois lados com IA de personalização, conectando usuários a profissionais de educação física.',
+      'Marketplace fitness com planos, acompanhamento e personalização para treino e evolução contínua.',
     prototypeUrl: 'https://www.figma.com/proto/nfQdsEFYEm9pVEjSjPSdcz',
   },
   {
@@ -108,39 +105,12 @@ const defaultCaseStudies: CaseStudy[] = [
   },
   {
     id: '7',
-    image: CeiaDoFortalecimentoImg,
-    tag: 'Social Media Design · Content Strategy',
-    title: 'Social Media Design & Content Strategy',
+    image: ElvisCoverImg,
+    tag: 'Social Media Design',
+    title: 'Elvis Social',
     description:
-      'Estratégia de conteúdo e design para aumentar alcance, reutilização e consistência de comunicação em redes sociais.',
-    prototypeUrl: 'https://www.instagram.com/',
-  },
-  {
-    id: '4',
-    image: RealStateImg,
-    tag: 'UX/UI Design · Marketplace Imobiliário',
-    title: 'ImovePro',
-    description:
-      'Marketplace imobiliário multi-perfil com busca por raio geográfico e dashboards dedicados por tipo de usuário.',
-    prototypeUrl: 'https://www.figma.com/proto/pr2HKsIP3kV7GUYN7l2vZy',
-  },
-  {
-    id: '5',
-    image: YatchImg,
-    tag: 'UX/UI Design · Luxury (Ficcional)',
-    title: 'Yacht Booking',
-    description:
-      'Exploração conceitual de design premium para reserva de experiências marítimas de alto padrão.',
-    prototypeUrl: 'https://www.figma.com/proto/jrsEdX4WbU27tltU5kwivm',
-  },
-  {
-    id: '6',
-    image: SolarPanelImg,
-    tag: 'UX/UI Design · Dashboard (Template)',
-    title: 'Solar Panel Monitoring',
-    description:
-      'Conceito de dashboard para acompanhar produção, consumo, estado do sistema, alertas e histórico de energia solar.',
-    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/',
+      'Estratégia editorial e visual para organizar conteúdo, reforçar a comunicação do mandato e ampliar o alcance no Instagram.',
+    prototypeUrl: 'https://www.instagram.com/vereador.elvis/?hl=pt-br',
   },
 ];
 
@@ -579,15 +549,12 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
                 >
 
                   {/* Imagem com overlay de hover (desktop) */}
-                  <div
-                    className="case-card__image"
-                    style={{
-                      backgroundImage: `url(${caseStudy.image})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition:
-                        'center',
-                    }}
-                  >
+                  <div className="case-card__image">
+                    <img
+                      src={caseStudy.image}
+                      alt={caseStudy.title || 'Case study'}
+                      className="case-card__image-media"
+                    />
                     <div className="case-card__overlay">
 
                       <Button
