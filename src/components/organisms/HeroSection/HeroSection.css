@@ -826,9 +826,11 @@
 }
 
 @media (max-height: 560px) and (max-width: 430px) {
-  /* Aparelhos MUITO baixos: esconde a imagem 3D para sobrar espaço */
+  /* Aparelhos muito baixos: reduz a imagem sem removê-la da composição. */
   .hero-image-container {
-    display: none !important;
+    display: flex !important;
+    width: 100px !important;
+    height: 100px !important;
   }
 
   .hero-grid {

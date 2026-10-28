@@ -9,7 +9,7 @@ import { FooterSection } from '../../components/organisms/FooterSection';
 
 import './CaseStudyPage.css';
 
-import { IoArrowBack } from 'react-icons/io5';
+import { MdArrowBack } from 'react-icons/md';
 
 import TIHelpImg from '@/assets/images/TIHelp.png';
 
@@ -566,7 +566,7 @@ export const CaseStudyPage: React.FC = () => {
 
   >
 
-    <IoArrowBack />
+    <MdArrowBack />
 
   </span>
 
@@ -600,7 +600,7 @@ export const CaseStudyPage: React.FC = () => {
 
             <button onClick={() => navigate(-1)} className="back-button">
 
-              <span className="back-button__circle" aria-hidden="true">↩</span>
+              <span className="back-button__circle" aria-hidden="true"><MdArrowBack /></span>
 
               {t('caseStudyLabels.back')}
 
@@ -1027,7 +1027,7 @@ export const CaseStudyPage: React.FC = () => {
 
           <button onClick={() => navigate(-1)} className="back-button">
 
-            <span className="back-button__circle" aria-hidden="true">↩</span>
+            <span className="back-button__circle" aria-hidden="true"><MdArrowBack /></span>
 
             {t('caseStudyLabels.back')}
 
