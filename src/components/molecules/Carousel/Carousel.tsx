@@ -98,35 +98,57 @@ export const Carousel: React.FC<CarouselProps> = ({ images }) => {
 
   const row1 = useRow(row1Ref, 1); // vai para esquerda
   const row2 = useRow(row2Ref, -1); // vai para direita
+  const tickRow1 = row1.tick;
+  const tickRow2 = row2.tick;
 
   // Loop RAF compartilhado
   useEffect(() => {
-    if (!ready) return;
+    if (
+      !ready ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
+      return;
+    }
+
     const loop = () => {
-      row1.tick();
-      row2.tick();
+      tickRow1();
+      tickRow2();
       rafId.current = requestAnimationFrame(loop);
     };
     rafId.current = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(rafId.current);
-  }, [ready, row1.tick, row2.tick]);
+  }, [ready, tickRow1, tickRow2]);
 
   // Detecta ratio e distribui imagens
   useEffect(() => {
     if (images.length === 0) return;
+    let cancelled = false;
     let resolved = 0;
     const landscape: string[] = [];
     const portrait:  string[] = [];
+    const preloadImages = images.map(() => new Image());
 
-    images.forEach((src) => {
-      const img = new Image();
-      const done = () => { resolved++; if (resolved === images.length) finalize(); };
-      img.onload  = () => { (img.naturalWidth > img.naturalHeight ? landscape : portrait).push(src); done(); };
-      img.onerror = () => { portrait.push(src); done(); };
+    images.forEach((src, index) => {
+      const img = preloadImages[index];
+      const done = () => {
+        if (cancelled) return;
+        resolved++;
+        if (resolved === images.length) finalize();
+      };
+
+      img.onload = () => {
+        (img.naturalWidth > img.naturalHeight ? landscape : portrait).push(src);
+        done();
+      };
+      img.onerror = () => {
+        portrait.push(src);
+        done();
+      };
       img.src = src;
     });
 
     function finalize() {
+      if (cancelled) return;
       if (landscape.length === 0 || portrait.length === 0) {
         const half = Math.ceil(images.length / 2);
         setCol1(images.slice(0, half));
@@ -137,6 +159,14 @@ export const Carousel: React.FC<CarouselProps> = ({ images }) => {
       }
       setReady(true);
     }
+
+    return () => {
+      cancelled = true;
+      preloadImages.forEach((img) => {
+        img.onload = null;
+        img.onerror = null;
+      });
+    };
   }, [images]);
 
   // ── Handlers: cada fileira escuta seu próprio elemento ──────

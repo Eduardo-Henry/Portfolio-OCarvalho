@@ -10,15 +10,17 @@ export const Splash: React.FC<SplashProps> = ({ isLoading }) => {
   const [isVisible, setIsVisible] = useState(isLoading);
 
   useEffect(() => {
-    if (!isLoading) {
-      // Sincroniza o tempo de remoção do DOM com o fade-out do CSS (500ms)
-      const timer = setTimeout(() => {
-        setIsVisible(false);
-      }, 500); 
-      return () => clearTimeout(timer);
-    } else {
-      setIsVisible(true);
+    if (isLoading) {
+      const frame = requestAnimationFrame(() => {
+        setIsVisible(true);
+      });
+      return () => cancelAnimationFrame(frame);
     }
+
+    const timer = setTimeout(() => {
+      setIsVisible(false);
+    }, 500);
+    return () => clearTimeout(timer);
   }, [isLoading]);
 
   if (!isVisible) return null;

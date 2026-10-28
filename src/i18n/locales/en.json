@@ -267,6 +267,22 @@
   "caseStudiesData": {
     "1": {
       "title": "TI Help",
+      "sectionTitles": {
+        "overview": "PROJECT OVERVIEW",
+        "challenge": "ONE CLEARER SUPPORT FLOW",
+        "research": "RESEARCH & ANALYSIS",
+        "researchDetail": "WHAT THE RESEARCH REVEALED",
+        "define": "DESIGN OPPORTUNITY",
+        "process": "RESEARCH / DEFINE / WIREFRAMES / UI / TEST",
+        "journey": "FROM GOAL TO NEXT ACTION",
+        "architecture": "THE PRODUCT REVOLVES AROUND THREE QUESTIONS",
+        "methodDetail": "FROM RESEARCH TO STRUCTURE",
+        "wireframes": "STRUCTURE BEFORE THE FINISH",
+        "validation": "PROJECT INSIGHTS",
+        "results": "LESS INTERPRETATION. MORE ACTION",
+        "designDetails": "FROM WIREFRAME TO ITERATION",
+        "conclusion": "Conclusion"
+      },
       "overview": "Integrated technical support system (mobile, web, and desktop) built as a capstone project, replacing decentralized WhatsApp/email support with a single flow for opening and tracking tickets, with AI-assisted triage.",
       "challenge": "IT support was scattered across channels with no traceability or status visibility — users resent the same request through different channels when they got no response, and technicians received tickets with no standardized context.",
       "process": "In-person discovery with 11 sponsor users (7 Systems Analysis students, 2 from another cohort, 2 from Psychology). In the first version of the flow, users picked their own ticket priority (low/medium/high) — in discussion with professors and the 4-person team, we spotted a structural bias before even testing: users would tend to always mark 'high priority' to get served faster, invalidating triage. We fixed it by removing self-assigned priority, replacing it with problem type selection (hardware/software/network) + free description, leaving priority to triage (AI + technician). This was the only one of the 4 deliverables run with a formal backlog over the 6-month project.",
@@ -547,7 +563,23 @@
       ]
     },
     "2": {
-      "title": "Calo Burny",
+      "title": "Kalo Burn",
+      "sectionTitles": {
+        "overview": "PROJECT OVERVIEW",
+        "challenge": "FLEXIBILITY WITHOUT LOSING PROGRESS",
+        "research": "RESEARCH & ANALYSIS",
+        "researchDetail": "WHAT THE RESEARCH REVEALED",
+        "define": "DESIGN OPPORTUNITY",
+        "process": "RESEARCH / DEFINE / WIREFRAMES / UI / TEST",
+        "journey": "FROM GOAL TO NEXT ACTION",
+        "architecture": "THE PRODUCT REVOLVES AROUND THREE QUESTIONS",
+        "methodDetail": "FROM RESEARCH TO STRUCTURE",
+        "wireframes": "STRUCTURE BEFORE THE FINISH",
+        "validation": "PROJECT INSIGHTS",
+        "results": "LESS INTERPRETATION. MORE ACTION",
+        "designDetails": "FROM WIREFRAME TO ITERATION",
+        "conclusion": "Conclusion"
+      },
       "overview": "A conceptual mobile fitness product connecting practitioners with training, professionals, plans, and progress tracking. This case combines the existing interface with one documented exploratory interview; opportunities are hypotheses, not population-level research findings.",
       "challenge": "The interviewed participant plans A/B/C workouts in advance but adapts each session when experiencing fatigue or pain, finding equipment unavailable, or running short on time. The design challenge is to support that flexibility while preserving progress tracking through loads and repetitions.",
       "process": "One exploratory interview was conducted with an experienced gym/CrossFit practitioner. The account was synthesized into behaviors, pain points, and opportunities, then related to the mobile structure shown in the board: workout flow, professional discovery, and progress tracking. This is qualitative evidence from one person, not broad product validation.",
@@ -850,13 +882,30 @@
       ]
     },
     "3": {
-      "title": "DN Jeans",
-      "overview": "DN Jeans is a product-discovery experience designed to help customers browse catalog items, compare options and move more easily toward purchase without unnecessary friction.",
+      "title": "Orbean Jeans",
+      "sectionTitles": {
+        "overview": "PROJECT OVERVIEW",
+        "challenge": "DISCOVER, COMPARE, DECIDE",
+        "research": "RESEARCH & ANALYSIS",
+        "researchDetail": "WHAT THE RESEARCH REVEALED",
+        "define": "DESIGN OPPORTUNITY",
+        "process": "RESEARCH / DEFINE / WIREFRAMES / UI / TEST",
+        "journey": "FROM GOAL TO NEXT ACTION",
+        "architecture": "THE PRODUCT REVOLVES AROUND THREE QUESTIONS",
+        "methodDetail": "FROM RESEARCH TO STRUCTURE",
+        "wireframes": "STRUCTURE BEFORE THE FINISH",
+        "validation": "PROJECT INSIGHTS",
+        "results": "LESS INTERPRETATION. MORE ACTION",
+        "designDetails": "FROM WIREFRAME TO ITERATION",
+        "conclusion": "Conclusion"
+      },
+      "overview": "Orbean Jeans is a product-discovery experience designed to help customers browse catalog items, compare options and move more easily toward purchase without unnecessary friction.",
       "challenge": "The challenge is to guide discovery through categories, filters, and product details toward a clear decision while respecting the brand's documented direct WhatsApp conversion context.",
-      "process": "Retrospective UX reconstruction based on the available product material and screen boards. No formal interviews or usability tests are documented. The proposed journey organizes discovery, comparison, and decision-making without presenting design hypotheses as customer research.",
+      "process": "Retrospective UX reconstruction based on the available boards and one documented interview. The participant reported prioritizing fit, paying little attention to size and price, and needing her husband's help to navigate websites; choosing and paying through WhatsApp were exceptions. The proposed journey turns these signals into opportunities, not generalizable outcomes.",
       "designSprint": [
-        { "stage": "Context", "description": "Retrospective review of the catalog, available screens, and the WhatsApp conversion behavior recorded in the project." },
-        { "stage": "Define", "description": "Design hypothesis: reduce the effort between finding an item and gathering enough information to decide." },
+        { "stage": "Context", "description": "Retrospective review of the catalog, available screens, and the project's WhatsApp conversion context." },
+        { "stage": "Research", "description": "One documented interview indicated that fit was the participant's main reported criterion; size and price received little attention during selection." },
+        { "stage": "Define", "description": "Design opportunity: foreground fit and relevant attributes while simplifying discovery and comparison without generalizing one interview." },
         { "stage": "Structure", "description": "Proposed organization across home, category/listing, product detail, and purchase decision." },
         { "stage": "Design", "description": "Provided boards show desktop and mobile explorations, including cart and checkout." },
         { "stage": "Validation", "description": "No formal test is documented. The choice between checkout and direct contact needs confirmation with the brand." }
@@ -865,17 +914,17 @@
       "csdMatrix": {
         "certainties": [
           "The available material includes home, category/listing, product detail, and cart/checkout explorations.",
-          "The project records direct WhatsApp contact as a brand conversion behavior.",
-          "No formal user research or usability testing is documented."
+          "The participant reported needing her husband's help to navigate websites, except for choosing and paying through WhatsApp.",
+          "The documented research is limited to one interview; no formal usability test is available."
         ],
         "suppositions": [
-          "Visible filters and attributes may make product comparison easier.",
-          "Size, color, and availability details may reduce questions before contact.",
+          "Giving fit and silhouette more prominence may reflect the participant's reported priority.",
+          "Showing relevant attributes consistently may support comparison without assuming size and price are always primary.",
           "A WhatsApp CTA may better match the recorded direct-conversion behavior than requiring checkout."
         ],
         "doubts": [
           "The brand's preference for WhatsApp contact needs confirmation given the cart and checkout screens in the boards.",
-          "There is no documented evidence about which filters or information customers prioritize."
+          "One interview cannot establish which filters or information all customers prioritize."
         ]
       },
       "userFlow": "Home → category/listing → filter and compare → product detail → decide → contact/convert. Cart and checkout appear in boards as explorations and are not presented as a validated flow.",
@@ -909,29 +958,29 @@
       "finalProject": "Product-design case with a UX reconstruction and desktop/mobile boards. No customer research or formal test is documented; no conversion outcomes are attributed to the design.",
       "conclusion": "Discovery → category → comparison → detail → decision. The flow and boards provide a basis for structuring the catalog. The relationship between checkout and WhatsApp support needs alignment with the brand's commercial process and validation before being treated as a final solution.",
       "research": {
-        "status": "UX reconstruction / design hypothesis; field research is not documented.",
-        "method": "Retrospective review of the product scope, screen boards, and conversion context already recorded in the project.",
-        "participants": "No customer interviews documented.",
+        "status": "UX reconstruction with evidence limited to one interview.",
+        "method": "Retrospective review of the scope and boards combined with one documented interview.",
+        "participants": "One interviewed participant; findings are not generalizable to all customers.",
         "limitations": [
-          "No protocol, customer interviews, observations, or usability tests are available."
+          "The research is limited to one interview, with no formal usability test or quantitative evidence."
         ]
       },
       "researchSynthesis": {
         "behaviors": [
-          "The project material records direct WhatsApp contact as a brand conversion behavior."
+          "The participant reported needing her husband's help to navigate websites, except for choosing and paying through WhatsApp."
         ],
         "painPoints": [
-          "Hypothesis: browsing without consistent attributes may make comparison difficult."
+          "Fit was the participant's main reported selection criterion; presenting it clearly is a design opportunity."
         ],
         "needs": [
-          "Hypothesis: bring category, attributes, price, and the next step together in the product journey."
+          "Simplify discovery and comparison by foregrounding fit and relevant product attributes."
         ],
         "insights": [
-          "The boards show both cart/checkout and the direct WhatsApp conversion recorded in the project; the final choice is not validated."
+          "The interview suggests considering WhatsApp as a conversion and support path, but the final solution was not validated and the finding does not represent all customers."
         ],
         "opportunities": [
-          "Confirm with the brand whether purchases close through WhatsApp, checkout, or both.",
-          "Validate which attributes and filters support purchase decisions."
+          "Consider WhatsApp as a conversion and support path while respecting the existing flows.",
+          "Validate whether fit, silhouette, and other attributes help different customers decide."
         ]
       },
       "userJourney": [
@@ -1074,6 +1123,22 @@
     },
     "4": {
       "title": "ImovePro",
+      "sectionTitles": {
+        "overview": "PROJECT OVERVIEW",
+        "challenge": "A MORE COHESIVE REAL ESTATE JOURNEY",
+        "research": "RESEARCH & ANALYSIS",
+        "researchDetail": "WHAT THE RESEARCH REVEALED",
+        "define": "DESIGN OPPORTUNITY",
+        "process": "RESEARCH / DEFINE / WIREFRAMES / UI / TEST",
+        "journey": "FROM GOAL TO NEXT ACTION",
+        "architecture": "THE PRODUCT REVOLVES AROUND THREE QUESTIONS",
+        "methodDetail": "FROM RESEARCH TO STRUCTURE",
+        "wireframes": "STRUCTURE BEFORE THE FINISH",
+        "validation": "PROJECT INSIGHTS",
+        "results": "LESS INTERPRETATION. MORE ACTION",
+        "designDetails": "FROM WIREFRAME TO ITERATION",
+        "conclusion": "Conclusion"
+      },
       "overview": "Multi-profile real estate marketplace (buyer/seller, agent, company) with radius-based geographic search and an interactive map, replacing traditional city/neighborhood filters.",
       "challenge": "Real estate agents manage leads, schedules, and communication across disconnected tools (WhatsApp, spreadsheets, separate calendars), while buyers rely on shallow location filters that don't reflect their real area of interest.",
       "process": "Existing project notes describe in-person discovery and a moderated walkthrough with the three profiles, but protocols, transcripts, and participant counts are not available in the repository. The proposal organizes map search and profile-specific workspaces; results should be read as limited qualitative notes.",
@@ -1315,6 +1380,22 @@
     },
     "5": {
       "title": "Yacht Booking",
+      "sectionTitles": {
+        "overview": "PROJECT OVERVIEW",
+        "challenge": "CLARITY TO EXPLORE AND BOOK",
+        "research": "RESEARCH & ANALYSIS",
+        "researchDetail": "WHAT THE RESEARCH REVEALED",
+        "define": "DESIGN OPPORTUNITY",
+        "process": "RESEARCH / DEFINE / WIREFRAMES / UI / TEST",
+        "journey": "FROM GOAL TO NEXT ACTION",
+        "architecture": "THE PRODUCT REVOLVES AROUND THREE QUESTIONS",
+        "methodDetail": "FROM RESEARCH TO STRUCTURE",
+        "wireframes": "STRUCTURE BEFORE THE FINISH",
+        "validation": "PROJECT INSIGHTS",
+        "results": "LESS INTERPRETATION. MORE ACTION",
+        "designDetails": "FROM WIREFRAME TO ITERATION",
+        "conclusion": "Conclusion"
+      },
       "overview": "Luxury booking experience / conceptual portfolio project for discovering and booking maritime experiences. Journeys and profiles are design hypotheses, not evidence from customer research.",
       "challenge": "Explore how discovery, comparison, availability, and booking could communicate clarity and trust in a premium experience without treating those choices as validated needs.",
       "process": "Self-directed project based on secondary benchmarking of premium references named in the project (Porsche, Net-A-Porter, and Soho House). The work explored visual and interaction language; no field research or testing with real users was conducted.",
@@ -1527,6 +1608,22 @@
     },
     "6": {
       "title": "Solar Panel Monitoring",
+      "sectionTitles": {
+        "overview": "PROJECT OVERVIEW",
+        "challenge": "CLEARER ENERGY MONITORING",
+        "research": "RESEARCH & ANALYSIS",
+        "researchDetail": "WHAT THE RESEARCH REVEALED",
+        "define": "DESIGN OPPORTUNITY",
+        "process": "RESEARCH / DEFINE / WIREFRAMES / UI / TEST",
+        "journey": "FROM GOAL TO NEXT ACTION",
+        "architecture": "THE PRODUCT REVOLVES AROUND THREE QUESTIONS",
+        "methodDetail": "FROM RESEARCH TO STRUCTURE",
+        "wireframes": "STRUCTURE BEFORE THE FINISH",
+        "validation": "PROJECT INSIGHTS",
+        "results": "LESS INTERPRETATION. MORE ACTION",
+        "designDetails": "FROM WIREFRAME TO ITERATION",
+        "conclusion": "Conclusion"
+      },
       "overview": "Conceptual dashboard/template for monitoring solar energy production and consumption, system status, alerts, and history. No research with energy customers or operators is documented; the architecture below is a design hypothesis.",
       "challenge": "Explore how to organize production, consumption, system status, and history so people can understand the current situation without confusing illustrative data with real measurements.",
       "process": "Self-directed conceptual template. The structure was developed as an architectural hypothesis for a monitoring dashboard; it is not based on documented interviews, testing, or deployment with a solar energy company.",
@@ -1736,6 +1833,13 @@
     },
     "7": {
       "title": "Social Media Design",
+      "sectionTitles": {
+        "challenge": "CONTENT ACROSS FORMATS",
+        "overview": "STRATEGIC VISUAL DESIGN AND DIGITAL CONTENT FOR POLITICAL COMMUNICATION.",
+        "gallery": "CONTENT CREATED",
+        "results": "SCOPE AND EVIDENCE",
+        "process": "PROCESS"
+      },
       "overview": "Real-world social media design and content management project for a client's political Instagram profile. In a testimonial, the client reports 10K views on one post and 47.7K reach in the most recent quarter, roughly 29% above the previous quarter. Exact calendar dates and independent analytics are not available in this case; the figures do not prove causality.",
       "challenge": "Organize content production and presentation across formats, considering recorded observations about topic, format, publishing, and audience response without extrapolating beyond the available data.",
       "process": "The project material describes content observation, strategy definition, visual-system creation, production, and iteration. Available records do not detail the analysis period, comparison method, or a controlled experiment.",

@@ -126,8 +126,8 @@
   justify-content: center; /* Mantém o conteúdo agrupado no centro em telas grandes */
   height: 94px;
   border-radius: 999px;
-  background-color: #000;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
   font-size: 1rem;
   text-transform: uppercase;  
   border: none;
@@ -172,7 +172,7 @@
 /* Estilo do texto interno do botão principal */
 .about-button-text {
   display: inline-block;
-  color: #ffffff;
+  color: #000000;
   font-weight: 400;
   margin-right: 0; 
 }
@@ -539,8 +539,8 @@
     width: auto !important; 
     min-width: 190px !important; 
     border-radius: 999px !important;
-    background-color: #000000 !important;
-    color: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
     font-size: 0.75rem !important;
     text-transform: uppercase !important;
     border: none !important;
@@ -551,7 +551,7 @@
   }
 
   .about-button-text {
-    color: #ffffff !important;
+    color: #000000 !important;
     font-weight: 700 !important;
   }
 
@@ -686,8 +686,8 @@
     width: auto !important; 
     min-width: 190px !important; 
     border-radius: 999px !important;
-    background-color: #000000 !important;
-    color: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
     font-size: 0.75rem !important;
     text-transform: uppercase !important;
     border: none !important;
@@ -698,7 +698,7 @@
   }
 
   .about-button-text {
-    color: #ffffff !important;
+    color: #000000 !important;
     font-weight: 400 !important;
   }
 

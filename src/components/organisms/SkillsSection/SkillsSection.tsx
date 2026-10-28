@@ -29,17 +29,23 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ id }) => {
 
   useEffect(() => {
     const currentSection = sectionRef.current;
+    let frame = 0;
 
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries;
 
         if (entry.isIntersecting) {
-          let start = 0;
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            setCount(targetCount);
+            if (currentSection) observer.unobserve(currentSection);
+            return;
+          }
 
           const duration = 1500;
 
           const startTime = performance.now();
+          const start = 0;
 
           const animate = (currentTime: number) => {
             const elapsed = currentTime - startTime;
@@ -61,11 +67,11 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ id }) => {
             setCount(currentCount);
 
             if (progress < 1) {
-              requestAnimationFrame(animate);
+              frame = requestAnimationFrame(animate);
             }
           };
 
-          requestAnimationFrame(animate);
+          frame = requestAnimationFrame(animate);
 
           if (currentSection) {
             observer.unobserve(currentSection);
@@ -82,9 +88,8 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ id }) => {
     }
 
     return () => {
-      if (currentSection) {
-        observer.unobserve(currentSection);
-      }
+      observer.disconnect();
+      cancelAnimationFrame(frame);
     };
   }, []);
 

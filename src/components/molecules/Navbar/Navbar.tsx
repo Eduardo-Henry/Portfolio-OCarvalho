@@ -6,6 +6,8 @@ import './Navbar.css';
 
 type RGB = [number, number, number];
 
+const menuSectionIds = ['hero', 'about', 'case-studies', 'all-skills', 'clients', 'contact'];
+
 export const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
@@ -20,6 +22,7 @@ export const Navbar: React.FC = () => {
   const location = useLocation();
   const navMenuRef = useRef<HTMLUListElement>(null);
   const rafId = useRef<number | null>(null);
+  const findBackgroundLuminanceRef = useRef<() => void>(() => {});
 
   // Cache de canvases de imagens de background já carregadas, pra não
   // recarregar/redesenhar a mesma imagem a cada scroll. Chave = URL.
@@ -203,7 +206,7 @@ export const Navbar: React.FC = () => {
           } else if (!bgImageCache.current.has(url)) {
             // ainda não carregada: dispara carregamento e, quando
             // pronta, roda a checagem de novo automaticamente
-            ensureBgImageCached(url, findBackgroundLuminance);
+            ensureBgImageCached(url, () => findBackgroundLuminanceRef.current());
           }
         }
       }
@@ -222,6 +225,10 @@ export const Navbar: React.FC = () => {
     // nada encontrado até o topo: assume fundo escuro como padrão seguro
     setIsOnLightBackground(false);
   }, [sampleImagePixel, ensureBgImageCached]);
+
+  useEffect(() => {
+    findBackgroundLuminanceRef.current = findBackgroundLuminance;
+  }, [findBackgroundLuminance]);
 
   useEffect(() => {
     const scheduleCheck = () => {
@@ -266,7 +273,6 @@ export const Navbar: React.FC = () => {
       window.history.replaceState({}, document.title);
       if (targetId === 'hero') {
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        setActiveSection('hero');
         return;
       }
       setTimeout(() => {
@@ -296,7 +302,7 @@ export const Navbar: React.FC = () => {
       { threshold: 0.4 }
     );
 
-    menuItems.forEach(({ id }) => {
+    menuSectionIds.forEach((id) => {
       const target = document.getElementById(id);
       if (target) observer.observe(target);
     });

@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { MainLayout } from '../../components/templates';
+import { FooterSection } from '../../components/organisms/FooterSection';
 
 import './CaseStudyPage.css';
 
@@ -14,29 +15,23 @@ import TIHelpImg from '@/assets/images/TIHelp.png';
 
 import KaloBurnImg from '@/assets/images/KaloBurn.png';
 
-import DNJeansImg from '@/assets/images/DNJeans.png';
+import Orbeanjeans from '@/assets/images/OrbeanJeans.png';
+
+import SolarPanelImg from '@/assets/images/SolarPanel.png';
 
 import RealStateImg from '@/assets/images/RealState.png';
 
-import YatchImg from '@/assets/images/Yatch.jpeg';
-
-import SolarPanelImg from '@/assets/images/SolarPanel.png';
+import YachtImg from '@/assets/images/Yatch.jpeg';
 
 import ElvisCoverImg from '../../assets/images/ElvisCover.png';
 
 import ElvisGridInstagramImg from '../../assets/images/ElvisGridInstagram.png';
 
-import LinkedInIcon from '@/assets/icons/iconLinkedin.svg?react';
-
-import InstagramIcon from '@/assets/icons/iconInstagram.svg?react';
-
-import BehanceIcon from '@/assets/icons/iconBehance.svg?react';
-
-import GitHubIcon from '@/assets/icons/iconGithub.svg?react';
-
 interface CaseStudyContent {
 
   title: string;
+
+  sectionTitles?: Record<string, unknown>;
 
   overview?: string;
 
@@ -112,7 +107,7 @@ interface CaseStudyMeta {
 
   image: string;
 
-  prototypeUrl: string;
+  prototypeUrl?: string;
 
 }
 
@@ -146,7 +141,7 @@ const caseStudiesMeta: Record<string, CaseStudyMeta> = {
 
     type: 'real',
 
-    image: DNJeansImg,
+    image: Orbeanjeans,
 
     prototypeUrl:
 
@@ -154,34 +149,24 @@ const caseStudiesMeta: Record<string, CaseStudyMeta> = {
 
   },
 
+  
+
+
+
   '4': {
-
     type: 'proposal',
-
     image: RealStateImg,
-
-    prototypeUrl: 'https://www.figma.com/proto/pr2HKsIP3kV7GUYN7l2vZy',
-
   },
 
   '5': {
-
     type: 'fictional',
-
-    image: YatchImg,
-
-    prototypeUrl: 'https://www.figma.com/proto/jrsEdX4WbU27tltU5kwivm',
-
+    image: YachtImg,
   },
 
   '6': {
-
     type: 'fictional',
-
     image: SolarPanelImg,
-
     prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war',
-
   },
 
  '7': {
@@ -275,116 +260,6 @@ const getMediaDetails = (
     };
 
   });
-
-};
-
-const PortfolioFooter: React.FC = () => {
-
-  const { t } = useTranslation();
-
-  const currentYear = new Date().getFullYear();
-
-  const socialLinks = [
-
-    { id: 'linkedin', icon: LinkedInIcon, url: 'https://www.linkedin.com/in/eduardohenrycarvalho/?locale=pt', title: 'LinkedIn' },
-
-    { id: 'instagram', icon: InstagramIcon, url: 'https://www.instagram.com/ocarvalho.dzn/', title: 'Instagram' },
-
-    { id: 'behance', icon: BehanceIcon, url: 'https://www.behance.net/eduardohenry1', title: 'Behance' },
-
-    { id: 'github', icon: GitHubIcon, url: 'https://github.com', title: 'GitHub' },
-
-  ];
-
-  return (
-
-    <footer className="portfolio-footer">
-
-      <div className="portfolio-footer__container">
-
-        <div className="portfolio-footer__content">
-
-          <div className="portfolio-footer__column portfolio-footer__brand">
-
-            <h3>EDUARDO</h3>
-
-            <p>{t('footer.description')}</p>
-
-          </div>
-
-          <div className="portfolio-footer__column">
-
-            <h4>{t('footer.nav.title')}</h4>
-
-            <nav>
-
-              <a href="/#home">{t('footer.nav.home')}</a>
-
-              <a href="/#about">{t('footer.nav.about')}</a>
-
-              <a href="/#skills">{t('footer.nav.skills')}</a>
-
-              <a href="/#works">{t('footer.nav.works')}</a>
-
-            </nav>
-
-          </div>
-
-          <div className="portfolio-footer__column">
-
-            <h4>{t('footer.social')}</h4>
-
-            <div className="portfolio-footer__social">
-
-              {socialLinks.map((link) => {
-
-                const Icon = link.icon;
-
-                return (
-
-                  <a key={link.id} href={link.url} target="_blank" rel="noopener noreferrer" aria-label={link.title} title={link.title}>
-
-                    <Icon className="portfolio-footer__social-icon" />
-
-                  </a>
-
-                );
-
-              })}
-
-            </div>
-
-          </div>
-
-          <div className="portfolio-footer__column">
-
-            <h4>{t('footer.contact')}</h4>
-
-            <a className="portfolio-footer__email" href="mailto:du.h.c.oliveira17\@gmail.com">du.h.c.oliveira17\@gmail.com</a>
-
-          </div>
-
-        </div>
-
-        <div className="portfolio-footer__bottom">
-
-          <p>{t('footer.copyright', { year: currentYear })}</p>
-
-          <div>
-
-            <a href="#">{t('footer.privacyPolicy')}</a>
-
-            <a href="#">{t('footer.termsOfService')}</a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </footer>
-
-  );
 
 };
 
@@ -584,13 +459,13 @@ export const CaseStudyPage: React.FC = () => {
 
     journey: isPortuguese ? 'DA META À PRÓXIMA AÇÃO.' : 'FROM GOAL TO NEXT ACTION.',
 
-    architecture: isPortuguese ? 'O PRODUTO GIRA EM TORNO DE TRÊS PERGUNTAS.' : 'THE PRODUCT REVOLVES AROUND THREE QUESTIONS.',
+    architecture: isPortuguese ? 'ESTRUTURA DO PRODUTO' : 'PRODUCT STRUCTURE',
 
     wireframes: isPortuguese ? 'ESTRUTURA ANTES DO ACABAMENTO.' : 'STRUCTURE BEFORE THE FINISH.',
 
     validation: isPortuguese ? 'INSIGHTS DO PROJETO' : 'PROJECT INSIGHTS',
 
-    results: isPortuguese ? 'MENOS INTERPRETAÇÃO. MAIS AÇÃO.' : 'LESS INTERPRETATION. MORE ACTION.',
+    results: isPortuguese ? 'RESULTADOS E EVIDÊNCIAS' : 'PROJECT RESULTS & EVIDENCE',
 
     conceptual: isPortuguese ? 'Conceitual / validação futura' : 'Conceptual / future validation',
 
@@ -633,6 +508,9 @@ export const CaseStudyPage: React.FC = () => {
     limitations: isPortuguese ? 'Limitações' : 'Limitations',
 
   };
+
+  const sectionTitle = (key: string, fallback: string): string =>
+    cleanText(content?.sectionTitles?.[key]) ?? fallback;
 
   const findSectionItems = (value: unknown): Array<{ label: string; text: string }> => {
 
@@ -736,7 +614,7 @@ export const CaseStudyPage: React.FC = () => {
 
               <div className="elvis-section-index">01 · PROJETO</div>
 
-              <h1 className="elvis-title">
+              <h1 className="elvis-title type-h1">
 
                 SOCIAL MEDIA
 
@@ -746,10 +624,8 @@ export const CaseStudyPage: React.FC = () => {
 
               </h1>
 
-              <p className="elvis-copy">
-
-                Projeto real de design e produção de conteúdo para o perfil político de Elvis no Instagram.
-
+              <p className="elvis-copy type-lead">
+                {getHeroSummary(content.overview)}
               </p>
 
               <div className="elvis-tags">
@@ -764,17 +640,12 @@ export const CaseStudyPage: React.FC = () => {
 
             </div>
 
-            <div className="elvis-phone__profile">
-
-              <img src={ElvisCoverImg} alt="Perfil do Elvis no Instagram" />
-
-              <div className="elvis-phone__post elvis-phone__post--large">
-
+            <figure className="elvis-hero__visual">
+              <img className="elvis-hero__cover" src={ElvisCoverImg} alt="Apresentação do perfil de Elvis no Instagram" />
+              <div className="elvis-hero__post">
                 <img src={ElvisGridInstagramImg} alt="Peça de campanha social" />
-
               </div>
-
-            </div>
+            </figure>
 
           </section>
 
@@ -782,32 +653,12 @@ export const CaseStudyPage: React.FC = () => {
 
             <div className="elvis-section-index elvis-section-index--light">02 · DESAFIO</div>
 
-            <h2 className="elvis-challenge__title">
-
-              ORGANIZAR A
-
-              <br />
-
-              PRODUÇÃO E A
-
-              <br />
-
-              APRESENTAÇÃO DE
-
-              <br />
-
-              CONTEÚDO EM
-
-              <br />
-
-              DIFERENTES FORMATOS.
-
+            <h2 className="elvis-challenge__title type-h2">
+              {sectionTitle('challenge', isPortuguese ? 'DESAFIO' : 'CHALLENGE')}
             </h2>
 
-            <p className="elvis-challenge__text">
-
-              Transformar as ações, projetos e informações do mandato em conteúdos claros, atrativos e relevantes para o público do Instagram, considerando diferentes formatos como feed, stories e reels.
-
+            <p className="elvis-challenge__text type-body">
+              {cleanText(content.challenge)}
             </p>
 
           </section>
@@ -815,16 +666,8 @@ export const CaseStudyPage: React.FC = () => {
          <section className="elvis-section elvis-overview">
           <div className="elvis-overview__left">
             <div className="elvis-section-index">03 · VISÃO GERAL</div>
-            <h2 className="elvis-overview__headline">
-              DESIGN VISUAL
-              <br />
-              ESTRATÉGICO E CONTEÚDO 
-              <br />
-              DIGITAL PARA
-              <br />
-              COMUNICAÇÃO
-              <br />
-              POLÍTICA.
+            <h2 className="elvis-overview__headline type-h2">
+              {sectionTitle('overview', isPortuguese ? 'DESIGN VISUAL' : 'VISUAL DESIGN')}
             </h2>
           </div>
 
@@ -856,14 +699,8 @@ export const CaseStudyPage: React.FC = () => {
 
             <div className="elvis-section-index elvis-section-index--light">04 · PEÇAS DESENVOLVIDAS</div>
 
-            <h2 className="elvis-gallery__title">
-
-              PEÇAS
-
-              <br />
-
-              DESENVOLVIDAS
-
+            <h2 className="elvis-gallery__title type-h2">
+              {sectionTitle('gallery', isPortuguese ? 'CONTEÚDOS DESENVOLVIDOS' : 'CONTENT CREATED')}
             </h2>
 
             <div className="elvis-gallery__grid">
@@ -880,37 +717,31 @@ export const CaseStudyPage: React.FC = () => {
 
           <section className="elvis-section elvis-results">
 
-            <div className="elvis-section-index">05 · RESULTADOS OBSERVADOS</div>
+            <div className="elvis-section-index">05 · EVIDÊNCIAS DO PROJETO</div>
 
-            <h2 className="elvis-results__title">
-
-              RESULTADOS
-
-              <br />
-
-              OBSERVADOS
-
+            <h2 className="elvis-results__title type-h2">
+              {sectionTitle('results', isPortuguese ? 'ESCOPO E EVIDÊNCIAS' : 'SCOPE AND EVIDENCE')}
             </h2>
 
             <div className="elvis-results__grid">
 
               <div className="elvis-results__card">
 
-                <span className="elvis-results__value">10 mil</span>
+                <span className="elvis-results__value">FEED</span>
 
-                <span className="elvis-results__label">visualizações</span>
+                <span className="elvis-results__label">Peças para publicação</span>
 
-                <small>em uma publicação.</small>
+                <small>Exemplos de conteúdos desenvolvidos para a presença no Instagram.</small>
 
               </div>
 
               <div className="elvis-results__card">
 
-                <span className="elvis-results__value">47,7 mil</span>
+                <span className="elvis-results__value">SISTEMA</span>
 
-                <span className="elvis-results__label">de alcance trimestral</span>
+                <span className="elvis-results__label">Direção visual consistente</span>
 
-                <small>cerca de 29% acima do trimestre anterior.</small>
+                <small>Tipografia, cores e formatos adaptados ao conteúdo.</small>
 
               </div>
 
@@ -918,7 +749,7 @@ export const CaseStudyPage: React.FC = () => {
 
             <p className="elvis-results__footnote">
 
-              Dados relatados pelo cliente; período e métricas independentes não são públicos. Não comprovam causalidade.
+              As imagens documentam o escopo visual apresentado neste case. Não há métricas públicas ou validação de desempenho atribuídas ao design.
 
             </p>
 
@@ -928,7 +759,7 @@ export const CaseStudyPage: React.FC = () => {
 
             <div className="elvis-section-index elvis-section-index--light">06 · PROCESSO</div>
 
-            <h2 className="elvis-process__title">PROCESSO</h2>
+            <h2 className="elvis-process__title type-h2">{sectionTitle('process', isPortuguese ? 'PROCESSO' : 'PROCESS')}</h2>
 
             <div className="elvis-process__grid">
 
@@ -936,7 +767,7 @@ export const CaseStudyPage: React.FC = () => {
 
                 <span className="elvis-process__number">01</span>
 
-                <strong>DIREÇÃO VISUAL</strong>
+                <h3 className="type-h3">DIREÇÃO VISUAL</h3>
 
                 <p>Definição de cores, tipografia, estilo visual e consistência para as peças.</p>
 
@@ -946,7 +777,7 @@ export const CaseStudyPage: React.FC = () => {
 
                 <span className="elvis-process__number">02</span>
 
-                <strong>PRODUÇÃO E ADAPTAÇÃO</strong>
+                <h3 className="type-h3">PRODUÇÃO E ADAPTAÇÃO</h3>
 
                 <p>Criação de artes e adaptação de conteúdos para feed, stories e reels.</p>
 
@@ -956,7 +787,7 @@ export const CaseStudyPage: React.FC = () => {
 
                 <span className="elvis-process__number">03</span>
 
-                <strong>ACOMPANHAMENTO DE DESEMPENHO</strong>
+                <h3 className="type-h3">ACOMPANHAMENTO DE DESEMPENHO</h3>
 
                 <p>Análise dos resultados disponíveis e ajustes de conteúdo ao longo do projeto.</p>
 
@@ -965,6 +796,8 @@ export const CaseStudyPage: React.FC = () => {
             </div>
 
           </section>
+
+          <FooterSection />
 
         </div>
 
@@ -1182,14 +1015,6 @@ export const CaseStudyPage: React.FC = () => {
 
   const renderMedia = (value: unknown): string[] => asStringArray(value);
 
-  const getChallengeHeadline = (value: unknown): string => {
-
-    const text = cleanText(value) ?? '';
-
-    return text.split(/[.!?]\s/)[0].trim() || text;
-
-  };
-
   return (
 
     <MainLayout>
@@ -1212,9 +1037,7 @@ export const CaseStudyPage: React.FC = () => {
 
         <header className="case-study-hero">
 
-          <h1 className="case-study-title">{content.title}</h1>
-
-          <p className="case-study-hero__summary">{getHeroSummary(content.overview)}</p>
+          <h1 className="case-study-title type-h1">{content.title}</h1>
 
           <div className="case-study-tags">
 
@@ -1250,9 +1073,9 @@ export const CaseStudyPage: React.FC = () => {
 
             <div className="case-study-module">
 
-              <h2 className="case-study-headline">{copy.overview}</h2>
+              <h2 className="case-study-headline type-h2">{sectionTitle('overview', copy.overview)}</h2>
 
-              <p className="case-study-copy">
+              <p className="case-study-copy type-body">
 
                 {cleanText(content.overview)}
 
@@ -1284,13 +1107,11 @@ export const CaseStudyPage: React.FC = () => {
 
             <div className="case-study-module case-study-module--dark case-study-module--centered">
 
-              <h2 className="case-study-headline case-study-headline--dark case-study-headline--centered">
-
-                {getChallengeHeadline(content.challenge).toUpperCase()}
-
+              <h2 className="case-study-headline case-study-headline--dark case-study-headline--centered type-h2">
+                {sectionTitle('challenge', copy.challenge)}
               </h2>
 
-              <p className="case-study-copy case-study-copy--dark case-study-copy--centered">
+              <p className="case-study-copy case-study-copy--dark case-study-copy--centered type-body">
 
                 {cleanText(content.challenge)}
 
@@ -1306,13 +1127,7 @@ export const CaseStudyPage: React.FC = () => {
 
             <div className="case-study-module">
 
-              <h2 className="case-study-headline">{copy.research}</h2>
-
-              <p className="case-study-copy">
-
-                {cleanText(content.process)}
-
-              </p>
+              <h2 className="case-study-headline type-h2">{sectionTitle('research', copy.research)}</h2>
 
               <div className="case-study-mini-grid">
 
@@ -1342,7 +1157,7 @@ export const CaseStudyPage: React.FC = () => {
 
               <div className="case-study-module">
 
-                <h2 className="case-study-headline">{isPortuguese ? 'O QUE A PESQUISA REVELOU' : 'WHAT THE RESEARCH REVEALED'}</h2>
+                <h2 className="case-study-headline type-h2">{sectionTitle('researchDetail', isPortuguese ? 'O QUE A PESQUISA REVELOU' : 'WHAT THE RESEARCH REVEALED')}</h2>
 
                 {researchOverview && (
 
@@ -1464,7 +1279,7 @@ export const CaseStudyPage: React.FC = () => {
 
             <div className="case-study-module">
 
-              <h2 className="case-study-headline">{copy.define}</h2>
+              <h2 className="case-study-headline type-h2">{sectionTitle('define', copy.define)}</h2>
 
               <div className="case-study-split-grid">
 
@@ -1502,11 +1317,15 @@ export const CaseStudyPage: React.FC = () => {
 
             <div className="case-study-module case-study-module--dark">
 
-              <h2 className="case-study-headline case-study-headline--dark case-study-headline--big">
-
-                {copy.process}
-
+              <h2 className="case-study-headline case-study-headline--dark case-study-headline--big type-h2">
+                {sectionTitle('process', copy.process)}
               </h2>
+
+              {cleanText(content.process) && (
+                <p className="case-study-copy case-study-copy--dark type-lead">
+                  {cleanText(content.process)}
+                </p>
+              )}
 
               <div className="case-study-step-grid">
 
@@ -1536,7 +1355,7 @@ export const CaseStudyPage: React.FC = () => {
 
             <div className="case-study-module">
 
-              <h2 className="case-study-headline">{copy.journey}</h2>
+              <h2 className="case-study-headline type-h2">{sectionTitle('journey', copy.journey)}</h2>
 
               <div className="case-study-journey-grid">
 
@@ -1562,7 +1381,7 @@ export const CaseStudyPage: React.FC = () => {
 
             <div className="case-study-module">
 
-              <h2 className="case-study-headline">{copy.architecture}</h2>
+              <h2 className="case-study-headline type-h2">{sectionTitle('architecture', copy.architecture)}</h2>
 
               <div className="case-study-triple-grid">
 
@@ -1592,7 +1411,7 @@ export const CaseStudyPage: React.FC = () => {
 
               <div className="case-study-module">
 
-                <h2 className="case-study-headline">{isPortuguese ? 'DA PESQUISA À ESTRUTURA' : 'FROM RESEARCH TO STRUCTURE'}</h2>
+                <h2 className="case-study-headline type-h2">{sectionTitle('methodDetail', isPortuguese ? 'DA PESQUISA À ESTRUTURA' : 'FROM RESEARCH TO STRUCTURE')}</h2>
 
                 {userJourney.length > 0 && <div className="case-study-detail-block"><h3>{sectionLabels.journey}</h3><div className="case-study-journey-detail-grid">{userJourney.map((step,index)=><article key={index}><strong>{cleanText(step.stage) ?? `Stage ${index+1}`}</strong>{['userAction','thought','emotion','painPoint','opportunity'].map(key=>cleanText(step[key]) ? <p key={key}><b>{formatKey(key)}:</b> {cleanText(step[key])}</p> : null)}</article>)}</div></div>}
 
@@ -1622,7 +1441,7 @@ export const CaseStudyPage: React.FC = () => {
 
               <div className="case-study-module">
 
-                <h2 className="case-study-headline">{copy.wireframes}</h2>
+                <h2 className="case-study-headline type-h2">{sectionTitle('wireframes', copy.wireframes)}</h2>
 
                 {cleanText(wireframes?.status) && (
 
@@ -1690,7 +1509,7 @@ export const CaseStudyPage: React.FC = () => {
 
             <div className="case-study-module case-study-module--dark">
 
-              <h2 className="case-study-headline case-study-headline--dark">{copy.validation}</h2>
+              <h2 className="case-study-headline case-study-headline--dark type-h2">{sectionTitle('validation', copy.validation)}</h2>
 
               <div className="case-study-validation-grid">
 
@@ -1724,7 +1543,7 @@ export const CaseStudyPage: React.FC = () => {
 
                     <span>{isPortuguese ? 'STATUS' : 'STATUS'}</span>
 
-                    <p>{cleanText(content.conclusion) ?? copy.conceptual}</p>
+                    <p>{cleanText(content.finalProject) ?? copy.conceptual}</p>
 
                   </div>
 
@@ -1744,7 +1563,7 @@ export const CaseStudyPage: React.FC = () => {
 
             <div className="case-study-module">
 
-              <h2 className="case-study-headline">{copy.results}</h2>
+              <h2 className="case-study-headline type-h2">{sectionTitle('results', copy.results)}</h2>
 
               <div className="case-study-result-grid">
 
@@ -1762,12 +1581,6 @@ export const CaseStudyPage: React.FC = () => {
 
               </div>
 
-              <p className="case-study-footnote">
-
-                {cleanText(content.conclusion) ?? cleanText(content.finalProject)}
-
-              </p>
-
             </div>
 
           </section>
@@ -1782,7 +1595,7 @@ export const CaseStudyPage: React.FC = () => {
 
               <div className="case-study-module">
 
-                <h2 className="case-study-headline">{isPortuguese ? 'DO WIREFRAME À ITERAÇÃO' : 'FROM WIREFRAME TO ITERATION'}</h2>
+                <h2 className="case-study-headline type-h2">{sectionTitle('designDetails', isPortuguese ? 'DO WIREFRAME À ITERAÇÃO' : 'FROM WIREFRAME TO ITERATION')}</h2>
 
                 {highFidelityDesign && <div className="case-study-detail-block"><h3>{sectionLabels.highFidelityDesign ?? 'High-Fidelity Design'}</h3>{renderMedia(highFidelityDesign.screenshots).length>0 && <div className="case-study-media-grid">{renderMedia(highFidelityDesign.screenshots).map((src,index)=><figure key={src+index}><img src={src} alt={`${content.title} high-fidelity screen ${index+1}`} /></figure>)}</div>}<div className="case-study-synthesis-grid">{Object.entries(highFidelityDesign).filter(([key])=>!['screenshots','prototype'].includes(key)).map(([key,value])=>{const items=renderList(value); const text=cleanText(value); return items.length ? <div className="case-study-synthesis-card" key={key}><strong>{formatKey(key)}</strong><ul>{items.map((item,index)=><li key={index}>{item}</li>)}</ul></div> : text ? <div className="case-study-synthesis-card" key={key}><strong>{formatKey(key)}</strong><p>{text}</p></div> : null;})}</div></div>}
 
@@ -1812,13 +1625,11 @@ export const CaseStudyPage: React.FC = () => {
 
             </span>
 
-            <h2 className="case-study-conclusion__title">
-
-              {cleanText(content.conclusion)?.split('.')[0] ?? content.title}
-
+            <h2 className="case-study-conclusion__title type-h2">
+              {sectionTitle('conclusion', isPortuguese ? 'Conclusão' : 'Conclusion')}
             </h2>
 
-            <p className="case-study-conclusion__copy">
+            <p className="case-study-conclusion__copy type-body">
 
               {cleanText(content.conclusion) ?? cleanText(content.finalProject)}
 
@@ -1836,7 +1647,7 @@ export const CaseStudyPage: React.FC = () => {
 
         </footer>
 
-        <PortfolioFooter />
+        <FooterSection />
 
       </div>
 

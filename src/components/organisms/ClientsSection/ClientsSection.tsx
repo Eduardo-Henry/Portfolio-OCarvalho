@@ -198,6 +198,9 @@ export const ClientsSection: React.FC<
           setIsSectionVisible(
             entry.isIntersecting
           );
+          if (!entry.isIntersecting) {
+            setNetworkingCount(0);
+          }
         },
         {
           threshold: 0.1,
@@ -219,12 +222,14 @@ export const ClientsSection: React.FC<
   /* ========================================== */
 
   useEffect(() => {
-    if (!isSectionVisible) {
-      setNetworkingCount(0);
-      return;
-    }
+    if (!isSectionVisible) return;
 
     const target = 23;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const frame = requestAnimationFrame(() => setNetworkingCount(target));
+      return () => cancelAnimationFrame(frame);
+    }
+
     const duration = 1400;
     const startTime = performance.now();
 
@@ -249,8 +254,6 @@ export const ClientsSection: React.FC<
           requestAnimationFrame(
             animateCounter
           );
-      } else {
-        setNetworkingCount(target);
       }
     };
 
@@ -359,9 +362,11 @@ export const ClientsSection: React.FC<
       dragCurrentX.current;
 
     if (Math.abs(diff) > 60) {
-      diff < 0
-        ? goNext()
-        : goPrev();
+      if (diff < 0) {
+        goNext();
+      } else {
+        goPrev();
+      }
     } else {
       snapTo(currentIndex);
     }
@@ -426,9 +431,11 @@ export const ClientsSection: React.FC<
       dragCurrentX.current;
 
     if (Math.abs(diff) > 60) {
-      diff < 0
-        ? goNext()
-        : goPrev();
+      if (diff < 0) {
+        goNext();
+      } else {
+        goPrev();
+      }
     } else {
       snapTo(currentIndex);
     }

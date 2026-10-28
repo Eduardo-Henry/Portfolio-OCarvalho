@@ -10,9 +10,8 @@
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 
   /* ─── ENGENHARIA DO FOOTER REVEAL ─── */
-  position: sticky; /* Prende o footer no fundo da janela do navegador */
-  bottom: 0;        /* Alinha a fixação no limite inferior */
-  z-index: 1;       /* Fica na camada zero, permitindo que as outras seções passem por cima */
+  position: relative;
+  z-index: 1;
 }
 
 .footer-container {

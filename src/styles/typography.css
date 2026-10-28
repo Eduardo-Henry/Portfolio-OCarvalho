@@ -1,11 +1,4 @@
-/* Typography Styles */
-
-@font-face {
-  font-family: 'Primary Font';
-  src: url('/fonts/primary-font.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-}
+/* Base typography. Page-specific layouts own their display scales. */
 
 h1,
 h2,

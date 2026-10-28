@@ -6,7 +6,7 @@ import './CaseStudiesSection.css';
 import { NavPill, Carousel } from '../../molecules';
 import { Button } from '../../atoms';
 import Kaloburn from '../../../assets/images/KaloBurn.png';
-import DNJeansImg from '../../../assets/images/DNJeans.png';
+import Orbeanjeans from '../../../assets/images/OrbeanJeans.png';
 import SolarPanelImg from '../../../assets/images/SolarPanel.png';
 import ElvisCoverImg from '../../../assets/images/ElvisCover.png';
 
@@ -89,16 +89,16 @@ const defaultCaseStudies: CaseStudy[] = [
     id: '2',
     image: Kaloburn,
     tag: 'UX/UI Design · Fitness',
-    title: 'Calo Burny',
+    title: 'Kalo Burn',
     description:
       'Marketplace fitness com planos, acompanhamento e personalização para treino e evolução contínua.',
     prototypeUrl: 'https://www.figma.com/proto/nfQdsEFYEm9pVEjSjPSdcz',
   },
   {
     id: '3',
-    image: DNJeansImg,
+    image: Orbeanjeans,
     tag: 'UX Estratégico · Catálogo Digital',
-    title: 'DN Jeans',
+    title: 'Orbean Jeans',
     description:
       'Catálogo conversacional mobile-first, substituindo checkout tradicional por conversão direta via WhatsApp.',
     prototypeUrl: 'https://www.figma.com/proto/uPJ99JDTyjMPamkJnS9FTu',
@@ -167,35 +167,33 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
 
   const [selectedCategory, setSelectedCategory] = useState('all');
 
-  const [mutedVideos, setMutedVideos] = useState<{
-    [key: string]: boolean;
-  }>(
-    defaultVideos.reduce(
-      (acc, video) => ({
-        ...acc,
-        [video.id]: true,
-      }),
-      {}
-    )
+  const [mutedVideos, setMutedVideos] = useState<Record<string, boolean>>(
+    () => Object.fromEntries(videos.map((video) => [video.id, true]))
   );
 
   const [count, setCount] = useState<number>(0);
 
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
   const targetCount = 52;
-
-  const revealObserverRef =
-    useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
     const currentSection = sectionRef.current;
 
+    if (!currentSection) return;
+
+    let frame = 0;
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries;
 
         if (entry.isIntersecting) {
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            setCount(targetCount);
+            observer.unobserve(currentSection);
+            return;
+          }
+
           const duration = 1500;
           const startTime = performance.now();
 
@@ -217,15 +215,12 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
             setCount(currentCount);
 
             if (progress < 1) {
-              requestAnimationFrame(animate);
+              frame = requestAnimationFrame(animate);
             }
           };
 
-          requestAnimationFrame(animate);
-
-          if (currentSection) {
-            observer.unobserve(currentSection);
-          }
+          frame = requestAnimationFrame(animate);
+          observer.unobserve(currentSection);
         }
       },
       {
@@ -233,14 +228,11 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
       }
     );
 
-    if (currentSection) {
-      observer.observe(currentSection);
-    }
+    observer.observe(currentSection);
 
     return () => {
-      if (currentSection) {
-        observer.unobserve(currentSection);
-      }
+      observer.disconnect();
+      cancelAnimationFrame(frame);
     };
   }, []);
 
@@ -248,31 +240,26 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
     const root = sectionRef.current;
 
     if (!root) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const elements = root.querySelectorAll<HTMLElement>(
       '.scroll-reveal, .case-studies-header, .case-studies-filter, .case-studies-carousel-wrapper'
     );
 
-    revealObserverRef.current =
-      new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add(
-                'is-visible'
-              );
-
-              revealObserverRef.current?.unobserve(
-                entry.target
-              );
-            }
-          });
-        },
-        {
-          threshold: 0.12,
-          rootMargin: '0px 0px -8% 0px',
-        }
-      );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: '0px 0px -8% 0px',
+      }
+    );
 
     elements.forEach((element, index) => {
       element.style.setProperty(
@@ -280,13 +267,10 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
         `${Math.min(index * 70, 420)}ms`
       );
 
-      revealObserverRef.current?.observe(
-        element
-      );
+      observer.observe(element);
     });
 
-    return () =>
-      revealObserverRef.current?.disconnect();
+    return () => observer.disconnect();
   }, [selectedCategory]);
 
   useEffect(() => {
@@ -379,10 +363,10 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
   };
 
   const toggleMute = (videoId: string) => {
-    setMutedVideos((prev) => ({
-      ...prev,
-      [videoId]: !prev[videoId],
-    }));
+    setMutedVideos((prev) => {
+      const currentMuted = prev[videoId] ?? true;
+      return { ...prev, [videoId]: !currentMuted };
+    });
   };
 
   const handleWatchPrototype = (
@@ -394,7 +378,8 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
     if (prototypeUrl) {
       window.open(
         prototypeUrl,
-        '_blank'
+        '_blank',
+        'noopener,noreferrer'
       );
     }
   };
@@ -496,6 +481,8 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
                         video.id
                       )
                     }
+                    aria-label={`${isMuted ? t('caseStudies.unmute') : t('caseStudies.mute')} ${video.title}`}
+                    aria-pressed={!isMuted}
                     className="video-audio-toggle-btn"
                     style={{
                       position:
