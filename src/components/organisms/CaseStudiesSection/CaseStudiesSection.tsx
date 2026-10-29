@@ -50,7 +50,7 @@ import ManchesterCityImg from '../../../assets/images/Manchester City.jpg';
 import MessiImg from '../../../assets/images/Messi.jpg';
 import LamineYamalImg from '../../../assets/images/LamineYamalEspanha.webp';
 import LebronJamesImg from '../../../assets/images/LeBron.png';
-import KyrieIrvingImg from '../../../assets/images/Kyrie.jpg';
+import KyrieIrvingImg from '../../../assets/images/kyrie.jpg';
 
 interface CaseStudy {
   id: string;
