@@ -539,8 +539,8 @@
     width: auto !important; 
     min-width: 190px !important; 
     border-radius: 999px !important;
-    background-color: #ffffff !important;
-    color: #000000 !important;
+    background-color: #000;
+    color: #ffffff;
     font-size: 0.75rem !important;
     text-transform: uppercase !important;
     border: none !important;
@@ -551,8 +551,8 @@
   }
 
   .about-button-text {
-    color: #000000 !important;
-    font-weight: 700 !important;
+    color: #fff !important;
+    font-weight: 400 !important;
   }
 
   .about-button-circle {
@@ -642,7 +642,7 @@
     font-family: var(--font-display) !important;
     font-size: 3rem !important; 
     font-weight: 800 !important;
-    color: #000000 !important;
+    color: #000 !important;
     text-transform: uppercase !important;
     text-align: left !important;
     margin: 0 !important;
@@ -686,8 +686,8 @@
     width: auto !important; 
     min-width: 190px !important; 
     border-radius: 999px !important;
-    background-color: #ffffff !important;
-    color: #000000 !important;
+    background-color: #000 !important;
+    color: #fff !important;
     font-size: 0.75rem !important;
     text-transform: uppercase !important;
     border: none !important;
@@ -698,7 +698,7 @@
   }
 
   .about-button-text {
-    color: #000000 !important;
+    color: #fff !important;
     font-weight: 400 !important;
   }
 

@@ -885,6 +885,21 @@
   color: #fff;
 }
 
+.case-study-hero__visual-placeholder {
+  min-height: clamp(220px, 36vw, 520px);
+  background: linear-gradient(135deg, #171717, #343434);
+}
+
+/* Keep every interactive light card readable when the accent hover is active. */
+.case-study-meta-card:hover *,
+.case-study-card:hover *,
+.case-study-triple-card:hover *,
+.case-study-wireframe:hover *,
+.case-study-journey-item:hover *,
+.case-study-result-card:hover * {
+  color: #fff;
+}
+
 .case-study-step:hover,
 .case-study-validation-card:hover,
 .case-study-before-after-card:hover {
@@ -1135,12 +1150,14 @@
   color: rgba(255, 255, 255, 0.74);
 }
 
+
+
 .elvis-hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   grid-template-areas:
-    "visual"
-    "content";
+    "content"
+    "visual";
   align-items: start;
   gap: clamp(1.5rem, 3vw, 4rem);
   padding-top: clamp(2.25rem, 4vw, 3rem);
@@ -1149,6 +1166,7 @@
 
 .elvis-hero__content {
   grid-area: content;
+  width: 100%;
   max-width: 760px;
 }
 
@@ -1156,6 +1174,7 @@
   position: relative;
   grid-area: visual;
   width: 100%;
+  max-width: none;
   margin: 0;
   overflow: hidden;
   border-radius: 14px;

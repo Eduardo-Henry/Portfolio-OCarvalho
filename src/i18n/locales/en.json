@@ -285,13 +285,13 @@
       },
       "overview": "Integrated technical support system (mobile, web, and desktop) built as a capstone project, replacing decentralized WhatsApp/email support with a single flow for opening and tracking tickets, with AI-assisted triage.",
       "challenge": "IT support was scattered across channels with no traceability or status visibility — users resent the same request through different channels when they got no response, and technicians received tickets with no standardized context.",
-      "process": "In-person discovery with 11 sponsor users (7 Systems Analysis students, 2 from another cohort, 2 from Psychology). In the first version of the flow, users picked their own ticket priority (low/medium/high) — in discussion with professors and the 4-person team, we spotted a structural bias before even testing: users would tend to always mark 'high priority' to get served faster, invalidating triage. We fixed it by removing self-assigned priority, replacing it with problem type selection (hardware/software/network) + free description, leaving priority to triage (AI + technician). This was the only one of the 4 deliverables run with a formal backlog over the 6-month project.",
+      "process": "In-person discovery with 11 participants from the academic context (7 Systems Analysis students, 2 from another cohort, and 2 Psychology students). In the first version of the flow, users picked their own ticket priority (low/medium/high). In discussion with professors and the 4-person team, we identified a structural risk: users could systematically mark high priority to get served faster. We removed self-assigned priority and replaced it with problem type selection (hardware/software/network) plus a free description, leaving priority to triage with planned AI support and technical evaluation.",
       "designSprint": [
-        { "stage": "Brainstorm", "description": "Pain-point gathering with professors and the 4-person team, mapping failures in the WhatsApp/email support flow before any wireframe existed." },
+        { "stage": "Discovery", "description": "Pain-point gathering with participants, professors, and the 4-person team, mapping failures in the WhatsApp/email support flow before any wireframe existed." },
         { "stage": "Define", "description": "Consolidated 11 interviews into problem definitions and identified the priority self-assignment bias before the first prototype." },
         { "stage": "Design", "description": "Information architecture, triage flows, and high-fidelity prototypes in Figma across all three platforms (mobile, web, desktop)." },
-        { "stage": "Test", "description": "Moderated in-person test with the 11 sponsor users and faculty panel, measuring task time before and after the menu repositioning." },
-        { "stage": "Launch", "description": "Final delivery as a capstone project scoring 8.5/10, including a real mobile implementation in React Native." }
+        { "stage": "Evaluation", "description": "In-person task observation and review of menu and notification placement; the time comparison was informal and not instrumented per session." },
+        { "stage": "Implementation", "description": "Real mobile implementation in React Native as part of the capstone project, which scored 8.5/10 in the academic review." }
       ],
       "myRole": "UX/UI Designer and mobile front-end developer on a 4-person team, responsible for user research, information architecture, flows, high-fidelity prototypes, and the mobile implementation in React Native.",
       "csdMatrix": {
@@ -479,7 +479,8 @@
         "status": "Mobile screen board provided; the material does not explicitly identify whether the screens are wireframes or high-fidelity UI.",
         "description": "The board includes 14 labeled screens: splash, onboarding, login/sign-up, home, issue-type selection, ticket details, ticket list and detail, conversation, knowledge base, notifications, profile, technician view, and admin dashboard.",
         "images": [
-          "/case-studies/tihelp-wireframes.png"
+          "/case-studies/tihelp-wireframes-mobile.png",
+          "/case-studies/tihelp-wireframes-web.png"
         ],
         "imageDetails": [
           {
@@ -799,7 +800,7 @@
         "status": "Mobile screen board provided for this project; the exercise-adaptation flow remains a hypothesis.",
         "description": "The board includes home, professional discovery, profile, plans, workout detail and execution, saved workouts, schedule, messages, progress, and profile.",
         "images": [
-          "/case-studies/kaloburn-wireframes.png"
+          "/case-studies/kaloburn-wireframes-source.png"
         ],
         "imageDetails": [
           {
@@ -1048,8 +1049,7 @@
         "status": "Exploration boards provided; no formal usability test is documented.",
         "description": "Boards cover desktop home, category/listing, product, cart, checkout, and mobile home, category, and product screens.",
         "images": [
-          "/case-studies/jeans-wireframes-desktop.png",
-          "/case-studies/jeans-wireframes-mobile.png"
+          "/case-studies/orbean-jeans-wireframes.png"
         ],
         "imageDetails": [
           {
@@ -1123,6 +1123,7 @@
     },
     "4": {
       "title": "ImovePro",
+      "subtitle": "Connecting people to closer real estate opportunities.",
       "sectionTitles": {
         "overview": "PROJECT OVERVIEW",
         "challenge": "A MORE COHESIVE REAL ESTATE JOURNEY",
@@ -1303,7 +1304,7 @@
         "status": "ImovePro screen board provided; no quantitative validation records are available.",
         "description": "The board shows home, listing, property detail, favorites/comparison, registration, dashboard, map, and mobile screens.",
         "images": [
-          "/case-studies/imovepro-wireframes.png"
+          "/case-studies/imovepro-wireframe.png"
         ],
         "imageDetails": [
           {

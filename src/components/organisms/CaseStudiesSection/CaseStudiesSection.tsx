@@ -5,8 +5,10 @@ import './CaseStudiesSection.css';
 
 import { NavPill, Carousel } from '../../molecules';
 import { Button } from '../../atoms';
+import TIHelpImg from '../../../assets/images/TIHelp.png';
 import Kaloburn from '../../../assets/images/KaloBurn.png';
 import Orbeanjeans from '../../../assets/images/OrbeanJeans.png';
+import RealStateImg from '../../../assets/images/RealState.png';
 import SolarPanelImg from '../../../assets/images/SolarPanel.png';
 import ElvisCoverImg from '../../../assets/images/ElvisCover.png';
 
@@ -16,36 +18,39 @@ import SalesVideo from '../../../assets/Videos/Sales.mp4';
 import TrevoElvisVideo from '../../../assets/Videos/TrevoElvis.mp4';
 import StreetsVideos from '../../../assets/Videos/StreetsRP.mp4';
 
-import CeiaDoFortalecimentoImg from '../../../assets/images/CeiaDoFortalecimento.jpg';
-import ColiseuImg from '../../../assets/images/coliseu.jpg';
-import CordeiroCoroaImg from '../../../assets/images/CordeiroCoroa.jpg';
-import CultoDaFmlImg from '../../../assets/images/CultoDaFml.jpg';
+import AdoreNossoDeusImg from '../../../assets/images/AdoreNossoDeus.webp';
+import As99Img from '../../../assets/images/As99.webp';
+import CeiaLeaoJudaImg from '../../../assets/images/CeiaLeaoJuda.webp';
+import CordeiroSantoImg from '../../../assets/images/CordeiroSanto.webp';
+import Cr7CameloImg from '../../../assets/images/Cr7Camelo.webp';
+import CultoDaFamiliaImg from '../../../assets/images/CultoDaFml.jpg';
+import CultoDeLibertacaoWebpImg from '../../../assets/images/cultoDeLibertação.webp';
+import CultoLibertacaoAmadoImg from '../../../assets/images/CultoLibertacaoAmado.webp';
+import CultoMissoesVerdeImg from '../../../assets/images/CultoMissoesVerde.webp';
+import DeusEstaConoscoImg from '../../../assets/images/DeusEstaConosco.webp';
+import DeusPoderosoImg from '../../../assets/images/DeusPoderoso.webp';
+import DeusQueMeAbracaImg from '../../../assets/images/DeusQueMeAbaraca.webp';
+import EleDeixouAs99WebpImg from '../../../assets/images/EleDeixouAs99.jpg';
+import CeiaDoFortalecimentoImg from '../../../assets/images/CeiaFortalecimento.webp';
+import ColiseuImg from '../../../assets/images/coliseu.webp';
 import CultoDeJovensImg from '../../../assets/images/CultoDeJovens.jpg';
 import CultoDeLibertacaoImg from '../../../assets/images/cultoDeLibertação.jpg';
-import EleDeixouAs99Img from '../../../assets/images/EleDeixouAs99.jpg';
 import JesusEstaNoDesertroImg from '../../../assets/images/JesusEstaNoDeserto.jpg';
 import JesusMichelBasquiartReferenceImg from '../../../assets/images/JesusMichelBasquiartReference.jpg';
-import KaueVermelhoImg from '../../../assets/images/KaueVermelho.jpg';
 import MaosCultoDeLibertacaoImg from '../../../assets/images/MaosCultoDeLibertacao.jpg';
-import MissoesImg from '../../../assets/images/Missões.jpg';
-import NotblindImg from '../../../assets/images/notblind.jpg';
-import NovosHorizontesImg from '../../../assets/images/NovosHorizontes.jpg';
-import OTempoCertoImg from '../../../assets/images/OTempoCerto.jpg';
-import SantaCeiaImg from '../../../assets/images/santaCeia.jpg';
-import SantaCeiaJesusTacaImg from '../../../assets/images/SantaCeiaJesusTaca.jpg';
-import SantaCeiaOusadoAmorImg from '../../../assets/images/SantaCeiaOusadoAmor.jpg';
+import MissoesImg from '../../../assets/images/Missões.webp';
+import NovosHorizontesImg from '../../../assets/images/NovosHorizontes.webp';
+import OTempoCertoImg from '../../../assets/images/O Tempo Certo (3).webp';
+import SantaCeiaImg from '../../../assets/images/santaCeia.webp';
 import ArgentinaImg from '../../../assets/images/argentina.jpg';
-import CR7Img from '../../../assets/images/cr7.jpg';
-import CR7AlNassrImg from '../../../assets/images/cr7-al nassr.jpg';
 import DembeleImg from '../../../assets/images/dembele.jpg';
 import DonDoueImg from '../../../assets/images/don doue.jpg';
 import GauchoImg from '../../../assets/images/gaucho.jpg';
 import ManchesterCityImg from '../../../assets/images/Manchester City.jpg';
-import MbappeDesignImg from '../../../assets/images/mbappeDesign.jpg';
 import MessiImg from '../../../assets/images/Messi.jpg';
-import RaphinhaDesignImg from '../../../assets/images/raphinhaDesign.jpg';
-import RealMadridImg from '../../../assets/images/Real Madrid.jpg';
-import Yamal2Img from '../../../assets/images/Yamal 2.jpg';
+import LamineYamalImg from '../../../assets/images/LamineYamalEspanha.webp';
+import LebronJamesImg from '../../../assets/images/LeBron.png';
+import KyrieIrvingImg from '../../../assets/images/Kyrie.jpg';
 
 interface CaseStudy {
   id: string;
@@ -77,13 +82,14 @@ interface CaseStudiesSectionProps {
  */
 const defaultCaseStudies: CaseStudy[] = [
   {
-    id: '6',
-    image: SolarPanelImg,
-    tag: 'UX/UI Design · Dashboard',
-    title: 'Solar',
+    id: '1',
+    image: TIHelpImg,
+    tag: 'UX/UI Design · Mobile App',
+    title: 'TI Help',
     description:
-      'Dashboard conceitual para acompanhar produção, consumo, status do sistema e histórico de energia solar.',
-    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/',
+      'Sistema integrado de suporte técnico que centraliza a abertura e o acompanhamento de chamados, com fluxos específicos para solicitantes, técnicos e administradores.',
+    prototypeUrl:
+      'https://www.figma.com/proto/fw2bexpovuRBEjPGqDwRW3/PIM-3%C2%B0-SEM?node-id=1158-457&p=f&t=pv64Gtc7MDHmRbCO-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1158%3A457',
   },
   {
     id: '2',
@@ -112,6 +118,23 @@ const defaultCaseStudies: CaseStudy[] = [
       'Estratégia editorial e visual para organizar conteúdo, reforçar a comunicação do mandato e ampliar o alcance no Instagram.',
     prototypeUrl: 'https://www.instagram.com/vereador.elvis/?hl=pt-br',
   },
+  {
+    id: '6',
+    image: SolarPanelImg,
+    tag: 'UX/UI Design · Dashboard',
+    title: 'Solar',
+    description:
+      'Dashboard conceitual para acompanhar produção, consumo, status do sistema e histórico de energia solar.',
+    prototypeUrl: 'https://www.figma.com/proto/sXLh6cXRhiGBx6l1Ot8war/',
+  },
+  {
+    id: '4',
+    image: RealStateImg,
+    tag: 'UX/UI Design · Real Estate Marketplace',
+    title: 'ImovePro',
+    description:
+      'Uma plataforma imobiliária que conecta pessoas interessadas em comprar ou alugar imóveis a proprietários, consultores independentes e imobiliárias, com foco em proximidade, flexibilidade e organização.',
+  },
 ];
 
 const defaultVideos: Video[] = [
@@ -123,39 +146,43 @@ const defaultVideos: Video[] = [
 ];
 
 const socialMediaCarouselImages = [
+  // Designs religiosos
+  AdoreNossoDeusImg,
+  As99Img,
   CeiaDoFortalecimentoImg,
+  CeiaLeaoJudaImg,
   ColiseuImg,
-  CordeiroCoroaImg,
-  CultoDaFmlImg,
+  CordeiroSantoImg,
+  CultoDaFamiliaImg,
   CultoDeJovensImg,
   CultoDeLibertacaoImg,
-  EleDeixouAs99Img,
+  CultoLibertacaoAmadoImg,
+  CultoMissoesVerdeImg,
+  DeusEstaConoscoImg,
+  DeusPoderosoImg,
+  DeusQueMeAbracaImg,
+  EleDeixouAs99WebpImg,
   JesusEstaNoDesertroImg,
   JesusMichelBasquiartReferenceImg,
-  KaueVermelhoImg,
   MaosCultoDeLibertacaoImg,
   MissoesImg,
-  NotblindImg,
   NovosHorizontesImg,
   OTempoCertoImg,
   SantaCeiaImg,
-  SantaCeiaJesusTacaImg,
-  SantaCeiaOusadoAmorImg,
 
-  // Football / Sports
+  // Designs esportivos
   ArgentinaImg,
-  CR7Img,
-  CR7AlNassrImg,
+  Cr7CameloImg,
   DembeleImg,
   DonDoueImg,
   GauchoImg,
   ManchesterCityImg,
-  MbappeDesignImg,
   MessiImg,
-  RaphinhaDesignImg,
-  RealMadridImg,
-  Yamal2Img,
+  LamineYamalImg,
+  LebronJamesImg,
+  KyrieIrvingImg,
 ];
+
 
 export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
   id,
@@ -194,7 +221,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({
             return;
           }
 
-          const duration = 1500;
+          const duration = 2500;
           const startTime = performance.now();
 
           const animate = (currentTime: number) => {

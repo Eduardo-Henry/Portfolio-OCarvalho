@@ -286,13 +286,13 @@
       },
       "overview": "Sistema integrado de suporte técnico (mobile, web e desktop) desenvolvido como TCC, substituindo o atendimento descentralizado via WhatsApp e e-mail por um fluxo único de abertura e acompanhamento de chamados, com triagem assistida por IA.",
       "challenge": "O suporte técnico acontecia por canais dispersos, sem um lugar único para abrir chamados, acompanhar o andamento ou fornecer contexto suficiente para a triagem.",
-      "process": "Discovery presencial com 11 sponsor users (7 alunos de ADS, 2 de outra turma de ADS, 2 de Psicologia). Na primeira versão do fluxo, o próprio usuário escolhia o nível de prioridade do chamado (baixa/média/alta) — em discussão com professores e a equipe de 4 integrantes, identificamos um viés estrutural antes mesmo de testar: usuários tenderiam a marcar sempre \"alta prioridade\" para serem atendidos mais rápido, invalidando a triagem. Corrigimos removendo a autoatribuição, substituindo por seleção de tipo de problema (hardware/software/redes) + descrição livre, deixando a prioridade a cargo da triagem (IA + técnico). Esta foi a única entrega das 4 conduzida com backlog formal ao longo dos 6 meses de projeto.",
+      "process": "Discovery presencial com 11 participantes do contexto acadêmico (7 alunos de ADS, 2 de outra turma de ADS e 2 de Psicologia). Na primeira versão do fluxo, o próprio usuário escolhia o nível de prioridade do chamado (baixa/média/alta). Em discussão com professores e a equipe de 4 integrantes, identificamos um risco estrutural: usuários poderiam marcar sempre \"alta prioridade\" para tentar receber atendimento mais rápido. Removemos a autoatribuição, substituindo-a por seleção de tipo de problema (hardware/software/redes) e descrição livre, deixando a prioridade sob responsabilidade da triagem, com apoio previsto de IA e avaliação técnica.",
       "designSprint": [
-        { "stage": "Brainstorm", "description": "Levantamento de dores em sessão com professores e equipe de 4 integrantes, mapeando falhas do atendimento via WhatsApp/e-mail antes de qualquer wireframe." },
+        { "stage": "Discovery", "description": "Levantamento de dores com participantes, professores e equipe de 4 integrantes, mapeando falhas do atendimento via WhatsApp/e-mail antes de qualquer wireframe." },
         { "stage": "Define", "description": "Consolidação das 11 entrevistas em problem definitions e identificação do viés de autoatribuição de prioridade antes mesmo do primeiro protótipo." },
         { "stage": "Design", "description": "Arquitetura de informação, fluxos de triagem e protótipos de alta fidelidade no Figma para as três plataformas (mobile, web, desktop)." },
-        { "stage": "Test", "description": "Teste presencial moderado com os 11 sponsor users e banca de professores, medindo tempo de tarefa antes e depois do reposicionamento de menu." },
-        { "stage": "Launch", "description": "Entrega final como TCC com nota 8,5/10, incluindo implementação real da versão mobile em React Native." }
+        { "stage": "Avaliação", "description": "Observação presencial das tarefas e revisão do posicionamento do menu e das notificações; a comparação de tempo foi informal e não instrumentada por sessão." },
+        { "stage": "Implementação", "description": "Desenvolvimento real da versão mobile em React Native como parte do TCC, avaliado com nota 8,5/10 na banca." }
       ],
       "myRole": "UX/UI Designer e desenvolvedor front-end mobile em equipe de 4 integrantes, responsável pela pesquisa com usuários, arquitetura de informação, fluxos, protótipos de alta fidelidade e implementação da versão mobile em React Native.",
       "csdMatrix": {
@@ -480,7 +480,8 @@
         "status": "Board de telas mobile fornecido; o material não identifica explicitamente se as telas são wireframes ou UI de alta fidelidade.",
         "description": "A prancha reúne 14 telas identificadas: splash, onboarding, login/cadastro, home, seleção de tipo, detalhes, lista e detalhe de chamado, conversa, base de conhecimento, notificações, perfil, tela do técnico e dashboard admin.",
         "images": [
-          "/case-studies/tihelp-wireframes.png"
+          "/case-studies/tihelp-wireframes-mobile.png",
+          "/case-studies/tihelp-wireframes-web.png"
         ],
         "imageDetails": [
           {
@@ -800,7 +801,7 @@
         "status": "Board de telas mobile fornecido para este projeto; o fluxo de adaptação de exercícios permanece uma hipótese.",
         "description": "O board reúne início, exploração de profissionais, perfil, planos, detalhe e execução do treino, treinos salvos, agenda, mensagens, progresso e perfil.",
         "images": [
-          "/case-studies/kaloburn-wireframes.png"
+          "/case-studies/kaloburn-wireframes-source.png"
         ],
         "imageDetails": [
           {
@@ -1049,8 +1050,7 @@
         "status": "Boards de exploração fornecidos; não há teste formal de usabilidade documentado.",
         "description": "Os boards cobrem home desktop, categoria/listagem, produto, carrinho, checkout e versões mobile de home, categoria e produto.",
         "images": [
-          "/case-studies/jeans-wireframes-desktop.png",
-          "/case-studies/jeans-wireframes-mobile.png"
+          "/case-studies/orbean-jeans-wireframes.png"
         ],
         "imageDetails": [
           {
@@ -1124,6 +1124,7 @@
     },
     "4": {
       "title": "ImovePro",
+      "subtitle": "Conectando pessoas a oportunidades imobiliárias mais próximas.",
       "sectionTitles": {
         "overview": "VISÃO GERAL DO PROJETO",
         "challenge": "UMA JORNADA IMOBILIÁRIA MAIS COESA",
@@ -1304,7 +1305,7 @@
         "status": "Board de telas do ImovePro fornecido; não há documentação de validação quantitativa.",
         "description": "O board apresenta home, listagem, detalhe do imóvel, favoritos/comparação, cadastro, dashboard, mapa e telas mobile.",
         "images": [
-          "/case-studies/imovepro-wireframes.png"
+          "/case-studies/imovepro-wireframe.png"
         ],
         "imageDetails": [
           {

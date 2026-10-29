@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import './Carousel.css';
 
 interface CarouselProps {
@@ -88,6 +88,7 @@ function useRow(
 
 // ── Componente principal ─────────────────────────────────────
 export const Carousel: React.FC<CarouselProps> = ({ images }) => {
+  const uniqueImages = useMemo(() => Array.from(new Set(images)), [images]);
   const [col1, setCol1] = useState<string[]>([]);
   const [col2, setCol2] = useState<string[]>([]);
   const [ready, setReady] = useState(false);
@@ -121,27 +122,28 @@ export const Carousel: React.FC<CarouselProps> = ({ images }) => {
 
   // Detecta ratio e distribui imagens
   useEffect(() => {
-    if (images.length === 0) return;
+    if (uniqueImages.length === 0) return;
     let cancelled = false;
     let resolved = 0;
     const landscape: string[] = [];
     const portrait:  string[] = [];
-    const preloadImages = images.map(() => new Image());
+    const validImages: string[] = [];
+    const preloadImages = uniqueImages.map(() => new Image());
 
-    images.forEach((src, index) => {
+    uniqueImages.forEach((src, index) => {
       const img = preloadImages[index];
       const done = () => {
         if (cancelled) return;
         resolved++;
-        if (resolved === images.length) finalize();
+        if (resolved === uniqueImages.length) finalize();
       };
 
       img.onload = () => {
+        validImages.push(src);
         (img.naturalWidth > img.naturalHeight ? landscape : portrait).push(src);
         done();
       };
       img.onerror = () => {
-        portrait.push(src);
         done();
       };
       img.src = src;
@@ -149,10 +151,13 @@ export const Carousel: React.FC<CarouselProps> = ({ images }) => {
 
     function finalize() {
       if (cancelled) return;
-      if (landscape.length === 0 || portrait.length === 0) {
-        const half = Math.ceil(images.length / 2);
-        setCol1(images.slice(0, half));
-        setCol2(images.slice(half));
+      if (validImages.length === 0) {
+        setCol1([]);
+        setCol2([]);
+      } else if (landscape.length === 0 || portrait.length === 0) {
+        const half = Math.ceil(validImages.length / 2);
+        setCol1(validImages.slice(0, half));
+        setCol2(validImages.slice(half));
       } else {
         setCol1(landscape);
         setCol2(portrait);
@@ -167,7 +172,7 @@ export const Carousel: React.FC<CarouselProps> = ({ images }) => {
         img.onerror = null;
       });
     };
-  }, [images]);
+  }, [uniqueImages]);
 
   // ── Handlers: cada fileira escuta seu próprio elemento ──────
   const makeMouseHandlers = (row: ReturnType<typeof useRow>) => ({
@@ -192,7 +197,7 @@ export const Carousel: React.FC<CarouselProps> = ({ images }) => {
     onTouchEnd:   ()                    => row.endDrag(),
   });
 
-  if (images.length === 0) return <div className="carousel-empty">Nenhuma imagem disponível</div>;
+  if (uniqueImages.length === 0) return <div className="carousel-empty">Nenhuma imagem disponível</div>;
   if (!ready)              return <div className="carousel-loading" />;
 
   const rows = [

@@ -13,15 +13,25 @@ import { MdArrowBack } from 'react-icons/md';
 
 import TIHelpImg from '@/assets/images/TIHelp.png';
 
+import TIHelpWireframesMobile from '@/assets/images/TIHelpWireframesVersaoMobile.png';
+
+import TIHelpWireframesWeb from '@/assets/images/TIHelpWireframesVersaoWeb.png';
+
 import KaloBurnImg from '@/assets/images/KaloBurn.png';
 
+import KaloBurnWireframe from '@/assets/images/KaloBurnWireframe.png';
+
 import Orbeanjeans from '@/assets/images/OrbeanJeans.png';
+
+import OrbeanJeansWireframes from '@/assets/images/OrbeanJeansWireframes.png';
 
 import SolarPanelImg from '@/assets/images/SolarPanel.png';
 
 import RealStateImg from '@/assets/images/RealState.png';
 
-import YachtImg from '@/assets/images/Yatch.jpeg';
+import ImoveProWireframe from '@/assets/images/ImoveProWireframe.png';
+
+// The legacy Yacht Booking route has no cover asset in the current repository.
 
 import ElvisCoverImg from '../../assets/images/ElvisCover.png';
 
@@ -30,6 +40,8 @@ import ElvisGridInstagramImg from '../../assets/images/ElvisGridInstagram.png';
 interface CaseStudyContent {
 
   title: string;
+
+  subtitle?: string;
 
   sectionTitles?: Record<string, unknown>;
 
@@ -160,7 +172,7 @@ const caseStudiesMeta: Record<string, CaseStudyMeta> = {
 
   '5': {
     type: 'fictional',
-    image: YachtImg,
+    image: '',
   },
 
   '6': {
@@ -249,7 +261,7 @@ const getMediaDetails = (
 
     return {
 
-      src,
+      src: resolveCaseStudyMedia(src),
 
       title: cleanText(detail?.title) ?? `${fallbackTitle} ${index + 1}`,
 
@@ -262,6 +274,16 @@ const getMediaDetails = (
   });
 
 };
+
+const wireframeAssets: Record<string, string> = {
+  '/case-studies/tihelp-wireframes-mobile.png': TIHelpWireframesMobile,
+  '/case-studies/tihelp-wireframes-web.png': TIHelpWireframesWeb,
+  '/case-studies/kaloburn-wireframes-source.png': KaloBurnWireframe,
+  '/case-studies/orbean-jeans-wireframes.png': OrbeanJeansWireframes,
+  '/case-studies/imovepro-wireframe.png': ImoveProWireframe,
+};
+
+const resolveCaseStudyMedia = (src: string): string => wireframeAssets[src] ?? src;
 
 export const CaseStudyPage: React.FC = () => {
 
@@ -516,6 +538,13 @@ export const CaseStudyPage: React.FC = () => {
 
     if (!isRecord(value)) return [];
 
+    const explicitLabel = cleanText(value.type) ?? cleanText(value.title);
+    const explicitText = cleanText(value.label) ?? cleanText(value.description);
+
+    if (explicitLabel && explicitText) {
+      return [{ label: explicitLabel, text: explicitText }];
+    }
+
     return Object.entries(value).flatMap(([key, item]) => {
 
       const label = formatKey(key);
@@ -609,45 +638,42 @@ export const CaseStudyPage: React.FC = () => {
           </div>
 
           <section className="elvis-section elvis-hero">
+  <div className="elvis-hero__content">
+    <div className="elvis-section-index">01 · PROJETO</div>
 
-            <div className="elvis-hero__content">
+    <h1 className="elvis-title type-h1">
+      SOCIAL MEDIA
+      <br />
+      DESIGN
+    </h1>
 
-              <div className="elvis-section-index">01 · PROJETO</div>
+    <p className="elvis-copy type-lead">
+      {getHeroSummary(content.overview)}
+    </p>
 
-              <h1 className="elvis-title type-h1">
+    <div className="elvis-tags">
+      <span>PROJETO REAL</span>
+      <span>DESIGN GRÁFICO</span>
+      <span>COMUNICAÇÃO POLÍTICA</span>
+    </div>
+  </div>
 
-                SOCIAL MEDIA
+  {/* A imagem agora é independente do conteúdo */}
+  <figure className="elvis-hero__visual">
+    <img
+      className="elvis-hero__cover"
+      src={ElvisCoverImg}
+      alt="Apresentação do perfil de Elvis no Instagram"
+    />
 
-                <br />
-
-                DESIGN
-
-              </h1>
-
-              <p className="elvis-copy type-lead">
-                {getHeroSummary(content.overview)}
-              </p>
-
-              <div className="elvis-tags">
-
-                <span>PROJETO REAL</span>
-
-                <span>DESIGN GRÁFICO</span>
-
-                <span>COMUNICAÇÃO POLÍTICA</span>
-
-              </div>
-
-            </div>
-
-            <figure className="elvis-hero__visual">
-              <img className="elvis-hero__cover" src={ElvisCoverImg} alt="Apresentação do perfil de Elvis no Instagram" />
-              <div className="elvis-hero__post">
-                <img src={ElvisGridInstagramImg} alt="Peça de campanha social" />
-              </div>
-            </figure>
-
-          </section>
+    <div className="elvis-hero__post">
+      <img
+        src={ElvisGridInstagramImg}
+        alt="Peça de campanha social"
+      />
+    </div>
+  </figure>
+</section>
 
           <section className="elvis-section elvis-challenge">
 
@@ -1039,6 +1065,12 @@ export const CaseStudyPage: React.FC = () => {
 
           <h1 className="case-study-title type-h1">{content.title}</h1>
 
+          {cleanText(content.subtitle) && (
+
+            <p className="case-study-hero__summary">{cleanText(content.subtitle)}</p>
+
+          )}
+
           <div className="case-study-tags">
 
             <span className="case-study-tag">{typeLabels[meta.type]}</span>
@@ -1059,7 +1091,11 @@ export const CaseStudyPage: React.FC = () => {
 
           <figure className="case-study-hero__visual">
 
-            <img src={meta.image} alt={content.title} />
+            {meta.image ? <img src={meta.image} alt={content.title} /> : (
+
+              <div className="case-study-hero__visual-placeholder" role="img" aria-label={content.title} />
+
+            )}
 
           </figure>
 
