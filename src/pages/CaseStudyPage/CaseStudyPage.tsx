@@ -27,6 +27,8 @@ import OrbeanJeansWireframes from '@/assets/images/OrbeanJeansWireframes.png';
 
 import SolarPanelImg from '@/assets/images/SolarPanel.png';
 
+import SolarPanelWireframeImg from '@/assets/images/SolaretricWebandMobileWireframe.png';
+
 import RealStateImg from '@/assets/images/RealState.png';
 
 import ImoveProWireframe from '@/assets/images/ImoveProWireframe.png';
@@ -281,6 +283,7 @@ const wireframeAssets: Record<string, string> = {
   '/case-studies/kaloburn-wireframes-source.png': KaloBurnWireframe,
   '/case-studies/orbean-jeans-wireframes.png': OrbeanJeansWireframes,
   '/case-studies/imovepro-wireframe.png': ImoveProWireframe,
+  '/case-studies/solaretric-wireframe.png': SolarPanelWireframeImg,
 };
 
 const resolveCaseStudyMedia = (src: string): string => wireframeAssets[src] ?? src;

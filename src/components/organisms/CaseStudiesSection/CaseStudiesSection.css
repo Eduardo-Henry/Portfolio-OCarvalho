@@ -1033,6 +1033,67 @@
   }
 }
 
+@media (max-width: 290px) {
+  .case-studies-section {
+    padding-inline: 0.25rem;
+  }
+
+  .case-studies-header {
+    padding-inline: 0.5rem;
+  }
+
+  .case-studies-title {
+    font-size: clamp(2rem, 11vw, 2.5rem);
+    letter-spacing: -0.06em;
+    overflow-wrap: anywhere;
+  }
+
+  .case-studies-grid {
+    min-width: 0;
+  }
+
+  .case-card__actions {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .case-card__desc {
+    overflow-wrap: anywhere;
+  }
+
+  .case-card__buttons {
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .case-card__watch-btn--mobile,
+  .case-card__see-btn--mobile {
+    min-width: 0;
+    padding: 0.35rem 0.3rem !important;
+    gap: 0.25rem !important;
+    font-size: 0.62rem !important;
+    line-height: 1.15;
+    white-space: normal;
+  }
+
+  .case-card__play-circle,
+  .case-card__arrow-circle {
+    width: 22px !important;
+    height: 22px !important;
+    flex: 0 0 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .case-card__watch-btn--mobile,
+  .case-card__see-btn--mobile {
+    justify-content: center !important;
+    min-width: 0;
+    white-space: normal;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+}
+
 /* ============================================ */
 /* MODERN MOTION / INTERACTION LAYER            */
 /* ============================================ */

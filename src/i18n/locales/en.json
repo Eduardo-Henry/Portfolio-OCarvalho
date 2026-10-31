@@ -12,7 +12,7 @@
     "title": "I build digital products that drive business growth and delight users.",
     "description": "I combine user research, visual design, and strategy to turn complex problems into perfect digital solutions.",
     "cta": "GET IN TOUCH",
-    "downloadCV": "DOWNLOAD CV",
+    "downloadCV": "Download CV",
     "imageAlt": "Designer work"
   },
   "about": {
@@ -248,7 +248,7 @@
     "imageAlt": "3D Illustration",
     "headline": "Tired of generic design? Let's build something that actually matters",
     "description": "I cut the fluff and focus on what works: clean aesthetics, foolproof usability, and results-driven design. You're not just hiring a designer, you're gaining a partner for your business growth.",
-    "downloadCV": "DOWNLOAD CV",
+    "downloadCV": "Download CV",
     "cta": "GET IN TOUCH",
     "getInTouch": "Get in touch"
   },
@@ -1775,8 +1775,16 @@
         "description": "Proposed flow: select system and period → review production/consumption → check status and alerts → compare history → open event details → record or route follow-up."
       },
       "wireframes": {
-        "status": "Conceptual architecture described; a project-specific wireframe board is not available in the repository.",
-        "description": "The proposal includes a system overview, production/consumption details, alerts, and time-based history.",
+        "status": "Conceptual Solar project wireframes for web and mobile.",
+        "description": "The image brings together the structure of key screens before the final visual design.",
+        "images": ["/case-studies/solaretric-wireframe.png"],
+        "imageDetails": [
+          {
+            "title": "Web and mobile wireframes",
+            "description": "Responsive view of the Solar page, from desktop to phone.",
+            "decision": "Plan the content hierarchy and key actions across both screen sizes."
+          }
+        ],
         "decisions": [
           "Identify the unit, period, and source for each indicator.",
           "Group alerts by status and explain suggested actions.",

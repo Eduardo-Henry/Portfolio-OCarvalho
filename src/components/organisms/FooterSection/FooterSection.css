@@ -227,3 +227,27 @@
     height: 18px;
   }
 }
+
+@media (max-width: 290px) {
+  .footer-container {
+    padding-inline: 0.75rem;
+  }
+
+  .footer-content,
+  .footer-section-col,
+  .footer-bottom {
+    min-width: 0;
+  }
+
+  .footer-legal {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .footer-description,
+  .footer-email,
+  .footer-copyright,
+  .footer-legal-link {
+    overflow-wrap: anywhere;
+  }
+}

@@ -10,8 +10,12 @@ interface ContactSectionProps {
 }
 
 export const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const contactSectionRef = useRef<HTMLElement>(null);
+  const cvFileName = i18n.language.startsWith('en')
+    ? 'Eduardo-Henry-Carvalho-CV-EN.pdf'
+    : 'Eduardo-Henry-Carvalho-CV-PT.pdf';
+  const cvPath = `/documents/${cvFileName}`;
   const { offset, isInteracting, pointerHandlers } = usePointerParallax({
     boundsRef: contactSectionRef,
     maxX: 28,
@@ -63,8 +67,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
               aria-label={t('contact.downloadCV')}
               onClick={() => {
                 const link = document.createElement('a');
-                link.href = '/EduardoHCarvalho-UXDesigner.pdf'; 
-                link.download = 'EduardoHCarvalho-UXDesigner.pdf';
+                link.href = cvPath;
+                link.download = cvFileName;
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);

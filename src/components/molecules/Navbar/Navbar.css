@@ -352,6 +352,19 @@
   }
 }
 
+@media (max-width: 290px) {
+  .navbar-menu--mobile {
+    gap: 1.25rem;
+    padding-inline: 0.75rem;
+  }
+
+  .navbar-menu--mobile .nav-link {
+    max-width: 100%;
+    font-size: clamp(1.25rem, 7vw, 1.6rem);
+    overflow-wrap: anywhere;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .navbar-menu--desktop .nav-link,
   .navbar-menu--mobile .nav-link,

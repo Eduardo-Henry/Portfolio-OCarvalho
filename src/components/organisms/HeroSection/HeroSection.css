@@ -317,6 +317,7 @@
   
   font-size: clamp(0.85rem, 2vw, 1rem); 
   font-weight: 700;
+  text-transform: none;
   white-space: nowrap;
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -835,5 +836,78 @@
 
   .hero-grid {
     gap: 0.7rem !important;
+  }
+}
+
+/* Keep the CTA text and trailing icon visually grouped below desktop widths. */
+@media (max-width: 1024px) {
+  .hero-cta-button {
+    justify-content: center !important;
+    gap: clamp(0.35rem, 1.2vw, 0.75rem) !important;
+    padding-inline: clamp(0.45rem, 1.5vw, 1rem) !important;
+    min-width: 0;
+  }
+
+  .hero-cta-text {
+    min-width: 0;
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-cta-circle {
+    margin-left: 0 !important;
+  }
+}
+
+@media (max-width: 290px) {
+  .hero-wrapper {
+    padding: 0.75rem !important;
+  }
+
+  .brand-title {
+    font-size: clamp(1.9rem, 10vw, 2.5rem) !important;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-cta-wrapper {
+    gap: 0.35rem !important;
+  }
+
+  .hero-cta-button,
+  .hero-cv-button {
+    min-width: 0;
+    padding-inline: 0.35rem !important;
+    gap: 0.25rem !important;
+  }
+
+  .hero-cta-button {
+    white-space: normal !important;
+  }
+
+  .hero-cv-button {
+    white-space: normal !important;
+  }
+
+  .hero-cv-text {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-cta-circle,
+  .hero-cv-icon {
+    width: 34px !important;
+    height: 34px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .hero-cv-icon {
+    padding: 7px !important;
+    margin: 0 !important;
+  }
+
+  .hero-cta-icon {
+    width: 14px;
+    height: 14px;
   }
 }

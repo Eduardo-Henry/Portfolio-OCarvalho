@@ -23,7 +23,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   ctaText,
   imageSrc = Image3D,
 }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const heroSectionRef = useRef<HTMLElement>(null);
 
   const { offset, isInteracting, pointerHandlers } =
@@ -40,10 +40,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
   const resolvedCtaText = ctaText ?? t('hero.cta');
 
+  const cvFileName = i18n.language.startsWith('en')
+    ? 'Eduardo-Henry-Carvalho-CV-EN.pdf'
+    : 'Eduardo-Henry-Carvalho-CV-PT.pdf';
+  const cvPath = `/documents/${cvFileName}`;
+
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/EduardoHCarvalho-UXDesigner.pdf';
-    link.download = 'EduardoHCarvalho-UXDesigner.pdf';
+    link.href = cvPath;
+    link.download = cvFileName;
 
     document.body.appendChild(link);
     link.click();

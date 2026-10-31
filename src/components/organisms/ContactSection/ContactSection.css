@@ -397,3 +397,71 @@
     margin-right: 6px;
   }
 }
+
+/* On tablets and phones, keep the CTA label adjacent to its trailing circle. */
+@media (max-width: 1024px) {
+  .contact-button {
+    justify-content: center !important;
+    gap: clamp(0.3rem, 0.8vw, 0.6rem);
+    min-width: 0;
+  }
+
+  .contact-button-text {
+    min-width: 0;
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .contact-button-circle {
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 290px) {
+  .contact-wrapper {
+    padding: 1rem;
+  }
+
+  .contact-title {
+    font-size: clamp(1.9rem, 11vw, 2.4rem);
+    overflow-wrap: anywhere;
+  }
+
+  .contact-cta-wrapper {
+    gap: 4px;
+  }
+
+  .contact-button,
+  .contact-cv-button {
+    flex: 1 1 0;
+    width: auto !important;
+    min-width: 0;
+    padding-inline: 0.35rem !important;
+  }
+
+  .contact-button {
+    gap: 0.25rem;
+  }
+
+  .contact-button-text,
+  .contact-cv-text {
+    font-size: 0.62rem !important;
+  }
+
+  .contact-button-circle,
+  .contact-cv-circle-wrapper {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  .contact-cv-circle-wrapper {
+    margin-right: 4px !important;
+  }
+
+  .contact-cv-text {
+    min-width: 0;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}

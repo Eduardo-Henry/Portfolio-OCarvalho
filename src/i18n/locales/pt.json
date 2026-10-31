@@ -12,7 +12,7 @@
     "title": "Desenvolvo produtos digitais que impulsionam o crescimento de empresas e encantam os usuários.",
     "description": "Combino pesquisa de usuários, design visual e estratégia para transformar problemas complexos em soluções digitais perfeitas.",
     "cta": "CONVERSAR",
-    "downloadCV": "BAIXAR CV",
+    "downloadCV": "Baixar CV",
     "imageAlt": "Trabalho do designer"
   },
   "about": {
@@ -248,7 +248,7 @@
     "imageAlt": "Ilustração 3D",
     "headline": "Cansado de design genérico? Vamos criar algo que realmente importe",
     "description": "Deixo a enrolação de lado e foco no que funciona: estética limpa, usabilidade à prova de falhas e design focado em resultados. Você não está apenas contratando um designer, está ganhando um parceiro para o crescimento do seu negócio.",
-    "downloadCV": "BAIXAR CV",
+    "downloadCV": "Baixar CV",
     "cta": "CONVERSAR",
     "getInTouch": "Entrar em contato"
   },
@@ -1776,8 +1776,16 @@
         "description": "Fluxo proposto: selecionar sistema e período → revisar produção/consumo → verificar status e alertas → comparar histórico → abrir detalhe do evento → registrar ou encaminhar acompanhamento."
       },
       "wireframes": {
-        "status": "Arquitetura conceitual descrita; board de wireframes específico não está disponível no repositório.",
-        "description": "A proposta prevê uma visão geral do sistema, detalhes de produção/consumo, alertas e histórico por período.",
+        "status": "Wireframes conceituais do projeto Solar para as versões web e mobile.",
+        "description": "A imagem reúne a estrutura das principais telas antes da definição visual final.",
+        "images": ["/case-studies/solaretric-wireframe.png"],
+        "imageDetails": [
+          {
+            "title": "Wireframes web e mobile",
+            "description": "Visão responsiva da página Solar, do desktop ao celular.",
+            "decision": "Planejar a hierarquia de conteúdo e os principais pontos de ação nas duas larguras."
+          }
+        ],
         "decisions": [
           "Indicar unidade, período e origem em cada indicador.",
           "Agrupar alertas por estado e explicar a ação sugerida.",
