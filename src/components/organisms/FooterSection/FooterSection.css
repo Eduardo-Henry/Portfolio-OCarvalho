@@ -79,10 +79,16 @@
 }
 
 .footer-link {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  font: inherit;
   font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.65);
   text-decoration: none;
   transition: color 0.2s ease;
+  text-align: left;
+  cursor: pointer;
 }
 
 .footer-link:hover {
@@ -162,6 +168,7 @@
 }
 
 .footer-legal-link {
+  display: inline-block;
   font-size: 0.875rem;
   color: rgba(255, 255, 255, 0.5);
   text-decoration: none;

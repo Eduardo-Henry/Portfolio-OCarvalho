@@ -16,7 +16,6 @@ import HappyEasterVideo from '../../../assets/Videos/HappyEaster.mp4';
 import OtavioVideo from '../../../assets/Videos/Otavio.mp4';
 import SalesVideo from '../../../assets/Videos/Sales.mp4';
 import TrevoElvisVideo from '../../../assets/Videos/TrevoElvis.mp4';
-import StreetsVideos from '../../../assets/Videos/StreetsRP.mp4';
 
 import AdoreNossoDeusImg from '../../../assets/images/AdoreNossoDeus.webp';
 import As99Img from '../../../assets/images/As99.webp';
@@ -24,7 +23,6 @@ import CeiaLeaoJudaImg from '../../../assets/images/CeiaLeaoJuda.webp';
 import CordeiroSantoImg from '../../../assets/images/CordeiroSanto.webp';
 import Cr7CameloImg from '../../../assets/images/Cr7Camelo.webp';
 import CultoDaFamiliaImg from '../../../assets/images/CultoDaFml.jpg';
-import CultoDeLibertacaoWebpImg from '../../../assets/images/cultoDeLibertação.webp';
 import CultoLibertacaoAmadoImg from '../../../assets/images/CultoLibertacaoAmado.webp';
 import CultoMissoesVerdeImg from '../../../assets/images/CultoMissoesVerde.webp';
 import DeusEstaConoscoImg from '../../../assets/images/DeusEstaConosco.webp';
@@ -50,6 +48,7 @@ import ManchesterCityImg from '../../../assets/images/Manchester City.jpg';
 import MessiImg from '../../../assets/images/Messi.jpg';
 import LamineYamalImg from '../../../assets/images/LamineYamalEspanha.webp';
 import LebronJamesImg from '../../../assets/images/LeBron.png';
+import KyrieIrvingFireImg from '../../../assets/images/KyrieIrving.jpg';
 import KyrieIrvingImg from '../../../assets/images/kyrie.jpg';
 
 interface CaseStudy {
@@ -140,9 +139,8 @@ const defaultCaseStudies: CaseStudy[] = [
 const defaultVideos: Video[] = [
   { id: '1', title: 'Happy Easter', src: HappyEasterVideo },
   { id: '2', title: 'Sales', src: SalesVideo },
-  { id: '3', title: 'Streets RP', src: StreetsVideos },
-  { id: '4', title: 'Trevo Elvis', src: TrevoElvisVideo },
-  { id: '5', title: 'Otavio', src: OtavioVideo },
+  { id: '3', title: 'Trevo Elvis', src: TrevoElvisVideo },
+  { id: '4', title: 'Otavio', src: OtavioVideo },
 ];
 
 const socialMediaCarouselImages = [
@@ -181,6 +179,7 @@ const socialMediaCarouselImages = [
   LamineYamalImg,
   LebronJamesImg,
   KyrieIrvingImg,
+  KyrieIrvingFireImg,
 ];
 
 

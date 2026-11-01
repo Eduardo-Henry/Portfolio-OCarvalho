@@ -33,7 +33,7 @@
     "videoNotSupported": "Seu navegador não suporta o elemento de vídeo.",
     "unmute": "🔈 Ativar Som",
     "mute": "🔊 Mutar",
-    "watchPrototype": "ASSISTIR PROTÓTIPO",
+    "watchPrototype": "PROTÓTIPO",
     "viewProject": "VER PROJETO"
   },
 
@@ -276,7 +276,7 @@
         "define": "OPORTUNIDADE DE DESIGN",
         "process": "PESQUISA / DEFINE / WIREFRAMES / UI / TESTE",
         "journey": "DA META À PRÓXIMA AÇÃO",
-        "architecture": "O PRODUTO GIRA EM TORNO DE TRÊS PERGUNTAS",
+        "architecture": "TRÊS USUÁRIOS, UMA PLATAFORMA",
         "methodDetail": "DA PESQUISA À ESTRUTURA",
         "wireframes": "ESTRUTURA ANTES DO ACABAMENTO",
         "validation": "INSIGHTS DO PROJETO",
@@ -284,7 +284,7 @@
         "designDetails": "DO WIREFRAME À ITERAÇÃO",
         "conclusion": "Conclusão"
       },
-      "overview": "Sistema integrado de suporte técnico (mobile, web e desktop) desenvolvido como TCC, substituindo o atendimento descentralizado via WhatsApp e e-mail por um fluxo único de abertura e acompanhamento de chamados, com triagem assistida por IA.",
+      "overview": "Sistema integrado de suporte técnico (mobile, web e desktop) desenvolvido como TCC, substituindo o atendimento descentralizado via WhatsApp e e-mail por um fluxo único de abertura e acompanhamento de chamados, com triagem com auxílio de IA.",
       "challenge": "O suporte técnico acontecia por canais dispersos, sem um lugar único para abrir chamados, acompanhar o andamento ou fornecer contexto suficiente para a triagem.",
       "process": "Discovery presencial com 11 participantes do contexto acadêmico (7 alunos de ADS, 2 de outra turma de ADS e 2 de Psicologia). Na primeira versão do fluxo, o próprio usuário escolhia o nível de prioridade do chamado (baixa/média/alta). Em discussão com professores e a equipe de 4 integrantes, identificamos um risco estrutural: usuários poderiam marcar sempre \"alta prioridade\" para tentar receber atendimento mais rápido. Removemos a autoatribuição, substituindo-a por seleção de tipo de problema (hardware/software/redes) e descrição livre, deixando a prioridade sob responsabilidade da triagem, com apoio previsto de IA e avaliação técnica.",
       "designSprint": [
@@ -302,7 +302,7 @@
           "Técnicos precisavam de categorização clara (hardware/software/redes) para triagem rápida"
         ],
         "suppositions": [
-          "Categorização assistida por IA reduziria o tempo de triagem manual",
+          "Categorização com auxílio de IA reduziria o tempo de triagem manual",
           "Reposicionar notificações e menu reduziria o tempo de execução das tarefas no app"
         ],
         "doubts": [
@@ -477,8 +477,8 @@
         "description": "Solicitante descreve o problema e seleciona sua categoria; a triagem define prioridade; o status fica disponível para acompanhamento. Técnicos e administradores acessam fluxos próprios na web e no desktop."
       },
       "wireframes": {
-        "status": "Board de telas mobile fornecido; o material não identifica explicitamente se as telas são wireframes ou UI de alta fidelidade.",
-        "description": "A prancha reúne 14 telas identificadas: splash, onboarding, login/cadastro, home, seleção de tipo, detalhes, lista e detalhe de chamado, conversa, base de conhecimento, notificações, perfil, tela do técnico e dashboard admin.",
+        "status": "Duas iterações de wireframes apresentadas separadamente.",
+        "description": "Primeira iteração: fluxo mobile do solicitante, com abertura, envio e acompanhamento de chamados; não inclui telas de técnico nem dashboard. Segunda iteração: fluxos web/desktop para técnico e administrador, com fila, triagem, atualização de status e dashboard.",
         "images": [
           "/case-studies/tihelp-wireframes-mobile.png",
           "/case-studies/tihelp-wireframes-web.png"
@@ -486,8 +486,8 @@
         "imageDetails": [
           {
             "title": "TI Help — board de telas mobile",
-            "description": "Prancha enviada com 14 telas do fluxo de solicitante, suporte, técnico e administração.",
-            "decision": "Uma tela de detalhes mostra seleção de prioridade; o relato do case informa que a autoatribuição foi removida. Tratar essa tela como possível versão anterior e confirmar a versão antes de apresentá-la como final."
+            "description": "Primeira iteração: telas do solicitante para abertura, detalhes, envio e acompanhamento; não inclui técnico nem dashboard.",
+            "decision": "Separar a primeira versão, restrita ao fluxo do solicitante, da segunda iteração, que introduz as telas destinadas ao técnico e o dashboard administrativo."
           }
         ],
         "decisions": [
@@ -557,7 +557,7 @@
       ],
       "nextSteps": [
         "Instrumentar testes por tarefa e documentar roteiro, tempos e amostra.",
-        "Avaliar a precisão da triagem assistida por IA em cenários e volumes distintos."
+        "Avaliar a precisão da triagem com auxílio de IA em cenários e volumes distintos."
       ],
       "limitations": [
         "Projeto acadêmico em contexto delimitado; os resultados não demonstram desempenho em produção.",
@@ -574,7 +574,7 @@
         "define": "OPORTUNIDADE DE DESIGN",
         "process": "PESQUISA / DEFINE / WIREFRAMES / UI / TESTE",
         "journey": "DA META À PRÓXIMA AÇÃO",
-        "architecture": "O PRODUTO GIRA EM TORNO DE TRÊS PERGUNTAS",
+        "architecture": "UMA EXPERIÊNCIA ORGANIZADA PARA EVOLUIR NOS TREINOS",
         "methodDetail": "DA PESQUISA À ESTRUTURA",
         "wireframes": "ESTRUTURA ANTES DO ACABAMENTO",
         "validation": "INSIGHTS DO PROJETO",
@@ -582,23 +582,23 @@
         "designDetails": "DO WIREFRAME À ITERAÇÃO",
         "conclusion": "Conclusão"
       },
-      "overview": "Conceito mobile de fitness que conecta praticantes a treinos, profissionais, planos e acompanhamento de progresso. A narrativa deste case combina a interface existente com uma entrevista exploratória documentada; as oportunidades são hipóteses, não resultados de pesquisa populacional.",
-      "challenge": "O participante entrevistado planeja treinos A/B/C com antecedência, mas precisa adaptar a sessão quando sente fadiga ou dor, encontra equipamentos ocupados ou tem pouco tempo. O desafio de design é apoiar essa flexibilidade sem perder a leitura de evolução por carga e repetições.",
-      "process": "Foi realizada uma entrevista exploratória com um praticante experiente de academia/CrossFit. O relato foi sintetizado em comportamentos, dores e oportunidades; em seguida, a estrutura mobile representada no board foi relacionada ao fluxo de treino, descoberta de profissionais e acompanhamento. A entrevista é evidência qualitativa de uma pessoa, não uma validação ampla do produto.",
+      "overview": "Conceito mobile de fitness para organizar treinos, adaptar sessões e acompanhar a evolução. O case reúne cinco entrevistas exploratórias; os relatos são evidências qualitativas e não representam uma validação populacional.",
+      "challenge": "As cinco entrevistas exploratórias revelaram diferentes formas de organizar e manter uma rotina de treinos. Os relatos trouxeram dificuldades relacionadas à falta de tempo, cansaço e motivação, além da necessidade de adaptar exercícios quando a rotina muda ou os equipamentos estão ocupados. Também surgiu o interesse em registrar cargas e repetições para acompanhar a evolução. O desafio de design foi criar uma experiência flexível, que acompanhasse a realidade dos usuários sem comprometer a percepção de progresso.",
+      "process": "Foram realizadas cinco entrevistas exploratórias. Os relatos disponíveis foram organizados em comportamentos, problemas e oportunidades; em seguida, a estrutura mobile representada no board foi relacionada ao planejamento, execução e acompanhamento dos treinos. Não há documentação suficiente para atribuir resultados além dessas evidências qualitativas.",
       "designSprint": [
-        { "stage": "Pesquisa", "description": "Entrevista exploratória com um praticante experiente; planejamento A/B/C, adaptações durante o treino e critérios pessoais de evolução." },
-        { "stage": "Síntese", "description": "Separação entre evidência relatada por uma pessoa e hipóteses a validar com outros perfis." },
+        { "stage": "Pesquisa", "description": "Cinco entrevistas exploratórias reuniram relatos sobre planejamento A/B/C, adaptação durante o treino e critérios pessoais de evolução." },
+        { "stage": "Síntese", "description": "Separação entre os relatos disponíveis, problemas identificados e oportunidades que ainda precisam ser validadas." },
         { "stage": "Definição", "description": "Oportunidade: manter o plano útil quando equipamento, condição física ou tempo exigirem uma adaptação." },
-        { "stage": "Arquitetura", "description": "Relacionamento entre descoberta, profissionais, planos, treino ativo, agenda, mensagens e progresso conforme a interface apresentada." },
+        { "stage": "Arquitetura", "description": "Relacionamento entre Início, Explorar, Treinos, Perfil, planejamento, execução, registro e evolução conforme a interface apresentada." },
         { "stage": "Design", "description": "Exploração de uma experiência mobile para visualizar o treino, registrar atividade e acompanhar evolução." },
         { "stage": "Validação", "description": "Conceitual. O fluxo ainda precisa ser testado com praticantes; não há teste formal documentado." }
       ],
-      "myRole": "UX/UI Designer; entrevista exploratória, síntese e estruturação do case.",
+      "myRole": "UX/UI Designer; entrevistas exploratórias, síntese e estruturação do case.",
       "csdMatrix": {
         "certainties": [
-          "Na entrevista exploratória, o participante relatou planejar treinos A/B/C aproximadamente a cada dois meses e adaptar o plano conforme o contexto do dia.",
-          "O participante acompanha evolução principalmente por carga e repetições.",
-          "Equipamentos indisponíveis podem levar o participante a trocar exercícios ou deixar parte do treino de lado."
+          "Nas cinco entrevistas exploratórias, foram relatados diferentes formatos de organização semanal, incluindo divisão A/B/C e revisão da rotina a cada dois meses.",
+          "Os relatos indicam acompanhamento de evolução por carga, repetições, avaliações físicas, espelho e mudanças nas roupas.",
+          "Equipamentos indisponíveis, cansaço, dor, falta de tempo e irregularidade podem exigir adaptação ou substituição de exercícios."
         ],
         "suppositions": [
           "Alternativas de exercício relacionadas ao equipamento disponível podem ajudar a manter a sessão em andamento.",
@@ -615,7 +615,7 @@
       "personas": [
         {
           "name": "Praticante experiente e adaptativo",
-          "role": "Arquétipo comportamental derivado da única entrevista exploratória documentada; não representa uma população.",
+          "role": "Arquétipo comportamental derivado dos relatos das cinco entrevistas exploratórias; não representa uma população.",
           "pain": "Precisa reorganizar uma sessão de 1 a 1,5 hora quando a academia está cheia, o equipamento não está disponível ou o corpo pede uma adaptação.",
           "goal": "Manter um plano flexível e perceber evolução usando carga e repetições, sem depender de uma rotina rígida."
         }
@@ -637,18 +637,18 @@
         }
       ],
       "craftNotes": {
-        "conventions": "O board apresenta navegação mobile para início, exploração, treinos, mensagens e perfil, além de telas de detalhe e progresso.",
+        "conventions": "O board apresenta navegação mobile para início, exploração, treinos e perfil, além de telas de planejamento, execução e progresso.",
         "affordances": "Na exploração, alternativas de exercício e o motivo de cada sugestão devem aparecer junto ao equipamento indisponível; esta é uma hipótese de interface a validar.",
         "equity": "Adaptações devem respeitar dor e limitações percebidas, evitando tratar uma sugestão automática como orientação médica ou prescrição profissional.",
-        "testing": "Há uma entrevista exploratória documentada com uma pessoa. Nenhum teste de usabilidade formal foi realizado ou documentado."
+        "testing": "Há cinco entrevistas exploratórias documentadas. Nenhum teste de usabilidade formal foi realizado ou documentado."
       },
-      "solution": "A direção de design preserva as áreas de descoberta, profissionais, treinos, agenda, mensagens e progresso representadas no board. Como oportunidade futura, propõe relacionar o treino planejado a alternativas quando o equipamento estiver ocupado e registrar carga e repetições para comparação. Essas adaptações ainda são hipóteses, não funcionalidades validadas.",
-      "finalProject": "Resultado de design conceitual apoiado por uma entrevista exploratória. Não há teste formal de usabilidade nem métricas de impacto documentadas. O board mostra uma experiência mobile para descoberta, treino, agenda, mensagens e progresso.",
+      "solution": "A direção de design organiza Início, Explorar, Treinos e Perfil, conectando planejamento, execução, registro de cargas e repetições e acompanhamento da evolução. Substituições, auxílio de IA e lembretes configuráveis são oportunidades quando não aparecem como funcionalidades implementadas.",
+      "finalProject": "Resultado de design conceitual apoiado por cinco entrevistas exploratórias. Não há teste formal de usabilidade nem métricas de impacto documentadas. O escopo comercial inclui somente o plano Kalo Burn Plus.",
       "conclusion": "3 Principais adaptações disponibilidade de equipamento, fadiga, dor e tempo influenciam a sessão. A interface pode apoiar decisões mantendo o praticante no controle. Ampliar a pesquisa e testar o fluxo de adaptação são próximos passos, não resultados já alcançados.",
       "research": {
-        "status": "Entrevista exploratória documentada; evidência qualitativa de uma única pessoa.",
-        "method": "Entrevista exploratória com praticante experiente de academia/CrossFit.",
-        "participants": "1 praticante experiente; nenhuma outra entrevista está documentada.",
+        "status": "Cinco entrevistas exploratórias documentadas; evidência qualitativa sem generalização populacional.",
+        "method": "Cinco entrevistas exploratórias; duração, recrutamento e transcrições não estão documentados.",
+        "participants": "Cinco entrevistas; características individuais dos participantes não estão documentadas.",
         "duration": "Não documentada.",
         "objectives": [
           "Compreender como o participante planeja e adapta o treino.",
@@ -661,19 +661,19 @@
           "A janela disponível para treinar é de aproximadamente 1 a 1,5 hora."
         ],
         "limitations": [
-          "A pesquisa documentada contém uma única entrevista exploratória e não permite afirmações sobre a maioria dos praticantes.",
+          "As cinco entrevistas exploratórias não permitem afirmações sobre a maioria dos praticantes.",
           "Não há teste formal de usabilidade ou validação quantitativa documentada."
         ]
       },
       "interviews": {
-        "participantCount": "1 participante",
+        "participantCount": "5 participantes",
         "participantProfile": "Praticante experiente de academia/CrossFit; sem dados demográficos registrados.",
-        "method": "Entrevista exploratória.",
+        "method": "Cinco entrevistas exploratórias.",
         "findings": [
           "Planeja treinos em estrutura A/B/C e revisa o planejamento aproximadamente a cada dois meses.",
           "Adapta exercícios quando sente fadiga ou dor, quando o equipamento não está disponível ou conforme o contexto do dia.",
           "Usa carga e repetições para avaliar progressão; relatou que superar a meta de 12 repetições em 3 ou 4 repetições pode indicar que é hora de aumentar a carga.",
-          "Busca orientação com profissionais da academia, internet, TikTok, vídeos e ferramentas de IA, incluindo planos com links demonstrativos.",
+          "Busca ideias de treino e planejamento na internet, TikTok, vídeos e ferramentas de IA, incluindo ChatGPT e Gemini.",
           "Demonstrou interesse em competição saudável e pontos, repetições ou desafios; relatou usar TeamRats."
         ],
         "limitations": [
@@ -683,7 +683,7 @@
       "researchSynthesis": {
         "behaviors": [
           "Planeja uma divisão A/B/C com antecedência, mas ajusta o treino na hora.",
-          "Consulta fontes variadas para orientação, inclusive profissionais, vídeos e ferramentas de IA.",
+          "Consulta fontes variadas para planejamento, inclusive vídeos e ferramentas de IA.",
           "Compara carga e repetições para decidir se progride."
         ],
         "painPoints": [
@@ -741,7 +741,7 @@
         }
       ],
       "problemStatement": {
-        "persona": "Praticante experiente e adaptativo, arquétipo derivado de uma entrevista exploratória.",
+        "persona": "Praticante experiente e adaptativo, arquétipo derivado dos relatos das cinco entrevistas exploratórias.",
         "need": "Adaptar a sessão e acompanhar carga e repetições sem perder a intenção do treino.",
         "because": "Equipamentos ocupados, fadiga, dor e uma janela de treino limitada podem tornar o plano original inviável.",
         "finalStatement": "Como praticante que adapta o treino conforme o contexto, preciso encontrar opções seguras e acompanhar minha progressão para continuar a sessão sem depender de um plano rígido."
@@ -754,7 +754,7 @@
       ],
       "ideation": {
         "methods": [
-          "Síntese temática da entrevista exploratória; os temas refletem apenas o relato de uma pessoa."
+          "Síntese temática das cinco entrevistas exploratórias; os temas refletem os relatos disponíveis e não representam toda a população."
         ],
         "ideas": [
           "Apresentar o exercício planejado junto de uma alternativa contextual quando o equipamento não estiver disponível.",
@@ -770,18 +770,20 @@
       },
       "informationArchitecture": {
         "contentStructure": [
-          "Navegação principal: Início, Explorar, Treinos, Mensagens e Perfil, conforme o board apresentado.",
-          "Treino: visão geral → exercício → execução e registro.",
-          "Descoberta: profissionais → perfil → planos.",
-          "Acompanhamento: agenda, mensagens e progresso."
+          "Navegação principal: Início → Explorar → Treinos → Perfil.",
+          "Planejamento: selecionar o treino e adaptar a sessão ao tempo, cansaço e disponibilidade.",
+          "Execução: exercício → registro de carga e repetições → acompanhamento da evolução.",
+          "Recursos de apoio: substituição de exercícios, auxílio de IA e Kalo Burn Plus."
         ],
         "categories": [
+          "Início",
+          "Explorar",
           "Treinos",
-          "Profissionais",
-          "Planos",
-          "Agenda",
-          "Mensagens",
-          "Progresso"
+          "Perfil",
+          "Planejamento",
+          "Execução",
+          "Evolução",
+          "Kalo Burn Plus"
         ],
         "hierarchy": [
           "Ação contextual da sessão e informações do exercício.",
@@ -789,8 +791,8 @@
           "Histórico de progresso e opções de orientação."
         ],
         "decisions": [
-          "Manter navegação principal persistente entre as áreas representadas.",
-          "Separar descoberta de profissionais da execução e do acompanhamento do treino.",
+          "Manter Início, Explorar, Treinos e Perfil como áreas principais do produto.",
+          "Separar planejamento, execução, registro e acompanhamento da evolução.",
           "Tratar substituições de exercício como oportunidade conceitual ainda não validada."
         ]
       },
@@ -799,14 +801,14 @@
       },
       "wireframes": {
         "status": "Board de telas mobile fornecido para este projeto; o fluxo de adaptação de exercícios permanece uma hipótese.",
-        "description": "O board reúne início, exploração de profissionais, perfil, planos, detalhe e execução do treino, treinos salvos, agenda, mensagens, progresso e perfil.",
+        "description": "O board reúne início, exploração, perfil, planejamento, detalhe e execução do treino e acompanhamento do progresso.",
         "images": [
           "/case-studies/kaloburn-wireframes-source.png"
         ],
         "imageDetails": [
           {
             "title": "Wireframes — navegação e ciclo de treino",
-            "description": "Board mobile com descoberta, perfil profissional, planos, execução de treino, agenda, mensagens e progresso.",
+            "description": "Board mobile com exploração, planejamento, execução de treino e progresso.",
             "decision": "Relacionar as telas existentes ao ciclo de treino; adaptação automática a equipamentos indisponíveis não está representada e permanece como hipótese."
           }
         ],
@@ -822,7 +824,7 @@
           "A tela de progresso separa indicadores resumidos de uma visualização histórica."
         ],
         "components": [
-          "Cards de profissionais e planos, lista de treinos, agenda, mensagens e resumo de progresso."
+          "Lista de treinos, planejamento, execução, registro de carga e repetições e resumo de progresso."
         ],
         "designSystem": [
           "Padrões visuais apresentados no board; documentação de tokens não fornecida."
@@ -830,7 +832,7 @@
       },
       "usabilityTesting": {
         "status": "Não testado formalmente.",
-        "method": "A entrevista foi exploratória e não foi um teste de usabilidade.",
+        "method": "As entrevistas foram exploratórias e não constituíram um teste de usabilidade.",
         "participants": "Nenhum participante de teste documentado.",
         "tasks": [
           "Validar como praticantes localizam uma alternativa quando o equipamento planejado está ocupado.",
@@ -840,7 +842,7 @@
           "Critérios a definir antes de qualquer teste; não há resultados medidos."
         ],
         "limitations": [
-          "Uma única entrevista exploratória não representa perfis diversos de praticantes.",
+          "As cinco entrevistas exploratórias não representam todos os perfis de praticantes.",
           "Não há teste formal, resultado quantitativo nem validação de segurança das substituições."
         ]
       },
@@ -855,11 +857,11 @@
       "results": [
         {
           "type": "Pesquisa",
-          "label": "Uma entrevista exploratória documentada com praticante experiente."
+          "label": "Cinco entrevistas exploratórias documentadas."
         },
         {
           "type": "Design",
-          "label": "Board mobile que apresenta descoberta, treinos, agenda, mensagens e progresso."
+          "label": "Board mobile que apresenta exploração, treinos, planejamento e progresso."
         },
         {
           "type": "Validação",
@@ -878,7 +880,7 @@
         "Explorar pontos e desafios opcionais com pessoas interessadas em gamificação."
       ],
       "limitations": [
-        "A pesquisa documentada se limita a uma entrevista exploratória.",
+        "A pesquisa documentada reúne cinco entrevistas exploratórias.",
         "Não há teste formal de usabilidade nem resultados quantitativos do conceito.",
         "As oportunidades de adaptação e gamificação ainda não estão validadas nem devem ser interpretadas como recomendações profissionais."
       ]
@@ -893,7 +895,7 @@
         "define": "OPORTUNIDADE DE DESIGN",
         "process": "PESQUISA / DEFINE / WIREFRAMES / UI / TESTE",
         "journey": "DA META À PRÓXIMA AÇÃO",
-        "architecture": "O PRODUTO GIRA EM TORNO DE TRÊS PERGUNTAS",
+        "architecture": "DA DESCOBERTA DO CATÁLOGO À DECISÃO DE COMPRA",
         "methodDetail": "DA PESQUISA À ESTRUTURA",
         "wireframes": "ESTRUTURA ANTES DO ACABAMENTO",
         "validation": "INSIGHTS DO PROJETO",
@@ -1133,7 +1135,7 @@
         "define": "OPORTUNIDADE DE DESIGN",
         "process": "PESQUISA / DEFINE / WIREFRAMES / UI / TESTE",
         "journey": "DA META À PRÓXIMA AÇÃO",
-        "architecture": "O PRODUTO GIRA EM TORNO DE TRÊS PERGUNTAS",
+        "architecture": "BUSCA, CONTATO E GESTÃO POR PERFIL",
         "methodDetail": "DA PESQUISA À ESTRUTURA",
         "wireframes": "ESTRUTURA ANTES DO ACABAMENTO",
         "validation": "INSIGHTS DO PROJETO",
@@ -1143,12 +1145,12 @@
       },
       "overview": "Marketplace imobiliário multi-perfil (comprador/vendedor, consultor, empresa) com busca por raio geográfico e mapa interativo, substituindo o filtro tradicional por cidade/bairro.",
       "challenge": "Consultores imobiliários gerenciam leads, agenda e comunicação em ferramentas desconectadas (WhatsApp, planilha, agenda separada), enquanto compradores dependem de filtros de localização rasos que não refletem sua real área de interesse.",
-      "process": "As notas existentes do projeto descrevem discovery presencial e walkthrough moderado com os três perfis, mas protocolos, transcrições e quantidade de participantes não estão disponíveis no repositório. A proposta organiza busca por mapa e espaços de trabalho por perfil; os resultados devem ser lidos como qualitativos e limitados.",
+      "process": "O projeto organiza uma proposta de marketplace imobiliário com busca por mapa e espaços de trabalho por perfil. O material disponível descreve a proposta e suas decisões de design, sem resultados de validação documentados.",
       "designSprint": [
-        { "stage": "Pesquisa exploratória", "description": "Notas do case descrevem discovery presencial com perfis de comprador/vendedor, consultor e empresa; não há contagem ou protocolo disponíveis." },
+        { "stage": "Contexto", "description": "O escopo reúne busca imobiliária por mapa e áreas de trabalho para comprador/inquilino, profissional e empresa." },
         { "stage": "Definição", "description": "Estruturar necessidades distintas de busca imobiliária e gestão de leads sem misturar tarefas de cada perfil." },
         { "stage": "Design", "description": "Proposta de dashboards por perfil, pipeline de leads em Kanban/tabela e busca por raio em mapa." },
-        { "stage": "Walkthrough", "description": "As notas descrevem walkthrough moderado qualitativo das funções centrais; não há dados instrumentados ou detalhes da amostra." },
+        { "stage": "Revisão do escopo", "description": "As decisões de arquitetura são apresentadas como proposta de design; não há resultados de validação documentados." },
         { "stage": "Próximos passos", "description": "Consolidar tokens visuais entre os temas claros e escuros e testar os fluxos com uma amostra documentada." }
       ],
       "myRole": "UX/UI Designer responsável pela concepção dos três dashboards, arquitetura de navegação, pipeline de leads e busca geolocalizada.",
@@ -1211,14 +1213,14 @@
         "conventions": "Pipeline de leads segue o padrão Kanban já familiar a qualquer usuário de ferramenta de gestão (Trello, Notion), reduzindo a necessidade de treinamento para o consultor.",
         "affordances": "Pins no mapa mudam de cor/tamanho conforme o tipo de imóvel, e o raio de busca é arrastável diretamente no mapa, tornando a manipulação do filtro tátil e imediata em vez de depender de campos numéricos.",
         "equity": "Cada perfil (consultor, comprador, empresa) vê apenas a informação relevante ao seu contexto, reduzindo sobrecarga cognitiva especialmente para usuários menos familiarizados com dashboards densos.",
-        "testing": "As notas do projeto descrevem um walkthrough presencial moderado com os três perfis; não há roteiro, contagem de participantes ou registro detalhado de achados no repositório."
+        "testing": "Não há teste de usabilidade ou resultados de validação documentados neste projeto."
       },
       "solution": "Três dashboards distintos (Consultor, Comprador/Vendedor, Empresa) com identidade visual compartilhada. Pipeline de leads em Kanban e tabela, alerta de follow-ups pendentes, busca por raio com mapa interativo e pins customizados.",
       "finalProject": "Proposta de marketplace com busca por raio, mapa interativo e áreas distintas para comprador/inquilino, profissional e empresa. As notas descrevem walkthrough qualitativo, sem métricas, amostra detalhada ou resultados de produção. A consistência entre temas claros e escuros permanece como ponto de evolução.",
       "research": {
-        "status": "Discovery exploratório mencionado nas notas do case; documentação primária não disponível no repositório.",
-        "method": "As notas descrevem conversas presenciais e walkthrough moderado com os três perfis do produto.",
-        "participants": "Perfis mencionados: comprador/vendedor, consultor e empresa. Quantidade e características dos participantes não documentadas.",
+        "status": "Não houve pesquisa com usuários documentada neste projeto.",
+        "method": "Não há método de pesquisa ou validação documentado.",
+        "participants": "Não há participantes de pesquisa documentados.",
         "limitations": [
           "Não há roteiro, transcrição, critérios de sucesso ou contagem da amostra disponíveis."
         ]
@@ -1333,9 +1335,9 @@
         ]
       },
       "usabilityTesting": {
-        "status": "As notas do projeto mencionam walkthrough presencial moderado; evidência limitada e sem protocolo disponível.",
-        "method": "Walkthrough qualitativo reportado nas notas do case.",
-        "participants": "Os três perfis são mencionados; quantidade não documentada.",
+        "status": "Não há teste de usabilidade documentado.",
+        "method": "Não há sessão de validação documentada.",
+        "participants": "Não há participantes de teste documentados.",
         "findings": [
           "As notas afirmam que funções centrais foram localizadas sem orientação prévia; não há dados por tarefa ou registro primário no repositório."
         ],
@@ -1358,7 +1360,7 @@
         },
         {
           "type": "Evidência qualitativa",
-          "label": "Notas do projeto relatam walkthrough moderado; protocolo e amostra não estão disponíveis."
+          "label": "Não há validação com usuários documentada."
         },
         {
           "type": "Métricas",
@@ -1370,13 +1372,13 @@
         "A variação de temas por perfil precisa compartilhar tokens e componentes para preservar consistência."
       ],
       "nextSteps": [
-        "Documentar método, participantes, tarefas e achados do discovery e walkthrough.",
+        "Documentar hipóteses, escopo e critérios para uma futura validação com usuários.",
         "Validar busca por raio, filtros, mapa e pipeline com representantes dos perfis.",
         "Consolidar tokens visuais entre dashboards claros e escuros."
       ],
       "limitations": [
-        "As notas disponíveis não incluem protocolos, transcrições, número de participantes ou métricas.",
-        "Personas e jornadas são conceituais e não representam indivíduos entrevistados.",
+        "Não há protocolos, transcrições, participantes ou métricas porque não foi realizada pesquisa com usuários.",
+        "Personas e jornadas são hipóteses de design, não evidências de participantes.",
         "Não há dados de conversão ou uso em produção."
       ]
     },
@@ -1390,7 +1392,7 @@
         "define": "OPORTUNIDADE DE DESIGN",
         "process": "PESQUISA / DEFINE / WIREFRAMES / UI / TESTE",
         "journey": "DA META À PRÓXIMA AÇÃO",
-        "architecture": "O PRODUTO GIRA EM TORNO DE TRÊS PERGUNTAS",
+        "architecture": "DA DESCOBERTA À RESERVA CONCEITUAL",
         "methodDetail": "DA PESQUISA À ESTRUTURA",
         "wireframes": "ESTRUTURA ANTES DO ACABAMENTO",
         "validation": "INSIGHTS DO PROJETO",
@@ -1609,7 +1611,7 @@
       ]
     },
     "6": {
-      "title": "Solar Panel Monitoring",
+      "title": "Solar Energy Solutions",
       "sectionTitles": {
         "overview": "VISÃO GERAL DO PROJETO",
         "challenge": "LEITURA CLARA DA ENERGIA",
@@ -1618,7 +1620,7 @@
         "define": "OPORTUNIDADE DE DESIGN",
         "process": "PESQUISA / DEFINE / WIREFRAMES / UI / TESTE",
         "journey": "DA META À PRÓXIMA AÇÃO",
-        "architecture": "O PRODUTO GIRA EM TORNO DE TRÊS PERGUNTAS",
+        "architecture": "UMA JORNADA PENSADA PARA TRANSFORMAR INTERESSE EM ECONOMIA",
         "methodDetail": "DA PESQUISA À ESTRUTURA",
         "wireframes": "ESTRUTURA ANTES DO ACABAMENTO",
         "validation": "INSIGHTS DO PROJETO",
@@ -1626,41 +1628,41 @@
         "designDetails": "DO WIREFRAME À ITERAÇÃO",
         "conclusion": "Conclusão"
       },
-      "overview": "Dashboard concept / template para acompanhar produção e consumo de energia solar, visualizar status do sistema, alertas e histórico. Não há pesquisa com clientes ou operadores de energia documentada; a arquitetura abaixo é uma hipótese de design.",
-      "challenge": "Explorar como organizar produção, consumo, estado do sistema e histórico para que a pessoa entenda a situação atual sem confundir dados ilustrativos com medições reais.",
-      "process": "Template autoral e conceitual. A estrutura foi formulada como hipótese de arquitetura para um dashboard de monitoramento; não é resultado de entrevistas, teste ou implantação com uma empresa de energia solar.",
+      "overview": "Landing page comercial para apresentar serviços de instalação de painéis solares, comunicar benefícios, atrair potenciais clientes e incentivar contato para orçamento.",
+      "challenge": "Transformar o interesse inicial em compreensão dos serviços, simulação de economia e solicitação de orçamento sem apresentar o projeto como monitoramento de um sistema instalado.",
+      "process": "A estrutura organiza uma página comercial com apresentação dos serviços, benefícios, informações de instalação, simulador de economia, estimativa de retorno do investimento e chamadas para contato. O simulador é informativo e não utiliza valores ou garantias inventados.",
       "designSprint": [
-        { "stage": "Contexto", "description": "Template de monitoramento conceitual, sem cliente ou telemetria real documentados." },
-        { "stage": "Hipótese", "description": "Agrupar produção, consumo, status, alertas e histórico pode apoiar a leitura da operação." },
-        { "stage": "Arquitetura", "description": "Proposta de dashboard geral com detalhamento de energia, eventos e períodos." },
-        { "stage": "Design", "description": "Organização conceitual de indicadores, visualizações temporais e alertas." },
-        { "stage": "Validação", "description": "Não testado com usuários ou dados reais; critérios de leitura e alertas precisam ser validados." }
+        { "stage": "Serviços", "description": "Apresentação de soluções e instalação de painéis solares." },
+        { "stage": "Benefícios", "description": "Comunicação dos benefícios da energia solar e da proposta comercial." },
+        { "stage": "Simulação", "description": "Energy savings calculator para estimar economia potencial e retorno aproximado." },
+        { "stage": "Conversão", "description": "Request a quote e chamadas para contato com a empresa." },
+        { "stage": "Limites", "description": "Não é dashboard, monitoramento em tempo real ou acompanhamento de sistema instalado." }
       ],
-      "myRole": "Projeto autoral de design de dashboard/template conceitual.",
+      "myRole": "Projeto autoral de design de landing page comercial e simulador informativo.",
       "csdMatrix": {
         "certainties": [
-          "O escopo deste case é um dashboard/template conceitual de monitoramento.",
-          "Nenhuma pesquisa com operadores, usuários residenciais ou dados de instalação está documentada.",
-          "Os valores apresentados no conceito não representam produção ou consumo medidos."
+          "O escopo deste case é uma landing page comercial para serviços de instalação de painéis solares.",
+          "A página comunica benefícios, simula economia e incentiva a solicitação de orçamento.",
+          "O simulador é comercial e informativo; não representa monitoramento de um sistema instalado."
         ],
         "suppositions": [
-          "Resumo por período pode facilitar comparação de produção e consumo.",
-          "Alertas priorizados por estado e impacto podem ajudar a identificar eventos que exigem atenção.",
-          "Explicações em linguagem simples podem complementar unidades técnicas."
+          "Uma simulação simples pode ajudar a pessoa a entender a economia potencial.",
+          "Uma estimativa de retorno pode apoiar a decisão de solicitar um orçamento.",
+          "Informações claras sobre instalação podem reduzir dúvidas antes do contato."
         ],
         "doubts": [
-          "Quais leituras e unidades são relevantes para cada perfil de operador?",
-          "Como distinguir falha de comunicação, baixa produção e alerta de manutenção?",
-          "Quais fontes, intervalos e regras devem alimentar os dados e alertas?"
+          "Quais informações comerciais são necessárias antes de solicitar um orçamento?",
+          "Como apresentar a simulação sem sugerir precisão ou garantia financeira?",
+          "Quais dúvidas sobre instalação precisam ser respondidas na landing page?"
         ]
       },
-      "userFlow": "Fluxo proposto: abrir dashboard → revisar produção e consumo do período → verificar status e alertas → comparar histórico → abrir detalhe do evento ou sistema → decidir o próximo acompanhamento.",
+      "userFlow": "Fluxo comercial: conhecer os serviços → entender benefícios e instalação → usar o simulador de economia → consultar retorno estimado → solicitar orçamento.",
       "personas": [
         {
-          "name": "Pessoa acompanhando um sistema solar",
-          "role": "Persona conceitual; perfil comportamental hipotético, sem demografia ou pesquisa atribuída.",
-          "pain": "Hipótese: pode precisar interpretar diferentes indicadores e identificar quando um evento exige atenção.",
-          "goal": "Consultar produção, consumo, estado do sistema e histórico em uma visão compreensível."
+          "name": "Pessoa interessada em energia solar",
+          "role": "Perfil conceitual de potencial cliente; sem demografia ou pesquisa atribuída.",
+          "pain": "Pode precisar estimar economia, retorno e entender o serviço antes de entrar em contato.",
+          "goal": "Conhecer a solução, simular economia e solicitar um orçamento."
         }
       ],
       "userStories": [
@@ -1685,11 +1687,11 @@
         "equity": "Explicações devem acompanhar unidades técnicas sem ocultar a origem, período ou significado dos dados.",
         "testing": "Nenhum teste com operador ou usuário final foi documentado; os dados do template são conceituais."
       },
-      "solution": "Dashboard conceitual para reunir produção, consumo, status do sistema, alertas e histórico. Visualizações, regras de alerta e valores são hipóteses de template, não uma integração implementada com dados reais.",
-      "finalProject": "Template de dashboard conceitual, sem implantação com cliente, pesquisa com operadores, telemetria ou métricas de uso documentadas.",
+      "solution": "Landing page comercial com apresentação de serviços, benefícios, instalação, simulador de economia, estimativa de retorno do investimento, chamadas para ação e solicitação de orçamento.",
+      "finalProject": "Landing page comercial conceitual para solar energy solutions. O simulador é informativo; não há monitoramento de sistema instalado, telemetria ou métricas de conversão documentadas.",
       "research": {
         "status": "Pesquisa com usuários não realizada/documentada.",
-        "method": "Conceituação de arquitetura de dashboard; não há benchmark de campo ou entrevista documentados neste case.",
+        "method": "Conceituação de arquitetura de landing page comercial; não há pesquisa de campo ou entrevistas documentadas neste case.",
         "participants": "Nenhum participante documentado.",
         "limitations": [
           "Não há dados reais de sistema, entrevistas ou testes disponíveis."
@@ -1846,19 +1848,20 @@
       "sectionTitles": {
         "challenge": "CONTEÚDO EM DIFERENTES FORMATOS",
         "overview": "DESIGN VISUAL ESTRATÉGICO E CONTEÚDO DIGITAL PARA COMUNICAÇÃO POLÍTICA.",
+        "architecture": "UMA ESTRATÉGIA DE CONTEÚDO CONECTADA À COMUNIDADE",
         "gallery": "CONTEÚDOS DESENVOLVIDOS",
         "results": "ESCOPO E EVIDÊNCIAS",
         "process": "PROCESSO"
       },
       "overview": "Projeto real de design e gestão de conteúdo para o perfil político de um cliente no Instagram. Em depoimento, o cliente relata 10 mil visualizações em uma publicação e alcance de 47,7 mil no trimestre mais recente, cerca de 29% acima do trimestre anterior. O período de calendário e os dados analíticos independentes não estão disponíveis neste case; os números não comprovam causalidade.",
       "challenge": "Organizar a produção e a apresentação de conteúdo em diferentes formatos, considerando observações registradas sobre tema, formato, publicação e resposta da audiência sem extrapolar os dados disponíveis.",
-      "process": "O material do projeto descreve observação de conteúdo, definição de estratégia, criação de sistema visual, produção e iteração. Os registros disponíveis não detalham período de análise, método de comparação ou experimento controlado.",
+      "process": "O trabalho envolveu identidade visual, comunicação institucional, observação de desempenho, decisões de distribuição, produção de Stories, posts, carrosséis, vídeos e Reels. A publicação de mais Stories em dias úteis apresentou maior engajamento do que concentrar publicações nos finais de semana, motivando um ajuste na distribuição. A edição dos vídeos passou a contextualizar o vereador Elvis, sua função e outras pessoas que aparecem, usando textos na tela.",
       "designSprint": [
         { "stage": "Contexto", "description": "O case registra trabalho real de conteúdo e design para redes sociais; conta, plataforma e período não estão especificados." },
-        { "stage": "Observação", "description": "O material menciona análise de desempenho por tema, formato, dia e horário, sem documentar amostra ou método." },
-        { "stage": "Estratégia", "description": "Organização proposta de conteúdo, distribuição e possibilidades de reutilização entre formatos." },
+        { "stage": "Observação", "description": "A comparação disponível indicou maior engajamento com mais Stories em dias úteis do que com concentração nos finais de semana." },
+        { "stage": "Estratégia", "description": "Ajuste da distribuição, uso de Reels para descoberta e seleção de assuntos relevantes para a comunidade." },
         { "stage": "Sistema visual", "description": "Criação de linguagem visual para as peças incluídas no projeto." },
-        { "stage": "Conteúdo", "description": "Produção e adaptação de peças para feed, stories e reels, conforme descrito no registro." },
+        { "stage": "Conteúdo", "description": "Produção e adaptação de posts, carrosséis, Stories, vídeos e Reels, com contextualização textual nos vídeos." },
         { "stage": "Revisão", "description": "O material cita observação de desempenho; não há protocolo de teste ou comparação controlada documentados." },
         { "stage": "Iteração", "description": "O case relata iteração, sem detalhar datas, alterações específicas ou atribuição de resultados." }
       ],
@@ -1867,7 +1870,8 @@
         "certainties": [
           "O projeto é descrito como trabalho real de design e estratégia de conteúdo.",
           "O depoimento do cliente relata 10 mil visualizações em uma publicação e alcance trimestral de 47,7 mil, cerca de 29% acima do trimestre anterior.",
-          "O material descreve peças para feed, stories e reels."
+          "O material descreve peças para feed, Stories e Reels, além de vídeos contextualizados.",
+          "Uma publicação sobre atletas de karatê de Urupês nos Jogos Pan-Americanos no Peru alcançou aproximadamente 10 mil visualizações, conforme o registro disponível."
         ],
         "suppositions": [
           "Adaptar uma ideia a mais de um formato pode ampliar as oportunidades de distribuição.",
@@ -1928,7 +1932,9 @@
           "Hipótese: organizar conteúdo para que a mensagem seja compreensível em diferentes formatos."
         ],
         "insights": [
-          "O depoimento do cliente associa o trabalho a 10 mil visualizações em uma publicação e a crescimento aproximado de 29% no alcance trimestral; não há base para afirmar causalidade."
+          "01. FREQUÊNCIA TAMBÉM É ESTRATÉGIA: A observação do desempenho das publicações revelou maior engajamento com uma presença mais frequente nos Stories durante os dias úteis, em comparação à concentração de conteúdos nos finais de semana. Esse comportamento orientou uma distribuição mais consistente das publicações ao longo da semana, considerando os momentos de maior interação do público.",
+          "02. CONTEXTO AMPLIA O ALCANCE: Os vídeos precisavam ser compreensíveis também para quem ainda não conhecia o vereador ou as pessoas que participavam das gravações. A inclusão do nome e da identificação de Elvis como vereador, assim como a identificação dos demais participantes por meio de textos na tela, tornou a comunicação mais contextualizada e acessível para novos espectadores, especialmente no formato Reels.",
+          "03. A COMUNIDADE GERA IDENTIFICAÇÃO: Uma publicação sobre atletas de karatê de Urupês que participaram dos Jogos Pan-Americanos no Peru alcançou aproximadamente 10 mil visualizações. O resultado evidenciou o potencial de conteúdos conectados à realidade local, que valorizam pessoas, conquistas e acontecimentos importantes para a comunidade. A escolha de pautas próximas ao público também se tornou parte da estratégia editorial."
         ],
         "opportunities": [
           "Registrar datas, fontes e definições do alcance trimestral e das visualizações da publicação.",

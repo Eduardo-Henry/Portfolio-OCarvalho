@@ -859,67 +859,9 @@
   text-align: center;
 }
 
-/* Every light card uses neutral gray by default and becomes red only on interaction. */
-.case-study-meta-card:hover,
-.case-study-card:hover,
-.case-study-triple-card:hover,
-.case-study-wireframe:hover,
-.case-study-journey-item:hover,
-.case-study-result-card:hover {
-  background: var(--cs-accent);
-  border-color: var(--cs-accent);
-  color: #fff;
-  transform: translateY(-4px);
-}
-
-.case-study-meta-card:hover .case-study-meta-label,
-.case-study-meta-card:hover .case-study-meta-value,
-.case-study-card:hover strong,
-.case-study-card:hover span,
-.case-study-triple-card:hover strong,
-.case-study-triple-card:hover span,
-.case-study-journey-item:hover span,
-.case-study-wireframe:hover > span,
-.case-study-result-card:hover span,
-.case-study-result-card:hover strong {
-  color: #fff;
-}
-
 .case-study-hero__visual-placeholder {
   min-height: clamp(220px, 36vw, 520px);
   background: linear-gradient(135deg, #171717, #343434);
-}
-
-/* Keep every interactive light card readable when the accent hover is active. */
-.case-study-meta-card:hover *,
-.case-study-card:hover *,
-.case-study-triple-card:hover *,
-.case-study-wireframe:hover *,
-.case-study-journey-item:hover *,
-.case-study-result-card:hover * {
-  color: #fff;
-}
-
-.case-study-step:hover,
-.case-study-validation-card:hover,
-.case-study-before-after-card:hover {
-  background: var(--cs-accent);
-  border-color: var(--cs-accent);
-  color: #fff;
-  transform: translateY(-4px);
-}
-
-.case-study-step:hover .case-study-step-title,
-.case-study-step:hover .case-study-step-copy,
-.case-study-validation-card:hover strong,
-.case-study-validation-card:hover p,
-.case-study-before-after-card:hover span,
-.case-study-before-after-card:hover p {
-  color: #fff;
-}
-
-.case-study-result-card:hover strong {
-  color: #fff;
 }
 
 .case-study-footer {

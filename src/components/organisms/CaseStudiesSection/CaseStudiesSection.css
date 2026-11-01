@@ -181,6 +181,15 @@
   box-shadow: none !important;
 }
 
+.video-card {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.video-card > video {
+  display: block;
+}
+
 /* ============================================ */
 /* ÁREA DE IMAGEM DO CARD                       */
 /* ============================================ */

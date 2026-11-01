@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './FooterSection.css';
 import LinkedInIcon from '../../../assets/icons/iconLinkedin.svg?react';
 import InstagramIcon from '../../../assets/icons/iconInstagram.svg?react';
@@ -15,7 +16,23 @@ interface SocialLink {
 
 export const FooterSection: React.FC = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const location = useLocation();
   const currentYear = new Date().getFullYear();
+
+  const handleSectionNavigation = (sectionId: string) => {
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: sectionId === 'home' ? 'hero' : sectionId } });
+      return;
+    }
+
+    if (sectionId === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const socialLinks: SocialLink[] = [
     {
@@ -58,18 +75,18 @@ export const FooterSection: React.FC = () => {
           <div className="footer-column">
             <h4 className="footer-title">{t('footer.nav.title')}</h4>
             <nav className="footer-nav">
-              <a href="#home" className="footer-link">
+              <button type="button" onClick={() => handleSectionNavigation('home')} className="footer-link">
                 {t('footer.nav.home')}
-              </a>
-              <a href="#about" className="footer-link">
+              </button>
+              <button type="button" onClick={() => handleSectionNavigation('about')} className="footer-link">
                 {t('footer.nav.about')}
-              </a>
-              <a href="#skills" className="footer-link">
+              </button>
+              <button type="button" onClick={() => handleSectionNavigation('all-skills')} className="footer-link">
                 {t('footer.nav.skills')}
-              </a>
-              <a href="#works" className="footer-link">
+              </button>
+              <button type="button" onClick={() => handleSectionNavigation('case-studies')} className="footer-link">
                 {t('footer.nav.works')}
-              </a>
+              </button>
             </nav>
           </div>
 
@@ -100,12 +117,12 @@ export const FooterSection: React.FC = () => {
             {t('footer.copyright', { year: currentYear })}
           </p>
           <div className="footer-legal">
-            <a href="#" className="footer-legal-link">
+            <span className="footer-legal-link">
               {t('footer.privacyPolicy')}
-            </a>
-            <a href="#" className="footer-legal-link">
+            </span>
+            <span className="footer-legal-link">
               {t('footer.termsOfService')}
-            </a>
+            </span>
           </div>
         </div>
       </div>
