@@ -497,7 +497,7 @@
         ]
       },
       "highFidelityDesign": {
-        "screenshots": ["/case-studies/tihelp-dashboard.png", "/case-studies/tihelp-mobile.png"],
+        "screenshots": ["/case-studies/tihelp-mockup.png", "/case-studies/tihelp-mobile.png", "/case-studies/tihelp-dashboard.png"],
         "visualDecisions": [
           "Use familiar navigation patterns and communicate status through color, icon, and text together."
         ],

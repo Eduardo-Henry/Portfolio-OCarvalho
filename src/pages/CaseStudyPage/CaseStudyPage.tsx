@@ -322,6 +322,7 @@ const wireframeAssets: Record<string, string> = {
   '/case-studies/kaloburn-increase.webp': KaloBurnIncrease,
   '/case-studies/kaloburn-meal.webp': KaloBurnMeal,
   '/case-studies/kaloburn-recipes.webp': KaloBurnRecipes,
+  '/case-studies/tihelp-mockup.png': TIHelpImg,
   '/case-studies/tihelp-dashboard.png': TIHelpDashboard,
   '/case-studies/tihelp-mobile.png': TIHelpMobile,
   '/case-studies/orbean-jeans-screens.png': OrbeanJeansScreens,
