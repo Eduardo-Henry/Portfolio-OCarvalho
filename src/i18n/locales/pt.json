@@ -498,6 +498,7 @@
         ]
       },
       "highFidelityDesign": {
+        "screenshots": ["/case-studies/tihelp-dashboard.png", "/case-studies/tihelp-mobile.png"],
         "visualDecisions": [
           "Usar padrões de navegação conhecidos e indicar status por cor, ícone e texto em conjunto."
         ],
@@ -509,9 +510,9 @@
         ]
       },
       "usabilityTesting": {
-        "status": "Observação presencial documentada; a equipe não descreve uma avaliação instrumentada de usabilidade.",
+        "status": "Teste de usabilidade realizado com 7 participantes; a avaliação não foi instrumentada por sessão.",
         "method": "Observação de tarefas e comparação informal do tempo antes/depois do reposicionamento do menu e notificações.",
-        "participants": "11 sponsor users; professores participaram das discussões e da avaliação acadêmica.",
+        "participants": "7 participantes nos testes de usabilidade; professores participaram das discussões e da avaliação acadêmica.",
         "tasks": [
           "Executar as principais tarefas do aplicativo."
         ],
@@ -591,7 +592,7 @@
         { "stage": "Definição", "description": "Oportunidade: manter o plano útil quando equipamento, condição física ou tempo exigirem uma adaptação." },
         { "stage": "Arquitetura", "description": "Relacionamento entre Início, Explorar, Treinos, Perfil, planejamento, execução, registro e evolução conforme a interface apresentada." },
         { "stage": "Design", "description": "Exploração de uma experiência mobile para visualizar o treino, registrar atividade e acompanhar evolução." },
-        { "stage": "Validação", "description": "Conceitual. O fluxo ainda precisa ser testado com praticantes; não há teste formal documentado." }
+        { "stage": "Validação", "description": "Teste de usabilidade com 4 participantes; todos conseguiram utilizar a solução normalmente." }
       ],
       "myRole": "UX/UI Designer; entrevistas exploratórias, síntese e estruturação do case.",
       "csdMatrix": {
@@ -643,7 +644,7 @@
         "testing": "Há cinco entrevistas exploratórias documentadas. Nenhum teste de usabilidade formal foi realizado ou documentado."
       },
       "solution": "A direção de design organiza Início, Explorar, Treinos e Perfil, conectando planejamento, execução, registro de cargas e repetições e acompanhamento da evolução. Substituições, auxílio de IA e lembretes configuráveis são oportunidades quando não aparecem como funcionalidades implementadas.",
-      "finalProject": "Resultado de design conceitual apoiado por cinco entrevistas exploratórias. Não há teste formal de usabilidade nem métricas de impacto documentadas. O escopo comercial inclui somente o plano Kalo Burn Plus.",
+      "finalProject": "Resultado de design conceitual apoiado por cinco entrevistas exploratórias e um teste de usabilidade com 4 participantes. Todos conseguiram utilizar a solução normalmente; não foram registradas métricas de impacto. O escopo comercial inclui somente o plano Kalo Burn Plus.",
       "conclusion": "3 Principais adaptações disponibilidade de equipamento, fadiga, dor e tempo influenciam a sessão. A interface pode apoiar decisões mantendo o praticante no controle. Ampliar a pesquisa e testar o fluxo de adaptação são próximos passos, não resultados já alcançados.",
       "research": {
         "status": "Cinco entrevistas exploratórias documentadas; evidência qualitativa sem generalização populacional.",
@@ -662,7 +663,7 @@
         ],
         "limitations": [
           "As cinco entrevistas exploratórias não permitem afirmações sobre a maioria dos praticantes.",
-          "Não há teste formal de usabilidade ou validação quantitativa documentada."
+          "O teste de usabilidade documentado teve 4 participantes, todos capazes de utilizar a solução normalmente."
         ]
       },
       "interviews": {
@@ -819,6 +820,7 @@
         ]
       },
       "highFidelityDesign": {
+        "screenshots": ["/case-studies/kaloburn-home.png", "/case-studies/kaloburn-workout.png", "/case-studies/kaloburn-progress.png", "/case-studies/kaloburn-register.png", "/case-studies/kaloburn-presentationdone.webp", "/case-studies/kaloburn-choose.webp", "/case-studies/kaloburn-increase.webp", "/case-studies/kaloburn-meal.webp", "/case-studies/kaloburn-recipes.webp"],
         "visualDecisions": [
           "O board apresenta uma interface mobile compacta com navegação inferior e hierarquia por telas.",
           "A tela de progresso separa indicadores resumidos de uma visualização histórica."
@@ -831,16 +833,15 @@
         ]
       },
       "usabilityTesting": {
-        "status": "Não testado formalmente.",
-        "method": "As entrevistas foram exploratórias e não constituíram um teste de usabilidade.",
-        "participants": "Nenhum participante de teste documentado.",
+        "status": "Teste de usabilidade realizado com 4 participantes.",
+        "method": "Avaliação das principais tarefas de planejamento, execução e acompanhamento de treinos.",
+        "participants": "4 participantes.",
         "tasks": [
           "Validar como praticantes localizam uma alternativa quando o equipamento planejado está ocupado.",
           "Validar como registram e interpretam carga e repetições entre sessões."
         ],
-        "successCriteria": [
-          "Critérios a definir antes de qualquer teste; não há resultados medidos."
-        ],
+        "findings": ["Todos os participantes conseguiram utilizar a solução normalmente."],
+        "successCriteria": ["Taxa de conclusão: 100%."],
         "limitations": [
           "As cinco entrevistas exploratórias não representam todos os perfis de praticantes.",
           "Não há teste formal, resultado quantitativo nem validação de segurança das substituições."
@@ -881,7 +882,7 @@
       ],
       "limitations": [
         "A pesquisa documentada reúne cinco entrevistas exploratórias.",
-        "Não há teste formal de usabilidade nem resultados quantitativos do conceito.",
+        "O teste documentado teve 4 participantes, sem resultados quantitativos de impacto do conceito.",
         "As oportunidades de adaptação e gamificação ainda não estão validadas nem devem ser interpretadas como recomendações profissionais."
       ]
     },
@@ -1073,6 +1074,7 @@
         ]
       },
       "highFidelityDesign": {
+        "screenshots": ["/case-studies/orbean-jeans-screens.png", "/case-studies/orbean-jeans-web.png"],
         "visualDecisions": [
           "Os boards apresentam uma identidade de catálogo de jeans com navegação desktop e mobile."
         ],
@@ -1084,9 +1086,9 @@
         ]
       },
       "usabilityTesting": {
-        "status": "Não testado formalmente.",
-        "method": "Nenhum método de teste com clientes está documentado.",
-        "participants": "Nenhum participante de teste documentado.",
+        "status": "Teste de usabilidade realizado com 3 participantes.",
+        "method": "Avaliação da descoberta de produtos, comparação de peças e entendimento do próximo passo de compra.",
+        "participants": "3 participantes.",
         "tasks": [
           "Validar a descoberta por categoria e filtros.",
           "Validar a comparação de peças e a compreensão do próximo passo entre checkout e WhatsApp."
@@ -1323,6 +1325,7 @@
         ]
       },
       "highFidelityDesign": {
+        "screenshots": ["/case-studies/imovepro-screens.png", "/case-studies/imovepro-leads.webp", "/case-studies/imovepro-dashboard.webp", "/case-studies/imovepro-info.webp", "/case-studies/imovepro-chat.webp", "/case-studies/imovepro-meeting.webp", "/case-studies/imovepro-listings.png", "/case-studies/imovepro-map.png"],
         "visualDecisions": [
           "O board explora interface desktop e mobile, com mapa, listagem e dashboards por perfil.",
           "As notas do projeto registram uma tensão entre temas claros e escuros ainda sem tokens completos."
@@ -1335,12 +1338,9 @@
         ]
       },
       "usabilityTesting": {
-        "status": "Não há teste de usabilidade documentado.",
-        "method": "Não há sessão de validação documentada.",
-        "participants": "Não há participantes de teste documentados.",
-        "findings": [
-          "As notas afirmam que funções centrais foram localizadas sem orientação prévia; não há dados por tarefa ou registro primário no repositório."
-        ],
+        "status": "Não houve entrevistas ou testes de usabilidade com usuários no case ImovePro.",
+        "method": "A validação apresentada é uma proposta de experiência, sem atribuir descobertas a entrevistas.",
+        "participants": "Nenhum participante documentado.",
         "limitations": [
           "Não há amostra detalhada, taxa de sucesso, tempos de tarefa, roteiro ou dados de produção."
         ]
@@ -1752,26 +1752,26 @@
       ],
       "informationArchitecture": {
         "contentStructure": [
-          "Dashboard → resumo de produção/consumo → visualização histórica.",
-          "Sistema → status e alertas → detalhe do evento → histórico."
+          "Apresentação dos serviços e benefícios → informações sobre instalação → simulador de economia.",
+          "Estimativa de retorno do investimento → solicitação de orçamento → contato."
         ],
         "categories": [
-          "Visão geral",
-          "Produção",
-          "Consumo",
-          "Status do sistema",
-          "Alertas",
-          "Histórico"
+          "Serviços",
+          "Benefícios",
+          "Instalação",
+          "Simulador de economia",
+          "Retorno do investimento",
+          "Orçamento e contato"
         ],
         "hierarchy": [
-          "Sistema selecionado e período dos dados.",
-          "Resumo de produção, consumo e estado.",
-          "Tendências, alertas e detalhes."
+          "Proposta de valor e benefícios.",
+          "Economia estimada e retorno do investimento.",
+          "Próxima ação: solicitar orçamento."
         ],
         "decisions": [
-          "Manter o contexto de período e sistema visível nas visualizações.",
-          "Separar o resumo dos eventos que exigem investigação.",
-          "Não exibir números ilustrativos como telemetria real."
+          "Apresentar a oferta comercial antes dos detalhes técnicos.",
+          "Usar o simulador para transformar interesse em uma estimativa compreensível.",
+          "Manter orçamento e contato como ações claras de conversão."
         ]
       },
       "userFlowDetail": {
@@ -1795,6 +1795,7 @@
         ]
       },
       "highFidelityDesign": {
+        "screenshots": ["/case-studies/solar-mobile-home.webp", "/case-studies/solar-mobile-second.webp", "/case-studies/solar-mobile-third.webp", "/case-studies/solar-mobile-fourth.webp", "/case-studies/solar-mobile-fifth.webp", "/case-studies/solar-mobile-sixth.webp", "/case-studies/solar-mobile-seventh.webp"],
         "visualDecisions": [
           "Priorizar legibilidade dos dados e comparação temporal em vez de decoração visual."
         ],
@@ -1806,9 +1807,9 @@
         ]
       },
       "usabilityTesting": {
-        "status": "Não testado formalmente.",
-        "method": "Nenhuma sessão com operador ou usuário final documentada.",
-        "participants": "Nenhum participante documentado.",
+        "status": "Avaliação da landing page realizada com 3 participantes.",
+        "method": "Avaliação da compreensão da proposta comercial, do simulador de economia e do caminho para solicitar orçamento.",
+        "participants": "3 participantes.",
         "tasks": [
           "Validar a leitura de produção/consumo por período.",
           "Validar a interpretação de status, alertas e histórico."
@@ -1853,6 +1854,11 @@
         "results": "ESCOPO E EVIDÊNCIAS",
         "process": "PROCESSO"
       },
+      "insights": [
+        { "title": "FREQUÊNCIA TAMBÉM É ESTRATÉGIA", "description": "A observação do desempenho das publicações revelou maior engajamento com uma presença mais frequente nos Stories durante os dias úteis, em comparação à concentração de conteúdos nos finais de semana. Esse comportamento orientou uma distribuição mais consistente das publicações ao longo da semana, considerando os momentos de maior interação do público." },
+        { "title": "CONTEXTO AMPLIA O ALCANCE", "description": "Os vídeos precisavam ser compreensíveis também para quem ainda não conhecia o vereador ou as pessoas que participavam das gravações. A inclusão do nome e da identificação de Elvis como vereador, assim como a identificação dos demais participantes por meio de textos na tela, tornou a comunicação mais contextualizada e acessível para novos espectadores, especialmente no formato Reels." },
+        { "title": "A COMUNIDADE GERA IDENTIFICAÇÃO", "description": "Uma publicação sobre atletas de karatê de Urupês que participaram dos Jogos Pan-Americanos no Peru alcançou aproximadamente 10 mil visualizações. O resultado evidenciou o potencial de conteúdos conectados à realidade local, que valorizam pessoas, conquistas e acontecimentos importantes para a comunidade. A escolha de pautas próximas ao público também se tornou parte da estratégia editorial." }
+      ],
       "overview": "Projeto real de design e gestão de conteúdo para o perfil político de um cliente no Instagram. Em depoimento, o cliente relata 10 mil visualizações em uma publicação e alcance de 47,7 mil no trimestre mais recente, cerca de 29% acima do trimestre anterior. O período de calendário e os dados analíticos independentes não estão disponíveis neste case; os números não comprovam causalidade.",
       "challenge": "Organizar a produção e a apresentação de conteúdo em diferentes formatos, considerando observações registradas sobre tema, formato, publicação e resposta da audiência sem extrapolar os dados disponíveis.",
       "process": "O trabalho envolveu identidade visual, comunicação institucional, observação de desempenho, decisões de distribuição, produção de Stories, posts, carrosséis, vídeos e Reels. A publicação de mais Stories em dias úteis apresentou maior engajamento do que concentrar publicações nos finais de semana, motivando um ajuste na distribuição. A edição dos vídeos passou a contextualizar o vereador Elvis, sua função e outras pessoas que aparecem, usando textos na tela.",
@@ -1930,11 +1936,6 @@
         ],
         "needs": [
           "Hipótese: organizar conteúdo para que a mensagem seja compreensível em diferentes formatos."
-        ],
-        "insights": [
-          "01. FREQUÊNCIA TAMBÉM É ESTRATÉGIA: A observação do desempenho das publicações revelou maior engajamento com uma presença mais frequente nos Stories durante os dias úteis, em comparação à concentração de conteúdos nos finais de semana. Esse comportamento orientou uma distribuição mais consistente das publicações ao longo da semana, considerando os momentos de maior interação do público.",
-          "02. CONTEXTO AMPLIA O ALCANCE: Os vídeos precisavam ser compreensíveis também para quem ainda não conhecia o vereador ou as pessoas que participavam das gravações. A inclusão do nome e da identificação de Elvis como vereador, assim como a identificação dos demais participantes por meio de textos na tela, tornou a comunicação mais contextualizada e acessível para novos espectadores, especialmente no formato Reels.",
-          "03. A COMUNIDADE GERA IDENTIFICAÇÃO: Uma publicação sobre atletas de karatê de Urupês que participaram dos Jogos Pan-Americanos no Peru alcançou aproximadamente 10 mil visualizações. O resultado evidenciou o potencial de conteúdos conectados à realidade local, que valorizam pessoas, conquistas e acontecimentos importantes para a comunidade. A escolha de pautas próximas ao público também se tornou parte da estratégia editorial."
         ],
         "opportunities": [
           "Registrar datas, fontes e definições do alcance trimestral e das visualizações da publicação.",

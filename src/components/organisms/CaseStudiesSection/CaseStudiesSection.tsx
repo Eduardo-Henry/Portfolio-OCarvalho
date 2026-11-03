@@ -31,9 +31,9 @@ import DeusQueMeAbracaImg from '../../../assets/images/DeusQueMeAbaraca.webp';
 import EleDeixouAs99WebpImg from '../../../assets/images/EleDeixouAs99.jpg';
 import CeiaDoFortalecimentoImg from '../../../assets/images/CeiaFortalecimento.webp';
 import ColiseuImg from '../../../assets/images/coliseu.webp';
-import CultoDeJovensImg from '../../../assets/images/CultoDeJovens.jpg';
+import CultoDeJovensImg from '../../../assets/images/culto de jovens.webp';
 import CultoDeLibertacaoImg from '../../../assets/images/cultoDeLibertação.jpg';
-import JesusEstaNoDesertroImg from '../../../assets/images/JesusEstaNoDeserto.jpg';
+import JesusEstaNoDesertoImg from '../../../assets/images/JesusEstaNoDeserto.jpg';
 import JesusMichelBasquiartReferenceImg from '../../../assets/images/JesusMichelBasquiartReference.jpg';
 import MaosCultoDeLibertacaoImg from '../../../assets/images/MaosCultoDeLibertacao.jpg';
 import MissoesImg from '../../../assets/images/Missões.webp';
@@ -160,7 +160,7 @@ const socialMediaCarouselImages = [
   DeusPoderosoImg,
   DeusQueMeAbracaImg,
   EleDeixouAs99WebpImg,
-  JesusEstaNoDesertroImg,
+  JesusEstaNoDesertoImg,
   JesusMichelBasquiartReferenceImg,
   MaosCultoDeLibertacaoImg,
   MissoesImg,

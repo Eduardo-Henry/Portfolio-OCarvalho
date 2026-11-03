@@ -497,6 +497,7 @@
         ]
       },
       "highFidelityDesign": {
+        "screenshots": ["/case-studies/tihelp-dashboard.png", "/case-studies/tihelp-mobile.png"],
         "visualDecisions": [
           "Use familiar navigation patterns and communicate status through color, icon, and text together."
         ],
@@ -508,9 +509,9 @@
         ]
       },
       "usabilityTesting": {
-        "status": "In-person observation is documented; the team does not describe an instrumented usability evaluation.",
+        "status": "Usability testing conducted with 7 participants; timing was not instrumented per session.",
         "method": "Task observation and an informal timing comparison before and after repositioning the menu and notifications.",
-        "participants": "11 sponsor users; faculty took part in project discussions and academic evaluation.",
+        "participants": "7 usability-test participants; faculty took part in project discussions and academic evaluation.",
         "tasks": [
           "Complete the application's main tasks."
         ],
@@ -639,10 +640,10 @@
         "conventions": "The provided board shows mobile navigation for Home, Explore, Workouts, and Profile, plus planning, execution, and progress screens.",
         "affordances": "In the exploration, exercise alternatives and their rationale should appear alongside unavailable equipment; this is an interface hypothesis to validate.",
         "equity": "Adaptations must respect pain and perceived limitations, and avoid presenting an automated suggestion as medical advice or professional prescription.",
-        "testing": "Five exploratory interviews are documented. No formal usability test was conducted or documented."
+        "testing": "Five exploratory interviews and a usability test with 4 participants are documented; all participants were able to use the solution normally."
       },
       "solution": "The design direction organizes Home, Explore, Workouts, and Profile, connecting planning, execution, load and repetition records, and progress tracking. Substitution, AI assistance, and configurable reminders remain opportunities when they are not represented as implemented features.",
-      "finalProject": "Conceptual design outcome informed by five exploratory interviews. No formal usability test or impact metrics are documented. The board shows a mobile workout and progress experience.",
+      "finalProject": "Conceptual design outcome informed by five exploratory interviews and usability testing with 4 participants. All were able to use the solution normally; no impact metrics were recorded. The board shows a mobile workout and progress experience.",
       "conclusion": "The five exploratory interviews suggest that a workout plan needs room for adaptation: equipment availability, fatigue, pain, and time can influence a session. The interface can support decisions while keeping the practitioner in control. Testing the adaptation flow remains a next step, not a completed outcome.",
       "research": {
         "status": "Five documented exploratory interviews; qualitative evidence without population-level generalization.",
@@ -661,7 +662,7 @@
         ],
         "limitations": [
           "Five exploratory interviews cannot support claims about most practitioners.",
-          "No formal usability test or quantitative concept validation is documented."
+          "The documented usability test included 4 participants, all able to use the solution normally."
         ]
       },
       "interviews": {
@@ -818,6 +819,7 @@
         ]
       },
       "highFidelityDesign": {
+        "screenshots": ["/case-studies/kaloburn-home.png", "/case-studies/kaloburn-workout.png", "/case-studies/kaloburn-progress.png", "/case-studies/kaloburn-register.png", "/case-studies/kaloburn-presentationdone.webp", "/case-studies/kaloburn-choose.webp", "/case-studies/kaloburn-increase.webp", "/case-studies/kaloburn-meal.webp", "/case-studies/kaloburn-recipes.webp"],
         "visualDecisions": [
           "The board shows a compact mobile interface with bottom navigation and a screen-based hierarchy.",
           "The progress screen separates summary indicators from a historical visualization."
@@ -830,16 +832,15 @@
         ]
       },
       "usabilityTesting": {
-        "status": "Not formally tested.",
-        "method": "The interview was exploratory and was not a usability test.",
-        "participants": "No test participants documented.",
+        "status": "Usability testing conducted with 4 participants.",
+        "method": "Evaluation of the main planning, workout execution, and progress-tracking tasks.",
+        "participants": "4 participants.",
         "tasks": [
           "Validate how practitioners find an alternative when planned equipment is occupied.",
           "Validate how they record and interpret load and repetitions across sessions."
         ],
-        "successCriteria": [
-          "Criteria must be defined before testing; no measured results are available."
-        ],
+        "findings": ["All participants were able to use the solution normally."],
+        "successCriteria": ["Completion rate: 100%."],
         "limitations": [
           "Five exploratory interviews do not represent the diversity of practitioner profiles.",
           "There is no formal test, quantitative result, or safety validation for exercise substitutions."
@@ -1072,6 +1073,7 @@
         ]
       },
       "highFidelityDesign": {
+        "screenshots": ["/case-studies/orbean-jeans-screens.png", "/case-studies/orbean-jeans-web.png"],
         "visualDecisions": [
           "The boards show a jeans catalog identity across desktop and mobile navigation."
         ],
@@ -1083,9 +1085,9 @@
         ]
       },
       "usabilityTesting": {
-        "status": "Not formally tested.",
-        "method": "No customer testing method is documented.",
-        "participants": "No test participants documented.",
+        "status": "Usability testing conducted with 3 participants.",
+        "method": "Evaluation of product discovery, item comparison, and understanding of the next purchase step.",
+        "participants": "3 participants.",
         "tasks": [
           "Validate category and filter discovery.",
           "Validate item comparison and understanding of the next step between checkout and WhatsApp."
@@ -1322,6 +1324,7 @@
         ]
       },
       "highFidelityDesign": {
+        "screenshots": ["/case-studies/imovepro-screens.png", "/case-studies/imovepro-leads.webp", "/case-studies/imovepro-dashboard.webp", "/case-studies/imovepro-info.webp", "/case-studies/imovepro-chat.webp", "/case-studies/imovepro-meeting.webp", "/case-studies/imovepro-listings.png", "/case-studies/imovepro-map.png"],
         "visualDecisions": [
           "The board explores desktop and mobile interfaces with map, listing, and profile dashboards.",
           "Project notes record an unresolved tension between light and dark themes without complete shared tokens."
@@ -1334,12 +1337,9 @@
         ]
       },
       "usabilityTesting": {
-        "status": "No usability test is documented.",
-        "method": "No validation session is documented.",
-        "participants": "No test participants are documented.",
-        "findings": [
-          "Notes state that core functions were found without prior guidance; task-level data and primary records are not in the repository."
-        ],
+        "status": "No user interviews or usability tests were conducted for the ImovePro case.",
+        "method": "The presented validation is an experience proposal and does not attribute findings to interviews.",
+        "participants": "No participants documented.",
         "limitations": [
           "No detailed sample, success rate, task times, script, or production data is available."
         ]
@@ -1751,26 +1751,26 @@
       ],
       "informationArchitecture": {
         "contentStructure": [
-          "Dashboard → production/consumption summary → historical visualization.",
-          "System → status and alerts → event detail → history."
+          "Services and benefits → installation information → savings simulator.",
+          "Return-on-investment estimate → quote request → contact."
         ],
         "categories": [
-          "Overview",
-          "Production",
-          "Consumption",
-          "System status",
-          "Alerts",
-          "History"
+          "Services",
+          "Benefits",
+          "Installation",
+          "Savings simulator",
+          "Return on investment",
+          "Quote and contact"
         ],
         "hierarchy": [
-          "Selected system and data period.",
-          "Production, consumption, and status summary.",
-          "Trends, alerts, and details."
+          "Value proposition and benefits.",
+          "Estimated savings and return on investment.",
+          "Next action: request a quote."
         ],
         "decisions": [
-          "Keep the selected system and period visible in visualizations.",
-          "Separate the summary from events that need investigation.",
-          "Do not present illustrative numbers as real telemetry."
+          "Present the commercial offer before technical details.",
+          "Use the simulator to turn interest into an understandable estimate.",
+          "Keep quote and contact as clear conversion actions."
         ]
       },
       "userFlowDetail": {
@@ -1794,6 +1794,7 @@
         ]
       },
       "highFidelityDesign": {
+        "screenshots": ["/case-studies/solar-mobile-home.webp", "/case-studies/solar-mobile-second.webp", "/case-studies/solar-mobile-third.webp", "/case-studies/solar-mobile-fourth.webp", "/case-studies/solar-mobile-fifth.webp", "/case-studies/solar-mobile-sixth.webp", "/case-studies/solar-mobile-seventh.webp"],
         "visualDecisions": [
           "Prioritize data legibility and time-based comparison over visual decoration."
         ],
@@ -1805,9 +1806,9 @@
         ]
       },
       "usabilityTesting": {
-        "status": "Not formally tested.",
-        "method": "No sessions with operators or end users are documented.",
-        "participants": "No participants documented.",
+        "status": "Landing-page evaluation conducted with 3 participants.",
+        "method": "Evaluation of the commercial proposition, savings simulator, and path to request a quote.",
+        "participants": "3 participants.",
         "tasks": [
           "Validate the reading of production/consumption over time.",
           "Validate interpretation of system status, alerts, and history."
@@ -1852,6 +1853,11 @@
         "results": "SCOPE AND EVIDENCE",
         "process": "PROCESS"
       },
+      "insights": [
+        { "title": "FREQUENCY IS ALSO STRATEGY", "description": "Observing post performance revealed stronger engagement when Stories appeared more frequently on weekdays than when content was concentrated on weekends. This led to a more consistent distribution across the week, considering the moments when the audience interacted most." },
+        { "title": "CONTEXT EXPANDS REACH", "description": "The videos needed to make sense to people who did not yet know the council member or the people taking part in the recordings. Adding Elvis's name and identifying him as a council member, along with on-screen identification of other participants, made the communication more contextual and accessible to new viewers, especially in Reels." },
+        { "title": "COMMUNITY CREATES IDENTIFICATION", "description": "A post about karate athletes from Urupês who took part in the Pan American Games in Peru reached approximately 10,000 views. This showed the potential of content connected to local life, valuing people, achievements, and events that matter to the community. Choosing topics close to the audience became part of the editorial strategy." }
+      ],
       "overview": "Real-world social media design and content management project for a client's political Instagram profile. In a testimonial, the client reports 10K views on one post and 47.7K reach in the most recent quarter, roughly 29% above the previous quarter. Exact calendar dates and independent analytics are not available in this case; the figures do not prove causality.",
       "challenge": "Organize content production and presentation across formats, considering recorded observations about topic, format, publishing, and audience response without extrapolating beyond the available data.",
       "process": "The work covered visual identity, institutional communication, performance observation, distribution decisions, and production of Stories, posts, carousels, videos, and Reels. Publishing more Stories on weekdays showed higher engagement than concentrating posts on weekends, motivating a distribution adjustment. Video edits began contextualizing councilman Elvis, his role, and other people appearing in the videos through on-screen text.",
@@ -1929,11 +1935,6 @@
         ],
         "needs": [
           "Hypothesis: organize content so the message is understandable across formats."
-        ],
-        "insights": [
-          "01. FREQUENCY IS ALSO A STRATEGY: Observing the performance of the posts revealed higher engagement with a more frequent presence in Stories on weekdays, compared with concentrating content on weekends. This behavior guided a more consistent distribution of posts throughout the week, considering the moments of greater audience interaction.",
-          "02. CONTEXT EXPANDS REACH: The videos also needed to be understandable to people who did not yet know the councilman or the people taking part in the recordings. Including Elvis's name and identifying him as a councilman, as well as identifying the other participants through on-screen text, made the communication more contextualized and accessible to new viewers, especially in the Reels format.",
-          "03. THE COMMUNITY CREATES IDENTIFICATION: A post about Urupês karate athletes who participated in the Pan American Games in Peru reached approximately 10K views. The result demonstrated the potential of content connected to local reality, valuing people, achievements, and important events for the community. Choosing topics close to the audience also became part of the editorial strategy."
         ],
         "opportunities": [
           "Record the dates, sources, and definitions for quarterly reach and post views.",

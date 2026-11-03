@@ -363,6 +363,37 @@
   background: #f5f5f5;
 }
 
+/* High-fidelity mockups always keep two proportional columns on every device. */
+.case-study-high-fidelity-block {
+  width: 100%;
+}
+
+.mockup-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(12px, 2vw, 24px);
+  width: 100%;
+  margin-top: 24px;
+}
+
+.mockup-gallery-item {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  align-self: start;
+  overflow: hidden;
+  border: 1px solid #ededed;
+  border-radius: 9px;
+  background: transparent;
+}
+
+.mockup-gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 .case-study-media-grid figcaption {
   display: flex;
   flex-direction: column;
@@ -836,12 +867,39 @@
 }
 
 .case-study-result-card strong {
-  color: var(--cs-accent);
+  color: #000000;
   font-family: var(--cs-display);
   font-size: clamp(1.55rem, 2.5vw, 3rem);
   font-weight: 900;
   line-height: .92;
   letter-spacing: -0.06em;
+}
+
+/* Results cards use the full editorial width on tablet and desktop. */
+@media (min-width: 769px) {
+  .case-study-result-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: min(100%, 1180px);
+    gap: clamp(12px, 1.5vw, 24px);
+  }
+
+  .case-study-result-card {
+    min-height: 150px;
+    padding: clamp(18px, 2vw, 30px);
+  }
+
+  .case-study-result-card strong {
+    color: #000000;
+    font-size: clamp(1.15rem, 1.8vw, 2rem);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    overflow-wrap: anywhere;
+  }
+
+  .case-study-result-card span {
+    font-size: clamp(.78rem, .95vw, .95rem);
+    line-height: 1.5;
+  }
 }
 
 .case-study-result-card span {
@@ -1067,10 +1125,6 @@
   .case-study-tag {
     max-width: 100%;
     overflow-wrap: anywhere;
-  }
-
-  .case-study-media-grid {
-    grid-template-columns: minmax(0, 1fr);
   }
 
   .case-study-media-grid img,

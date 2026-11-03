@@ -373,6 +373,25 @@
   letter-spacing: -0.01em;
 }
 
+@media (min-width: 769px) {
+  .hero-cv-button {
+    position: relative;
+    justify-content: center;
+    padding-inline: 1.2rem;
+  }
+
+  .hero-cv-icon {
+    position: absolute;
+    left: 1.2rem;
+    margin: 0;
+  }
+
+  .hero-cv-text {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 /* ============================================================ */
 /* 6. REGRAS DE RESPONSIVIDADE (MEDIA QUERIES)                   */
 /* ============================================================ */

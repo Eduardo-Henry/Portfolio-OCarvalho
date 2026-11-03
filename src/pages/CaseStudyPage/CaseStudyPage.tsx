@@ -33,6 +33,35 @@ import RealStateImg from '@/assets/images/RealState.png';
 
 import ImoveProWireframe from '@/assets/images/ImoveProWireframe.png';
 
+import KaloBurnHome from '@/assets/images/PreLoading.webp';
+import KaloBurnWorkout from '@/assets/images/WorkoutScreen.webp';
+import KaloBurnPlus from '@/assets/images/PlanoPlus.webp';
+import KaloBurnRegister from '@/assets/images/RegisterScreen.webp';
+import KaloBurnPresentation from '@/assets/images/PresentationDone.webp';
+import KaloBurnChoose from '@/assets/images/WorkoutChooseScreen.webp';
+import KaloBurnIncrease from '@/assets/images/WorkoutScreenIncreaseWeihgt.webp';
+import KaloBurnMeal from '@/assets/images/MealChoosed(1).webp';
+import KaloBurnRecipes from '@/assets/images/Recipes.webp';
+import TIHelpDashboard from '@/assets/images/TIHelpWireframesVersaoWeb.png';
+import TIHelpMobile from '@/assets/images/TIHelpWireframesVersaoMobile.png';
+import OrbeanJeansScreens from '@/assets/images/OrbeanJeansWireframes.png';
+import SolarMobileSecond from '@/assets/images/secondpainelsolarmobile.webp';
+import SolarMobileThird from '@/assets/images/thirdpainelsolarmobile.webp';
+import SolarMobileFourth from '@/assets/images/fourthpainelsolarmobile.webp';
+import SolarMobileFifth from '@/assets/images/fivethpainelsolarmobile.webp';
+import SolarMobileSixth from '@/assets/images/sixthpainelsolarmobile.webp';
+import SolarMobileSeventh from '@/assets/images/seventhpainelsolarmobile.webp';
+import SolarMobileHome from '@/assets/images/homepainelsolarmobile.webp';
+import ImoveProScreens from '@/assets/images/ImoveProWireframe.png';
+import ImoveProLeads from '@/assets/images/Leads-Consultant.webp';
+import ImoveProDashboard from '@/assets/images/Dashboard-Consultant.webp';
+import ImoveProInfo from '@/assets/images/Info-Consultant.webp';
+import ImoveProChat from '@/assets/images/Chat-Consultant.webp';
+import ImoveProMeeting from '@/assets/images/Meeting-Consultant(2).webp';
+import ImoveProListings from '@/assets/images/casasparaalugar.png';
+import ImoveProMap from '@/assets/images/filtroporraio.png';
+import OrbeanJeansWeb from '@/assets/images/WebScreen.png';
+
 // The legacy Yacht Booking route has no cover asset in the current repository.
 
 import ElvisCoverImg from '../../assets/images/ElvisCover.png';
@@ -284,6 +313,34 @@ const wireframeAssets: Record<string, string> = {
   '/case-studies/orbean-jeans-wireframes.png': OrbeanJeansWireframes,
   '/case-studies/imovepro-wireframe.png': ImoveProWireframe,
   '/case-studies/solaretric-wireframe.png': SolarPanelWireframeImg,
+  '/case-studies/kaloburn-home.png': KaloBurnHome,
+  '/case-studies/kaloburn-workout.png': KaloBurnWorkout,
+  '/case-studies/kaloburn-progress.png': KaloBurnPlus,
+  '/case-studies/kaloburn-register.png': KaloBurnRegister,
+  '/case-studies/kaloburn-presentationdone.webp': KaloBurnPresentation,
+  '/case-studies/kaloburn-choose.webp': KaloBurnChoose,
+  '/case-studies/kaloburn-increase.webp': KaloBurnIncrease,
+  '/case-studies/kaloburn-meal.webp': KaloBurnMeal,
+  '/case-studies/kaloburn-recipes.webp': KaloBurnRecipes,
+  '/case-studies/tihelp-dashboard.png': TIHelpDashboard,
+  '/case-studies/tihelp-mobile.png': TIHelpMobile,
+  '/case-studies/orbean-jeans-screens.png': OrbeanJeansScreens,
+  '/case-studies/solar-mobile-home.webp': SolarMobileHome,
+  '/case-studies/solar-mobile-second.webp': SolarMobileSecond,
+  '/case-studies/solar-mobile-third.webp': SolarMobileThird,
+  '/case-studies/solar-mobile-fourth.webp': SolarMobileFourth,
+  '/case-studies/solar-mobile-fifth.webp': SolarMobileFifth,
+  '/case-studies/solar-mobile-sixth.webp': SolarMobileSixth,
+  '/case-studies/solar-mobile-seventh.webp': SolarMobileSeventh,
+  '/case-studies/imovepro-screens.png': ImoveProScreens,
+  '/case-studies/imovepro-leads.webp': ImoveProLeads,
+  '/case-studies/imovepro-dashboard.webp': ImoveProDashboard,
+  '/case-studies/imovepro-info.webp': ImoveProInfo,
+  '/case-studies/imovepro-chat.webp': ImoveProChat,
+  '/case-studies/imovepro-meeting.webp': ImoveProMeeting,
+  '/case-studies/imovepro-listings.png': ImoveProListings,
+  '/case-studies/imovepro-map.png': ImoveProMap,
+  '/case-studies/orbean-jeans-web.png': OrbeanJeansWeb,
 };
 
 const resolveCaseStudyMedia = (src: string): string => wireframeAssets[src] ?? src;
@@ -534,6 +591,39 @@ export const CaseStudyPage: React.FC = () => {
 
   };
 
+  const highFidelityGalleryCopy: Record<string, { title: string; description: string }> = {
+    '1': {
+      title: isPortuguese ? 'A SOLUÇÃO EM INTERFACES REAIS' : 'THE SOLUTION IN REAL INTERFACES',
+      description: isPortuguese
+        ? 'Interfaces que conectam abertura, triagem e acompanhamento de chamados para solicitantes, técnicos e administradores.'
+        : 'Interfaces connecting ticket creation, triage, and tracking for requesters, technicians, and administrators.',
+    },
+    '2': {
+      title: isPortuguese ? 'A SOLUÇÃO EM INTERFACES REAIS' : 'THE SOLUTION IN REAL INTERFACES',
+      description: isPortuguese
+        ? 'Telas mobile para planejar treinos, executar exercícios, registrar cargas e repetições e acompanhar a evolução.'
+        : 'Mobile screens for planning workouts, executing exercises, recording loads and repetitions, and tracking progress.',
+    },
+    '3': {
+      title: isPortuguese ? 'A SOLUÇÃO EM INTERFACES REAIS' : 'THE SOLUTION IN REAL INTERFACES',
+      description: isPortuguese
+        ? 'Uma experiência de catálogo para descobrir peças, consultar detalhes e avançar para a conversão da compra.'
+        : 'A catalog experience for discovering pieces, reviewing details, and moving toward purchase conversion.',
+    },
+    '4': {
+      title: isPortuguese ? 'A SOLUÇÃO EM INTERFACES REAIS' : 'THE SOLUTION IN REAL INTERFACES',
+      description: isPortuguese
+        ? 'Interfaces que organizam leads, pipeline, imóveis e busca geolocalizada para diferentes perfis do produto.'
+        : 'Interfaces organizing leads, pipelines, properties, and geolocated search for the product\'s different profiles.',
+    },
+    '6': {
+      title: isPortuguese ? 'A SOLUÇÃO EM INTERFACES REAIS' : 'THE SOLUTION IN REAL INTERFACES',
+      description: isPortuguese
+        ? 'Uma landing page comercial que apresenta os serviços, simula economia e conduz o visitante ao pedido de orçamento.'
+        : 'A commercial landing page presenting services, estimating savings, and guiding visitors to request a quote.',
+    },
+  };
+
   const sectionTitle = (key: string, fallback: string): string =>
     cleanText(content?.sectionTitles?.[key]) ?? fallback;
 
@@ -742,6 +832,19 @@ export const CaseStudyPage: React.FC = () => {
 
             </div>
 
+          </section>
+
+          <section className="elvis-section elvis-insights">
+            <div className="elvis-section-index">05 · {isPortuguese ? 'INSIGHTS' : 'INSIGHTS'}</div>
+            <h2 className="elvis-gallery__title type-h2">{isPortuguese ? 'APRENDIZADOS QUE ORIENTARAM A ESTRATÉGIA' : 'LEARNINGS THAT GUIDED THE STRATEGY'}</h2>
+            <div className="elvis-results__grid">
+              {(Array.isArray(content.insights) ? content.insights.filter(isRecord) : []).map((insight, index) => (
+                <article className="elvis-results__card" key={index}>
+                  <span className="elvis-results__value">{String(insight.title ?? `0${index + 1}`)}</span>
+                  <small>{String(insight.description ?? '')}</small>
+                </article>
+              ))}
+            </div>
           </section>
 
           <section className="elvis-section elvis-results">
@@ -1042,7 +1145,13 @@ export const CaseStudyPage: React.FC = () => {
 
   const limitations = asStringArray(content.limitations);
 
-  const renderMedia = (value: unknown): string[] => asStringArray(value);
+  const renderMedia = (value: unknown): string[] =>
+    asStringArray(value).map(resolveCaseStudyMedia);
+
+  const highFidelityGallery = highFidelityGalleryCopy[id ?? ''];
+  const highFidelityImages = highFidelityDesign
+    ? renderMedia(highFidelityDesign.screenshots)
+    : [];
 
   return (
 
@@ -1636,7 +1745,7 @@ export const CaseStudyPage: React.FC = () => {
 
                 <h2 className="case-study-headline type-h2">{sectionTitle('designDetails', isPortuguese ? 'DO WIREFRAME À ITERAÇÃO' : 'FROM WIREFRAME TO ITERATION')}</h2>
 
-                {highFidelityDesign && <div className="case-study-detail-block"><h3>{sectionLabels.highFidelityDesign ?? 'High-Fidelity Design'}</h3>{renderMedia(highFidelityDesign.screenshots).length>0 && <div className="case-study-media-grid">{renderMedia(highFidelityDesign.screenshots).map((src,index)=><figure key={src+index}><img src={src} alt={`${content.title} high-fidelity screen ${index+1}`} /></figure>)}</div>}<div className="case-study-synthesis-grid">{Object.entries(highFidelityDesign).filter(([key])=>!['screenshots','prototype'].includes(key)).map(([key,value])=>{const items=renderList(value); const text=cleanText(value); return items.length ? <div className="case-study-synthesis-card" key={key}><strong>{formatKey(key)}</strong><ul>{items.map((item,index)=><li key={index}>{item}</li>)}</ul></div> : text ? <div className="case-study-synthesis-card" key={key}><strong>{formatKey(key)}</strong><p>{text}</p></div> : null;})}</div></div>}
+                {highFidelityDesign && highFidelityImages.length > 0 && <div className="case-study-detail-block case-study-high-fidelity-block"><div className="case-study-index">06 · {isPortuguese ? 'INTERFACES DE ALTA FIDELIDADE' : 'HIGH-FIDELITY INTERFACES'}</div><h2 className="case-study-headline type-h2">{highFidelityGallery?.title ?? (isPortuguese ? 'A SOLUÇÃO EM INTERFACES REAIS' : 'THE SOLUTION IN REAL INTERFACES')}</h2><p className="case-study-copy">{highFidelityGallery?.description}</p><div className="mockup-gallery">{highFidelityImages.map((src, index) => <figure className="mockup-gallery-item" key={src + index}><img src={src} alt={`${content.title} high-fidelity screen ${index + 1}`} /></figure>)}</div><div className="case-study-synthesis-grid">{Object.entries(highFidelityDesign).filter(([key])=>!['screenshots','prototype'].includes(key)).map(([key,value])=>{const items=renderList(value); const text=cleanText(value); return items.length ? <div className="case-study-synthesis-card" key={key}><strong>{formatKey(key)}</strong><ul>{items.map((item,index)=><li key={index}>{item}</li>)}</ul></div> : text ? <div className="case-study-synthesis-card" key={key}><strong>{formatKey(key)}</strong><p>{text}</p></div> : null;})}</div></div>}
 
                 {iterations.length>0 && <div className="case-study-detail-block"><h3>{sectionLabels.iterations ?? 'Iterations'}</h3><div className="case-study-iteration-grid">{iterations.map((item,index)=><article key={index}>{['before','problem','decision','after'].map(key=>cleanText(item[key]) ? <div key={key}><b>{formatKey(key)}</b><p>{cleanText(item[key])}</p></div> : null)}</article>)}</div></div>}
 
