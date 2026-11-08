@@ -497,7 +497,7 @@
         ]
       },
       "highFidelityDesign": {
-        "screenshots": ["/case-studies/tihelp-mockup.png", "/case-studies/tihelp-mobile.png", "/case-studies/tihelp-dashboard.png"],
+        "screenshots": ["/case-studies/tihelp-mobile-create.png", "/case-studies/tihelp-mobile-report.png", "/case-studies/tihelp-mobile-success.png", "/case-studies/tihelp-mobile-created.png", "/case-studies/tihelp-mobile-tickets.png", "/case-studies/tihelp-desktop-chat.png", "/case-studies/tihelp-desktop-admin-create.png", "/case-studies/tihelp-desktop-technician-create.png", "/case-studies/tihelp-desktop-admin-dashboard.png", "/case-studies/tihelp-desktop-technician-dashboard.png", "/case-studies/tihelp-desktop-users.png", "/case-studies/tihelp-desktop-tickets.png", "/case-studies/tihelp-desktop-first-resolution.png", "/case-studies/tihelp-desktop-admin-resolution.png", "/case-studies/tihelp-desktop-second-resolution.png", "/case-studies/tihelp-desktop-third-resolution.png"],
         "visualDecisions": [
           "Use familiar navigation patterns and communicate status through color, icon, and text together."
         ],
@@ -819,7 +819,7 @@
         ]
       },
       "highFidelityDesign": {
-        "screenshots": ["/case-studies/kaloburn-home.png", "/case-studies/kaloburn-workout.png", "/case-studies/kaloburn-progress.png", "/case-studies/kaloburn-register.png", "/case-studies/kaloburn-presentationdone.webp", "/case-studies/kaloburn-choose.webp", "/case-studies/kaloburn-increase.webp", "/case-studies/kaloburn-meal.webp", "/case-studies/kaloburn-recipes.webp"],
+        "screenshots": ["/case-studies/kaloburn-login.webp", "/case-studies/kaloburn-workout-start.png", "/case-studies/kaloburn-history.png", "/case-studies/kaloburn-menu.webp", "/case-studies/kaloburn-tap-menu.png", "/case-studies/kaloburn-profile.webp", "/case-studies/kaloburn-home.png", "/case-studies/kaloburn-workout.png", "/case-studies/kaloburn-progress.png", "/case-studies/kaloburn-register.png", "/case-studies/kaloburn-presentationdone.webp", "/case-studies/kaloburn-choose.webp", "/case-studies/kaloburn-increase.webp", "/case-studies/kaloburn-meal.webp", "/case-studies/kaloburn-recipes.webp"],
         "visualDecisions": [
           "The board shows a compact mobile interface with bottom navigation and a screen-based hierarchy.",
           "The progress screen separates summary indicators from a historical visualization."
@@ -1073,7 +1073,7 @@
         ]
       },
       "highFidelityDesign": {
-        "screenshots": ["/case-studies/orbean-jeans-screens.png", "/case-studies/orbean-jeans-web.png"],
+        "screenshots": ["/case-studies/orbean-jeans-mobile-menu.png", "/case-studies/orbean-jeans-mobile-products.png", "/case-studies/orbean-jeans-mobile-options.png", "/case-studies/orbean-jeans-mobile-discount.png", "/case-studies/orbean-jeans-mobile-faq-footer.png", "/case-studies/orbean-jeans-desktop-splash.png", "/case-studies/orbean-jeans-desktop-products.png", "/case-studies/orbean-jeans-desktop-products-two.png", "/case-studies/orbean-jeans-desktop-options.png", "/case-studies/orbean-jeans-desktop-web.png", "/case-studies/orbean-jeans-desktop-discount.png", "/case-studies/orbean-jeans-desktop-faq.png", "/case-studies/orbean-jeans-desktop-footer.png"],
         "visualDecisions": [
           "The boards show a jeans catalog identity across desktop and mobile navigation."
         ],

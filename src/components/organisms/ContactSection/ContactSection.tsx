@@ -23,7 +23,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
   });
 
   const handleContactClick = () => {
-    const email = 'du.h.c.oliveira17@gmail.com';
+    const email = 'oliveira17@gmail.com';
     window.location.href = `mailto:${email}`;
   };
 

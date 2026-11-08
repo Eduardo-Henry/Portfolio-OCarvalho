@@ -106,8 +106,8 @@ export const FooterSection: React.FC = () => {
 
           <div className="footer-column">
             <h4 className="footer-title">{t('footer.contact')}</h4>
-            <a href="mailto:du.h.c.oliveira17@gmail.com" className="footer-email">
-              du.h.c.oliveira17@gmail.com
+            <a href="mailto:ocarvalhodesign@gmail.com" className="footer-email">
+              ocarvalhodesign@gmail.com
             </a>
           </div>
         </div>

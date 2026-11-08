@@ -299,99 +299,6 @@
   height: 20px;
 }
 
-/* ------------------------------------------------------------ */
-/* 5.2 BOTÃO SECUNDÁRIO: DOWNLOAD CV                            */
-/* ------------------------------------------------------------ */
-.hero-cv-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center; /* Mantém o conteúdo agrupado no centro em telas grandes */
-  height: 94px; 
-  padding: 0 2.5rem 0 1.2rem; 
-  max-width: 260px;        /* Evita que o botão estique demais infinitamente para a direita */
-  
-  border-radius: 999px ;
-  background-color: transparent ;
-  border: 1px solid rgba(255, 255, 255, 0.4) ; 
-  color: #ffffff ;
-  
-  font-size: clamp(0.85rem, 2vw, 1rem); 
-  font-weight: 700;
-  text-transform: none;
-  white-space: nowrap;
-  cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-/* Efeito hover sutil imitando a opacidade da referência */
-.hero-cv-button:hover {
-  background-color: #fff;
-  color: #000000;
-  border-color: #fff;
-  transform: translateY(-2px);
-}
-
-.hero-cv-button:hover .hero-cv-icon {
-  border-color: rgba(0, 0, 0, 0.2);
-}
-
-/* Reseta deslocamento no clique */
-.hero-cv-button:active {
-  transform: translateY(0);
-}
-
-/* Acessibilidade do botão de CV */
-.hero-cv-button:focus-visible {
-  outline: 2px solid rgba(255, 255, 255, 0.5);
-  outline-offset: 4px;
-}
-
-/* Círculo externo da seta de download — mesma cor/opacidade usada
-   no Contact (rgba(255,255,255,0.4)) em vez de #ccc */
-.hero-cv-icon {
-  width: 68px ;  
-  height: 68px ; 
-  
-  border-radius: 50% ;
-  border: 1px solid rgba(255, 255, 255, 0.4) ; 
-  
-  padding: 22px ; 
-  box-sizing: border-box ; 
-  
-  display: inline-flex ;
-  align-items: center ;
-  justify-content: center ;
-  flex-shrink: 0 ;
-  margin-right: 1.5rem;
-  transition: border-color 0.25s ease;
-}
-
-/* Estilização fina do texto do botão de CV */
-.hero-cv-text {
-  display: inline-block;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-}
-
-@media (min-width: 769px) {
-  .hero-cv-button {
-    position: relative;
-    justify-content: center;
-    padding-inline: 1.2rem;
-  }
-
-  .hero-cv-icon {
-    position: absolute;
-    left: 1.2rem;
-    margin: 0;
-  }
-
-  .hero-cv-text {
-    width: 100%;
-    text-align: center;
-  }
-}
-
 /* ============================================================ */
 /* 6. REGRAS DE RESPONSIVIDADE (MEDIA QUERIES)                   */
 /* ============================================================ */
@@ -406,7 +313,7 @@
 @media (max-width: 390px) {
   .brand-title { font-size: clamp(2.2rem, 10vw, 4.8rem); }
 
-  .hero-cta-button, .hero-cv-button {
+  .hero-cta-button {
     white-space: normal;
     padding: 0.5rem 0.8rem;
     height: auto;
@@ -415,7 +322,7 @@
     gap: 0.6rem;
   }
 
-  .hero-cta-circle, .hero-cv-icon {
+  .hero-cta-circle {
     width: 40px;
     height: 40px;
     padding: 8px;
@@ -562,28 +469,10 @@
     box-sizing: border-box !important;
   }
 
-  .hero-cv-button {
-    flex: 1 1 50% !important;
-    height: 68px !important;
-    display: flex !important;
-    justify-content: space-between !important;
-    font-size: 0.9rem !important;
-    padding: 0 1.4rem 0 0.8rem !important;
-    white-space: nowrap !important;
-    box-sizing: border-box !important;
-  }
-
-  .hero-cta-circle,
-  .hero-cv-icon {
+  .hero-cta-circle {
     width: 44px !important;
     height: 44px !important;
     flex-shrink: 0 !important;
-  }
-
-  .hero-cv-icon {
-    padding: 12px !important;
-    margin-right: 0.6rem !important;
-    margin-left: 0 !important;
   }
 
   .hero-cta-circle {
@@ -715,21 +604,8 @@
     box-sizing: border-box !important;
   }
 
-  .hero-cv-button {
-    flex: 1 1 50% !important;
-    height: 68px !important;
-    display: flex !important;
-    justify-content: space-between !important; /* era center */
-    align-items: center !important;
-    font-size: 0.75rem !important;
-    padding: 0 1.1rem 0 0.5rem !important;
-    white-space: nowrap !important;
-    box-sizing: border-box !important;
-  }
-
-  /* REDUÇÃO E PADRONIZAÇÃO DOS CÍRCULOS DOS ÍCONES — 40px, igual ao ContactSection nesse breakpoint */
-  .hero-cta-circle,
-  .hero-cv-icon {
+  /* REDUÇÃO E PADRONIZAÇÃO DO CÍRCULO DO ÍCONE */
+  .hero-cta-circle {
     width: 40px !important; 
     height: 40px !important;
     flex-shrink: 0 !important;
@@ -737,13 +613,6 @@
     align-items: center !important;
     justify-content: center !important;
     box-sizing: border-box !important;
-  }
-
-  /* RESET DE MARGENS AGRESSIVAS QUE EMPURRAVAM O TEXTO */
-  .hero-cv-icon {
-    padding: 8px !important; 
-    margin-right: 0 !important;
-    margin-left: 0.35rem !important; /* círculo na direita, espaço sutil antes dele */
   }
 
   .hero-cta-circle {
@@ -758,12 +627,6 @@
     margin-right: 0 !important;   /* era -2.4rem (causava a sobreposição) */
   }
   
-  /* branco, igual ao ContactSection (antes era cinza #cccccc) */
-  .hero-cv-text { 
-    color: #ffffff !important; 
-    margin: 0 !important; 
-  }
-
   /* AJUSTE DOS SVGS INTERNOS */
   .hero-cta-icon,
   .hero-cta-circle svg,
@@ -773,27 +636,17 @@
     margin: 0 !important;
   }
 
-  .hero-cv-icon svg,
-  .hero-cv-icon img {
-    width: 100% !important;   
-    height: 100% !important;
-    display: block !important;
-  }
 }
 
 /* ============================================================ */
-/* 8.1. FAIXA MAIS ESTREITA (ATÉ 390PX) — mesmos valores usados  */
-/* no ContactSection nesse breakpoint, para manter os botões     */
-/* esteticamente idênticos entre as duas seções.                 */
+/* 8.1. FAIXA MAIS ESTREITA (ATÉ 390PX)                          */
 /* ============================================================ */
 @media (max-width: 390px) {
-  .hero-cta-text,
-  .hero-cv-text {
+  .hero-cta-text {
     font-size: 0.72rem !important;
   }
 
-  .hero-cta-circle,
-  .hero-cv-icon {
+  .hero-cta-circle {
     width: 38px !important;
     height: 38px !important;
   }
@@ -804,9 +657,6 @@
     height: 14px !important;
   }
 
-  .hero-cv-icon {
-    margin-left: 0.3rem !important;
-  }
 }
 
 /* ============================================================ */
@@ -839,8 +689,7 @@
     line-height: 1.45 !important;
   }
 
-  .hero-cta-button,
-  .hero-cv-button {
+  .hero-cta-button {
     height: 60px !important;
   }
 }
@@ -893,8 +742,7 @@
     gap: 0.35rem !important;
   }
 
-  .hero-cta-button,
-  .hero-cv-button {
+  .hero-cta-button {
     min-width: 0;
     padding-inline: 0.35rem !important;
     gap: 0.25rem !important;
@@ -904,29 +752,51 @@
     white-space: normal !important;
   }
 
-  .hero-cv-button {
-    white-space: normal !important;
-  }
-
-  .hero-cv-text {
-    min-width: 0;
-    overflow-wrap: anywhere;
-  }
-
-  .hero-cta-circle,
-  .hero-cv-icon {
+  .hero-cta-circle {
     width: 34px !important;
     height: 34px !important;
     flex-shrink: 0 !important;
   }
 
-  .hero-cv-icon {
-    padding: 7px !important;
-    margin: 0 !important;
-  }
-
   .hero-cta-icon {
     width: 14px;
     height: 14px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .hero-section .contact-cv-button {
+    width: calc(25vw - 34.5px) !important;
+    max-width: 260px;
+    flex-shrink: 0 !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-section .contact-cv-button {
+    width: calc(50vw - 45px) !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+@media (min-width: 431px) and (max-width: 768px) {
+  .hero-section .contact-cv-button {
+    width: calc(50vw - 33px) !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+@media (min-width: 291px) and (max-width: 430px) {
+  .hero-section .contact-cv-button {
+    width: calc(50vw - 32px) !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+@media (max-width: 290px) {
+  .hero-section .contact-cv-button {
+    width: calc(50vw - 22px) !important;
+    flex: 0 0 calc(50vw - 22px) !important;
+    max-width: none;
   }
 }

@@ -42,9 +42,44 @@ import KaloBurnChoose from '@/assets/images/WorkoutChooseScreen.webp';
 import KaloBurnIncrease from '@/assets/images/WorkoutScreenIncreaseWeihgt.webp';
 import KaloBurnMeal from '@/assets/images/MealChoosed(1).webp';
 import KaloBurnRecipes from '@/assets/images/Recipes.webp';
+import KaloBurnLogin from '@/assets/images/LoginScreen(1).webp';
+import KaloBurnWorkoutStart from '@/assets/images/WorkoutStartScreen.png';
+import KaloBurnHistory from '@/assets/images/HistoryScreen.png';
+import KaloBurnMenu from '@/assets/images/MenuOppened(1).webp';
+import KaloBurnTapMenu from '@/assets/images/Tap-Menu.png';
+import KaloBurnProfile from '@/assets/images/Configurações De Perfil(4).webp';
 import TIHelpDashboard from '@/assets/images/TIHelpWireframesVersaoWeb.png';
 import TIHelpMobile from '@/assets/images/TIHelpWireframesVersaoMobile.png';
+import TIHelpMobileCreate from '@/assets/images/Criar Nova Conta.png';
+import TIHelpMobileReport from '@/assets/images/Reporte de Problemas.png';
+import TIHelpMobileSuccess from '@/assets/images/Enviado com sucesso.png';
+import TIHelpMobileCreated from '@/assets/images/Área de Tickets - Criados.png';
+import TIHelpMobileTickets from '@/assets/images/Área de Tickets.png';
+import TIHelpDesktopChat from '@/assets/images/Chat- Técnico.png';
+import TIHelpDesktopAdminCreate from '@/assets/images/Criar Conta - Admin.png';
+import TIHelpDesktopTechnicianCreate from '@/assets/images/Criar Conta - Técnico.png';
+import TIHelpDesktopAdminDashboard from '@/assets/images/Dashboard - Admin.png';
+import TIHelpDesktopTechnicianDashboard from '@/assets/images/Dashboard - Técnico.png';
+import TIHelpDesktopUsers from '@/assets/images/Gerenciamento de Usuários- Admin.png';
+import TIHelpDesktopTickets from '@/assets/images/Meus Chamados - Técnico.png';
+import TIHelpDesktopFirstResolution from '@/assets/images/PrimeiraResolução-Técnico.png';
+import TIHelpDesktopAdminResolution from '@/assets/images/Resolução- Admin.png';
+import TIHelpDesktopSecondResolution from '@/assets/images/SegundaResolução-Técnico.png';
+import TIHelpDesktopThirdResolution from '@/assets/images/TerceiraResolução-Técnico.png';
 import OrbeanJeansScreens from '@/assets/images/OrbeanJeansWireframes.png';
+import OrbeanMobileMenu from '@/assets/images/CloseMenu Screen.png';
+import OrbeanMobileProducts from '@/assets/images/Mobile Products-Section.png';
+import OrbeanMobileOptions from '@/assets/images/Mobile Select Options.png';
+import OrbeanMobileDiscount from '@/assets/images/MobileDiscount-Section.png';
+import OrbeanMobileFaqFooter from '@/assets/images/FAQeFooter.png';
+import OrbeanDesktopSplash from '@/assets/images/Splash.png';
+import OrbeanDesktopProducts from '@/assets/images/Products-Section.png';
+import OrbeanDesktopProductsTwo from '@/assets/images/Products2-Section.png';
+import OrbeanDesktopOptions from '@/assets/images/Select Options.png';
+import OrbeanDesktopWeb from '@/assets/images/Web Screen (2).png';
+import OrbeanDesktopDiscount from '@/assets/images/Discount-Section.png';
+import OrbeanDesktopFaq from '@/assets/images/FAQContainer-Section.png';
+import OrbeanDesktopFooter from '@/assets/images/FooterContainer-Section.png';
 import SolarMobileSecond from '@/assets/images/secondpainelsolarmobile.webp';
 import SolarMobileThird from '@/assets/images/thirdpainelsolarmobile.webp';
 import SolarMobileFourth from '@/assets/images/fourthpainelsolarmobile.webp';
@@ -60,8 +95,6 @@ import ImoveProChat from '@/assets/images/Chat-Consultant.webp';
 import ImoveProMeeting from '@/assets/images/Meeting-Consultant(2).webp';
 import ImoveProListings from '@/assets/images/casasparaalugar.png';
 import ImoveProMap from '@/assets/images/filtroporraio.png';
-import OrbeanJeansWeb from '@/assets/images/WebScreen.png';
-
 // The legacy Yacht Booking route has no cover asset in the current repository.
 
 import ElvisCoverImg from '../../assets/images/ElvisCover.png';
@@ -322,10 +355,45 @@ const wireframeAssets: Record<string, string> = {
   '/case-studies/kaloburn-increase.webp': KaloBurnIncrease,
   '/case-studies/kaloburn-meal.webp': KaloBurnMeal,
   '/case-studies/kaloburn-recipes.webp': KaloBurnRecipes,
+  '/case-studies/kaloburn-login.webp': KaloBurnLogin,
+  '/case-studies/kaloburn-workout-start.png': KaloBurnWorkoutStart,
+  '/case-studies/kaloburn-history.png': KaloBurnHistory,
+  '/case-studies/kaloburn-menu.webp': KaloBurnMenu,
+  '/case-studies/kaloburn-tap-menu.png': KaloBurnTapMenu,
+  '/case-studies/kaloburn-profile.webp': KaloBurnProfile,
   '/case-studies/tihelp-mockup.png': TIHelpImg,
   '/case-studies/tihelp-dashboard.png': TIHelpDashboard,
   '/case-studies/tihelp-mobile.png': TIHelpMobile,
+  '/case-studies/tihelp-mobile-create.png': TIHelpMobileCreate,
+  '/case-studies/tihelp-mobile-report.png': TIHelpMobileReport,
+  '/case-studies/tihelp-mobile-success.png': TIHelpMobileSuccess,
+  '/case-studies/tihelp-mobile-created.png': TIHelpMobileCreated,
+  '/case-studies/tihelp-mobile-tickets.png': TIHelpMobileTickets,
+  '/case-studies/tihelp-desktop-chat.png': TIHelpDesktopChat,
+  '/case-studies/tihelp-desktop-admin-create.png': TIHelpDesktopAdminCreate,
+  '/case-studies/tihelp-desktop-technician-create.png': TIHelpDesktopTechnicianCreate,
+  '/case-studies/tihelp-desktop-admin-dashboard.png': TIHelpDesktopAdminDashboard,
+  '/case-studies/tihelp-desktop-technician-dashboard.png': TIHelpDesktopTechnicianDashboard,
+  '/case-studies/tihelp-desktop-users.png': TIHelpDesktopUsers,
+  '/case-studies/tihelp-desktop-tickets.png': TIHelpDesktopTickets,
+  '/case-studies/tihelp-desktop-first-resolution.png': TIHelpDesktopFirstResolution,
+  '/case-studies/tihelp-desktop-admin-resolution.png': TIHelpDesktopAdminResolution,
+  '/case-studies/tihelp-desktop-second-resolution.png': TIHelpDesktopSecondResolution,
+  '/case-studies/tihelp-desktop-third-resolution.png': TIHelpDesktopThirdResolution,
   '/case-studies/orbean-jeans-screens.png': OrbeanJeansScreens,
+  '/case-studies/orbean-jeans-mobile-menu.png': OrbeanMobileMenu,
+  '/case-studies/orbean-jeans-mobile-products.png': OrbeanMobileProducts,
+  '/case-studies/orbean-jeans-mobile-options.png': OrbeanMobileOptions,
+  '/case-studies/orbean-jeans-mobile-discount.png': OrbeanMobileDiscount,
+  '/case-studies/orbean-jeans-mobile-faq-footer.png': OrbeanMobileFaqFooter,
+  '/case-studies/orbean-jeans-desktop-splash.png': OrbeanDesktopSplash,
+  '/case-studies/orbean-jeans-desktop-products.png': OrbeanDesktopProducts,
+  '/case-studies/orbean-jeans-desktop-products-two.png': OrbeanDesktopProductsTwo,
+  '/case-studies/orbean-jeans-desktop-options.png': OrbeanDesktopOptions,
+  '/case-studies/orbean-jeans-desktop-web.png': OrbeanDesktopWeb,
+  '/case-studies/orbean-jeans-desktop-discount.png': OrbeanDesktopDiscount,
+  '/case-studies/orbean-jeans-desktop-faq.png': OrbeanDesktopFaq,
+  '/case-studies/orbean-jeans-desktop-footer.png': OrbeanDesktopFooter,
   '/case-studies/solar-mobile-home.webp': SolarMobileHome,
   '/case-studies/solar-mobile-second.webp': SolarMobileSecond,
   '/case-studies/solar-mobile-third.webp': SolarMobileThird,
@@ -341,7 +409,7 @@ const wireframeAssets: Record<string, string> = {
   '/case-studies/imovepro-meeting.webp': ImoveProMeeting,
   '/case-studies/imovepro-listings.png': ImoveProListings,
   '/case-studies/imovepro-map.png': ImoveProMap,
-  '/case-studies/orbean-jeans-web.png': OrbeanJeansWeb,
+  '/case-studies/orbean-jeans-web.png': OrbeanDesktopWeb,
 };
 
 const resolveCaseStudyMedia = (src: string): string => wireframeAssets[src] ?? src;
@@ -412,7 +480,7 @@ export const CaseStudyPage: React.FC = () => {
 
       },
 
-      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' },
+      { threshold: 0, rootMargin: '0px 0px -8% 0px' },
 
     );
 

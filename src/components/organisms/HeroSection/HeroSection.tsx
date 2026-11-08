@@ -105,18 +105,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
 
           <div className="hero-cta-wrapper">
-            <Button
-              variant="secondary"
-              size="large"
-              className="hero-cv-button"
+            <button
+              type="button"
+              className="contact-cv-button"
               aria-label={t('hero.downloadCV')}
               onClick={handleDownloadCV}
             >
-              <MdDownload className="hero-cv-icon" />
-              <span className="hero-cv-text">
-                {t('hero.downloadCV')}
+              <span className="contact-cv-circle-wrapper">
+                <MdDownload className="contact-cv-icon" />
               </span>
-            </Button>
+              <span className="contact-cv-text">{t('hero.downloadCV')}</span>
+            </button>
 
             <Button
               variant="primary"
